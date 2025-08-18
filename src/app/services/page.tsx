@@ -135,10 +135,10 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-              {t('services.whyChooseUs.title') || 'لماذا تختار خدماتنا؟'}
+              {tServices('whyChooseUs.title') || 'لماذا تختار خدماتنا؟'}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {t('services.whyChooseUs.description') || 'نتميز بخبرة فريدة وخدمات متكاملة تجعلنا الخيار الأمثل لشركائك التجاريين'}
+              {tServices('whyChooseUs.description') || 'نتميز بخبرة فريدة وخدمات متكاملة تجعلنا الخيار الأمثل لشركائك التجاريين'}
             </p>
           </div>
           
@@ -147,9 +147,9 @@ export default function ServicesPage() {
                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-eerie-black/10 text-eerie-black mb-4 mx-auto">
                  <Award size={32} />
                </div>
-               <h3 className="text-xl font-semibold mb-2">{t('services.whyChooseUs.excellence.title') || 'التميز في الخدمة'}</h3>
+               <h3 className="text-xl font-semibold mb-2">{tServices('whyChooseUs.excellence.title') || 'التميز في الخدمة'}</h3>
                <p className="text-gray-600">
-                 {t('services.whyChooseUs.excellence.description') || 'نلتزم بأعلى معايير الجودة في جميع خدماتنا'}
+                 {tServices('whyChooseUs.excellence.description') || 'نلتزم بأعلى معايير الجودة في جميع خدماتنا'}
                </p>
              </div>
             
@@ -157,9 +157,9 @@ export default function ServicesPage() {
                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-eerie-black/10 text-eerie-black mb-4 mx-auto">
                  <Users size={32} />
                </div>
-               <h3 className="text-xl font-semibold mb-2">{t('services.whyChooseUs.expertise.title') || 'خبرة متخصصة'}</h3>
+               <h3 className="text-xl font-semibold mb-2">{tServices('whyChooseUs.expertise.title') || 'خبرة متخصصة'}</h3>
                <p className="text-gray-600">
-                 {t('services.whyChooseUs.expertise.description') || 'فريق من الخبراء المتخصصين في مجال المعارض والتجارة الدولية'}
+                 {tServices('whyChooseUs.expertise.description') || 'فريق من الخبراء المتخصصين في مجال المعارض والتجارة الدولية'}
                </p>
              </div>
             
@@ -167,9 +167,9 @@ export default function ServicesPage() {
                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-eerie-black/10 text-eerie-black mb-4 mx-auto">
                  <Award size={32} />
                </div>
-               <h3 className="text-xl font-semibold mb-2">{t('services.whyChooseUs.solutions.title') || 'حلول مخصصة'}</h3>
+               <h3 className="text-xl font-semibold mb-2">{tServices('whyChooseUs.solutions.title') || 'حلول مخصصة'}</h3>
                <p className="text-gray-600">
-                 {t('services.whyChooseUs.solutions.description') || 'نقدم حلولاً مخصصة تناسب احتياجات كل عميل'}
+                 {tServices('whyChooseUs.solutions.description') || 'نقدم حلولاً مخصصة تناسب احتياجات كل عميل'}
                </p>
              </div>
           </div>
@@ -179,17 +179,17 @@ export default function ServicesPage() {
              {/* CTA Section */}
        <section className="py-16 bg-eerie-black text-ghost-white">
         <div className="container mx-auto px-4 text-center">
-                     <h2 className="text-3xl font-bold mb-6">{t('services.cta.title') || 'مستعد لبدء رحلة النجاح؟'}</h2>
+                     <h2 className="text-3xl font-bold mb-6">{tServices('cta.title') || 'مستعد لبدء رحلة النجاح؟'}</h2>
            <p className="text-xl mb-8 max-w-2xl mx-auto">
-             {t('services.cta.description') || 'اكتشف كيف يمكن لخدماتنا المتخصصة أن تساعدك في تحقيق أهدافك التجارية'}
+             {tServices('cta.description') || 'اكتشف كيف يمكن لخدماتنا المتخصصة أن تساعدك في تحقيق أهدافك التجارية'}
            </p>
                      <div className="flex flex-wrap justify-center gap-4">
              <Button size="lg" variant="secondary" className="bg-ghost-white text-eerie-black hover:bg-platinum">
                <Phone className="mr-2 h-5 w-5" />
-               {t('services.cta.contact') || 'تواصل معنا الآن'}
+               {tServices('cta.contact') || 'تواصل معنا الآن'}
              </Button>
              <Button size="lg" variant="outline" className="border-ghost-white text-ghost-white hover:bg-ghost-white hover:text-eerie-black">
-               {t('services.cta.learnMore') || 'اعرف المزيد'}
+               {tServices('cta.learnMore') || 'اعرف المزيد'}
              </Button>
            </div>
         </div>

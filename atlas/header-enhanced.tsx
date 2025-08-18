@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useTranslation } from "react-i18next"
-import { Menu, X, Search, User, ChevronDown, Calendar, Users, Handshake } from "lucide-react"
+import { Menu, X, Search, User, ChevronDown, Calendar, Users, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { cn } from "@/lib/utils"
@@ -27,7 +27,7 @@ export function Header() {
   const services = [
     { name: 'المعارض الدولية', icon: Calendar, href: '/exhibitions' },
     { name: 'الشبكات التجارية الاستراتيجية', icon: Users, href: '/networking' },
-    { name: 'تطوير الشراكات الاستراتيجية', icon: Handshake, href: '/partnerships' }
+    { name: 'تطوير الشراكات الاستراتيجية', icon: Globe, href: '/partnerships' }
   ]
 
   return (

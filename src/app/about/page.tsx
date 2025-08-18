@@ -139,8 +139,8 @@ export default function AboutPage() {
                     <CheckCircle size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.experience')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.experienceDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{tHome('about.company.features.experience')}</h4>
+                    <p className="text-gray-600 text-sm">{tHome('about.company.features.experienceDesc')}</p>
                   </div>
                 </div>
                 
@@ -149,8 +149,8 @@ export default function AboutPage() {
                     <Globe size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.network')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.networkDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{tHome('about.company.features.network')}</h4>
+                    <p className="text-gray-600 text-sm">{tHome('about.company.features.networkDesc')}</p>
                   </div>
                 </div>
                 
@@ -159,8 +159,8 @@ export default function AboutPage() {
                     <Star size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.quality')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.qualityDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{tHome('about.company.features.quality')}</h4>
+                    <p className="text-gray-600 text-sm">{tHome('about.company.features.qualityDesc')}</p>
                   </div>
                 </div>
                 
@@ -169,8 +169,8 @@ export default function AboutPage() {
                     <Shield size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.support')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.supportDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{tHome('about.company.features.support')}</h4>
+                    <p className="text-gray-600 text-sm">{tHome('about.company.features.supportDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -184,10 +184,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-              {t('home.whyAtlas.title')}
+              {tHome('whyAtlas.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('home.whyAtlas.subtitle')}
+              {tHome('whyAtlas.subtitle')}
             </p>
           </div>
 
@@ -196,48 +196,48 @@ export default function AboutPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-palette-celestial-blue text-white mb-6 shadow-lg">
                 <Users size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.experience.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.experience.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{tHome('whyAtlas.experience.title')}</h3>
+              <p className="text-gray-600">{tHome('whyAtlas.experience.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-green-500/5 to-emerald-50 rounded-2xl border border-green-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-green-500 text-white mb-6 shadow-lg">
                 <Globe size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.network.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.network.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{tHome('whyAtlas.network.title')}</h3>
+              <p className="text-gray-600">{tHome('whyAtlas.network.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-purple-500/5 to-indigo-50 rounded-2xl border border-purple-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-purple-500 text-white mb-6 shadow-lg">
                 <Award size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.quality.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.quality.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{tHome('whyAtlas.quality.title')}</h3>
+              <p className="text-gray-600">{tHome('whyAtlas.quality.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-orange-500/5 to-amber-50 rounded-2xl border border-orange-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-500 text-white mb-6 shadow-lg">
                 <Calendar size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.events.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.events.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{tHome('whyAtlas.events.title')}</h3>
+              <p className="text-gray-600">{tHome('whyAtlas.events.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-red-500/5 to-red-50 rounded-2xl border border-red-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-red-500 text-white mb-6 shadow-lg">
                 <Shield size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.support.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.support.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{tHome('whyAtlas.support.title')}</h3>
+              <p className="text-gray-600">{tHome('whyAtlas.support.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-teal-500/5 to-teal-50 rounded-2xl border border-teal-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-500 text-white mb-6 shadow-lg">
                 <Star size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.innovation.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.innovation.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{tHome('whyAtlas.innovation.title')}</h3>
+              <p className="text-gray-600">{tHome('whyAtlas.innovation.description')}</p>
             </div>
           </div>
         </div>
@@ -247,19 +247,19 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-br from-palette-celestial-blue to-blue-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            {t('home.about.cta.title')}
+            {tHome('about.cta.title')}
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            {t('home.about.cta.description')}
+            {tHome('about.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8 py-6 bg-white text-palette-celestial-blue hover:bg-gray-100 transition-all duration-300">
               <Phone className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-              {t('contact.hero.callNow')}
+              {tContact('hero.callNow')}
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-palette-celestial-blue transition-all duration-300">
               <Mail className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-              {t('contact.hero.emailUs')}
+              {tContact('hero.emailUs')}
             </Button>
           </div>
         </div>
