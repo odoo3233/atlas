@@ -27,3 +27,9 @@ pnpm-debug.log*
 coverage/
 tmp/
 .cache/
+
+# Also ignore nested ones anywhere in the repo
+**/node_modules/
+**/.next/
+atlas/node_modules/
+atlas/.next/
