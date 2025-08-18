@@ -90,7 +90,7 @@ export default function BusinessVisits() {
               </div>
               
               <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                {t('businessVisits.register')}
+                {t('register')}
               </Button>
             </div>
             
@@ -242,9 +242,9 @@ export default function BusinessVisits() {
        <section className="py-20 bg-eerie-black text-ghost-white">
          <div className="container mx-auto px-4">
            <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('businessVisits.stats.title')}</h2>
+             <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('stats.title')}</h2>
              <p className="text-xl text-ghost-white/80 max-w-3xl mx-auto">
-               {t('businessVisits.stats.subtitle')}
+                               {t('stats.subtitle')}
              </p>
            </div>
            
@@ -273,20 +273,20 @@ export default function BusinessVisits() {
        <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-                         <h2 className="text-3xl md:text-4xl font-bold mb-8">
-               {t('businessVisits.contactTitle')}
-             </h2>
-             <p className="text-xl text-gray-600 mb-12">
-               {t('businessVisits.contactSubtitle')}
-             </p>
+                                     <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              {t('contactTitle')}
+            </h2>
+                         <p className="text-xl text-gray-600 mb-12">
+              {t('contactSubtitle')}
+            </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gray-50 rounded-xl p-8">
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-4">
                   <Phone size={32} />
                 </div>
-                                 <h3 className="text-xl font-bold mb-2">{t('businessVisits.phoneTitle')}</h3>
-                 <p className="text-gray-600 mb-4">{t('businessVisits.phoneSubtitle')}</p>
+                                 <h3 className="text-xl font-bold mb-2">{t('phoneTitle')}</h3>
+                 <p className="text-gray-600 mb-4">{t('phoneSubtitle')}</p>
                 <div className="text-lg font-semibold text-blue-600">
                   +966 50 123 4567
                 </div>
@@ -296,8 +296,8 @@ export default function BusinessVisits() {
                 <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
                   <Mail size={32} />
                 </div>
-                                 <h3 className="text-xl font-bold mb-2">{t('businessVisits.emailTitle')}</h3>
-                 <p className="text-gray-600 mb-4">{t('businessVisits.emailSubtitle')}</p>
+                                 <h3 className="text-xl font-bold mb-2">{t('emailTitle')}</h3>
+                 <p className="text-gray-600 mb-4">{t('emailSubtitle')}</p>
                 <div className="text-lg font-semibold text-green-600">
                   info@atlas-alsharq.com
                 </div>
@@ -306,7 +306,7 @@ export default function BusinessVisits() {
             
             <div className="mt-12">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4">
-                {t('businessVisits.contact')}
+                {t('contact')}
               </Button>
             </div>
           </div>

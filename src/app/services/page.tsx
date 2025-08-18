@@ -8,60 +8,61 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Globe, Users, ShoppingBag, Building, Award, Phone } from "lucide-react"
 
 export default function ServicesPage() {
-  const { t } = useTranslation()
+  const { t: tServices } = useTranslation('services')
+  const { t: tContact } = useTranslation('contact')
 
   const services = [
     {
       icon: Calendar,
-      title: t('services.servicesList.exhibitions.title') || 'تنظيم المعارض والفعاليات',
-      description: t('services.servicesList.exhibitions.description') || 'تنظيم معارض وفعاليات احترافية مع أحدث التقنيات والتصاميم',
+      title: tServices('servicesList.exhibitions.title') || 'تنظيم المعارض والفعاليات',
+      description: tServices('servicesList.exhibitions.description') || 'تنظيم معارض وفعاليات احترافية مع أحدث التقنيات والتصاميم',
       features: (() => {
-        const features = t('services.servicesList.exhibitions.features', { returnObjects: true });
+        const features = tServices('servicesList.exhibitions.features', { returnObjects: true });
         return Array.isArray(features) ? features : [];
       })()
     },
     {
       icon: Users,
-      title: t('services.servicesList.networking.title') || 'ربط رجال الأعمال',
-      description: t('services.servicesList.networking.description') || 'ربط رجال الأعمال بين الصين والمملكة العربية السعودية',
+      title: tServices('servicesList.networking.title') || 'ربط رجال الأعمال',
+      description: tServices('servicesList.networking.description') || 'ربط رجال الأعمال بين الصين والمملكة العربية السعودية',
       features: (() => {
-        const features = t('services.servicesList.networking.features', { returnObjects: true });
+        const features = tServices('servicesList.networking.features', { returnObjects: true });
         return Array.isArray(features) ? features : [];
       })()
     },
     {
       icon: Globe,
-      title: t('services.servicesList.travel.title') || 'تنظيم رحلات الأعمال',
-      description: t('services.servicesList.travel.description') || 'ترتيب رحلات أعمال للشركات للقاء شركاء محتملين',
+      title: tServices('servicesList.travel.title') || 'تنظيم رحلات الأعمال',
+      description: tServices('servicesList.travel.description') || 'ترتيب رحلات أعمال للشركات للقاء شركاء محتملين',
       features: (() => {
-        const features = t('services.servicesList.travel.features', { returnObjects: true });
+        const features = tServices('servicesList.travel.features', { returnObjects: true });
         return Array.isArray(features) ? features : [];
       })()
     },
     {
       icon: ShoppingBag,
-      title: t('services.servicesList.showcase.title') || 'عرض المنتجات والخدمات',
-      description: t('services.servicesList.showcase.description') || 'عرض احترافي للمنتجات والخدمات في المعارض الدولية',
+      title: tServices('servicesList.showcase.title') || 'عرض المنتجات والخدمات',
+      description: tServices('servicesList.showcase.description') || 'عرض احترافي للمنتجات والخدمات في المعارض الدولية',
       features: (() => {
-        const features = t('services.servicesList.showcase.features', { returnObjects: true });
+        const features = tServices('servicesList.showcase.features', { returnObjects: true });
         return Array.isArray(features) ? features : [];
       })()
     },
     {
       icon: Building,
-      title: t('services.servicesList.intelligence.title') || 'استخبارات السوق',
-      description: t('services.servicesList.intelligence.description') || 'تحليل شامل لأسواق الصين والمملكة العربية السعودية',
+      title: tServices('servicesList.intelligence.title') || 'استخبارات السوق',
+      description: tServices('servicesList.intelligence.description') || 'تحليل شامل لأسواق الصين والمملكة العربية السعودية',
       features: (() => {
-        const features = t('services.servicesList.intelligence.features', { returnObjects: true });
+        const features = tServices('servicesList.intelligence.features', { returnObjects: true });
         return Array.isArray(features) ? features : [];
       })()
     },
     {
       icon: Award,
-      title: t('services.servicesList.partnerships.title') || 'إدارة الشراكات',
-      description: t('services.servicesList.partnerships.description') || 'إدارة شاملة للشراكات التجارية والاستثمارية',
+      title: tServices('servicesList.partnerships.title') || 'إدارة الشراكات',
+      description: tServices('servicesList.partnerships.description') || 'إدارة شاملة للشراكات التجارية والاستثمارية',
       features: (() => {
-        const features = t('services.servicesList.partnerships.features', { returnObjects: true });
+        const features = tServices('servicesList.partnerships.features', { returnObjects: true });
         return Array.isArray(features) ? features : [];
       })()
     }
@@ -78,22 +79,22 @@ export default function ServicesPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-ghost-white/20 text-ghost-white rounded-full text-sm font-medium mb-6">
               <Award className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
-              {t('services.hero.badge') || 'خدمات متخصصة'}
+              {tServices('hero.badge') || 'خدمات متخصصة'}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {t('services.hero.title') || 'خدماتنا المتكاملة'}
+              {tServices('hero.title') || 'خدماتنا المتكاملة'}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              {t('services.hero.description') || 'نقدم مجموعة شاملة من الخدمات المتخصصة لربط الأعمال بين الصين والمملكة العربية السعودية'}
+              {tServices('hero.description') || 'نقدم مجموعة شاملة من الخدمات المتخصصة لربط الأعمال بين الصين والمملكة العربية السعودية'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6 bg-ghost-white text-eerie-black hover:bg-platinum transition-all duration-300">
                 <Phone className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-                {t('contact.hero.callNow') || 'اتصل الآن'}
+                {tContact('hero.callNow') || 'اتصل الآن'}
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300">
                 <Globe className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-                {t('services.hero.exploreServices') || 'استكشف خدماتنا'}
+                {tServices('hero.exploreServices') || 'استكشف خدماتنا'}
               </Button>
             </div>
           </div>

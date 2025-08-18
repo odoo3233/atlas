@@ -69,7 +69,7 @@ const mockExhibitions = [
 ]
 
 export default function ExhibitionsPage() {
-  const { t } = useTranslation()
+  const { t } = useTranslation('exhibitions')
   const [filter, setFilter] = useState<"all" | "upcoming" | "past">("all")
   
   // Filter exhibitions based on selected filter
@@ -91,13 +91,13 @@ export default function ExhibitionsPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-ghost-white/20 text-ghost-white rounded-full text-sm font-medium mb-6">
               <Calendar className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
-              {t('exhibitions.hero.badge') || 'معارض وفعاليات'}
+              {t('hero.badge') || 'معارض وفعاليات'}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {t('exhibitions.title') || 'المعارض والفعاليات'}
+              {t('title') || 'المعارض والفعاليات'}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              {t('exhibitions.subtitle') || 'اكتشف أهم المعارض والفعاليات التجارية الدولية'}
+              {t('subtitle') || 'اكتشف أهم المعارض والفعاليات التجارية الدولية'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6 bg-ghost-white text-eerie-black hover:bg-platinum transition-all duration-300">

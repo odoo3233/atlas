@@ -21,7 +21,7 @@ import {
 } from "lucide-react"
 
 export default function ContactPage() {
-  const { t } = useTranslation()
+  const { t } = useTranslation('contact')
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -76,22 +76,22 @@ export default function ContactPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-ghost-white/20 text-ghost-white rounded-full text-sm font-medium mb-6">
               <MessageSquare className="mr-2" size={16} />
-              {t('contact.hero.badge')}
+              {t('hero.badge')}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {t('contact.hero.title')}
+              {t('hero.title')}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              {t('contact.hero.subtitle')}
+              {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6 bg-ghost-white text-eerie-black hover:bg-platinum transition-all duration-300">
                 <Phone className="mr-2" size={20} />
-                {t('contact.hero.callNow')}
+                {t('hero.callNow')}
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300">
                 <Mail className="mr-2" size={20} />
-                {t('contact.hero.emailUs')}
+                {t('hero.emailUs')}
               </Button>
             </div>
           </div>

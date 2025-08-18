@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "next telemetry disable || true"
+  },
+  "engines": {
+    "node": ">=18.18 <21"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
