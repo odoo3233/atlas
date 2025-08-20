@@ -6,8 +6,8 @@ const { Pool } = require('pg');
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'atlas_alsharq',
-  password: 'your_password',
+  database: 'atlas_db',
+  password: 'postgres',
   port: 5432,
 });
 
@@ -30,11 +30,11 @@ router.get('/', async (req, res) => {
             'notes', (
               SELECT json_agg(
                 json_build_object(
-                  'id', on.id,
-                  'note', on.note,
-                  'created_at', on.created_at
+                  'id', note.id,
+                  'note', note.note,
+                  'created_at', note.created_at
                 )
-              ) FROM order_notes on WHERE on.order_id = o.id
+              ) FROM order_notes note WHERE note.order_id = o.id
             )
           )
         ) FILTER (WHERE o.id IS NOT NULL) as orders
@@ -74,11 +74,11 @@ router.get('/:id', async (req, res) => {
             'notes', (
               SELECT json_agg(
                 json_build_object(
-                  'id', on.id,
-                  'note', on.note,
-                  'created_at', on.created_at
+                  'id', note.id,
+                  'note', note.note,
+                  'created_at', note.created_at
                 )
-              ) FROM order_notes on WHERE on.order_id = o.id
+              ) FROM order_notes note WHERE note.order_id = o.id
             )
           )
         ) FILTER (WHERE o.id IS NOT NULL) as orders
@@ -122,11 +122,11 @@ router.get('/barcode/:barcode', async (req, res) => {
             'notes', (
               SELECT json_agg(
                 json_build_object(
-                  'id', on.id,
-                  'note', on.note,
-                  'created_at', on.created_at
+                  'id', note.id,
+                  'note', note.note,
+                  'created_at', note.created_at
                 )
-              ) FROM order_notes on WHERE on.order_id = o.id
+              ) FROM order_notes note WHERE note.order_id = o.id
             )
           )
         ) FILTER (WHERE o.id IS NOT NULL) as orders
@@ -281,14 +281,14 @@ router.get('/:id/orders', async (req, res) => {
         oi.quantity,
         json_agg(
           json_build_object(
-            'id', on.id,
-            'note', on.note,
-            'created_at', on.created_at
+            'id', note.id,
+            'note', note.note,
+            'created_at', note.created_at
           )
-        ) FILTER (WHERE on.id IS NOT NULL) as notes
+        ) FILTER (WHERE note.id IS NOT NULL) as notes
       FROM orders o
       JOIN order_items oi ON o.id = oi.order_id
-      LEFT JOIN order_notes on ON o.id = on.order_id
+      LEFT JOIN order_notes note ON o.id = note.order_id
       WHERE oi.product_id = $1
       GROUP BY o.id, oi.quantity
       ORDER BY o.created_at DESC

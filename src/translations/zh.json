@@ -27,16 +27,17 @@
     "success": "成功",
     "warning": "警告",
     "info": "信息",
-    "description": "展览和国际贸易领域的领先公司，通过综合专业服务将企业与全球市场连接起来",
+    "description": "展览和国际贸易领域的领先公司，通过综合专业服务连接公司与全球市场",
     "quickLinks": "快速链接",
     "newsletter": "新闻通讯",
     "newsletterDesc": "获取最新新闻和优惠",
     "subscribe": "订阅",
     "email": "电子邮件",
-    "copyright": "版权所有 © 2025 阿特拉斯东方"
+    "copyright": "版权所有 © 2025 阿特拉斯东方",
+    "back": "返回"
   },
   "footer": {
-    "description": "展览和国际贸易领域的领先公司，通过综合专业服务连接公司与全球市场",
+    "description": "展览和国际贸易领域的领先公司，通过综合专业服务连接企业与全球市场",
     "quickLinks": "快速链接",
     "services": "我们的服务",
     "contactInfo": "联系信息",
@@ -47,19 +48,47 @@
     "copyright": "版权所有 © 2024 阿特拉斯东方展览与会议"
   },
   "products": {
+    "title": "阿特拉斯东方商店",
+    "subtitle": "发现我们的优质产品",
+    "search": "搜索产品...",
+    "filter": "筛选产品",
+    "sort": "排序方式",
+    "viewDetails": "查看详情",
+    "addToCart": "添加到购物车",
+    "outOfStock": "缺货",
+    "inStock": "有货",
+    "price": "价格",
+    "rating": "评分",
+    "noResults": "未找到产品",
+    "noResultsDesc": "尝试更改搜索或筛选条件",
     "categories": {
       "all": "所有产品",
-      "electronics": "电子产品",
-      "home": "家居",
-      "sports": "运动",
-      "beauty": "美容"
+      "lighting": "照明",
+      "renewableEnergy": "可再生能源",
+      "smartHome": "智能家居",
+      "industrial": "工业",
+      "safetyEquipment": "安全设备"
     },
-    "noResults": "未找到结果",
-    "noResultsDesc": "尝试更改搜索或筛选条件"
+    "specifications": "规格",
+    "relatedProducts": "相关产品",
+    "relatedProductsDesc": "发现我们目录中的更多产品",
+    "viewAllProducts": "查看所有产品",
+    "scanBarcode": "扫描条形码",
+    "freeShipping": "免费送货",
+    "warranty": "保修",
+    "freeReturn": "免费退货",
+    "scanningBarcode": "扫描条形码",
+    "searchingProduct": "搜索产品...",
+    "productFound": "找到产品！",
+    "redirectingToProduct": "正在跳转到产品页面...",
+    "viewProductNow": "立即查看产品",
+    "browseMore": "浏览更多产品",
+    "browseProducts": "浏览产品",
+    "tryAnotherBarcode": "尝试另一个条形码"
   },
   "businessVisits": {
     "hero": {
-      "title": "中国商务之旅",
+      "title": "中国商务旅行",
       "subtitle": "发现中国房地产投资机会",
       "description": "介绍性旅行，了解房地产公司并为他们在沙特阿拉伯当地建立合作伙伴关系，提供独家投资机会",
       "badge": "独家投资之旅"
@@ -395,28 +424,6 @@
       "phone": "+966 11 123 4567",
       "email": "info@atlas-alsharq.com",
       "hours": "周日 - 周四：上午8:00 - 下午6:00"
-    }
-  },
-  "products": {
-    "title": "阿特拉斯东方商店",
-    "subtitle": "发现我们的优质产品",
-    "search": "搜索产品...",
-    "filter": "筛选产品",
-    "sort": "排序方式",
-    "viewDetails": "查看详情",
-    "addToCart": "添加到购物车",
-    "outOfStock": "缺货",
-    "inStock": "有货",
-    "price": "价格",
-    "rating": "评分",
-    "noResults": "未找到产品",
-    "noResultsDesc": "尝试更改搜索或筛选条件",
-    "categories": {
-      "all": "所有产品",
-      "electronics": "电子产品",
-      "home": "家居",
-      "sports": "运动",
-      "beauty": "美容"
     }
   },
   "orders": {

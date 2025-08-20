@@ -33,13 +33,11 @@ export function LanguageSwitcher() {
       // Close dropdown
       setIsOpen(false)
       
-      // Force a page reload to ensure all components update
-      setTimeout(() => {
-        window.location.reload()
-      }, 100)
+      // Don't reload the page - let React handle the update
+      // The components will re-render automatically
     } catch (error) {
       console.error('Error changing language:', error)
-      // Fallback: just reload the page
+      // Only reload as a last resort
       window.location.reload()
     }
   }

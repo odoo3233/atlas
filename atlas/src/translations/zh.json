@@ -35,6 +35,77 @@
     "email": "电子邮件",
     "copyright": "版权所有 © 2025 阿特拉斯东方"
   },
+  "about": {
+    "hero": {
+      "badge": "领先的国际展览公司",
+      "title": "关于我们",
+      "subtitle": "阿特拉斯东方展览与会议公司",
+      "description": "我们拥有15年以上的展览和国际贸易经验，为连接沙特企业与中国和全球市场提供创新解决方案",
+      "learnMore": "了解更多"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "description": "我们努力成为沙特公司在国际扩张之旅中的第一战略合作伙伴，通过提供综合专业服务将其与全球市场连接起来",
+      "learnMore": "了解更多"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "description": "我们提供创新和专业的解决方案，通过高质量的展览和会议服务连接沙特企业与中国和全球市场",
+      "learnMore": "了解更多"
+    },
+    "company": {
+      "title": "公司信息",
+      "description": "阿特拉斯东方是展览和国际贸易领域的领先公司，成立于2010年，专门通过综合专业服务连接沙特企业与中国和全球市场。",
+      "features": {
+        "experience": "15年以上经验",
+        "experienceDesc": "组织国际商业活动的深厚经验",
+        "network": "2000+中国合作伙伴",
+        "networkDesc": "与中国和沙特公司的密切关系",
+        "quality": "保证高质量",
+        "qualityDesc": "所有服务中的世界级质量标准",
+        "support": "持续支持",
+        "supportDesc": "全天候技术和行政支持"
+      }
+    },
+    "stats": {
+      "years": "经验年数",
+      "events": "成功活动"
+    },
+    "whyChooseUs": {
+      "title": "为什么选择阿特拉斯东方？",
+      "subtitle": "选择阿特拉斯东方，助您商业成功",
+      "description": "我们拥有独特经验和综合服务，是您商业合作伙伴的最佳选择",
+      "experience": {
+        "title": "卓越专业",
+        "description": "拥有15年以上的国际展览和会议经验"
+      },
+      "network": {
+        "title": "强大网络",
+        "description": "广泛的网络包括中国2000多个商业合作伙伴"
+      },
+      "quality": {
+        "title": "保证高质量",
+        "description": "我们致力于最高国际质量标准"
+      },
+      "events": {
+        "title": "成功活动",
+        "description": "我们自豪地组织了500多个成功活动"
+      },
+      "support": {
+        "title": "24/7全面支持",
+        "description": "专业支持团队全天候服务"
+      },
+      "innovation": {
+        "title": "持续创新",
+        "description": "我们紧跟展览领域的最新技术和趋势"
+      }
+    },
+    "cta": {
+      "title": "今天就联系我们",
+      "description": "我们在这里帮助您实现商业目标。立即联系我们获得免费咨询",
+      "emailUs": "发送邮件"
+    }
+  },
   "footer": {
     "description": "展览和国际贸易领域的领先公司，通过综合专业服务连接公司与全球市场",
     "quickLinks": "快速链接",
@@ -375,26 +446,85 @@
   },
   "contact": {
     "hero": {
+      "badge": "联系我们",
       "title": "联系我们",
       "subtitle": "我们在这里帮助您商业成功",
       "description": "我们的团队全天候提供帮助和技术支持",
-      "callNow": "立即致电"
-    },
-    "form": {
-      "name": "全名",
-      "email": "电子邮件地址",
-      "phone": "电话号码",
-      "company": "公司名称",
-      "message": "您的消息",
-      "submit": "发送消息",
-      "success": "您的消息已成功发送",
-      "error": "发送消息时出错"
+      "callNow": "立即致电",
+      "emailUs": "发送邮件"
     },
     "info": {
-      "address": "沙特阿拉伯王国利雅得",
-      "phone": "+966 11 123 4567",
-      "email": "info@atlas-alsharq.com",
-      "hours": "周日 - 周四：上午8:00 - 下午6:00"
+      "title": "联系信息",
+      "description": "我们全天候为您提供帮助和技术支持",
+      "phone": {
+        "title": "致电我们",
+        "subtitle": "我们的团队全天候服务"
+      },
+      "email": {
+        "title": "发送邮件",
+        "subtitle": "发送您的咨询"
+      },
+      "address": {
+        "title": "我们的地址",
+        "subtitle": "我们的主办公室",
+        "street": "法赫德国王街，努兹哈区",
+        "city": "沙特阿拉伯王国利雅得"
+      },
+      "hours": {
+        "title": "工作时间",
+        "subtitle": "随时为您提供帮助",
+        "weekdays": "周日 - 周四",
+        "weekend": "周五 - 周六"
+      }
+    },
+    "form": {
+      "title": "发送消息",
+      "subtitle": "我们将尽快回复您",
+      "name": "全名",
+      "namePlaceholder": "输入您的全名",
+      "email": "电子邮件地址",
+      "emailPlaceholder": "输入您的电子邮件地址",
+      "phone": "电话号码",
+      "phonePlaceholder": "输入您的电话号码",
+      "company": "公司名称",
+      "companyPlaceholder": "输入您的公司名称",
+      "subject": "主题",
+      "subjectPlaceholder": "选择您的消息主题",
+      "subjects": {
+        "exhibitions": "展览与活动",
+        "businessVisits": "商务旅行",
+        "partnership": "商业伙伴关系",
+        "general": "一般咨询"
+      },
+      "message": "消息",
+      "messagePlaceholder": "在此写下您的消息...",
+      "send": "发送消息",
+      "sending": "发送中...",
+      "success": {
+        "title": "您的消息已成功发送",
+        "message": "我们将尽快回复您"
+      },
+      "error": "发送消息时出错"
+    },
+    "stats": {
+      "support": "24/7支持",
+      "response": "快速响应"
+    },
+    "whyChoose": {
+      "title": "为什么选择联系我们？",
+      "subtitle": "我们提供卓越的客户服务和快速响应所有咨询",
+      "fast": {
+        "title": "快速响应",
+        "description": "我们最多在2小时内回复所有消息"
+      },
+      "expert": {
+        "title": "专家团队",
+        "description": "专门从事展览和国际贸易的专家团队"
+      },
+      "quality": {
+        "title": "高质量",
+        "description": "我们致力于在所有服务中达到最高质量标准"
+      }
     }
   },
   "products": {
@@ -426,17 +556,28 @@
     "newOrder": "新订单",
     "orderNumber": "订单号",
     "orderEmail": "电子邮件地址",
+    "email": "电子邮件地址",
     "track": "跟踪",
     "trackingError": "未找到订单。请验证订单号和电子邮件地址。",
     "formError": "请填写所有必填字段。",
-    "customerName": "客户姓名",
-    "customerEmail": "电子邮件地址",
-    "customerPhone": "电话号码",
-    "companyName": "公司名称",
-    "message": "消息",
-    "productId": "产品ID",
+    "orderDetails": "订单详情",
+    "date": "日期",
+    "status": "状态",
+    "customer": "客户",
+    "items": "项目",
+    "product": "产品",
     "quantity": "数量",
+    "price": "价格",
+    "total": "总计",
+    "name": "姓名",
+    "phone": "电话",
+    "company": "公司",
+    "message": "消息",
+    "selectProduct": "选择产品",
     "submit": "提交订单",
+    "thankYou": "谢谢您",
+    "orderReceived": "您的订单已成功接收",
+    "submitAnother": "提交另一个订单",
     "orderSuccess": "您的订单已成功提交",
     "orderStatus": "订单状态",
     "orderDate": "订单日期",

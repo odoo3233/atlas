@@ -24,7 +24,7 @@ Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "المشروع يعمل الآن على:" -ForegroundColor Cyan
 Write-Host "- الواجهة الأمامية: http://localhost:3000" -ForegroundColor White
-Write-Host "- الواجهة الخلفية: http://localhost:5000" -ForegroundColor White
+Write-Host "- الواجهة الخلفية: http://localhost:5001" -ForegroundColor White
 Write-Host ""
 Write-Host "انتظر قليلاً حتى تفتح النوافذ..." -ForegroundColor Yellow
 Write-Host ""

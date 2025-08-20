@@ -57,7 +57,7 @@ export default function AdminOrders() {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/orders');
+      const response = await fetch('http://localhost:5001/api/orders');
       if (response.ok) {
         const data = await response.json();
         setOrders(data);
@@ -71,7 +71,7 @@ export default function AdminOrders() {
 
   const updateOrderStatus = async (orderId: number, status: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}/status`, {
+      const response = await fetch(`http://localhost:5001/api/orders/${orderId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export default function AdminOrders() {
     if (!newNote.trim()) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/orders/${orderId}/notes`, {
+      const response = await fetch(`http://localhost:5001/api/orders/${orderId}/notes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

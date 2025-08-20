@@ -5,20 +5,37 @@ import Link from "next/link"
 import { useTranslation } from "react-i18next"
 import { Menu, X, ShoppingBag, Globe, Phone } from "lucide-react"
 import { LanguageSwitcher } from "./language-switcher"
+import { getFallbackTranslation, getCurrentLanguage } from "@/lib/translation-utils"
 
 export function Header() {
   const { t } = useTranslation('common')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const [currentLang, setCurrentLang] = useState('ar')
+
+  useEffect(() => {
+    setMounted(true)
+    setCurrentLang(getCurrentLanguage())
+  }, [])
+
+  // Get translations with fallbacks
+  const getTranslatedText = (key: string) => {
+    if (!mounted) {
+      return getFallbackTranslation(key, currentLang)
+    }
+    const translation = t(key)
+    return translation === key ? getFallbackTranslation(key, currentLang) : translation
+  }
 
   const navigation = [
-    { name: t('home'), href: "/" },
-    { name: t('about'), href: "/about" },
-    { name: t('services'), href: "/services" },
-    { name: t('exhibitions'), href: "/exhibitions" },
+    { name: getTranslatedText('home'), href: "/" },
+    { name: getTranslatedText('about'), href: "/about" },
+    { name: getTranslatedText('services'), href: "/services" },
+    { name: getTranslatedText('exhibitions'), href: "/exhibitions" },
     { name: "رحلات الأعمال", href: "/business-visits" },
-    { name: t('products'), href: "/products" },
-    { name: t('contact'), href: "/contact" },
+    { name: getTranslatedText('products'), href: "/products" },
+    { name: getTranslatedText('contact'), href: "/contact" },
   ]
 
   useEffect(() => {
@@ -28,6 +45,25 @@ export function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Show loading state until mounted
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20 lg:h-24">
+            <div className="flex items-center space-x-4 rtl:space-x-reverse">
+              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-3xl bg-white/20 backdrop-blur-md border border-white/30 animate-pulse"></div>
+              <div className="hidden sm:block">
+                <div className="h-8 w-32 bg-white/20 rounded animate-pulse"></div>
+                <div className="h-4 w-24 bg-white/20 rounded animate-pulse mt-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    )
+  }
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -55,12 +91,12 @@ export function Header() {
               <h1 className={`text-2xl lg:text-3xl font-bold transition-colors duration-300 ${
                 isScrolled ? "text-gray-900" : "text-white"
               }`}>
-                {t('companyName')}
+                {getTranslatedText('companyName')}
               </h1>
               <p className={`text-sm lg:text-base transition-colors duration-300 ${
                 isScrolled ? "text-gray-600" : "text-white/80"
               }`}>
-                {t('companyNameEn')}
+                {getTranslatedText('companyNameEn')}
               </p>
             </div>
           </Link>
@@ -94,7 +130,7 @@ export function Header() {
               }`}
             >
               <Phone className="w-5 h-5" />
-              <span>{t('contactUs')}</span>
+              <span>{getTranslatedText('contactUs')}</span>
             </Link>
           </div>
 
@@ -146,7 +182,7 @@ export function Header() {
                     }`}
                   >
                     <Phone className="w-5 h-5" />
-                    <span>{t('common.contactUs') || 'تواصل معنا'}</span>
+                    <span>{getTranslatedText('contactUs')}</span>
                   </Link>
                 </div>
               </div>

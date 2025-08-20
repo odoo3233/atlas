@@ -35,6 +35,77 @@
     "email": "Email",
     "copyright": "All rights reserved © 2025 Atlas Al-Sharq"
   },
+  "about": {
+    "hero": {
+      "badge": "Leading International Exhibition Company",
+      "title": "About Us",
+      "subtitle": "Atlas Al-Sharq Exhibitions & Conferences Company",
+      "description": "We are proud of 15+ years of experience in exhibitions and international trade, providing innovative solutions to connect Saudi companies with Chinese and global markets",
+      "learnMore": "Learn More"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "We strive to be the first strategic partner for Saudi companies in their journey towards international expansion, through providing integrated and specialized services that connect them to global markets",
+      "learnMore": "Learn More"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "We provide innovative and specialized solutions to connect Saudi companies with Chinese and global markets, through high-quality exhibition and conference services",
+      "learnMore": "Learn More"
+    },
+    "company": {
+      "title": "Company Information",
+      "description": "Atlas Al-Sharq is a leading company in the field of exhibitions and international trade, established in 2010, specializing in connecting Saudi companies with Chinese and global markets through integrated and specialized services.",
+      "features": {
+        "experience": "15+ Years Experience",
+        "experienceDesc": "Deep experience in organizing international business events",
+        "network": "2000+ Chinese Partners",
+        "networkDesc": "Close relationships with Chinese and Saudi companies",
+        "quality": "Guaranteed High Quality",
+        "qualityDesc": "World-class quality standards in all our services",
+        "support": "Continuous Support",
+        "supportDesc": "Technical and administrative support around the clock"
+      }
+    },
+    "stats": {
+      "years": "Years of Experience",
+      "events": "Successful Events"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Atlas Al-Sharq?",
+      "subtitle": "Choose Atlas Al-Sharq for your business success",
+      "description": "We excel with unique experience and integrated services that make us the optimal choice for your business partners",
+      "experience": {
+        "title": "Exceptional Expertise",
+        "description": "Over 15 years of experience in international exhibitions and conferences"
+      },
+      "network": {
+        "title": "Strong Network",
+        "description": "A wide network comprising more than 2000 business partners in China"
+      },
+      "quality": {
+        "title": "Guaranteed High Quality",
+        "description": "We are committed to the highest international quality standards"
+      },
+      "events": {
+        "title": "Successful Events",
+        "description": "We are proud to organize more than 500 successful events"
+      },
+      "support": {
+        "title": "24/7 Comprehensive Support",
+        "description": "A specialized support team available around the clock"
+      },
+      "innovation": {
+        "title": "Continuous Innovation",
+        "description": "We keep pace with the latest technologies and trends in the exhibition field"
+      }
+    },
+    "cta": {
+      "title": "Contact Us Today",
+      "description": "We are here to help you achieve your business goals. Contact us now for a free consultation",
+      "emailUs": "Email Us"
+    }
+  },
   "footer": {
     "description": "A leading company in exhibitions and international trade, connecting companies to global markets through integrated and specialized services",
     "quickLinks": "Quick Links",
@@ -375,26 +446,85 @@
   },
   "contact": {
     "hero": {
+      "badge": "Contact Us",
       "title": "Contact Us",
       "subtitle": "We are here to help you succeed in your business",
       "description": "Our team is available around the clock to provide assistance and technical support",
-      "callNow": "Call Now"
-    },
-    "form": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "phone": "Phone Number",
-      "company": "Company Name",
-      "message": "Your Message",
-      "submit": "Send Message",
-      "success": "Your message has been sent successfully",
-      "error": "Error sending message"
+      "callNow": "Call Now",
+      "emailUs": "Email Us"
     },
     "info": {
-      "address": "Riyadh, Kingdom of Saudi Arabia",
-      "phone": "+966 11 123 4567",
-      "email": "info@atlas-alsharq.com",
-      "hours": "Sunday - Thursday: 8:00 AM - 6:00 PM"
+      "title": "Contact Information",
+      "description": "We are available 24/7 to provide assistance and technical support for all your needs",
+      "phone": {
+        "title": "Call Us",
+        "subtitle": "Our team is available 24/7"
+      },
+      "email": {
+        "title": "Email Us",
+        "subtitle": "Send us your inquiry"
+      },
+      "address": {
+        "title": "Our Address",
+        "subtitle": "Our Main Office",
+        "street": "King Fahd Street, Al-Nuzha District",
+        "city": "Riyadh, Kingdom of Saudi Arabia"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "subtitle": "Available to help you",
+        "weekdays": "Sunday - Thursday",
+        "weekend": "Friday - Saturday"
+      }
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "subtitle": "We will respond to you as soon as possible",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "company": "Company Name",
+      "companyPlaceholder": "Enter your company name",
+      "subject": "Subject",
+      "subjectPlaceholder": "Choose your message subject",
+      "subjects": {
+        "exhibitions": "Exhibitions & Events",
+        "businessVisits": "Business Trips",
+        "partnership": "Business Partnerships",
+        "general": "General Inquiry"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": {
+        "title": "Your message has been sent successfully",
+        "message": "We will respond to you as soon as possible"
+      },
+      "error": "Error sending message"
+    },
+    "stats": {
+      "support": "24/7 Support",
+      "response": "Quick Response"
+    },
+    "whyChoose": {
+      "title": "Why Choose to Contact Us?",
+      "subtitle": "We provide excellent customer service and quick responses to all your inquiries",
+      "fast": {
+        "title": "Quick Response",
+        "description": "We respond to all messages within 2 hours maximum"
+      },
+      "expert": {
+        "title": "Expert Team",
+        "description": "Team of experts specialized in exhibitions and international trade"
+      },
+      "quality": {
+        "title": "High Quality",
+        "description": "We are committed to the highest quality standards in all our services"
+      }
     }
   },
   "products": {
@@ -426,17 +556,28 @@
     "newOrder": "New Order",
     "orderNumber": "Order Number",
     "orderEmail": "Email Address",
+    "email": "Email Address",
     "track": "Track",
     "trackingError": "Order not found. Please verify the order number and email address.",
     "formError": "Please fill in all required fields.",
-    "customerName": "Customer Name",
-    "customerEmail": "Email Address",
-    "customerPhone": "Phone Number",
-    "companyName": "Company Name",
-    "message": "Message",
-    "productId": "Product ID",
+    "orderDetails": "Order Details",
+    "date": "Date",
+    "status": "Status",
+    "customer": "Customer",
+    "items": "Items",
+    "product": "Product",
     "quantity": "Quantity",
+    "price": "Price",
+    "total": "Total",
+    "name": "Name",
+    "phone": "Phone",
+    "company": "Company",
+    "message": "Message",
+    "selectProduct": "Select Product",
     "submit": "Submit Order",
+    "thankYou": "Thank You",
+    "orderReceived": "Your order has been received successfully",
+    "submitAnother": "Submit Another Order",
     "orderSuccess": "Your order has been submitted successfully",
     "orderStatus": "Order Status",
     "orderDate": "Order Date",

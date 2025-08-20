@@ -14,98 +14,58 @@ interface Product {
   name: string
   description: string
   price: number
-  image: string
+  image_url?: string
   category: string
-  rating: number
-  inStock: boolean
+  barcode: string
+  company_name?: string
+  company_logo?: string
+  specifications?: any
+  created_at: string
+  updated_at: string
 }
 
 export default function ProductsPage() {
   const { t } = useTranslation()
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
 
-  // Mock products data with high-quality images
-  const mockProducts: Product[] = [
-    {
-      id: 1,
-      name: "هاتف ذكي متطور",
-      description: "هاتف ذكي عالي الجودة مع أحدث التقنيات وكاميرا احترافية",
-      price: 2999.99,
-      image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
-      category: "electronics",
-      rating: 4.8,
-      inStock: true
-    },
-    {
-      id: 2,
-      name: "طابعة ليزر احترافية",
-      description: "طابعة ليزر عالية السرعة والجودة للاستخدام المكتبي",
-      price: 899.99,
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop",
-      category: "electronics",
-      rating: 4.5,
-      inStock: true
-    },
-    {
-      id: 3,
-      name: "طاولة مكتب أنيقة",
-      description: "طاولة مكتب خشبية أنيقة مع تصميم عصري ومتينة",
-      price: 599.99,
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop",
-      category: "home",
-      rating: 4.7,
-      inStock: true
-    },
-    {
-      id: 4,
-      name: "كرسي مكتب مريح",
-      description: "كرسي مكتب مريح مع دعم للظهر وضبط متعدد للموضع",
-      price: 399.99,
-      image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?w=400&h=400&fit=crop",
-      category: "home",
-      rating: 4.6,
-      inStock: true
-    },
-    {
-      id: 5,
-      name: "دراجة رياضية",
-      description: "دراجة رياضية متطورة مع شاشة رقمية وبرامج تدريب متنوعة",
-      price: 1299.99,
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop",
-      category: "sports",
-      rating: 4.9,
-      inStock: false
-    },
-    {
-      id: 6,
-      name: "مجموعة أدوات تجميل",
-      description: "مجموعة شاملة من أدوات التجميل الطبيعية عالية الجودة",
-      price: 249.99,
-      image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop",
-      category: "beauty",
-      rating: 4.4,
-      inStock: true
+  // Fetch products from backend API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        
+        const response = await fetch('http://localhost:5001/api/products')
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch products')
+        }
+        
+        const data = await response.json()
+        setProducts(data)
+      } catch (err) {
+        console.error('Error fetching products:', err)
+        setError('Failed to load products. Please try again later.')
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
+
+    fetchProducts()
+  }, [])
 
   const categories = [
-    { id: "all", name: t('products.categories.all') || 'جميع المنتجات' },
-    { id: "electronics", name: t('products.categories.electronics') || 'الإلكترونيات' },
-    { id: "home", name: t('products.categories.home') || 'المنزل' },
-    { id: "sports", name: t('products.categories.sports') || 'الرياضة' },
-    { id: "beauty", name: t('products.categories.beauty') || 'التجميل' }
+    { id: "all", name: t('products.categories.all') || 'All Products' },
+    { id: "Lighting", name: t('products.categories.lighting') || 'Lighting' },
+    { id: "Renewable Energy", name: t('products.categories.renewableEnergy') || 'Renewable Energy' },
+    { id: "Smart Home", name: t('products.categories.smartHome') || 'Smart Home' },
+    { id: "Industrial", name: t('products.categories.industrial') || 'Industrial' },
+    { id: "Safety Equipment", name: t('products.categories.safetyEquipment') || 'Safety Equipment' }
   ]
-
-  useEffect(() => {
-    // Simulate loading
-    setTimeout(() => {
-      setProducts(mockProducts)
-      setLoading(false)
-    }, 1000)
-  }, [])
 
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -137,7 +97,31 @@ export default function ProductsPage() {
           <div className="container mx-auto px-4">
             <div className="text-center">
               <div className="spinner-modern h-12 w-12 mx-auto"></div>
-              <p className="text-gray-600 mt-4">{t('common.loading', 'جاري التحميل...')}</p>
+              <p className="text-gray-600 mt-4">{t('common.loading', 'Loading...')}</p>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+        <Header />
+        <div className="pt-32 pb-12">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <div className="text-red-500 text-2xl mb-4">⚠️</div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Products</h2>
+              <p className="text-gray-600 mb-6">{error}</p>
+              <Button 
+                onClick={() => window.location.reload()} 
+                className="bg-blue-600 hover:bg-blue-700"
+              >
+                Try Again
+              </Button>
             </div>
           </div>
         </div>
@@ -156,13 +140,13 @@ export default function ProductsPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-lg font-semibold mb-8 border border-white/20">
               <ShoppingBag className="mr-3 rtl:mr-0 rtl:ml-3" size={20} />
-              {t('products.title', 'متجر أطلس الشرق')}
+              {t('products.title', 'Atlas Al-Sharq Store')}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {t('products.title', 'متجر أطلس الشرق')}
+              {t('products.title', 'Atlas Al-Sharq Store')}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
-              {t('products.subtitle', 'اكتشف منتجاتنا المميزة')}
+              {t('products.subtitle', 'Discover our distinguished products')}
             </p>
           </div>
         </div>
@@ -177,7 +161,7 @@ export default function ProductsPage() {
               <Search className="absolute left-4 rtl:left-auto rtl:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <input
                 type="text"
-                placeholder={t('products.search', 'ابحث عن منتج...')}
+                placeholder={t('products.search', 'Search for a product...')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 rtl:pl-4 rtl:pr-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-300"
@@ -210,10 +194,10 @@ export default function ProductsPage() {
             <div className="text-center py-16">
               <ShoppingBag className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-600 mb-2">
-                {t('products.noResults', 'لم يتم العثور على منتجات')}
+                {t('products.noResults', 'No products found')}
               </h3>
               <p className="text-gray-500">
-                {t('products.noResultsDesc', 'جرب تغيير معايير البحث أو التصفية')}
+                {t('products.noResultsDesc', 'Try changing your search or filter criteria')}
               </p>
             </div>
           ) : (
@@ -226,7 +210,7 @@ export default function ProductsPage() {
                   {/* Product Image */}
                   <div className="relative h-64 overflow-hidden">
                     <Image
-                      src={product.image}
+                      src={product.image_url || "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop"}
                       alt={product.name}
                       fill
                       className="object-cover transition-transform duration-500 hover:scale-110"
@@ -236,17 +220,33 @@ export default function ProductsPage() {
                         <Heart className="h-5 w-5 text-gray-600" />
                       </button>
                     </div>
-                    {!product.inStock && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <span className="text-white font-bold text-lg">
-                          {t('products.outOfStock', 'نفذت الكمية')}
-                        </span>
+                    {/* Company Logo */}
+                    {product.company_logo && (
+                      <div className="absolute bottom-4 left-4 rtl:left-auto rtl:right-4">
+                        <div className="w-12 h-12 bg-white/90 backdrop-blur-md rounded-lg shadow-lg p-2">
+                          <Image
+                            src={product.company_logo}
+                            alt={product.company_name || 'Company'}
+                            width={32}
+                            height={32}
+                            className="object-contain"
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
 
                   {/* Product Info */}
                   <div className="p-6">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                        {product.category}
+                      </span>
+                      <span className="text-xs text-gray-400 font-mono">
+                        {product.barcode}
+                      </span>
+                    </div>
+                    
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {product.name}
                     </h3>
@@ -254,30 +254,20 @@ export default function ProductsPage() {
                       {product.description}
                     </p>
 
-                    {/* Rating */}
-                    <div className="flex items-center mb-4">
-                      <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                        {renderStars(product.rating)}
-                      </div>
-                      <span className="text-gray-600 text-sm mr-2 rtl:mr-0 rtl:ml-2">
-                        ({product.rating})
-                      </span>
-                    </div>
+                    {/* Company Name */}
+                    {product.company_name && (
+                      <p className="text-sm text-blue-600 font-medium mb-4">
+                        {product.company_name}
+                      </p>
+                    )}
 
-                    {/* Price and Stock */}
+                    {/* Price */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="text-2xl font-bold text-gray-900">
-                        {product.price.toLocaleString('ar-SA')} ريال
+                        ${product.price.toLocaleString()}
                       </div>
-                      <div className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                        product.inStock 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-red-100 text-red-800'
-                      }`}>
-                        {product.inStock 
-                          ? t('products.inStock', 'متوفر') 
-                          : t('products.outOfStock', 'نفذت الكمية')
-                        }
+                      <div className="px-3 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800">
+                        {t('products.inStock', 'In Stock')}
                       </div>
                     </div>
 
@@ -285,20 +275,21 @@ export default function ProductsPage() {
                     <div className="flex space-x-3 rtl:space-x-reverse">
                       <Button 
                         className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                        disabled={!product.inStock}
                         asChild
                       >
                         <Link href={`/products/${product.id}`}>
                           <Eye className="mr-2 rtl:mr-0 rtl:ml-2 h-4 w-4" />
-                          {t('products.viewDetails', 'عرض التفاصيل')}
+                          {t('products.viewDetails', 'View Details')}
                         </Link>
                       </Button>
                       <Button 
                         variant="outline"
                         className="px-4 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold rounded-2xl transition-all duration-300"
-                        disabled={!product.inStock}
+                        asChild
                       >
-                        <Zap className="h-4 w-4" />
+                        <Link href={`/scan/${product.barcode}`}>
+                          <Zap className="h-4 w-4" />
+                        </Link>
                       </Button>
                     </div>
                   </div>

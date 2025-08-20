@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import { ThemeProvider } from '@/components/theme-provider'
 import { I18nProvider } from '@/components/i18n-provider'
+import { HydrationSafe } from '@/components/hydration-safe'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,7 +28,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <I18nProvider>
-            {children}
+            <HydrationSafe>
+              {children}
+            </HydrationSafe>
           </I18nProvider>
         </ThemeProvider>
         <Script id="ms-clarity" strategy="afterInteractive">   
@@ -36,7 +39,7 @@ export default function RootLayout({
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "kqj8qj8qj8");
+          })(window, document, "clarity", "script", "kqj8qj8qj8qj8");
         `}
         </Script>
       </body>

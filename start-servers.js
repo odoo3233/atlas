@@ -32,7 +32,7 @@ console.log('========================================');
 console.log('');
 console.log('المشروع يعمل الآن على:');
 console.log('- الواجهة الأمامية: http://localhost:3000');
-console.log('- الواجهة الخلفية: http://localhost:5000');
+console.log('- الواجهة الخلفية: http://localhost:5001');
 console.log('');
 
 // فتح المتصفح بعد 5 ثوان

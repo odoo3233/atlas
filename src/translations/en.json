@@ -33,7 +33,8 @@
     "newsletterDesc": "Get the latest news and offers",
     "subscribe": "Subscribe",
     "email": "Email",
-    "copyright": "All rights reserved © 2025 Atlas Al-Sharq"
+    "copyright": "All rights reserved © 2025 Atlas Al-Sharq",
+    "back": "Back"
   },
   "footer": {
     "description": "A leading company in exhibitions and international trade, connecting companies to global markets through integrated and specialized services",
@@ -47,15 +48,43 @@
     "copyright": "All rights reserved © 2024 Atlas Al-Sharq Exhibitions & Conferences"
   },
   "products": {
+    "title": "Atlas Al-Sharq Store",
+    "subtitle": "Discover our distinguished products",
+    "search": "Search for a product...",
+    "filter": "Filter Products",
+    "sort": "Sort by",
+    "viewDetails": "View Details",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "inStock": "In Stock",
+    "price": "Price",
+    "rating": "Rating",
+    "noResults": "No products found",
+    "noResultsDesc": "Try changing your search or filter criteria",
     "categories": {
       "all": "All Products",
-      "electronics": "Electronics",
-      "home": "Home",
-      "sports": "Sports",
-      "beauty": "Beauty"
+      "lighting": "Lighting",
+      "renewableEnergy": "Renewable Energy",
+      "smartHome": "Smart Home",
+      "industrial": "Industrial",
+      "safetyEquipment": "Safety Equipment"
     },
-    "noResults": "No Results Found",
-    "noResultsDesc": "Try changing your search or filter criteria"
+    "specifications": "Specifications",
+    "relatedProducts": "Related Products",
+    "relatedProductsDesc": "Discover more products from our catalog",
+    "viewAllProducts": "View All Products",
+    "scanBarcode": "Scan Barcode",
+    "freeShipping": "Free Shipping",
+    "warranty": "Warranty",
+    "freeReturn": "Free Return",
+    "scanningBarcode": "Scanning Barcode",
+    "searchingProduct": "Searching for product...",
+    "productFound": "Product Found!",
+    "redirectingToProduct": "Redirecting to product page...",
+    "viewProductNow": "View Product Now",
+    "browseMore": "Browse More Products",
+    "browseProducts": "Browse Products",
+    "tryAnotherBarcode": "Try Another Barcode"
   },
   "businessVisits": {
     "hero": {
@@ -395,28 +424,6 @@
       "phone": "+966 11 123 4567",
       "email": "info@atlas-alsharq.com",
       "hours": "Sunday - Thursday: 8:00 AM - 6:00 PM"
-    }
-  },
-  "products": {
-    "title": "Atlas Al-Sharq Store",
-    "subtitle": "Discover our distinguished products",
-    "search": "Search for a product...",
-    "filter": "Filter Products",
-    "sort": "Sort by",
-    "viewDetails": "View Details",
-    "addToCart": "Add to Cart",
-    "outOfStock": "Out of Stock",
-    "inStock": "In Stock",
-    "price": "Price",
-    "rating": "Rating",
-    "noResults": "No products found",
-    "noResultsDesc": "Try changing your search or filter criteria",
-    "categories": {
-      "all": "All Products",
-      "electronics": "Electronics",
-      "home": "Home",
-      "sports": "Sports",
-      "beauty": "Beauty"
     }
   },
   "orders": {

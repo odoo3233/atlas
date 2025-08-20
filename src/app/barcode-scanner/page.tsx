@@ -36,7 +36,6 @@ export default function BarcodeScanner() {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [scanSuccess, setScanSuccess] = useState(false);
 
   const handleBarcodeInput = async (barcode: string) => {
     if (!barcode.trim()) return;
@@ -46,18 +45,17 @@ export default function BarcodeScanner() {
     setProduct(null);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/barcode/scan/${barcode}`);
+      const response = await fetch(`http://localhost:5001/api/products/barcode/${barcode}`);
       
       if (response.ok) {
         const data = await response.json();
-        setProduct(data.product);
-        setScanSuccess(true);
+        setProduct(data);
         setScannedBarcode(barcode);
       } else {
-        setError('الباركود غير موجود في قاعدة البيانات');
+        setError('Barcode not found in database');
       }
     } catch (error) {
-      setError('حدث خطأ أثناء البحث عن المنتج');
+      setError('Error occurred while searching for product');
     } finally {
       setLoading(false);
     }
@@ -73,7 +71,6 @@ export default function BarcodeScanner() {
   const resetScan = () => {
     setProduct(null);
     setError('');
-    setScanSuccess(false);
     setScannedBarcode('');
   };
 
@@ -84,10 +81,10 @@ export default function BarcodeScanner() {
         <div className="mb-8">
           <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4">
             <ArrowLeft className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
-            العودة للرئيسية
+            Back to Home
           </Link>
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">سكان الباركود</h1>
-          <p className="text-gray-600">امسح باركود المنتج لعرض التفاصيل والطلب</p>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Barcode Scanner</h1>
+          <p className="text-gray-600">Scan product barcode to view details and place orders</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -97,17 +94,17 @@ export default function BarcodeScanner() {
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                 <QrCode className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
-                إدخال الباركود يدوياً
+                Manual Barcode Input
               </h2>
               <form onSubmit={handleManualInput} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    رقم الباركود
+                    Barcode Number
                   </label>
                   <input
                     type="text"
                     name="barcode"
-                    placeholder="أدخل رقم الباركود هنا..."
+                    placeholder="Enter barcode number here..."
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
@@ -117,7 +114,7 @@ export default function BarcodeScanner() {
                   disabled={loading}
                   className="w-full bg-blue-600 text-white hover:bg-blue-700"
                 >
-                  {loading ? 'جاري البحث...' : 'بحث عن المنتج'}
+                  {loading ? 'Searching...' : 'Search Product'}
                 </Button>
               </form>
             </div>
@@ -126,25 +123,25 @@ export default function BarcodeScanner() {
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                 <Camera className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
-                سكان بالكاميرا
+                Camera Scanner
               </h2>
               <div className="bg-gray-100 rounded-lg p-8 text-center">
                 <Camera className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 mb-4">سيتم إضافة ميزة سكان الباركود بالكاميرا قريباً</p>
+                <p className="text-gray-600 mb-4">Camera barcode scanning feature will be added soon</p>
                 <Button variant="outline" disabled>
-                  تفعيل الكاميرا
+                  Enable Camera
                 </Button>
               </div>
             </div>
 
             {/* Scan Status */}
-            {scanSuccess && (
+            {product && (
               <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
                 <div className="flex items-center">
                   <CheckCircle className="w-6 h-6 text-green-600 ml-2 rtl:ml-0 rtl:mr-2" />
                   <div>
-                    <h3 className="font-semibold text-green-800">تم العثور على المنتج</h3>
-                    <p className="text-green-600 text-sm">الباركود: {scannedBarcode}</p>
+                    <h3 className="font-semibold text-green-800">Product Found</h3>
+                    <p className="text-green-600 text-sm">Barcode: {scannedBarcode}</p>
                   </div>
                 </div>
                 <Button 
@@ -153,7 +150,7 @@ export default function BarcodeScanner() {
                   size="sm" 
                   className="mt-4"
                 >
-                  مسح جديد
+                  New Scan
                 </Button>
               </div>
             )}
@@ -163,7 +160,7 @@ export default function BarcodeScanner() {
                 <div className="flex items-center">
                   <XCircle className="w-6 h-6 text-red-600 ml-2 rtl:ml-0 rtl:mr-2" />
                   <div>
-                    <h3 className="font-semibold text-red-800">خطأ في البحث</h3>
+                    <h3 className="font-semibold text-red-800">Search Error</h3>
                     <p className="text-red-600 text-sm">{error}</p>
                   </div>
                 </div>
@@ -173,7 +170,7 @@ export default function BarcodeScanner() {
                   size="sm" 
                   className="mt-4"
                 >
-                  إعادة المحاولة
+                  Try Again
                 </Button>
               </div>
             )}
@@ -204,11 +201,11 @@ export default function BarcodeScanner() {
                     
                     <div className="flex items-center justify-between mb-4">
                       <div className="text-2xl font-bold text-blue-600">
-                        ${product.price}
+                        ${product.price.toLocaleString()}
                       </div>
                       <div className="flex items-center text-green-600">
                         <Package className="w-5 h-5 ml-1 rtl:ml-0 rtl:mr-1" />
-                        <span className="font-medium">متوفر</span>
+                        <span className="font-medium">In Stock</span>
                       </div>
                     </div>
 
@@ -234,7 +231,7 @@ export default function BarcodeScanner() {
 
                     {/* Barcode Info */}
                     <div className="bg-gray-100 rounded-lg p-4 text-center">
-                      <p className="text-sm text-gray-500 mb-2">رقم الباركود</p>
+                      <p className="text-sm text-gray-500 mb-2">Barcode Number</p>
                       <p className="font-mono text-lg font-bold">{product.barcode}</p>
                     </div>
                   </div>
@@ -245,7 +242,7 @@ export default function BarcodeScanner() {
                   <div className="bg-white rounded-2xl shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                       <Tag className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
-                      المواصفات
+                      Specifications
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {Object.entries(product.specifications).map(([key, value]) => (
@@ -262,14 +259,14 @@ export default function BarcodeScanner() {
                 <div className="bg-white rounded-2xl shadow-lg p-6">
                   <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                     <ShoppingCart className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
-                    طلب المنتج
+                    Order Product
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    اضغط على الزر أدناه للانتقال إلى صفحة الطلب وإكمال عملية الشراء
+                    Click the button below to go to the product page and complete your purchase
                   </p>
                   <Link href={`/products/${product.id}`}>
                     <Button className="w-full bg-blue-600 text-white hover:bg-blue-700">
-                      طلب المنتج الآن
+                      Order Product Now
                     </Button>
                   </Link>
                 </div>
@@ -278,9 +275,9 @@ export default function BarcodeScanner() {
               <div className="bg-white rounded-2xl shadow-lg p-8">
                 <div className="text-center text-gray-500">
                   <QrCode className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">لم يتم مسح أي باركود</h3>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">No Barcode Scanned</h3>
                   <p className="text-gray-600">
-                    امسح باركود المنتج أو أدخله يدوياً لعرض التفاصيل
+                    Scan a product barcode or enter it manually to view details
                   </p>
                 </div>
               </div>

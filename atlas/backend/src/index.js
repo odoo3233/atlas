@@ -11,7 +11,7 @@ const barcodeRoutes = require('./routes/barcode');
 
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Database connection
 const pool = new Pool({

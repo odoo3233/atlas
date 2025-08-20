@@ -35,13 +35,13 @@ export default function AboutPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-ghost-white/20 text-ghost-white rounded-full text-sm font-medium mb-6">
               <Building2 className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
-              {t('home.about.badge')}
+              {t('about.hero.badge')}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {t('home.about.title')}
+              {t('about.hero.title')}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              {t('home.about.subtitle')}
+              {t('about.hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6 bg-ghost-white text-eerie-black hover:bg-platinum transition-all duration-300">
@@ -50,7 +50,7 @@ export default function AboutPage() {
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300">
                 <ArrowRight className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-                {t('home.about.learnMore')}
+                {t('about.hero.learnMore')}
               </Button>
             </div>
           </div>
@@ -67,14 +67,14 @@ export default function AboutPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-palette-celestial-blue to-blue-600 text-white mr-4 shadow-lg rtl:mr-0 rtl:ml-4">
                   <Target size={28} />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 rtl:mr-4">{t('home.about.vision.title')}</h3>
+                <h3 className="text-2xl font-bold text-gray-800 rtl:mr-4">{t('about.vision.title')}</h3>
               </div>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                {t('home.about.vision.description')}
+                {t('about.vision.description')}
               </p>
               <div className="flex items-center text-palette-celestial-blue font-semibold">
                 <span className="mr-2 rtl:mr-0 rtl:ml-2">→</span>
-                {t('home.about.vision.learnMore')}
+                {t('about.vision.learnMore')}
               </div>
             </div>
             
@@ -84,14 +84,14 @@ export default function AboutPage() {
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 text-white mr-4 shadow-lg rtl:mr-0 rtl:ml-4">
                   <Award size={28} />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 rtl:mr-4">{t('home.about.mission.title')}</h3>
+                <h3 className="text-2xl font-bold text-gray-800 rtl:mr-4">{t('about.mission.title')}</h3>
               </div>
               <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                {t('home.about.mission.description')}
+                {t('about.mission.description')}
               </p>
               <div className="flex items-center text-green-600 font-semibold">
                 <span className="mr-2 rtl:mr-0 rtl:ml-2">→</span>
-                {t('home.about.mission.learnMore')}
+                {t('about.mission.learnMore')}
               </div>
             </div>
           </div>
@@ -110,24 +110,24 @@ export default function AboutPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 text-white mr-4 shadow-lg rtl:mr-0 rtl:ml-4">
                 <Building2 size={28} />
               </div>
-              <h3 className="text-3xl font-bold text-gray-800 rtl:mr-4">{t('home.about.company.title')}</h3>
+              <h3 className="text-3xl font-bold text-gray-800 rtl:mr-4">{t('about.company.title')}</h3>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               <div>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                  {t('home.about.company.description')}
+                  {t('about.company.description')}
                 </p>
                 
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-6 mt-8">
                   <div className="text-center p-4 bg-gradient-to-br from-palette-celestial-blue/10 to-blue-50 rounded-xl">
                     <div className="text-3xl font-bold text-palette-celestial-blue mb-1">15+</div>
-                    <div className="text-sm text-gray-600">{t('home.about.stats.years')}</div>
+                    <div className="text-sm text-gray-600">{t('about.stats.years')}</div>
                   </div>
                   <div className="text-center p-4 bg-gradient-to-br from-green-500/10 to-emerald-50 rounded-xl">
                     <div className="text-3xl font-bold text-green-600 mb-1">500+</div>
-                    <div className="text-sm text-gray-600">{t('home.about.stats.events')}</div>
+                    <div className="text-sm text-gray-600">{t('about.stats.events')}</div>
                   </div>
                 </div>
               </div>
@@ -138,8 +138,8 @@ export default function AboutPage() {
                     <CheckCircle size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.experience')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.experienceDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('about.company.features.experience')}</h4>
+                    <p className="text-gray-600 text-sm">{t('about.company.features.experienceDesc')}</p>
                   </div>
                 </div>
                 
@@ -148,8 +148,8 @@ export default function AboutPage() {
                     <Globe size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.network')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.networkDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('about.company.features.network')}</h4>
+                    <p className="text-gray-600 text-sm">{t('about.company.features.networkDesc')}</p>
                   </div>
                 </div>
                 
@@ -158,8 +158,8 @@ export default function AboutPage() {
                     <Star size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.quality')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.qualityDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('about.company.features.quality')}</h4>
+                    <p className="text-gray-600 text-sm">{t('about.company.features.qualityDesc')}</p>
                   </div>
                 </div>
                 
@@ -168,8 +168,8 @@ export default function AboutPage() {
                     <Shield size={20} />
                   </div>
                   <div className="rtl:mr-4">
-                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('home.about.company.features.support')}</h4>
-                    <p className="text-gray-600 text-sm">{t('home.about.company.features.supportDesc')}</p>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">{t('about.company.features.support')}</h4>
+                    <p className="text-gray-600 text-sm">{t('about.company.features.supportDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -183,10 +183,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-              {t('home.whyAtlas.title')}
+              {t('about.whyChooseUs.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('home.whyAtlas.subtitle')}
+              {t('about.whyChooseUs.subtitle')}
             </p>
           </div>
 
@@ -195,48 +195,48 @@ export default function AboutPage() {
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-palette-celestial-blue text-white mb-6 shadow-lg">
                 <Users size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.experience.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.experience.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('about.whyChooseUs.experience.title')}</h3>
+              <p className="text-gray-600">{t('about.whyChooseUs.experience.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-green-500/5 to-emerald-50 rounded-2xl border border-green-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-green-500 text-white mb-6 shadow-lg">
                 <Globe size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.network.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.network.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('about.whyChooseUs.network.title')}</h3>
+              <p className="text-gray-600">{t('about.whyChooseUs.network.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-purple-500/5 to-indigo-50 rounded-2xl border border-purple-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-purple-500 text-white mb-6 shadow-lg">
                 <Award size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.quality.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.quality.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('about.whyChooseUs.quality.title')}</h3>
+              <p className="text-gray-600">{t('about.whyChooseUs.quality.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-orange-500/5 to-amber-50 rounded-2xl border border-orange-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-orange-500 text-white mb-6 shadow-lg">
                 <Calendar size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.events.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.events.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('about.whyChooseUs.events.title')}</h3>
+              <p className="text-gray-600">{t('about.whyChooseUs.events.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-red-500/5 to-red-50 rounded-2xl border border-red-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-red-500 text-white mb-6 shadow-lg">
                 <Shield size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.support.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.support.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('about.whyChooseUs.support.title')}</h3>
+              <p className="text-gray-600">{t('about.whyChooseUs.support.description')}</p>
             </div>
 
             <div className="text-center p-8 bg-gradient-to-br from-teal-500/5 to-teal-50 rounded-2xl border border-teal-500/20 hover:shadow-xl transition-all duration-300">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-500 text-white mb-6 shadow-lg">
                 <Star size={32} />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('home.whyAtlas.innovation.title')}</h3>
-              <p className="text-gray-600">{t('home.whyAtlas.innovation.description')}</p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4">{t('about.whyChooseUs.innovation.title')}</h3>
+              <p className="text-gray-600">{t('about.whyChooseUs.innovation.description')}</p>
             </div>
           </div>
         </div>
@@ -246,10 +246,10 @@ export default function AboutPage() {
       <section className="py-20 bg-gradient-to-br from-palette-celestial-blue to-blue-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            {t('home.about.cta.title')}
+            {t('about.cta.title')}
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            {t('home.about.cta.description')}
+            {t('about.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8 py-6 bg-white text-palette-celestial-blue hover:bg-gray-100 transition-all duration-300">
@@ -258,7 +258,7 @@ export default function AboutPage() {
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-palette-celestial-blue transition-all duration-300">
               <Mail className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-              {t('contact.hero.emailUs')}
+              {t('about.cta.emailUs')}
             </Button>
           </div>
         </div>
