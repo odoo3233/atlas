@@ -1,20 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { Pool } = require('pg');
-
-// Database connection
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'atlas_db',
-  password: 'postgres',
-  port: 5432,
-});
 
 // Get all orders with product details and notes
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT 
         o.*,
         json_agg(
@@ -50,12 +40,53 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get orders by status
+router.get('/status/:status', async (req, res) => {
+  try {
+    const { status } = req.params;
+    
+    const result = await req.db.query(`
+      SELECT 
+        o.*,
+        json_agg(
+          json_build_object(
+            'id', oi.id,
+            'product_id', oi.product_id,
+            'product_name', p.name,
+            'product_barcode', p.barcode,
+            'quantity', oi.quantity,
+            'price', oi.price
+          )
+        ) FILTER (WHERE oi.id IS NOT NULL) as items,
+        json_agg(
+          json_build_object(
+            'id', on.id,
+            'note', on.note,
+            'created_at', on.created_at
+          )
+        ) FILTER (WHERE on.id IS NOT NULL) as notes
+      FROM orders o
+      LEFT JOIN order_items oi ON o.id = oi.order_id
+      LEFT JOIN products p ON oi.product_id = p.id
+      LEFT JOIN order_notes on ON o.id = on.order_id
+      WHERE o.status = $1
+      GROUP BY o.id
+      ORDER BY o.created_at DESC
+    `, [status]);
+    
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error fetching orders by status:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Get order by ID with full details
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT 
         o.*,
         json_agg(
@@ -98,7 +129,7 @@ router.get('/:id', async (req, res) => {
 
 // Create new order
 router.post('/', async (req, res) => {
-  const client = await pool.connect();
+  const client = await req.db.connect();
   
   try {
     await client.query('BEGIN');
@@ -137,7 +168,7 @@ router.post('/', async (req, res) => {
     await client.query('COMMIT');
     
     // Return the complete order with items
-    const completeOrder = await pool.query(`
+    const completeOrder = await req.db.query(`
       SELECT 
         o.*,
         json_agg(
@@ -179,7 +210,7 @@ router.put('/:id/status', async (req, res) => {
       return res.status(400).json({ error: 'Invalid status' });
     }
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       UPDATE orders 
       SET status = $1, updated_at = NOW()
       WHERE id = $2
@@ -204,12 +235,12 @@ router.post('/:id/notes', async (req, res) => {
     const { note } = req.body;
     
     // Check if order exists
-    const orderCheck = await pool.query('SELECT id FROM orders WHERE id = $1', [id]);
+    const orderCheck = await req.db.query('SELECT id FROM orders WHERE id = $1', [id]);
     if (orderCheck.rows.length === 0) {
       return res.status(404).json({ error: 'Order not found' });
     }
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       INSERT INTO order_notes (order_id, note, created_at)
       VALUES ($1, $2, NOW())
       RETURNING *
@@ -227,7 +258,7 @@ router.get('/:id/notes', async (req, res) => {
   try {
     const { id } = req.params;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT * FROM order_notes 
       WHERE order_id = $1 
       ORDER BY created_at DESC
@@ -246,9 +277,9 @@ router.put('/notes/:noteId', async (req, res) => {
     const { noteId } = req.params;
     const { note } = req.body;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       UPDATE order_notes 
-      SET note = $1
+      SET note = $1, updated_at = NOW()
       WHERE id = $2
       RETURNING *
     `, [note, noteId]);
@@ -269,7 +300,7 @@ router.delete('/notes/:noteId', async (req, res) => {
   try {
     const { noteId } = req.params;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       DELETE FROM order_notes 
       WHERE id = $1 
       RETURNING *
@@ -286,53 +317,12 @@ router.delete('/notes/:noteId', async (req, res) => {
   }
 });
 
-// Get orders by status
-router.get('/status/:status', async (req, res) => {
-  try {
-    const { status } = req.params;
-    
-    const result = await pool.query(`
-      SELECT 
-        o.*,
-        json_agg(
-          json_build_object(
-            'id', oi.id,
-            'product_id', oi.product_id,
-            'product_name', p.name,
-            'product_barcode', p.barcode,
-            'quantity', oi.quantity,
-            'price', oi.price
-          )
-        ) FILTER (WHERE oi.id IS NOT NULL) as items,
-        json_agg(
-          json_build_object(
-            'id', on.id,
-            'note', on.note,
-            'created_at', on.created_at
-          )
-        ) FILTER (WHERE on.id IS NOT NULL) as notes
-      FROM orders o
-      LEFT JOIN order_items oi ON o.id = oi.order_id
-      LEFT JOIN products p ON oi.product_id = p.id
-      LEFT JOIN order_notes on ON o.id = on.order_id
-      WHERE o.status = $1
-      GROUP BY o.id
-      ORDER BY o.created_at DESC
-    `, [status]);
-    
-    res.json(result.rows);
-  } catch (error) {
-    console.error('Error fetching orders by status:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
 // Get orders by customer email
 router.get('/customer/:email', async (req, res) => {
   try {
     const { email } = req.params;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT 
         o.*,
         json_agg(
