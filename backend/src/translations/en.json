@@ -1,0 +1,537 @@
+{
+  "common": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "exhibitions": "Exhibitions",
+    "products": "Atlas Al-Sharq Store",
+    "contact": "Contact Us",
+    "companyName": "Atlas Al-Sharq",
+    "companyNameEn": "Atlas Al-Sharq",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "download": "Download",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "description": "A leading company in exhibitions and international trade, connecting companies to global markets through integrated and specialized services",
+    "quickLinks": "Quick Links",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Get the latest news and offers",
+    "subscribe": "Subscribe",
+    "email": "Email",
+    "copyright": "All rights reserved © 2025 Atlas Al-Sharq",
+    "back": "Back"
+  },
+  "footer": {
+    "description": "A leading company in exhibitions and international trade, connecting companies to global markets through integrated and specialized services",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contactInfo": "Contact Information",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Subscribe to our newsletter for the latest news and offers",
+    "subscribe": "Subscribe",
+    "email": "Email",
+    "copyright": "All rights reserved © 2024 Atlas Al-Sharq Exhibitions & Conferences"
+  },
+  "products": {
+    "title": "Atlas Al-Sharq Store",
+    "subtitle": "Discover our distinguished products",
+    "search": "Search for a product...",
+    "filter": "Filter Products",
+    "sort": "Sort by",
+    "viewDetails": "View Details",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "inStock": "In Stock",
+    "price": "Price",
+    "rating": "Rating",
+    "noResults": "No products found",
+    "noResultsDesc": "Try changing your search or filter criteria",
+    "categories": {
+      "all": "All Products",
+      "lighting": "Lighting",
+      "renewableEnergy": "Renewable Energy",
+      "smartHome": "Smart Home",
+      "industrial": "Industrial",
+      "safetyEquipment": "Safety Equipment"
+    },
+    "specifications": "Specifications",
+    "relatedProducts": "Related Products",
+    "relatedProductsDesc": "Discover more products from our catalog",
+    "viewAllProducts": "View All Products",
+    "scanBarcode": "Scan Barcode",
+    "freeShipping": "Free Shipping",
+    "warranty": "Warranty",
+    "freeReturn": "Free Return",
+    "scanningBarcode": "Scanning Barcode",
+    "searchingProduct": "Searching for product...",
+    "productFound": "Product Found!",
+    "redirectingToProduct": "Redirecting to product page...",
+    "viewProductNow": "View Product Now",
+    "browseMore": "Browse More Products",
+    "browseProducts": "Browse Products",
+    "tryAnotherBarcode": "Try Another Barcode"
+  },
+  "businessVisits": {
+    "hero": {
+      "title": "Business Trips to China",
+      "subtitle": "Discover Real Estate Investment Opportunities in China",
+      "description": "An introductory trip to learn about real estate companies and build partnerships for them locally in Saudi Arabia with exclusive investment opportunities",
+      "badge": "Exclusive Investment Trip"
+    },
+    "packages": {
+      "basic": {
+        "title": "Basic Package",
+        "price": "15,000 SAR",
+        "duration": "5 Days / 4 Nights",
+        "features": [
+          "Round-trip flight tickets",
+          "4-star hotel accommodation",
+          "Breakfast and lunch meals",
+          "City sightseeing tours",
+          "Arabic-speaking tour guide"
+        ]
+      },
+      "premium": {
+        "title": "Premium Package",
+        "price": "25,000 SAR",
+        "duration": "7 Days / 6 Nights",
+        "features": [
+          "Round-trip flight tickets",
+          "5-star hotel accommodation",
+          "Full board meals (breakfast, lunch, dinner)",
+          "Comprehensive sightseeing tours",
+          "Arabic-speaking tour guide",
+          "Private transportation",
+          "Consultation sessions with real estate experts"
+        ]
+      },
+      "custom": {
+        "title": "Custom Package",
+        "price": "On Request",
+        "duration": "Customized",
+        "features": [
+          "Round-trip flight tickets",
+          "Luxury hotel accommodation",
+          "Gourmet meals",
+          "Private sightseeing tours",
+          "Private tour guide",
+          "Luxury transportation",
+          "Intensive consultation sessions",
+          "Special arrangements on request"
+        ]
+      }
+    },
+    "register": "Register Now",
+    "contact": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "title": "Atlas Al-Sharq Exhibitions & Conferences",
+      "subtitle": "Connecting companies to global markets through integrated and specialized services",
+      "description": "We are proud of 15+ years of experience in exhibitions and international trade, providing innovative solutions to connect Saudi companies with Chinese and global markets",
+      "cta": "Start Your Success Journey",
+      "secondaryCta": "Discover Our Services",
+      "badge": "Leading International Exhibition Company"
+    },
+    "about": {
+      "title": "About Us",
+      "subtitle": "Atlas Al-Sharq Exhibitions & Conferences Company",
+      "description": "We are proud of 15+ years of experience in exhibitions and international trade, providing innovative solutions to connect Saudi companies with Chinese and global markets",
+      "features": {
+        "experience": "15+ Years Experience",
+        "experienceDesc": "Deep experience in organizing international business events",
+        "network": "2000+ Chinese Partners",
+        "networkDesc": "Close relationships with Chinese and Saudi companies",
+        "success": "98% Satisfaction Rate",
+        "successDesc": "World-class quality standards in all our services",
+        "support": "Continuous Support",
+        "supportDesc": "Technical and administrative support around the clock",
+        "events": "500+ Successful Events"
+      },
+      "stats": {
+        "years": "Years of Experience"
+      },
+      "cta": {
+        "title": "Contact Us Today",
+        "description": "We are here to help you achieve your business goals. Contact us now for a free consultation",
+        "button": "Get Free Consultation"
+      }
+    },
+    "services": {
+      "title": "Our Specialized Services",
+      "subtitle": "We provide a comprehensive range of specialized services to connect businesses between China and the Kingdom of Saudi Arabia",
+      "exhibitions": "Exhibition & Event Organization",
+      "exhibitionsDesc": "Organizing professional exhibitions and events to showcase products and services with the latest technologies and designs",
+      "business": "Business Networking",
+      "businessDesc": "Connecting business leaders between China and the Kingdom of Saudi Arabia for mutual growth and building strategic partnerships",
+      "trips": "Business Travel Organization",
+      "tripsDesc": "Arranging business trips for companies to meet potential partners and explore new investment opportunities",
+      "cta": {
+        "title": "Ready to Start Your Success Journey?",
+        "description": "Discover how our specialized services can help you achieve your business goals",
+        "explore": "Explore All Services",
+        "contact": "Contact Us Now"
+      }
+    },
+    "upcomingEvents": {
+      "title": "Upcoming Events",
+      "subtitle": "Discover the most important upcoming events and exhibitions",
+      "businessVisits": {
+        "title": "Saudi Business Leaders Visit to China",
+        "subtitle": "Exploratory trip for real estate investment opportunities",
+        "description": "An introductory trip to meet real estate companies and build partnerships for them locally in Saudi Arabia with exclusive investment opportunities",
+        "date": "November 2025",
+        "stats": {
+          "companies": "Companies",
+          "partnerships": "Expected Partnerships",
+          "city": "Chengdu",
+          "cityLabel": "City",
+          "executives": "Executive Seats"
+        },
+        "register": "Register Now",
+        "learnMore": "Learn More"
+      },
+      "cta": {
+        "title": "Don't Miss the Opportunity to Participate",
+        "description": "Register now for our upcoming events and get exclusive investment opportunities",
+        "viewAll": "View All Events",
+        "contact": "Contact Us"
+      }
+    },
+    "whyAtlas": {
+      "title": "Why Atlas Al-Sharq?",
+      "subtitle": "Choose Atlas Al-Sharq for your business success",
+      "description": "We excel with unique experience and integrated services that make us the optimal choice for your business partners",
+      "expertise": {
+        "title": "Exceptional Expertise",
+        "stats": "15+ Years Experience",
+        "description": "Over 15 years of experience in international exhibitions and conferences, with deep understanding of business culture in China and the Kingdom of Saudi Arabia"
+      },
+      "network": {
+        "title": "Strong Network",
+        "stats": "2000+ Chinese Partners",
+        "description": "A wide network comprising more than 2000 business partners in China and 500 Saudi companies, ensuring you access the best business opportunities"
+      },
+      "success": {
+        "title": "Outstanding Success Record",
+        "stats": "98% Satisfaction Rate",
+        "description": "We are proud to organize more than 500 successful events, with a satisfaction rate reaching 98% from our clients, making us the trusted choice for your business success"
+      },
+      "innovation": {
+        "title": "Continuous Innovation",
+        "stats": "Modern Technologies",
+        "description": "We keep pace with the latest technologies and trends in the exhibition field, providing innovative solutions that ensure a unique and distinguished experience for all participants"
+      },
+      "support": {
+        "title": "24/7 Comprehensive Support",
+        "stats": "24/7 Support",
+        "description": "A specialized support team available around the clock to provide assistance and technical support, ensuring the success of your events from start to finish"
+      },
+      "quality": {
+        "title": "Guaranteed High Quality",
+        "stats": "ISO 9001",
+        "description": "We are committed to the highest international quality standards, with international accreditation certificates and complete satisfaction guarantee for all our services"
+      },
+      "cta": {
+        "title": "Start Your Success Journey With Us",
+        "description": "Join thousands of successful companies that have chosen Atlas Al-Sharq as their strategic partner",
+        "button": "Contact Us Now"
+      }
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "Specialized Services",
+      "title": "Our Integrated Services",
+      "description": "We provide a comprehensive range of specialized services to connect businesses between China and the Kingdom of Saudi Arabia",
+      "exploreServices": "Explore Our Services"
+    },
+    "servicesList": {
+      "exhibitions": {
+        "title": "Exhibition & Event Organization",
+        "description": "Organizing professional exhibitions and events with the latest technologies and designs",
+        "features": [
+          "Professional Booth Design",
+          "Comprehensive Event Management",
+          "Integrated Logistics Services",
+          "Advanced Marketing Support"
+        ]
+      },
+      "networking": {
+        "title": "Business Networking",
+        "description": "Connecting business leaders between China and the Kingdom of Saudi Arabia",
+        "features": [
+          "Customized B2B Meetings",
+          "Extensive Network",
+          "Exclusive Investment Opportunities",
+          "Legal and Advisory Support"
+        ]
+      },
+      "travel": {
+        "title": "Business Travel Organization",
+        "description": "Arranging business trips for companies to meet potential partners",
+        "features": [
+          "Customized Travel Programs",
+          "Simultaneous Translation",
+          "Comprehensive VIP Services",
+          "Post-Trip Follow-up"
+        ]
+      },
+      "showcase": {
+        "title": "Product & Service Showcase",
+        "description": "Professional showcase of products and services at international exhibitions",
+        "features": [
+          "Professional Exhibition Booths",
+          "Interactive Displays",
+          "Comprehensive Marketing Support",
+          "Customer Follow-up"
+        ]
+      },
+      "intelligence": {
+        "title": "Market Intelligence",
+        "description": "Comprehensive analysis of Chinese and Saudi markets",
+        "features": [
+          "Market Studies",
+          "Competitor Analysis",
+          "Investment Reports",
+          "Strategic Consulting"
+        ]
+      },
+      "partnerships": {
+        "title": "Partnership Management",
+        "description": "Comprehensive management of business and investment partnerships",
+        "features": [
+          "Partnership Development",
+          "Contract Management",
+          "Performance Monitoring",
+          "Dispute Resolution"
+        ]
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Our Services?",
+      "description": "We excel with unique experience and integrated services that make us the optimal choice for your business partners",
+      "excellence": {
+        "title": "Service Excellence",
+        "description": "We are committed to the highest quality standards in all our services"
+      },
+      "expertise": {
+        "title": "Specialized Expertise",
+        "description": "Team of experts specialized in exhibitions and international trade"
+      },
+      "solutions": {
+        "title": "Customized Solutions",
+        "description": "We provide customized solutions that suit each client's needs"
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Success Journey?",
+      "description": "Discover how our specialized services can help you achieve your business goals",
+      "contact": "Contact Us Now",
+      "learnMore": "Learn More"
+    },
+    "exhibitions": {
+      "title": "Exhibition & Event Organization",
+      "description": "Organizing professional exhibitions and events with the latest technologies and designs",
+      "features": [
+        "Professional Booth Design",
+        "Comprehensive Event Management",
+        "Integrated Logistics Services",
+        "Advanced Marketing Support"
+      ]
+    },
+    "businessNetworking": {
+      "title": "Business Networking",
+      "description": "Connecting business leaders between China and the Kingdom of Saudi Arabia",
+      "features": [
+        "Customized B2B Meetings",
+        "Extensive Network",
+        "Exclusive Investment Opportunities",
+        "Legal and Advisory Support"
+      ]
+    },
+    "businessTrips": {
+      "title": "Business Travel Organization",
+      "description": "Arranging business trips for companies to meet potential partners",
+      "features": [
+        "Customized Travel Programs",
+        "Simultaneous Translation",
+        "Comprehensive VIP Services",
+        "Post-Trip Follow-up"
+      ]
+    }
+  },
+  "exhibitions": {
+    "title": "Exhibitions & Events",
+    "subtitle": "Discover the most important international business exhibitions and events",
+    "hero": {
+      "badge": "Exhibitions & Events",
+      "viewEvents": "View Events",
+      "registerNow": "Register Now"
+    },
+    "all": "All Events",
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "noEvents": "No events available at the moment",
+    "falconExhibition": {
+      "title": "Saudi International Falconry & Hunting Exhibition 2025",
+      "subtitle": "The largest falconry and hunting exhibition in the Middle East",
+      "description": "The International Falconry Exhibition is an annual event that brings together falconry enthusiasts from around the world. It showcases the best types of falcons and the latest equipment and techniques used in falconry",
+      "date": "October 2-11, 2025",
+      "features": {
+        "exhibitors": "Chinese Companies",
+        "visitors": "Expected Visitors",
+        "cities": "Chinese Cities",
+        "countries": "Chinese Companies"
+      }
+    },
+    "registerNow": "Register Now"
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "We are here to help you succeed in your business",
+      "description": "Our team is available around the clock to provide assistance and technical support",
+      "callNow": "Call Now"
+    },
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "success": "Your message has been sent successfully",
+      "error": "Error sending message"
+    },
+    "info": {
+      "address": "Riyadh, Kingdom of Saudi Arabia",
+      "phone": "+966 11 123 4567",
+      "email": "info@atlas-alsharq.com",
+      "hours": "Sunday - Thursday: 8:00 AM - 6:00 PM"
+    }
+  },
+  "orders": {
+    "title": "Order Management",
+    "subtitle": "Track your orders and manage purchase requests",
+    "trackOrder": "Track Order",
+    "newOrder": "New Order",
+    "orderNumber": "Order Number",
+    "orderEmail": "Email Address",
+    "track": "Track",
+    "trackingError": "Order not found. Please verify the order number and email address.",
+    "formError": "Please fill in all required fields.",
+    "customerName": "Customer Name",
+    "customerEmail": "Email Address",
+    "customerPhone": "Phone Number",
+    "companyName": "Company Name",
+    "message": "Message",
+    "productId": "Product ID",
+    "quantity": "Quantity",
+    "submit": "Submit Order",
+    "orderSuccess": "Your order has been submitted successfully",
+    "orderStatus": "Order Status",
+    "orderDate": "Order Date",
+    "orderItems": "Order Items",
+    "processing": "Processing",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  },
+  "businessVisits": {
+    "title": "Business Trips to China",
+    "subtitle": "Discover real estate investment opportunities in China",
+    "description": "We provide customized business trips for Saudi companies to meet leading Chinese real estate companies and build strategic partnerships",
+    "hero": {
+      "badge": "Customized Business Trips",
+      "contactUs": "Contact Us",
+      "scheduleVisit": "Schedule Visit"
+    },
+    "packagesTitle": "Business Trip Packages",
+    "packagesSubtitle": "Choose the package that suits your company's needs",
+    "packages": {
+      "basic": {
+        "title": "Basic Package",
+        "price": "15,000 SAR",
+        "duration": "5 Days / 4 Nights",
+        "features": [
+          "Visit 3 leading real estate companies",
+          "Simultaneous translation",
+          "VIP transportation",
+          "Luxury accommodation",
+          "Business lunches",
+          "Detailed report"
+        ]
+      },
+      "premium": {
+        "title": "Premium Package",
+        "price": "25,000 SAR",
+        "duration": "7 Days / 6 Nights",
+        "features": [
+          "Visit 5 leading real estate companies",
+          "Specialized simultaneous translation",
+          "VIP transportation with private driver",
+          "5-star luxury accommodation",
+          "Comprehensive business meals",
+          "Sightseeing tours",
+          "Detailed report with recommendations",
+          "Post-trip follow-up"
+        ]
+      },
+      "custom": {
+        "title": "Custom Package",
+        "price": "On Request",
+        "duration": "Customized",
+        "features": [
+          "Customized program according to your needs",
+          "Visit specific companies",
+          "Comprehensive VIP services",
+          "Custom luxury accommodation",
+          "Premium business meals",
+          "Private sightseeing tours",
+          "Detailed report with action plan",
+          "Continuous follow-up"
+        ]
+      }
+    },
+    "register": "Register Now",
+    "contact": "Contact Us",
+    "stats": {
+      "title": "Real Estate Investment Statistics",
+      "subtitle": "Numbers speak for themselves"
+    },
+    "contactTitle": "Contact Us",
+    "contactSubtitle": "We are here to help you plan your business trip to China",
+    "phoneTitle": "Call Us",
+    "phoneSubtitle": "Our team is available 24/7",
+    "emailTitle": "Email Us",
+    "emailSubtitle": "Send us your inquiry"
+  },
+  "footer": {
+    "description": "A leading company in the field of exhibitions and international trade, connecting companies to global markets through integrated and specialized services",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contact": "Contact Us",
+    "social": "Follow Us",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Get the latest news and offers",
+    "subscribe": "Subscribe",
+    "email": "Email Address",
+    "copyright": "All rights reserved © 2025 Atlas Al-Sharq"
+  }
+}
