@@ -2,40 +2,21 @@
 
 import React, { useState, useEffect } from "react"
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
-import { Menu, X, ShoppingBag, Globe, Phone } from "lucide-react"
-import { LanguageSwitcher } from "./language-switcher"
-import { getFallbackTranslation, getCurrentLanguage } from "@/lib/translation-utils"
+import { Menu, X, ShoppingBag, Phone } from "lucide-react"
 
 export function Header() {
-  const { t } = useTranslation('common')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const [currentLang, setCurrentLang] = useState('ar')
-
-  useEffect(() => {
-    setMounted(true)
-    setCurrentLang(getCurrentLanguage())
-  }, [])
-
-  // Get translations with fallbacks
-  const getTranslatedText = (key: string) => {
-    if (!mounted) {
-      return getFallbackTranslation(key, currentLang)
-    }
-    const translation = t(key)
-    return translation === key ? getFallbackTranslation(key, currentLang) : translation
-  }
 
   const navigation = [
-    { name: getTranslatedText('home'), href: "/" },
-    { name: getTranslatedText('about'), href: "/about" },
-    { name: getTranslatedText('services'), href: "/services" },
-    { name: getTranslatedText('exhibitions'), href: "/exhibitions" },
+    { name: "الرئيسية", href: "/" },
+    { name: "من نحن", href: "/about" },
+    { name: "خدماتنا", href: "/services" },
+    { name: "المعارض", href: "/exhibitions" },
     { name: "رحلات الأعمال", href: "/business-visits" },
-    { name: getTranslatedText('products'), href: "/products" },
-    { name: getTranslatedText('contact'), href: "/contact" },
+    { name: "المنتجات", href: "/products" },
+    { name: "التواصل", href: "/contact" },
+    { name: "الإدارة", href: "/admin" },
   ]
 
   useEffect(() => {
@@ -45,25 +26,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  // Show loading state until mounted
-  if (!mounted) {
-    return (
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20 lg:h-24">
-            <div className="flex items-center space-x-4 rtl:space-x-reverse">
-              <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-3xl bg-white/20 backdrop-blur-md border border-white/30 animate-pulse"></div>
-              <div className="hidden sm:block">
-                <div className="h-8 w-32 bg-white/20 rounded animate-pulse"></div>
-                <div className="h-4 w-24 bg-white/20 rounded animate-pulse mt-2"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-    )
-  }
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -91,12 +53,12 @@ export function Header() {
               <h1 className={`text-2xl lg:text-3xl font-bold transition-colors duration-300 ${
                 isScrolled ? "text-gray-900" : "text-white"
               }`}>
-                {getTranslatedText('companyName')}
+                أطلس الشرق
               </h1>
               <p className={`text-sm lg:text-base transition-colors duration-300 ${
                 isScrolled ? "text-gray-600" : "text-white/80"
               }`}>
-                {getTranslatedText('companyNameEn')}
+                Atlas Al-Sharq
               </p>
             </div>
           </Link>
@@ -107,7 +69,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`nav-link text-lg font-semibold transition-all duration-300 hover:scale-105 ${
+                className={`text-lg font-semibold transition-all duration-300 hover:scale-105 ${
                   isScrolled 
                     ? "text-gray-700 hover:text-blue-600" 
                     : "text-white hover:text-white/90"
@@ -120,7 +82,6 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
-            <LanguageSwitcher />
             <Link
               href="/contact"
               className={`flex items-center space-x-2 rtl:space-x-reverse px-6 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
@@ -130,7 +91,7 @@ export function Header() {
               }`}
             >
               <Phone className="w-5 h-5" />
-              <span>{getTranslatedText('contactUs')}</span>
+              <span>تواصل معنا</span>
             </Link>
           </div>
 
@@ -170,21 +131,18 @@ export function Header() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-gray-200/20">
-                <div className="flex items-center justify-between px-4">
-                  <LanguageSwitcher />
-                  <Link
-                    href="/contact"
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`flex items-center space-x-2 rtl:space-x-reverse px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
-                      isScrolled
-                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-                        : "bg-white/20 backdrop-blur-md text-white border border-white/30"
-                    }`}
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>{getTranslatedText('contactUs')}</span>
-                  </Link>
-                </div>
+                <Link
+                  href="/contact"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`flex items-center space-x-2 rtl:space-x-reverse px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
+                    isScrolled
+                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                      : "bg-white/20 backdrop-blur-md text-white border border-white/30"
+                  }`}
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>تواصل معنا</span>
+                </Link>
               </div>
             </nav>
           </div>
