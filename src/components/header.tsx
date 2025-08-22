@@ -19,6 +19,7 @@ export function Header() {
     { name: "رحلات الأعمال", href: "/business-visits" },
     { name: t('products'), href: "/products" },
     { name: t('contact'), href: "/contact" },
+    { name: "الإدارة", href: "/admin" },
   ]
 
   useEffect(() => {
