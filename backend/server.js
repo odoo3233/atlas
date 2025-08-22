@@ -15,6 +15,20 @@ const barcodeRoutes = require('./src/routes/barcode');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// CORS configuration for custom domain
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'https://your-domain.com', // استبدل بدومينك
+    'https://www.your-domain.com', // استبدل بدومينك
+    process.env.FRONTEND_URL // إذا كان محدد في البيئة
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 // Database connection for Render
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || process.env.EXTERNAL_DATABASE_URL,
@@ -79,7 +93,6 @@ pool.query('SELECT NOW()', async (err, res) => {
 });
 
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // Make db pool available to routes
@@ -92,6 +105,7 @@ app.use((req, res, next) => {
 app.use('/api/products', productsRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/exhibitions', exhibitionsRoutes);
+app.use('/api/admin', require('./src/routes/admin'));
 app.use('/api/barcode', barcodeRoutes);
 
 // Root route
