@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { useTranslation } from "react-i18next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -23,7 +22,6 @@ interface Exhibition {
 }
 
 export default function ExhibitionsPage() {
-  const { t } = useTranslation('exhibitions')
   const [filter, setFilter] = useState<"all" | "upcoming" | "past">("all")
   const [exhibitions, setExhibitions] = useState<Exhibition[]>([])
   const [loading, setLoading] = useState(true)
@@ -73,8 +71,8 @@ export default function ExhibitionsPage() {
         <Header />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <div className="spinner-modern h-12 w-12 mx-auto"></div>
-            <p className="text-gray-600 mt-4">{t('common.loading', 'Loading...')}</p>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <p className="text-gray-600 mt-4">جاري التحميل...</p>
           </div>
         </div>
         <Footer />
@@ -89,13 +87,13 @@ export default function ExhibitionsPage() {
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
             <div className="text-red-500 text-2xl mb-4">⚠️</div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Exhibitions</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">خطأ في تحميل المعارض</h2>
             <p className="text-gray-600 mb-6">{error}</p>
             <Button 
               onClick={() => window.location.reload()} 
               className="bg-blue-600 hover:bg-blue-700"
             >
-              Try Again
+              إعادة المحاولة
             </Button>
           </div>
         </div>
@@ -109,28 +107,28 @@ export default function ExhibitionsPage() {
       <Header />
       
       {/* Exhibitions Hero */}
-      <section className="hero-gradient relative min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 bg-eerie-black/60 backdrop-blur-[2px]"></div>
+      <section className="relative min-h-[60vh] flex items-center bg-gradient-to-br from-blue-900 to-purple-900">
+        <div className="absolute inset-0 bg-black/60"></div>
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-ghost-white/20 text-ghost-white rounded-full text-sm font-medium mb-6">
-              <Calendar className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
-              {t('hero.badge') || 'معارض وفعاليات'}
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-6">
+              <Calendar className="mr-2" size={16} />
+              معارض وفعاليات
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {t('title') || 'المعارض والفعاليات'}
+              المعارض والفعاليات
             </h1>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
-              {t('subtitle') || 'اكتشف أهم المعارض والفعاليات التجارية الدولية'}
+              اكتشف أهم المعارض والفعاليات التجارية الدولية
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-6 bg-ghost-white text-eerie-black hover:bg-platinum transition-all duration-300">
-                <Calendar className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-                {t('exhibitions.hero.viewEvents') || 'عرض الفعاليات'}
+              <Button size="lg" className="text-lg px-8 py-6 bg-white text-gray-900 hover:bg-gray-100">
+                <Calendar className="mr-2" size={20} />
+                عرض الفعاليات
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300">
-                <Users className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
-                {t('exhibitions.hero.registerNow') || 'سجل الآن'}
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-gray-900">
+                <Users className="mr-2" size={20} />
+                سجل الآن
               </Button>
             </div>
           </div>
@@ -138,7 +136,7 @@ export default function ExhibitionsPage() {
       </section>
       
       {/* Filter Tabs */}
-      <section className="py-8 bg-alabaster">
+      <section className="py-8 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap gap-4 justify-center">
             <Button 
@@ -146,21 +144,21 @@ export default function ExhibitionsPage() {
               onClick={() => setFilter("all")}
               className="min-w-[120px]"
             >
-              {t('exhibitions.all') || 'جميع الفعاليات'}
+              جميع الفعاليات
             </Button>
             <Button 
               variant={filter === "upcoming" ? "default" : "outline"}
               onClick={() => setFilter("upcoming")}
               className="min-w-[120px]"
             >
-              {t('exhibitions.upcoming') || 'الفعاليات القادمة'}
+              الفعاليات القادمة
             </Button>
             <Button 
               variant={filter === "past" ? "default" : "outline"}
               onClick={() => setFilter("past")}
               className="min-w-[120px]"
             >
-              {t('exhibitions.past') || 'الفعاليات السابقة'}
+              الفعاليات السابقة
             </Button>
           </div>
         </div>
@@ -171,7 +169,7 @@ export default function ExhibitionsPage() {
         <div className="container mx-auto px-4">
           {filteredExhibitions.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-xl text-gray-600">{t('exhibitions.noEvents') || 'لا توجد فعاليات متاحة حالياً'}</p>
+              <p className="text-xl text-gray-600">لا توجد فعاليات متاحة حالياً</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -193,21 +191,21 @@ export default function ExhibitionsPage() {
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-gray-500">Exhibition Image</span>
+                          <span className="text-gray-500">صورة المعرض</span>
                         </div>
                       )}
                       
                       {/* Upcoming badge */}
                       {isUpcoming && (
                         <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {t('exhibitions.upcoming') || 'الفعاليات القادمة'}
+                          الفعاليات القادمة
                         </div>
                       )}
                       
                       {/* Past badge */}
                       {!isUpcoming && (
                         <div className="absolute top-4 right-4 bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {t('exhibitions.past') || 'الفعاليات السابقة'}
+                          الفعاليات السابقة
                         </div>
                       )}
                     </div>
@@ -220,13 +218,13 @@ export default function ExhibitionsPage() {
                         <div className="flex items-center text-gray-700">
                           <Calendar className="h-5 w-5 mr-2 text-blue-600" />
                           <span>
-                            {new Date(exhibition.start_date).toLocaleDateString('en-US', { 
+                            {new Date(exhibition.start_date).toLocaleDateString('ar-SA', { 
                               year: 'numeric', 
                               month: 'long', 
                               day: 'numeric' 
                             })}
                             {' - '}
-                            {new Date(exhibition.end_date).toLocaleDateString('en-US', { 
+                            {new Date(exhibition.end_date).toLocaleDateString('ar-SA', { 
                               year: 'numeric', 
                               month: 'long', 
                               day: 'numeric' 
@@ -246,7 +244,7 @@ export default function ExhibitionsPage() {
                       <div className="flex justify-end">
                         <Link href={`/exhibitions/${exhibition.id}`}>
                           <Button>
-                            {isUpcoming ? t('exhibitions.registerNow') : t('exhibitions.viewDetails')}
+                            {isUpcoming ? 'سجل الآن' : 'عرض التفاصيل'}
                           </Button>
                         </Link>
                       </div>
@@ -263,17 +261,16 @@ export default function ExhibitionsPage() {
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Interested in Exhibiting?</h2>
+            <h2 className="text-3xl font-bold mb-6">مهتم بالمشاركة في المعارض؟</h2>
             <p className="text-lg text-gray-700 mb-8">
-              If you're interested in exhibiting your products or services at one of our upcoming events,
-              please contact our exhibitions team for more information and booking details.
+              إذا كنت مهتماً بالمشاركة في أحد معارضنا القادمة، يرجى التواصل مع فريق المعارض للحصول على مزيد من المعلومات وتفاصيل الحجز.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">
-                <Button size="lg">Contact Us</Button>
+                <Button size="lg">تواصل معنا</Button>
               </Link>
               <Link href="/about">
-                <Button variant="outline" size="lg">Learn More</Button>
+                <Button variant="outline" size="lg">اعرف المزيد</Button>
               </Link>
             </div>
           </div>
