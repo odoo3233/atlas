@@ -96,19 +96,26 @@ export default function AdminPage() {
       if (productsRes.ok) {
         const productsData = await productsRes.json()
         setProducts(productsData)
+      } else {
+        console.error('Failed to fetch products:', productsRes.status)
       }
 
       if (exhibitionsRes.ok) {
         const exhibitionsData = await exhibitionsRes.json()
         setExhibitions(exhibitionsData)
+      } else {
+        console.error('Failed to fetch exhibitions:', exhibitionsRes.status)
       }
 
       if (statsRes.ok) {
         const statsData = await statsRes.json()
         setStats(statsData)
+      } else {
+        console.error('Failed to fetch stats:', statsRes.status)
       }
     } catch (error) {
       console.error('Error fetching data:', error)
+      alert('خطأ في الاتصال بالخادم. تأكد من أن الباكند يعمل على Render.')
     } finally {
       setLoading(false)
     }
