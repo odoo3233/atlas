@@ -118,3 +118,30 @@ UPDATE products SET company_name = 'Green Energy Solutions', company_logo = '/lo
 UPDATE products SET company_name = 'TechSmart Systems', company_logo = '/logos/techsmart.png' WHERE id = 3;
 UPDATE products SET company_name = 'Industrial Solutions Ltd.', company_logo = '/logos/industrial-solutions.png' WHERE id = 4;
 UPDATE products SET company_name = 'Safety First Equipment', company_logo = '/logos/safety-first.png' WHERE id = 5;
+
+-- Sample data for orders
+INSERT INTO orders (customer_name, customer_email, customer_phone, company_name, message, status, created_at, updated_at)
+VALUES 
+  ('Ahmed Al-Rashid', 'ahmed@company.com', '+966501234567', 'Al-Rashid Trading Co.', 'Interested in bulk order for LED panels', 'pending', NOW(), NOW()),
+  ('Sarah Johnson', 'sarah@techcorp.com', '+966502345678', 'TechCorp Solutions', 'Need smart home hub for office building', 'confirmed', NOW(), NOW()),
+  ('Mohammed Al-Zahrani', 'mohammed@construction.com', '+966503456789', 'Al-Zahrani Construction', 'Safety equipment for construction site', 'completed', NOW(), NOW()),
+  ('Lisa Chen', 'lisa@greenenergy.com', '+966504567890', 'Green Energy Co.', 'Solar water heaters for residential project', 'processing', NOW(), NOW()),
+  ('Omar Al-Shehri', 'omar@industrial.com', '+966505678901', 'Industrial Solutions Inc.', 'Air purifiers for factory installation', 'new', NOW(), NOW());
+
+-- Sample data for order items
+INSERT INTO order_items (order_id, product_id, quantity, price, created_at, updated_at)
+VALUES 
+  (1, 1, 50, 299.99, NOW(), NOW()),
+  (2, 3, 25, 199.99, NOW(), NOW()),
+  (3, 5, 100, 89.99, NOW(), NOW()),
+  (4, 2, 10, 1299.99, NOW(), NOW()),
+  (5, 4, 5, 2499.99, NOW(), NOW());
+
+-- Sample data for order notes
+INSERT INTO order_notes (order_id, note, created_at)
+VALUES 
+  (1, 'Customer requested white color LED panels', NOW()),
+  (2, 'Installation service required', NOW()),
+  (3, 'Delivery to construction site in Riyadh', NOW()),
+  (4, 'Customer prefers morning delivery', NOW()),
+  (5, 'Technical specifications sent to customer', NOW());
