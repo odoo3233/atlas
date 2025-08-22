@@ -1,87 +1,125 @@
-# Atlas Al-Sharq Backend API
+# أطلس الشرق - Atlas Al-Sharq
 
-Backend API for Atlas Al-Sharq Exhibitions & Conferences website built with Node.js and Express.
+مشروع متكامل لإدارة المعارض والمنتجات والتجارة الدولية.
 
-## Features
+## 🚀 المميزات
 
-- RESTful API endpoints for products, orders, exhibitions, and barcode management
-- PostgreSQL database integration
-- CORS enabled for cross-origin requests
-- Environment variable configuration
-- Health check endpoint
+### الباكند (Backend)
+- **API RESTful** لإدارة المنتجات والمعارض والطلبات
+- **قاعدة بيانات PostgreSQL** مع بيانات تجريبية
+- **نشر على Render** - متاح على: `https://atlas-ha7k.onrender.com`
+- **نقاط النهاية المتاحة:**
+  - `GET /api/products` - عرض جميع المنتجات
+  - `GET /api/exhibitions` - عرض جميع المعارض
+  - `GET /api/orders` - عرض جميع الطلبات
+  - `GET /api/admin/stats` - إحصائيات النظام
+  - `POST /api/admin/products` - إضافة منتج جديد
+  - `DELETE /api/admin/products/:id` - حذف منتج
+  - `POST /api/admin/exhibitions` - إضافة معرض جديد
+  - `DELETE /api/admin/exhibitions/:id` - حذف معرض
 
-## API Endpoints
+### الفرونت إند (Frontend)
+- **Next.js 14** مع TypeScript
+- **واجهة إدارة متكاملة** على `/admin`
+- **تصميم متجاوب** مع دعم اللغة العربية
+- **إدارة المنتجات والمعارض** من خلال واجهة سهلة الاستخدام
 
-### Products
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get product by ID
-- `GET /api/products/barcode/:barcode` - Get product by barcode
-- `POST /api/products` - Create new product
-- `PUT /api/products/:id` - Update product
-- `DELETE /api/products/:id` - Delete product
+## 🛠️ التثبيت والتشغيل
 
-### Orders
-- `GET /api/orders` - Get all orders
-- `GET /api/orders/status/:status` - Get orders by status
-- `GET /api/orders/:id` - Get order by ID
-- `POST /api/orders` - Create new order
-- `PUT /api/orders/:id/status` - Update order status
+### المتطلبات
+- Node.js 18+
+- npm أو yarn
 
-### Exhibitions
-- `GET /api/exhibitions` - Get all exhibitions
-- `GET /api/exhibitions/:id` - Get exhibition by ID
-- `POST /api/exhibitions` - Create new exhibition
-- `PUT /api/exhibitions/:id` - Update exhibition
-- `DELETE /api/exhibitions/:id` - Delete exhibition
+### تشغيل الفرونت إند محلياً
+```bash
+# تثبيت التبعيات
+npm install
 
-### Barcode
-- `POST /api/barcode/generate` - Generate barcode for product
-- `GET /api/barcode/scan/:barcode` - Get product by barcode
-- `GET /api/barcode/print` - Get all barcodes for printing
+# تشغيل الخادم المحلي
+npm run dev
 
-## Environment Variables
-
-Create a `.env` file with the following variables:
-
-```env
-PORT=3000
-DB_USER=postgres
-DB_HOST=localhost
-DB_NAME=atlas_db
-DB_PASSWORD=postgres
-DB_PORT=5432
-NODE_ENV=development
+# فتح المتصفح على
+http://localhost:3000
 ```
 
-## Installation
+### الوصول للوحة الإدارة
+```
+http://localhost:3000/admin
+```
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Set up environment variables
-4. Start the server:
-   ```bash
-   npm start
-   ```
+## 📊 لوحة الإدارة
 
-## Development
+### الإحصائيات
+- عدد المنتجات: 5
+- عدد المعارض: 5
+- عدد الطلبات: 0
+- عدد التسجيلات: 0
 
-For development with auto-restart:
+### إدارة المنتجات
+- عرض جميع المنتجات في جدول
+- إضافة منتج جديد
+- حذف منتج موجود
+- تحديث معلومات المنتج
+
+### إدارة المعارض
+- عرض جميع المعارض في جدول
+- إضافة معرض جديد
+- حذف معرض موجود
+- تحديث معلومات المعرض
+
+## 🔧 استكشاف الأخطاء
+
+### إذا لم تعمل لوحة الإدارة:
+1. تأكد من أن الباكند يعمل على Render
+2. تحقق من الاتصال بالإنترنت
+3. اضغط على زر "إعادة المحاولة"
+4. تحقق من وحدة تحكم المتصفح للأخطاء
+
+### إذا لم يعمل الفرونت إند:
 ```bash
+# إيقاف جميع عمليات Node.js
+taskkill /f /im node.exe
+
+# حذف مجلد البناء
+Remove-Item -Recurse -Force .next
+
+# إعادة تشغيل
 npm run dev
 ```
 
-## Health Check
+## 🌐 النشر
 
-Visit `/api/health` to check if the API is running properly.
+### الباكند (Render)
+- متاح على: `https://atlas-ha7k.onrender.com`
+- قاعدة بيانات PostgreSQL مدمجة
+- تحديث تلقائي من GitHub
 
-## Deployment
+### الفرونت إند (محلي)
+- يعمل على `localhost:3000`
+- متصل بالباكند على Render
+- يمكن نشره على Vercel أو Netlify
 
-This project is configured to deploy on Render:
+## 📝 ملاحظات مهمة
 
-1. Connect your GitHub repository to Render
-2. Set build command: `npm install`
-3. Set start command: `npm start`
-4. Configure environment variables in Render dashboard
+1. **الباكند يعمل على Render** - لا حاجة لتشغيله محلياً
+2. **الفرونت إند يعمل محلياً** - للاختبار والتطوير
+3. **قاعدة البيانات** تحتوي على بيانات تجريبية
+4. **لوحة الإدارة** متاحة على `/admin`
+5. **جميع البيانات** يتم حفظها في قاعدة البيانات على Render
+
+## 🔗 الروابط المهمة
+
+- **الباكند:** https://atlas-ha7k.onrender.com
+- **API الإحصائيات:** https://atlas-ha7k.onrender.com/api/admin/stats
+- **المنتجات:** https://atlas-ha7k.onrender.com/api/products
+- **المعارض:** https://atlas-ha7k.onrender.com/api/exhibitions
+- **الفرونت إند المحلي:** http://localhost:3000
+- **لوحة الإدارة:** http://localhost:3000/admin
+
+## 📞 الدعم
+
+إذا واجهت أي مشاكل:
+1. تحقق من وحدة تحكم المتصفح
+2. تأكد من أن الباكند يعمل
+3. جرب إعادة تحميل الصفحة
+4. استخدم زر "إعادة المحاولة" في لوحة الإدارة
