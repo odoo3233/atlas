@@ -39,7 +39,7 @@ export default function ProductsPage() {
         setLoading(true)
         setError(null)
         
-        const response = await fetch('http://localhost:5001/api/products')
+        const response = await fetch('https://atlas-ha7k.onrender.com/api/products')
         
         if (!response.ok) {
           throw new Error('Failed to fetch products')

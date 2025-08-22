@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useTranslation } from "react-i18next"
@@ -9,8 +9,63 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Calendar, MapPin, Clock, Users } from "lucide-react"
 
-// Mock exhibitions data (would come from API/database in real implementation)
-const mockExhibitions = [
+interface Exhibition {
+  id: number
+  name: string
+  description: string
+  start_date: string
+  end_date: string
+  location: string
+  image_url?: string
+  organizer: string
+  created_at: string
+  updated_at: string
+}
+
+export default function ExhibitionsPage() {
+  const { t } = useTranslation('exhibitions')
+  const [filter, setFilter] = useState<"all" | "upcoming" | "past">("all")
+  const [exhibitions, setExhibitions] = useState<Exhibition[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  // Fetch exhibitions from backend API
+  useEffect(() => {
+    const fetchExhibitions = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+        
+        const response = await fetch('https://atlas-ha7k.onrender.com/api/exhibitions')
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch exhibitions')
+        }
+        
+        const data = await response.json()
+        setExhibitions(data)
+      } catch (err) {
+        console.error('Error fetching exhibitions:', err)
+        setError('Failed to load exhibitions. Please try again later.')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchExhibitions()
+  }, [])
+  
+  // Filter exhibitions based on selected filter
+  const filteredExhibitions = exhibitions.filter(exhibition => {
+    const endDate = new Date(exhibition.end_date)
+    const today = new Date()
+    const isUpcoming = endDate >= today
+    
+    if (filter === "all") return true
+    if (filter === "upcoming") return isUpcoming
+    if (filter === "past") return !isUpcoming
+    return true
+  })
   {
     id: 1,
     name: "Saudi-China Tech Expo 2025",
@@ -79,6 +134,43 @@ export default function ExhibitionsPage() {
     if (filter === "past") return !exhibition.upcoming
     return true
   })
+
+  if (loading) {
+    return (
+      <main className="min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <div className="spinner-modern h-12 w-12 mx-auto"></div>
+            <p className="text-gray-600 mt-4">{t('common.loading', 'Loading...')}</p>
+          </div>
+        </div>
+        <Footer />
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main className="min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <div className="text-red-500 text-2xl mb-4">⚠️</div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Error Loading Exhibitions</h2>
+            <p className="text-gray-600 mb-6">{error}</p>
+            <Button 
+              onClick={() => window.location.reload()} 
+              className="bg-blue-600 hover:bg-blue-700"
+            >
+              Try Again
+            </Button>
+          </div>
+        </div>
+        <Footer />
+      </main>
+    )
+  }
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -151,70 +243,85 @@ export default function ExhibitionsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {filteredExhibitions.map((exhibition) => (
-                <div key={exhibition.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                  <div className="relative h-64 w-full bg-gray-200">
-                    {/* In a real implementation, this would be an actual exhibition image */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-gray-500">Exhibition Image</span>
+              {filteredExhibitions.map((exhibition) => {
+                const endDate = new Date(exhibition.end_date)
+                const today = new Date()
+                const isUpcoming = endDate >= today
+                
+                return (
+                  <div key={exhibition.id} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div className="relative h-64 w-full bg-gray-200">
+                      {/* Exhibition Image */}
+                      {exhibition.image_url ? (
+                        <Image
+                          src={exhibition.image_url}
+                          alt={exhibition.name}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="text-gray-500">Exhibition Image</span>
+                        </div>
+                      )}
+                      
+                      {/* Upcoming badge */}
+                      {isUpcoming && (
+                        <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                          {t('exhibitions.upcoming') || 'الفعاليات القادمة'}
+                        </div>
+                      )}
+                      
+                      {/* Past badge */}
+                      {!isUpcoming && (
+                        <div className="absolute top-4 right-4 bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                          {t('exhibitions.past') || 'الفعاليات السابقة'}
+                        </div>
+                      )}
                     </div>
                     
-                    {/* Upcoming badge */}
-                    {exhibition.upcoming && (
-                      <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        {t('exhibitions.upcoming') || 'الفعاليات القادمة'}
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-3">{exhibition.name}</h3>
+                      <p className="text-gray-600 mb-4">{exhibition.description}</p>
+                      
+                      <div className="space-y-2 mb-6">
+                        <div className="flex items-center text-gray-700">
+                          <Calendar className="h-5 w-5 mr-2 text-blue-600" />
+                          <span>
+                            {new Date(exhibition.start_date).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'long', 
+                              day: 'numeric' 
+                            })}
+                            {' - '}
+                            {new Date(exhibition.end_date).toLocaleDateString('en-US', { 
+                              year: 'numeric', 
+                              month: 'long', 
+                              day: 'numeric' 
+                            })}
+                          </span>
+                        </div>
+                        <div className="flex items-start text-gray-700">
+                          <MapPin className="h-5 w-5 mr-2 mt-1 text-blue-600" />
+                          <span>{exhibition.location}</span>
+                        </div>
+                        <div className="flex items-center text-gray-700">
+                          <Users className="h-5 w-5 mr-2 text-blue-600" />
+                          <span>{exhibition.organizer}</span>
+                        </div>
                       </div>
-                    )}
-                    
-                    {/* Past badge */}
-                    {!exhibition.upcoming && (
-                      <div className="absolute top-4 right-4 bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        {t('exhibitions.past') || 'الفعاليات السابقة'}
+                      
+                      <div className="flex justify-end">
+                        <Link href={`/exhibitions/${exhibition.id}`}>
+                          <Button>
+                            {isUpcoming ? t('exhibitions.registerNow') : t('exhibitions.viewDetails')}
+                          </Button>
+                        </Link>
                       </div>
-                    )}
+                    </div>
                   </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3">{exhibition.name}</h3>
-                    <p className="text-gray-600 mb-4">{exhibition.description}</p>
-                    
-                    <div className="space-y-2 mb-6">
-                      <div className="flex items-center text-gray-700">
-                        <Calendar className="h-5 w-5 mr-2 text-blue-600" />
-                        <span>
-                          {new Date(exhibition.startDate).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                          })}
-                          {' - '}
-                          {new Date(exhibition.endDate).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                          })}
-                        </span>
-                      </div>
-                      <div className="flex items-start text-gray-700">
-                        <MapPin className="h-5 w-5 mr-2 mt-1 text-blue-600" />
-                        <span>{exhibition.location}</span>
-                      </div>
-                      <div className="flex items-center text-gray-700">
-                        <Users className="h-5 w-5 mr-2 text-blue-600" />
-                        <span>{exhibition.organizer}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex justify-end">
-                      <Link href={`/exhibitions/${exhibition.id}`}>
-                        <Button>
-                          {exhibition.upcoming ? t('exhibitions.registerNow') : t('exhibitions.viewDetails')}
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </div>
