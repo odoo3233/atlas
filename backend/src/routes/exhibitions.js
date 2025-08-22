@@ -8,7 +8,6 @@ const router = express.Router();
  */
 router.get('/', async (req, res) => {
   try {
-    const { db } = req;
     const { upcoming } = req.query;
     
     let query = 'SELECT * FROM exhibitions';
@@ -22,7 +21,7 @@ router.get('/', async (req, res) => {
       query += ' ORDER BY start_date DESC';
     }
     
-    const result = await db.query(query);
+    const result = await req.db.query(query);
     
     res.json(result.rows);
   } catch (err) {
@@ -39,9 +38,8 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { db } = req;
     
-    const result = await db.query(
+    const result = await req.db.query(
       'SELECT * FROM exhibitions WHERE id = $1',
       [id]
     );
@@ -74,9 +72,7 @@ router.post('/', async (req, res) => {
       organizer 
     } = req.body;
     
-    const { db } = req;
-    
-    const result = await db.query(
+    const result = await req.db.query(
       `INSERT INTO exhibitions 
        (name, description, start_date, end_date, location, image_url, organizer, created_at, updated_at) 
        VALUES ($1, $2, $3, $4, $5, $6, $7, NOW(), NOW()) 
@@ -109,9 +105,7 @@ router.put('/:id', async (req, res) => {
       organizer 
     } = req.body;
     
-    const { db } = req;
-    
-    const result = await db.query(
+    const result = await req.db.query(
       `UPDATE exhibitions 
        SET name = $1, 
            description = $2, 
@@ -145,9 +139,8 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { db } = req;
     
-    const result = await db.query(
+    const result = await req.db.query(
       'DELETE FROM exhibitions WHERE id = $1 RETURNING *',
       [id]
     );
@@ -179,10 +172,8 @@ router.post('/:id/register', async (req, res) => {
       message 
     } = req.body;
     
-    const { db } = req;
-    
     // Check if exhibition exists
-    const exhibitionResult = await db.query(
+    const exhibitionResult = await req.db.query(
       'SELECT * FROM exhibitions WHERE id = $1',
       [id]
     );
@@ -192,7 +183,7 @@ router.post('/:id/register', async (req, res) => {
     }
     
     // Register the visitor
-    const result = await db.query(
+    const result = await req.db.query(
       `INSERT INTO exhibition_registrations 
        (exhibition_id, name, email, phone, company, message, created_at) 
        VALUES ($1, $2, $3, $4, $5, $6, NOW()) 
@@ -215,9 +206,8 @@ router.post('/:id/register', async (req, res) => {
 router.get('/:id/registrations', async (req, res) => {
   try {
     const { id } = req.params;
-    const { db } = req;
     
-    const result = await db.query(
+    const result = await req.db.query(
       'SELECT * FROM exhibition_registrations WHERE exhibition_id = $1 ORDER BY created_at DESC',
       [id]
     );

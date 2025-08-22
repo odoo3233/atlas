@@ -1,0 +1,537 @@
+{
+  "common": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务",
+    "exhibitions": "展览",
+    "products": "阿特拉斯东方商店",
+    "contact": "联系我们",
+    "companyName": "阿特拉斯东方",
+    "companyNameEn": "Atlas Al-Sharq",
+    "learnMore": "了解更多",
+    "getStarted": "立即开始",
+    "contactUs": "联系我们",
+    "viewAll": "查看全部",
+    "readMore": "阅读更多",
+    "download": "下载",
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "warning": "警告",
+    "info": "信息",
+    "description": "展览和国际贸易领域的领先公司，通过综合专业服务连接公司与全球市场",
+    "quickLinks": "快速链接",
+    "newsletter": "新闻通讯",
+    "newsletterDesc": "获取最新新闻和优惠",
+    "subscribe": "订阅",
+    "email": "电子邮件",
+    "copyright": "版权所有 © 2025 阿特拉斯东方",
+    "back": "返回"
+  },
+  "footer": {
+    "description": "展览和国际贸易领域的领先公司，通过综合专业服务连接企业与全球市场",
+    "quickLinks": "快速链接",
+    "services": "我们的服务",
+    "contactInfo": "联系信息",
+    "newsletter": "新闻通讯",
+    "newsletterDesc": "订阅我们的新闻通讯，获取最新消息和优惠",
+    "subscribe": "订阅",
+    "email": "电子邮件",
+    "copyright": "版权所有 © 2024 阿特拉斯东方展览与会议"
+  },
+  "products": {
+    "title": "阿特拉斯东方商店",
+    "subtitle": "发现我们的优质产品",
+    "search": "搜索产品...",
+    "filter": "筛选产品",
+    "sort": "排序方式",
+    "viewDetails": "查看详情",
+    "addToCart": "添加到购物车",
+    "outOfStock": "缺货",
+    "inStock": "有货",
+    "price": "价格",
+    "rating": "评分",
+    "noResults": "未找到产品",
+    "noResultsDesc": "尝试更改搜索或筛选条件",
+    "categories": {
+      "all": "所有产品",
+      "lighting": "照明",
+      "renewableEnergy": "可再生能源",
+      "smartHome": "智能家居",
+      "industrial": "工业",
+      "safetyEquipment": "安全设备"
+    },
+    "specifications": "规格",
+    "relatedProducts": "相关产品",
+    "relatedProductsDesc": "发现我们目录中的更多产品",
+    "viewAllProducts": "查看所有产品",
+    "scanBarcode": "扫描条形码",
+    "freeShipping": "免费送货",
+    "warranty": "保修",
+    "freeReturn": "免费退货",
+    "scanningBarcode": "扫描条形码",
+    "searchingProduct": "搜索产品...",
+    "productFound": "找到产品！",
+    "redirectingToProduct": "正在跳转到产品页面...",
+    "viewProductNow": "立即查看产品",
+    "browseMore": "浏览更多产品",
+    "browseProducts": "浏览产品",
+    "tryAnotherBarcode": "尝试另一个条形码"
+  },
+  "businessVisits": {
+    "hero": {
+      "title": "中国商务旅行",
+      "subtitle": "发现中国房地产投资机会",
+      "description": "介绍性旅行，了解房地产公司并为他们在沙特阿拉伯当地建立合作伙伴关系，提供独家投资机会",
+      "badge": "独家投资之旅"
+    },
+    "packages": {
+      "basic": {
+        "title": "基础套餐",
+        "price": "15,000 沙特里亚尔",
+        "duration": "5天/4晚",
+        "features": [
+          "往返机票",
+          "四星级酒店住宿",
+          "早餐和午餐",
+          "城市观光游览",
+          "阿拉伯语导游"
+        ]
+      },
+      "premium": {
+        "title": "高级套餐",
+        "price": "25,000 沙特里亚尔",
+        "duration": "7天/6晚",
+        "features": [
+          "往返机票",
+          "五星级酒店住宿",
+          "全餐（早餐、午餐、晚餐）",
+          "全面观光游览",
+          "阿拉伯语导游",
+          "私人交通",
+          "与房地产专家咨询会议"
+        ]
+      },
+      "custom": {
+        "title": "定制套餐",
+        "price": "按需定价",
+        "duration": "定制",
+        "features": [
+          "往返机票",
+          "豪华酒店住宿",
+          "美食餐点",
+          "私人观光游览",
+          "私人导游",
+          "豪华交通",
+          "密集咨询会议",
+          "按需特殊安排"
+        ]
+      }
+    },
+    "register": "立即注册",
+    "contact": "联系我们"
+  },
+  "home": {
+    "hero": {
+      "title": "阿特拉斯东方展览与会议",
+      "subtitle": "通过综合专业服务连接企业与全球市场",
+      "description": "我们拥有15年以上的展览和国际贸易经验，为连接沙特企业与中国和全球市场提供创新解决方案",
+      "cta": "开启成功之旅",
+      "secondaryCta": "探索我们的服务",
+      "badge": "领先的国际展览公司"
+    },
+    "about": {
+      "title": "关于我们",
+      "subtitle": "阿特拉斯东方展览与会议公司",
+      "description": "我们拥有15年以上的展览和国际贸易经验，为连接沙特企业与中国和全球市场提供创新解决方案",
+      "features": {
+        "experience": "15年以上经验",
+        "experienceDesc": "组织国际商业活动的深厚经验",
+        "network": "2000+中国合作伙伴",
+        "networkDesc": "与中国和沙特公司的密切关系",
+        "success": "98%满意度",
+        "successDesc": "所有服务中的世界级质量标准",
+        "support": "持续支持",
+        "supportDesc": "全天候技术和行政支持",
+        "events": "500+成功活动"
+      },
+      "stats": {
+        "years": "经验年数"
+      },
+      "cta": {
+        "title": "今天就联系我们",
+        "description": "我们在这里帮助您实现商业目标。立即联系我们获得免费咨询",
+        "button": "获得免费咨询"
+      }
+    },
+    "services": {
+      "title": "我们的专业服务",
+      "subtitle": "我们提供全面的专业服务，连接中国与沙特阿拉伯王国的商业往来",
+      "exhibitions": "展览与活动组织",
+      "exhibitionsDesc": "组织专业展览和活动，展示产品和服务，采用最新技术和设计",
+      "business": "商业网络连接",
+      "businessDesc": "连接中国与沙特阿拉伯王国的商业领袖，实现共同成长和建立战略伙伴关系",
+      "trips": "商务旅行组织",
+      "tripsDesc": "为公司与潜在合作伙伴会面安排商务旅行，探索新的投资机会",
+      "cta": {
+        "title": "准备开始您的成功之旅？",
+        "description": "了解我们的专业服务如何帮助您实现商业目标",
+        "explore": "探索所有服务",
+        "contact": "立即联系我们"
+      }
+    },
+    "upcomingEvents": {
+      "title": "即将举行的活动",
+      "subtitle": "发现最重要的即将举行的活动和展览",
+      "businessVisits": {
+        "title": "沙特商业领袖中国访问",
+        "subtitle": "房地产投资机会探索之旅",
+        "description": "介绍性旅行，会见房地产公司并在沙特阿拉伯当地建立合作伙伴关系，提供独家投资机会",
+        "date": "2025年11月",
+        "stats": {
+          "companies": "公司",
+          "partnerships": "预期合作伙伴关系",
+          "city": "成都",
+          "cityLabel": "城市",
+          "executives": "高管席位"
+        },
+        "register": "立即注册",
+        "learnMore": "了解更多"
+      },
+      "cta": {
+        "title": "不要错过参与机会",
+        "description": "立即注册我们的即将举行的活动，获得独家投资机会",
+        "viewAll": "查看所有活动",
+        "contact": "联系我们"
+      }
+    },
+    "whyAtlas": {
+      "title": "为什么选择阿特拉斯东方？",
+      "subtitle": "选择阿特拉斯东方，助您商业成功",
+      "description": "我们拥有独特经验和综合服务，是您商业合作伙伴的最佳选择",
+      "expertise": {
+        "title": "卓越专业",
+        "stats": "15年以上经验",
+        "description": "拥有15年以上的国际展览和会议经验，深入了解中国和沙特阿拉伯王国的商业文化"
+      },
+      "network": {
+        "title": "强大网络",
+        "stats": "2000+中国合作伙伴",
+        "description": "广泛的网络包括中国2000多个商业合作伙伴和500家沙特公司，确保您获得最佳商业机会"
+      },
+      "success": {
+        "title": "杰出成功记录",
+        "stats": "98%满意度",
+        "description": "我们自豪地组织了500多个成功活动，客户满意度达到98%，使我们成为您商业成功的可信选择"
+      },
+      "innovation": {
+        "title": "持续创新",
+        "stats": "现代技术",
+        "description": "我们紧跟展览领域的最新技术和趋势，提供创新解决方案，确保所有参与者获得独特和卓越的体验"
+      },
+      "support": {
+        "title": "24/7全面支持",
+        "stats": "24/7支持",
+        "description": "专业支持团队全天候提供帮助和技术支持，确保您的活动从开始到结束都取得成功"
+      },
+      "quality": {
+        "title": "保证高质量",
+        "stats": "ISO 9001",
+        "description": "我们致力于最高国际质量标准，拥有国际认证证书，为所有服务提供完全满意度保证"
+      },
+      "cta": {
+        "title": "与我们开启成功之旅",
+        "description": "加入数千家选择阿特拉斯东方作为战略合作伙伴的成功公司",
+        "button": "立即联系我们"
+      }
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "专业服务",
+      "title": "我们的综合服务",
+      "description": "我们提供全面的专业服务，连接中国与沙特阿拉伯王国的商业往来",
+      "exploreServices": "探索我们的服务"
+    },
+    "servicesList": {
+      "exhibitions": {
+        "title": "展览与活动组织",
+        "description": "组织专业展览和活动，采用最新技术和设计",
+        "features": [
+          "专业展位设计",
+          "全面活动管理",
+          "综合物流服务",
+          "先进营销支持"
+        ]
+      },
+      "networking": {
+        "title": "商业网络连接",
+        "description": "连接中国与沙特阿拉伯王国的商业领袖",
+        "features": [
+          "定制B2B会议",
+          "广泛网络",
+          "独家投资机会",
+          "法律和咨询服务"
+        ]
+      },
+      "travel": {
+        "title": "商务旅行组织",
+        "description": "为公司与潜在合作伙伴会面安排商务旅行",
+        "features": [
+          "定制旅行计划",
+          "同声传译",
+          "全面VIP服务",
+          "旅行后跟进"
+        ]
+      },
+      "showcase": {
+        "title": "产品与服务展示",
+        "description": "在国际展览会上专业展示产品和服务",
+        "features": [
+          "专业展位",
+          "互动展示",
+          "全面营销支持",
+          "客户跟进"
+        ]
+      },
+      "intelligence": {
+        "title": "市场情报",
+        "description": "对中国和沙特市场的全面分析",
+        "features": [
+          "市场研究",
+          "竞争对手分析",
+          "投资报告",
+          "战略咨询"
+        ]
+      },
+      "partnerships": {
+        "title": "合作伙伴管理",
+        "description": "全面管理商业和投资合作伙伴关系",
+        "features": [
+          "合作伙伴发展",
+          "合同管理",
+          "绩效监控",
+          "争议解决"
+        ]
+      }
+    },
+    "whyChooseUs": {
+      "title": "为什么选择我们的服务？",
+      "description": "我们拥有独特经验和综合服务，是您商业合作伙伴的最佳选择",
+      "excellence": {
+        "title": "服务卓越",
+        "description": "我们致力于在所有服务中达到最高质量标准"
+      },
+      "expertise": {
+        "title": "专业专长",
+        "description": "专门从事展览和国际贸易的专家团队"
+      },
+      "solutions": {
+        "title": "定制解决方案",
+        "description": "我们提供适合每个客户需求的定制解决方案"
+      }
+    },
+    "cta": {
+      "title": "准备开始您的成功之旅？",
+      "description": "了解我们的专业服务如何帮助您实现商业目标",
+      "contact": "立即联系我们",
+      "learnMore": "了解更多"
+    },
+    "exhibitions": {
+      "title": "展览与活动组织",
+      "description": "组织专业展览和活动，采用最新技术和设计",
+      "features": [
+        "专业展位设计",
+        "全面活动管理",
+        "综合物流服务",
+        "先进营销支持"
+      ]
+    },
+    "businessNetworking": {
+      "title": "商业网络连接",
+      "description": "连接中国与沙特阿拉伯王国的商业领袖",
+      "features": [
+        "定制B2B会议",
+        "广泛网络",
+        "独家投资机会",
+        "法律和咨询服务"
+      ]
+    },
+    "businessTrips": {
+      "title": "商务旅行组织",
+      "description": "为公司与潜在合作伙伴会面安排商务旅行",
+      "features": [
+        "定制旅行计划",
+        "同声传译",
+        "全面VIP服务",
+        "旅行后跟进"
+      ]
+    }
+  },
+  "exhibitions": {
+    "title": "展览与活动",
+    "subtitle": "发现最重要的国际商业展览和活动",
+    "hero": {
+      "badge": "展览与活动",
+      "viewEvents": "查看活动",
+      "registerNow": "立即注册"
+    },
+    "all": "所有活动",
+    "upcoming": "即将举行的活动",
+    "past": "过去的活动",
+    "noEvents": "目前没有可用的活动",
+    "falconExhibition": {
+      "title": "沙特国际猎鹰与狩猎展览会2025",
+      "subtitle": "中东最大的猎鹰和狩猎展览会",
+      "description": "国际猎鹰展览会是年度活动，汇集来自世界各地的猎鹰爱好者。展示最好的猎鹰类型和猎鹰使用的最新设备和技术",
+      "date": "2025年10月2-11日",
+      "features": {
+        "exhibitors": "中国公司",
+        "visitors": "预期参观者",
+        "cities": "中国城市",
+        "countries": "中国公司"
+      }
+    },
+    "registerNow": "立即注册"
+  },
+  "contact": {
+    "hero": {
+      "title": "联系我们",
+      "subtitle": "我们在这里帮助您商业成功",
+      "description": "我们的团队全天候提供帮助和技术支持",
+      "callNow": "立即致电"
+    },
+    "form": {
+      "name": "全名",
+      "email": "电子邮件地址",
+      "phone": "电话号码",
+      "company": "公司名称",
+      "message": "您的消息",
+      "submit": "发送消息",
+      "success": "您的消息已成功发送",
+      "error": "发送消息时出错"
+    },
+    "info": {
+      "address": "沙特阿拉伯王国利雅得",
+      "phone": "+966 11 123 4567",
+      "email": "info@atlas-alsharq.com",
+      "hours": "周日 - 周四：上午8:00 - 下午6:00"
+    }
+  },
+  "orders": {
+    "title": "订单管理",
+    "subtitle": "跟踪您的订单并管理购买请求",
+    "trackOrder": "跟踪订单",
+    "newOrder": "新订单",
+    "orderNumber": "订单号",
+    "orderEmail": "电子邮件地址",
+    "track": "跟踪",
+    "trackingError": "未找到订单。请验证订单号和电子邮件地址。",
+    "formError": "请填写所有必填字段。",
+    "customerName": "客户姓名",
+    "customerEmail": "电子邮件地址",
+    "customerPhone": "电话号码",
+    "companyName": "公司名称",
+    "message": "消息",
+    "productId": "产品ID",
+    "quantity": "数量",
+    "submit": "提交订单",
+    "orderSuccess": "您的订单已成功提交",
+    "orderStatus": "订单状态",
+    "orderDate": "订单日期",
+    "orderItems": "订单项目",
+    "processing": "处理中",
+    "shipped": "已发货",
+    "delivered": "已交付",
+    "cancelled": "已取消"
+  },
+  "businessVisits": {
+    "title": "中国商务旅行",
+    "subtitle": "发现中国房地产投资机会",
+    "description": "我们为沙特公司提供定制商务旅行，会见领先的中国房地产公司并建立战略合作伙伴关系",
+    "hero": {
+      "badge": "定制商务旅行",
+      "contactUs": "联系我们",
+      "scheduleVisit": "安排访问"
+    },
+    "packagesTitle": "商务旅行套餐",
+    "packagesSubtitle": "选择适合您公司需求的套餐",
+    "packages": {
+      "basic": {
+        "title": "基础套餐",
+        "price": "15,000 沙特里亚尔",
+        "duration": "5天 / 4晚",
+        "features": [
+          "访问3家领先房地产公司",
+          "同声传译",
+          "VIP交通",
+          "豪华住宿",
+          "商务午餐",
+          "详细报告"
+        ]
+      },
+      "premium": {
+        "title": "高级套餐",
+        "price": "25,000 沙特里亚尔",
+        "duration": "7天 / 6晚",
+        "features": [
+          "访问5家领先房地产公司",
+          "专业同声传译",
+          "VIP交通配私人司机",
+          "五星级豪华住宿",
+          "全面商务餐",
+          "观光游览",
+          "详细报告含建议",
+          "旅行后跟进"
+        ]
+      },
+      "custom": {
+        "title": "定制套餐",
+        "price": "按需定价",
+        "duration": "定制",
+        "features": [
+          "根据您的需求定制计划",
+          "访问特定公司",
+          "全面VIP服务",
+          "定制豪华住宿",
+          "高级商务餐",
+          "私人观光游览",
+          "详细报告含行动计划",
+          "持续跟进"
+        ]
+      }
+    },
+    "register": "立即注册",
+    "contact": "联系我们",
+    "stats": {
+      "title": "房地产投资统计",
+      "subtitle": "数字说明一切"
+    },
+    "contactTitle": "联系我们",
+    "contactSubtitle": "我们在这里帮助您规划中国商务旅行",
+    "phoneTitle": "致电我们",
+    "phoneSubtitle": "我们的团队全天候服务",
+    "emailTitle": "发送邮件",
+    "emailSubtitle": "发送您的咨询"
+  },
+  "footer": {
+    "description": "展览和国际贸易领域的领先公司，通过综合专业服务连接企业与全球市场",
+    "quickLinks": "快速链接",
+    "services": "我们的服务",
+    "contact": "联系我们",
+    "social": "关注我们",
+    "newsletter": "新闻通讯",
+    "newsletterDesc": "获取最新新闻和优惠",
+    "subscribe": "订阅",
+    "email": "电子邮件地址",
+    "copyright": "版权所有 © 2025 阿特拉斯东方"
+  }
+}

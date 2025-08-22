@@ -1,15 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { Pool } = require('pg');
-
-// Database connection
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'atlas_alsharq',
-  password: 'your_password',
-  port: 5432,
-});
 
 // Generate barcode for product
 router.post('/generate', async (req, res) => {
@@ -19,7 +9,7 @@ router.post('/generate', async (req, res) => {
     // Generate unique barcode
     const barcode = 'ATLAS' + Date.now() + Math.floor(Math.random() * 1000);
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       UPDATE products 
       SET barcode = $1, updated_at = NOW()
       WHERE id = $2
@@ -49,7 +39,7 @@ router.get('/scan/:barcode', async (req, res) => {
   try {
     const { barcode } = req.params;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT 
         p.*,
         json_agg(
@@ -98,7 +88,7 @@ router.get('/scan/:barcode', async (req, res) => {
 // Get all barcodes for printing
 router.get('/print', async (req, res) => {
   try {
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT 
         id, name, barcode, category, company_name, company_logo
       FROM products 
@@ -120,7 +110,7 @@ router.get('/print/category/:category', async (req, res) => {
   try {
     const { category } = req.params;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT 
         id, name, barcode, category, company_name, company_logo
       FROM products 
@@ -144,7 +134,7 @@ router.get('/print/company/:company', async (req, res) => {
   try {
     const { company } = req.params;
     
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT 
         id, name, barcode, category, company_name, company_logo
       FROM products 
@@ -169,7 +159,7 @@ router.get('/validate/:barcode', async (req, res) => {
     const { barcode } = req.params;
     
     // Check if barcode exists
-    const result = await pool.query(`
+    const result = await req.db.query(`
       SELECT id, name, category, company_name
       FROM products 
       WHERE barcode = $1
@@ -195,7 +185,7 @@ router.get('/validate/:barcode', async (req, res) => {
 // Get barcode statistics
 router.get('/stats', async (req, res) => {
   try {
-    const stats = await pool.query(`
+    const stats = await req.db.query(`
       SELECT 
         COUNT(*) as total_products,
         COUNT(DISTINCT category) as total_categories,
@@ -204,7 +194,7 @@ router.get('/stats', async (req, res) => {
       FROM products
     `);
     
-    const categoryStats = await pool.query(`
+    const categoryStats = await req.db.query(`
       SELECT 
         category,
         COUNT(*) as product_count,
@@ -214,7 +204,7 @@ router.get('/stats', async (req, res) => {
       ORDER BY product_count DESC
     `);
     
-    const companyStats = await pool.query(`
+    const companyStats = await req.db.query(`
       SELECT 
         company_name,
         COUNT(*) as product_count,
