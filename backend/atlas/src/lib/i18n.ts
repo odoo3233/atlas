@@ -129,8 +129,7 @@ if (!i18n.isInitialized) {
       },
       // Add these options for better SSR support
       initImmediate: false,
-      partialBundledLanguages: true,
-      resources: resources
+      partialBundledLanguages: true
     });
 }
 
