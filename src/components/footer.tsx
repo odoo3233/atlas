@@ -1,177 +1,219 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 import { 
   MapPin, 
   Phone, 
   Mail, 
   Clock, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin,
-  ShoppingBag,
   ArrowUp,
-  Globe,
-  Award,
-  Users,
-  Building
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube
 } from "lucide-react"
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+  const [email, setEmail] = useState("")
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle newsletter subscription
+    console.log("Newsletter subscription:", email)
+    setEmail("")
   }
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
+    <footer className="bg-gray-900 text-white">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
       
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-4 rtl:space-x-reverse">
-              <div className="w-16 h-16 rounded-3xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-2xl">
-                <ShoppingBag className="w-8 h-8 text-white" />
+      <div className="relative">
+        <div className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="lg:col-span-1">
+              <div className="flex items-center space-x-3 rtl:space-x-reverse mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                  <span className="text-white font-bold text-xl">أ</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">أطلس الشرق</h3>
+                  <p className="text-gray-400">Atlas Al-Sharq</p>
+                </div>
               </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                شركة أطلس الشرق للاستشارات الاقتصادية والتجارية، نربط بين الصين والمملكة العربية السعودية من خلال المعارض والفعاليات التجارية.
+              </p>
+              <div className="flex space-x-4 rtl:space-x-reverse">
+                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </Link>
+                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </Link>
+                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </Link>
+                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-xl font-semibold mb-6">روابط سريعة</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
+                    من نحن
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                    خدماتنا
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products" className="text-gray-300 hover:text-white transition-colors">
+                    المنتجات
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/exhibitions" className="text-gray-300 hover:text-white transition-colors">
+                    المعارض
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/business-visits" className="text-gray-300 hover:text-white transition-colors">
+                    الزيارات التجارية
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
+                    اتصل بنا
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-xl font-semibold mb-6">خدماتنا</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                    تنظيم المعارض
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                    الاستشارات التجارية
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                    رحلات الأعمال
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                    الترجمة والوساطة
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                    التسويق الدولي
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                    الاستثمارات المشتركة
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact & Newsletter */}
+            <div>
+              <h4 className="text-xl font-semibold mb-6">تواصل معنا</h4>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start space-x-3 rtl:space-x-reverse">
+                  <MapPin className="w-5 h-5 text-blue-400 mt-1" />
+                  <div>
+                    <p className="text-gray-300">الرياض، المملكة العربية السعودية</p>
+                    <p className="text-gray-400 text-sm">مكتبنا الرئيسي</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3 rtl:space-x-reverse">
+                  <Phone className="w-5 h-5 text-blue-400" />
+                  <span className="text-gray-300">+966 50 123 4567</span>
+                </div>
+                <div className="flex items-center space-x-3 rtl:space-x-reverse">
+                  <Mail className="w-5 h-5 text-blue-400" />
+                  <span className="text-gray-300">info@atlasalsharq.com</span>
+                </div>
+                <div className="flex items-center space-x-3 rtl:space-x-reverse">
+                  <Clock className="w-5 h-5 text-blue-400" />
+                  <span className="text-gray-300">الأحد - الخميس: 8:00 - 17:00</span>
+                </div>
+              </div>
+
+              {/* Newsletter */}
               <div>
-                <h3 className="text-2xl font-bold text-gradient-primary bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                  أطلس الشرق
-                </h3>
-                <p className="text-lg text-gray-300 font-medium">
-                  Atlas Al-Sharq
-                </p>
+                <h5 className="font-semibold mb-3">النشرة الإخبارية</h5>
+                <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="البريد الإلكتروني"
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                    required
+                  />
+                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                    اشترك الآن
+                  </Button>
+                </form>
               </div>
-            </div>
-            <p className="text-gray-300 leading-relaxed text-lg">
-              شركة رائدة في مجال المعارض والتجارة الدولية، نربط الشركات بالأسواق العالمية من خلال خدمات متكاملة ومتخصصة
-            </p>
-            <div className="flex space-x-4 rtl:space-x-reverse">
-              <Link href="#" className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
-                <Facebook className="w-6 h-6" />
-              </Link>
-              <Link href="#" className="p-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
-                <Twitter className="w-6 h-6" />
-              </Link>
-              <Link href="#" className="p-3 bg-gradient-to-r from-pink-600 to-red-600 rounded-2xl hover:from-pink-700 hover:to-red-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
-                <Instagram className="w-6 h-6" />
-              </Link>
-              <Link href="#" className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-110 shadow-lg">
-                <Linkedin className="w-6 h-6" />
-              </Link>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-6">
-            <h4 className="text-2xl font-bold text-white mb-6">
-              روابط سريعة
-            </h4>
-            <div className="space-y-4">
-              <Link href="/about" className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300 hover:text-white transition-colors duration-300 group">
-                <Building className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-lg">من نحن</span>
-              </Link>
-              <Link href="/services" className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300 hover:text-white transition-colors duration-300 group">
-                <Award className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-lg">خدماتنا</span>
-              </Link>
-              <Link href="/exhibitions" className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300 hover:text-white transition-colors duration-300 group">
-                <Globe className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-lg">المعارض</span>
-              </Link>
-              <Link href="/products" className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300 hover:text-white transition-colors duration-300 group">
-                <ShoppingBag className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-lg">متجر أطلس الشرق</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <h4 className="text-2xl font-bold text-white mb-6">
-              تواصل معنا
-            </h4>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center border border-blue-500/30">
-                  <MapPin className="w-6 h-6 text-blue-400" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium">الرياض، المملكة العربية السعودية</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-600/20 to-emerald-600/20 flex items-center justify-center border border-green-500/30">
-                  <Phone className="w-6 h-6 text-green-400" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium">+966 11 123 4567</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center border border-purple-500/30">
-                  <Mail className="w-6 h-6 text-purple-400" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium">info@atlas-alsharq.com</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 rtl:space-x-reverse text-gray-300">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600/20 to-orange-600/20 flex items-center justify-center border border-amber-500/30">
-                  <Clock className="w-6 h-6 text-amber-400" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium">الأحد - الخميس: 8:00 ص - 6:00 م</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="space-y-6">
-            <h4 className="text-2xl font-bold text-white mb-6">
-              النشرة الإخبارية
-            </h4>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              احصل على آخر الأخبار والعروض
-            </p>
-            <div className="space-y-4">
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="البريد الإلكتروني"
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-500/30 transition-all duration-300"
-                />
-              </div>
-              <button className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                اشتراك
-              </button>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-white/20">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <p className="text-gray-300 text-lg">
-              جميع الحقوق محفوظة © 2025 أطلس الشرق
-            </p>
-            <button
-              onClick={scrollToTop}
-              className="flex items-center space-x-2 rtl:space-x-reverse px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              <ArrowUp className="w-5 h-5" />
-              <span className="font-semibold">العودة للأعلى</span>
-            </button>
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-gray-400 text-sm">
+                © 2024 أطلس الشرق. جميع الحقوق محفوظة.
+              </div>
+              <div className="flex space-x-6 rtl:space-x-reverse text-sm">
+                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                  سياسة الخصوصية
+                </Link>
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                  شروط الاستخدام
+                </Link>
+                <Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">
+                  خريطة الموقع
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+      >
+        <ArrowUp className="w-6 h-6" />
+      </button>
     </footer>
   )
 }

@@ -1,154 +1,61 @@
 "use client"
 
-import * as React from "react"
-import { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
-import { Button } from "@/components/ui/button"
-import { ChevronDown } from "lucide-react"
+import { Globe, ChevronDown } from "lucide-react"
+
+const languages = [
+  { code: "ar", name: "العربية", flag: "🇸🇦" },
+  { code: "en", name: "English", flag: "🇺🇸" },
+  { code: "zh", name: "中文", flag: "🇨🇳" }
+]
 
 export function LanguageSwitcher() {
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-  
-  const changeLanguage = (lng: string) => {
-    console.log('Changing language to:', lng)
+
+  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0]
+
+  const changeLanguage = (languageCode: string) => {
+    i18n.changeLanguage(languageCode)
+    setIsOpen(false)
     
-    try {
-      // Save language preference to localStorage first
-      localStorage.setItem('preferred-language', lng)
-      
-      // Change i18n language
-      i18n.changeLanguage(lng)
-      
-      // Update HTML dir attribute for RTL/LTR
-      const dir = lng === 'ar' ? 'rtl' : 'ltr'
-      document.documentElement.dir = dir
-      document.documentElement.lang = lng
-      
-      // Close dropdown
-      setIsOpen(false)
-      
-      // Force a page reload to ensure all components update
-      setTimeout(() => {
-        window.location.reload()
-      }, 100)
-    } catch (error) {
-      console.error('Error changing language:', error)
-      // Fallback: just reload the page
-      window.location.reload()
+    // Update document direction for RTL languages
+    if (languageCode === "ar") {
+      document.documentElement.dir = "rtl"
+      document.documentElement.lang = "ar"
+    } else {
+      document.documentElement.dir = "ltr"
+      document.documentElement.lang = languageCode
     }
-  }
-
-  // Get current language
-  const currentLanguage = i18n.language || 'ar'
-
-  // Get current flag and language name
-  const getCurrentLanguageInfo = () => {
-    switch (currentLanguage) {
-      case 'ar':
-        return { flag: '🇸🇦', name: 'العربية' }
-      case 'en':
-        return { flag: '🇺🇸', name: 'English' }
-      case 'zh':
-        return { flag: '🇨🇳', name: '中文' }
-      default:
-        return { flag: '🇸🇦', name: 'العربية' }
-    }
-  }
-
-  const currentLang = getCurrentLanguageInfo()
-
-  if (!mounted) {
-    return (
-      <div className="relative inline-block">
-        <button className="flex items-center space-x-2 text-white hover:text-blue-300 px-3 py-2 rounded-md transition-colors">
-          <span className="text-lg">🇸🇦</span>
-          <span className="text-sm">العربية</span>
-          <ChevronDown className="h-4 w-4" />
-        </button>
-      </div>
-    )
   }
 
   return (
-    <div className="relative inline-block">
-      <button 
-        className="flex items-center space-x-2 text-white hover:text-blue-300 px-3 py-2 rounded-md transition-colors"
-        onClick={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          setIsOpen(!isOpen)
-        }}
-        style={{ cursor: 'pointer' }}
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center space-x-2 rtl:space-x-reverse px-3 py-2 rounded-lg bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20 transition-all duration-200"
       >
-        <span className="text-lg">{currentLang.flag}</span>
-        <span className="text-sm">{currentLang.name}</span>
-        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <Globe className="w-4 h-4" />
+        <span className="text-sm font-medium">{currentLanguage.flag} {currentLanguage.name}</span>
+        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
-      
+
       {isOpen && (
-        <>
-          <div 
-            className="fixed inset-0 z-40" 
-            onClick={() => setIsOpen(false)}
-          />
-          <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 z-50">
-            <div className="py-1">
-              <button
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  changeLanguage('ar')
-                }}
-                className={`w-full flex items-center space-x-3 px-4 py-3 text-sm hover:bg-gray-100 transition-colors ${
-                  currentLanguage === 'ar' ? 'bg-blue-50 text-blue-700' : 'text-gray-700'
-                }`}
-                style={{ cursor: 'pointer' }}
-              >
-                <span className="text-lg">🇸🇦</span>
-                <span>العربية</span>
-                {currentLanguage === 'ar' && <span className="ml-auto text-blue-600">✓</span>}
-              </button>
-              
-              <button
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  changeLanguage('en')
-                }}
-                className={`w-full flex items-center space-x-3 px-4 py-3 text-sm hover:bg-gray-100 transition-colors ${
-                  currentLanguage === 'en' ? 'bg-blue-50 text-blue-700' : 'text-gray-700'
-                }`}
-                style={{ cursor: 'pointer' }}
-              >
-                <span className="text-lg">🇺🇸</span>
-                <span>English</span>
-                {currentLanguage === 'en' && <span className="ml-auto text-blue-600">✓</span>}
-              </button>
-              
-              <button
-                onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  changeLanguage('zh')
-                }}
-                className={`w-full flex items-center space-x-3 px-4 py-3 text-sm hover:bg-gray-100 transition-colors ${
-                  currentLanguage === 'zh' ? 'bg-blue-50 text-blue-700' : 'text-gray-700'
-                }`}
-                style={{ cursor: 'pointer' }}
-              >
-                <span className="text-lg">🇨🇳</span>
-                <span>中文</span>
-                {currentLanguage === 'zh' && <span className="ml-auto text-blue-600">✓</span>}
-              </button>
-            </div>
-          </div>
-        </>
+        <div className="absolute top-full mt-2 right-0 rtl:left-0 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[160px] z-50">
+          {languages.map((language) => (
+            <button
+              key={language.code}
+              onClick={() => changeLanguage(language.code)}
+              className={`w-full text-right rtl:text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 flex items-center space-x-2 rtl:space-x-reverse ${
+                i18n.language === language.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+              }`}
+            >
+              <span className="text-lg">{language.flag}</span>
+              <span>{language.name}</span>
+            </button>
+          ))}
+        </div>
       )}
     </div>
   )

@@ -1,7 +1,8 @@
-'use client'
+"use client"
 
-import { useEffect } from 'react'
-import i18n from '@/lib/i18n'
+import { useEffect } from "react"
+import { I18nextProvider } from "react-i18next"
+import i18n from "@/i18n"
 
 interface I18nProviderProps {
   children: React.ReactNode
@@ -9,26 +10,18 @@ interface I18nProviderProps {
 
 export function I18nProvider({ children }: I18nProviderProps) {
   useEffect(() => {
-    try {
-      // Get saved language preference
-      const savedLanguage = localStorage.getItem('preferred-language');
-      const currentLanguage = savedLanguage && ['ar', 'en', 'zh'].includes(savedLanguage) 
-        ? savedLanguage 
-        : 'ar';
-      
-      // Set language
-      i18n.changeLanguage(currentLanguage);
-      
-      // Update HTML attributes
-      const dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
-      document.documentElement.dir = dir;
-      document.documentElement.lang = currentLanguage;
-    } catch (error) {
-      console.warn('i18n initialization error:', error);
-      // Continue rendering even if i18n fails
+    // Initialize i18n on client side
+    if (typeof window !== "undefined") {
+      const savedLanguage = localStorage.getItem("preferred-language")
+      if (savedLanguage) {
+        i18n.changeLanguage(savedLanguage)
+      }
     }
   }, [])
 
-  // Always render children immediately - never block rendering
-  return <>{children}</>
+  return (
+    <I18nextProvider i18n={i18n}>
+      {children}
+    </I18nextProvider>
+  )
 }
