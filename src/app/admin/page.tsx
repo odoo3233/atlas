@@ -55,6 +55,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(true)
   const [showAddForm, setShowAddForm] = useState(false)
   const [formType, setFormType] = useState<'product' | 'exhibition'>('product')
+  const [error, setError] = useState<string | null>(null)
 
   // Form states
   const [productForm, setProductForm] = useState({
@@ -85,6 +86,7 @@ export default function AdminPage() {
 
   const fetchData = async () => {
     setLoading(true)
+    setError(null)
     try {
       // Fetch all data in parallel
       const [productsRes, exhibitionsRes, statsRes] = await Promise.all([
@@ -98,6 +100,7 @@ export default function AdminPage() {
         setProducts(productsData)
       } else {
         console.error('Failed to fetch products:', productsRes.status)
+        setError('فشل في تحميل المنتجات')
       }
 
       if (exhibitionsRes.ok) {
@@ -105,6 +108,7 @@ export default function AdminPage() {
         setExhibitions(exhibitionsData)
       } else {
         console.error('Failed to fetch exhibitions:', exhibitionsRes.status)
+        setError('فشل في تحميل المعارض')
       }
 
       if (statsRes.ok) {
@@ -112,10 +116,11 @@ export default function AdminPage() {
         setStats(statsData)
       } else {
         console.error('Failed to fetch stats:', statsRes.status)
+        setError('فشل في تحميل الإحصائيات')
       }
     } catch (error) {
       console.error('Error fetching data:', error)
-      alert('خطأ في الاتصال بالخادم. تأكد من أن الباكند يعمل على Render.')
+      setError('خطأ في الاتصال بالخادم. تأكد من أن الباكند يعمل على Render.')
     } finally {
       setLoading(false)
     }
@@ -204,6 +209,43 @@ export default function AdminPage() {
     )
   }
 
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col items-center justify-center h-64">
+            <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md">
+              <div className="flex items-center mb-4">
+                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                  <span className="text-red-600 text-lg">!</span>
+                </div>
+                <h3 className="text-lg font-semibold text-red-800 mr-3">خطأ في الاتصال</h3>
+              </div>
+              <p className="text-red-700 mb-4">{error}</p>
+              <div className="flex space-x-3">
+                <Button
+                  onClick={fetchData}
+                  className="bg-red-600 hover:bg-red-700"
+                >
+                  <RefreshCw className="w-4 h-4 mr-2" />
+                  إعادة المحاولة
+                </Button>
+                <Button
+                  onClick={() => setError(null)}
+                  variant="outline"
+                >
+                  إلغاء
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -211,8 +253,19 @@ export default function AdminPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">لوحة الإدارة</h1>
-          <p className="text-gray-600">إدارة المنتجات والمعارض والإحصائيات</p>
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">لوحة الإدارة</h1>
+              <p className="text-gray-600">إدارة المنتجات والمعارض والإحصائيات</p>
+            </div>
+            <Button
+              onClick={fetchData}
+              className="bg-blue-600 hover:bg-blue-700"
+            >
+              <RefreshCw className="w-4 h-4 mr-2" />
+              تحديث البيانات
+            </Button>
+          </div>
         </div>
 
         {/* Tabs */}
