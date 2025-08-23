@@ -66,72 +66,116 @@ export default function ExhibitionsPage() {
     if (filter === "past") return !isUpcoming
     return true
   })
-  {
-    id: 1,
-    name: "Saudi-China Tech Expo 2025",
-    description: "Showcasing the latest technology innovations from China and Saudi Arabia with a focus on AI, robotics, and smart city solutions.",
-    startDate: "2025-03-15",
-    endDate: "2025-03-18",
-    location: "Riyadh International Convention Center, Saudi Arabia",
-    image: "/exhibitions/tech-expo.jpg",
-    organizer: "Atlas Al-Sharq & China Tech Association",
-    upcoming: true
-  },
-  {
-    id: 2,
-    name: "Saudi-China Manufacturing Forum",
-    description: "Connecting manufacturing businesses from both countries for collaboration and knowledge exchange in industrial innovation.",
-    startDate: "2025-05-10",
-    endDate: "2025-05-12",
-    location: "Jeddah Exhibition Center, Saudi Arabia",
-    image: "/exhibitions/manufacturing-forum.jpg",
-    organizer: "Atlas Al-Sharq & China Manufacturing Council",
-    upcoming: true
-  },
-  {
-    id: 3,
-    name: "Green Energy Summit",
-    description: "Exploring sustainable energy solutions and partnerships between Saudi Arabia and China in renewable energy technologies.",
-    startDate: "2025-07-22",
-    endDate: "2025-07-25",
-    location: "KAFD Conference Center, Riyadh, Saudi Arabia",
-    image: "/exhibitions/green-energy.jpg",
-    organizer: "Atlas Al-Sharq & China Green Energy Association",
-    upcoming: true
-  },
-  {
-    id: 4,
-    name: "Saudi-China Trade Fair 2024",
-    description: "Annual trade fair showcasing products and services from both countries across multiple industries.",
-    startDate: "2024-11-05",
-    endDate: "2024-11-10",
-    location: "Dhahran Expo, Dammam, Saudi Arabia",
-    image: "/exhibitions/trade-fair.jpg",
-    organizer: "Atlas Al-Sharq & China Trade Council",
-    upcoming: false
-  },
-  {
-    id: 5,
-    name: "Healthcare Innovation Conference",
-    description: "Bringing together healthcare professionals and companies to explore medical innovations and partnerships.",
-    startDate: "2024-09-18",
-    endDate: "2024-09-20",
-    location: "King Abdullah Medical City, Makkah, Saudi Arabia",
-    image: "/exhibitions/healthcare.jpg",
-    organizer: "Atlas Al-Sharq & China Medical Association",
-    upcoming: false
-  }
-]
 
-export default function ExhibitionsPage() {
-  const { t } = useTranslation('exhibitions')
-  const [filter, setFilter] = useState<"all" | "upcoming" | "past">("all")
-  
-  // Filter exhibitions based on selected filter
-  const filteredExhibitions = mockExhibitions.filter(exhibition => {
+  // Fallback exhibitions for when API is not available
+  const fallbackExhibitions: Exhibition[] = [
+    {
+      id: 1,
+      name: "Saudi-China Tech Expo 2025",
+      description: "Showcasing the latest technology innovations from China and Saudi Arabia with a focus on AI, robotics, and smart city solutions.",
+      start_date: "2025-03-15",
+      end_date: "2025-03-18",
+      location: "Riyadh International Convention Center, Saudi Arabia",
+      image_url: "/exhibitions/tech-expo.jpg",
+      organizer: "Atlas Al-Sharq & China Tech Association",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    },
+    {
+      id: 2,
+      name: "Saudi-China Manufacturing Forum",
+      description: "Connecting manufacturing businesses from both countries for collaboration and knowledge exchange in industrial innovation.",
+      start_date: "2025-05-10",
+      end_date: "2025-05-12",
+      location: "Jeddah Exhibition Center, Saudi Arabia",
+      image_url: "/exhibitions/manufacturing-forum.jpg",
+      organizer: "Atlas Al-Sharq & China Manufacturing Council",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    },
+    {
+      id: 3,
+      name: "Green Energy Summit",
+      description: "Exploring sustainable energy solutions and partnerships between Saudi Arabia and China in renewable energy technologies.",
+      start_date: "2025-07-22",
+      end_date: "2025-07-25",
+      location: "KAFD Conference Center, Riyadh, Saudi Arabia",
+      image_url: "/exhibitions/green-energy.jpg",
+      organizer: "Atlas Al-Sharq & China Green Energy Association",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    },
+    {
+      id: 4,
+      name: "Food & Agriculture Expo",
+      description: "Promoting agricultural partnerships and food trade between Saudi Arabia and China with focus on halal products and farming technology.",
+      start_date: "2025-09-05",
+      end_date: "2025-09-08",
+      location: "Dammam International Exhibition Center, Saudi Arabia",
+      image_url: "/exhibitions/food-agriculture.jpg",
+      organizer: "Atlas Al-Sharq & China-Arab Agricultural Association",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    },
+    {
+      id: 5,
+      name: "Digital Innovation Conference",
+      description: "Bringing together tech leaders from both countries to discuss digital transformation, e-commerce, and fintech opportunities.",
+      start_date: "2025-11-12",
+      end_date: "2025-11-14",
+      location: "King Abdullah Financial District, Riyadh, Saudi Arabia",
+      image_url: "/exhibitions/digital-innovation.jpg",
+      organizer: "Atlas Al-Sharq & Saudi-China Digital Council",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    },
+    {
+      id: 6,
+      name: "Healthcare & Medical Expo",
+      description: "Showcasing medical technologies, healthcare solutions, and pharmaceutical partnerships between Saudi Arabia and China.",
+      start_date: "2024-10-20",
+      end_date: "2024-10-23",
+      location: "Jeddah International Exhibition Center, Saudi Arabia",
+      image_url: "/exhibitions/healthcare-expo.jpg",
+      organizer: "Atlas Al-Sharq & China Medical Association",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    },
+    {
+      id: 7,
+      name: "Construction & Infrastructure Summit",
+      description: "Connecting construction companies and infrastructure developers from both countries for mega project collaborations.",
+      start_date: "2024-08-15",
+      end_date: "2024-08-18",
+      location: "Riyadh Exhibition Center, Saudi Arabia",
+      image_url: "/exhibitions/construction-summit.jpg",
+      organizer: "Atlas Al-Sharq & China Construction Federation",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    },
+    {
+      id: 8,
+      name: "Textile & Fashion Fair",
+      description: "Showcasing textile innovations and fashion trends, creating partnerships in the garment and fashion industry.",
+      start_date: "2024-06-10",
+      end_date: "2024-06-13",
+      location: "Jeddah Convention Center, Saudi Arabia",
+      image_url: "/exhibitions/textile-fashion.jpg",
+      organizer: "Atlas Al-Sharq & China Textile Association",
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    }
+  ]
+
+  // Use fallback data if no exhibitions from API and show them
+  const displayExhibitions = exhibitions.length > 0 ? filteredExhibitions : fallbackExhibitions.filter(exhibition => {
+    const endDate = new Date(exhibition.end_date)
+    const today = new Date()
+    const isUpcoming = endDate >= today
+    
     if (filter === "all") return true
-    if (filter === "upcoming") return exhibition.upcoming
-    if (filter === "past") return !exhibition.upcoming
+    if (filter === "upcoming") return isUpcoming
+    if (filter === "past") return !isUpcoming
     return true
   })
 
@@ -237,13 +281,13 @@ export default function ExhibitionsPage() {
       {/* Exhibitions List */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          {filteredExhibitions.length === 0 ? (
+          {displayExhibitions.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-xl text-gray-600">{t('exhibitions.noEvents') || 'لا توجد فعاليات متاحة حالياً'}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {filteredExhibitions.map((exhibition) => {
+              {displayExhibitions.map((exhibition) => {
                 const endDate = new Date(exhibition.end_date)
                 const today = new Date()
                 const isUpcoming = endDate >= today
