@@ -32,11 +32,11 @@
   },
   "home": {
     "hero": {
-      "badge": "Integrated Platform for International Exhibitions and Trade",
-      "title": "Atlas Al-Sharq for Exhibitions and Conferences",
-      "subtitle": "We connect companies with global markets through integrated and specialized services",
-      "description": "We are proud of 15 years of experience in the field of exhibitions and international trade, offering innovative solutions to connect Saudi companies with Chinese and global markets",
-      "discoverServices": "Discover Our Services",
+      "badge": "Leading Bridge Between China and Saudi Arabia Business",
+      "title": "Atlas Al-Sharq International Exhibitions & Conferences",
+      "subtitle": "Your Gateway to Success in Global Markets",
+      "description": "With over 15 years of excellence, we pride ourselves as the leading strategic partner in facilitating international trade and organizing world-class exhibitions, providing innovative and comprehensive solutions that ensure your business success in global markets",
+      "discoverServices": "Explore Our Solutions",
       "startJourney": "Start Your Success Journey"
     },
     "stats": {
@@ -211,6 +211,194 @@
         "title": "Guaranteed High Quality",
         "subtitle": "ISO 9001",
         "description": "Committed to the highest international quality standards, with international accreditation certificates and full satisfaction guarantee for all our services"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Always at Your Service",
+      "title": "Connect with Atlas Al-Sharq Experts",
+      "subtitle": "Your Trusted Partner in Business Success",
+      "description": "Our specialized team of experts is ready to provide professional consultations and innovative solutions that meet your aspirations and achieve your business goals",
+      "callNow": "Speak with an Expert",
+      "emailUs": "Send Your Inquiry"
+    },
+    "contact": {
+      "info": {
+        "title": "Contact Information",
+        "description": "We're delighted to hear from you through various channels",
+        "phone": {
+          "title": "Call Us Directly",
+          "subtitle": "Hotline for Immediate Support"
+        },
+        "email": {
+          "title": "Email Us",
+          "subtitle": "We respond to inquiries within 24 hours"
+        },
+        "address": {
+          "title": "Main Location",
+          "subtitle": "Visit us at our headquarters",
+          "street": "Business District, King Fahd Road",
+          "city": "Riyadh, Kingdom of Saudi Arabia"
+        },
+        "hours": {
+          "title": "Working Hours",
+          "subtitle": "Available to serve you",
+          "weekdays": "Sunday - Thursday",
+          "weekend": "Saturday"
+        }
+      },
+      "form": {
+        "title": "Send Your Message",
+        "subtitle": "Fill out the form and we'll contact you as soon as possible",
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "company": "Company Name",
+        "subject": "Message Subject",
+        "message": "Your Message Details",
+        "submit": "Send Message",
+        "submitting": "Sending...",
+        "success": {
+          "title": "Message Sent Successfully!",
+          "message": "Thank you for contacting us. Our team will respond within 24 hours."
+        }
+      },
+      "stats": {
+        "support": "24/7 Support",
+        "response": "Quick Response"
+      }
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "Professional Services with Global Standards",
+      "title": "Our Distinguished Services",
+      "subtitle": "Comprehensive Solutions Tailored to Your Ambitions",
+      "description": "We offer an integrated suite of professional services that combine deep expertise with continuous innovation, ensuring your success in local and international markets"
+    },
+    "title": "Our Integrated Service Packages",
+    "subtitle": "We design innovative solutions that meet your needs and exceed your expectations",
+    "cta": {
+      "title": "Looking for a Trusted Partner for Business Success?",
+      "description": "Let us help you achieve your business goals through our distinguished services",
+      "button": "Get Free Consultation"
+    }
+  },
+  "products": {
+    "hero": {
+      "badge": "High-Quality Products from the Best Sources",
+      "title": "Distinguished Product Collection",
+      "subtitle": "We Select the Best from Global Markets",
+      "description": "We provide a carefully curated selection of premium products that meet local market needs, ensuring the highest quality standards and competitive prices"
+    },
+    "title": "Explore Our Premium Products",
+    "subtitle": "Wide Range to Suit All Needs",
+    "featuredProducts": "Featured Products",
+    "allProducts": "All Products",
+    "categories": "Categories",
+    "filter": "Filter Results",
+    "sort": "Sort By",
+    "viewDetails": "View Details",
+    "orderNow": "Order Now",
+    "addToCart": "Add to Cart",
+    "specifications": "Specifications",
+    "description": "Description",
+    "relatedProducts": "Related Products",
+    "cta": {
+      "title": "Can't Find What You're Looking For?",
+      "description": "Contact us and we'll help you find the right product for your needs",
+      "button": "Contact Sales Team"
+    }
+  },
+  "exhibitions": {
+    "hero": {
+      "badge": "International Events with Global Standards",
+      "title": "Exceptional Exhibitions & Conferences",
+      "subtitle": "Perfect Platform to Showcase Your Products and Build Successful Partnerships",
+      "description": "We offer you the opportunity to participate in leading international exhibitions and conferences, where opportunities meet ambitions and successful partnerships are built"
+    },
+    "title": "Upcoming Events & Exhibitions",
+    "subtitle": "Book Your Place at the Most Important Business Events",
+    "upcomingEvents": "Upcoming Events",
+    "pastEvents": "Past Events",
+    "allEvents": "All Events",
+    "registerNow": "Register Now",
+    "learnMore": "Learn More",
+    "date": "Date",
+    "location": "Location",
+    "participants": "Participants",
+    "categories": "Sectors",
+    "booths": "Available Booths",
+    "pricing": "Pricing",
+    "whyParticipate": {
+      "title": "Why Participate with Us?",
+      "networking": "Unlimited Networking Opportunities",
+      "exposure": "Showcase Products to Global Audience",
+      "deals": "Profitable Business Deals",
+      "knowledge": "Gain New Expertise"
+    },
+    "cta": {
+      "title": "Don't Miss the Opportunity!",
+      "description": "Book your place in upcoming exhibitions and benefit from early bird offers",
+      "button": "Reserve Your Booth Now"
+    }
+  },
+  "businessVisits": {
+    "hero": {
+      "badge": "Fruitful and Strategic Business Trips",
+      "title": "Strategic Business Trips",
+      "subtitle": "We Design Business Trips that Achieve Your Goals",
+      "description": "Years of experience in organizing successful business trips, ensuring productive meetings and promising investment opportunities in target markets"
+    },
+    "title": "Business Trip Programs",
+    "subtitle": "Customized Trips to Meet Your Needs",
+    "features": {
+      "planning": "Comprehensive Strategic Planning",
+      "meetings": "Effective B2B Meeting Arrangements",
+      "translation": "Professional Real-time Translation",
+      "accommodation": "Luxury Accommodation & VIP Services",
+      "followup": "Post-Trip Follow-up"
+    },
+    "destinations": {
+      "title": "Our Main Destinations",
+      "china": "China",
+      "saudi": "Saudi Arabia",
+      "uae": "UAE",
+      "other": "Other Destinations"
+    },
+    "cta": {
+      "title": "Plan a Successful Business Trip",
+      "description": "Let us help you maximize the benefits of your business journey",
+      "button": "Start Planning Now"
+    }
+  },
+  "falconRegistration": {
+    "hero": {
+      "badge": "Saudi International Falcon Exhibition",
+      "title": "Register for Falcon Exhibition 2024",
+      "subtitle": "The Largest International Event for Falcon Enthusiasts",
+      "description": "Join thousands of participants from around the world in the largest specialized exhibition for falcons and falconry"
+    },
+    "title": "Registration Form",
+    "subtitle": "Fill in the details to participate in the exhibition",
+    "form": {
+      "personalInfo": "Personal Information",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "country": "Country",
+      "falconInfo": "Falcon Information",
+      "falconType": "Falcon Type",
+      "falconAge": "Falcon Age",
+      "participationType": "Participation Type",
+      "exhibition": "Exhibition",
+      "competition": "Competition",
+      "both": "Exhibition & Competition",
+      "submit": "Submit Registration",
+      "success": {
+        "title": "Successfully Registered!",
+        "message": "We will contact you soon to confirm your participation"
       }
     }
   }
