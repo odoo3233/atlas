@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
+import React from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface EnhancedImageProps {
-  src: string
-  alt: string
-  width?: number
-  height?: number
-  className?: string
-  priority?: boolean
-  quality?: number
-  placeholder?: "blur" | "empty"
-  blurDataURL?: string
-  containerClassName?: string
-  hoverEffect?: boolean
-  professional?: boolean
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  className?: string;
+  priority?: boolean;
+  quality?: number;
+  placeholder?: "blur" | "empty";
+  blurDataURL?: string;
+  containerClassName?: string;
+  hoverEffect?: boolean;
+  professional?: boolean;
 }
 
 export function EnhancedImage({
@@ -34,12 +34,14 @@ export function EnhancedImage({
   professional = true,
 }: EnhancedImageProps) {
   return (
-    <div className={cn(
-      "relative overflow-hidden",
-      professional && "professional-card",
-      hoverEffect && "group",
-      containerClassName
-    )}>
+    <div
+      className={cn(
+        "relative overflow-hidden",
+        professional && "professional-card",
+        hoverEffect && "group",
+        containerClassName,
+      )}
+    >
       <Image
         src={src}
         alt={alt}
@@ -48,7 +50,7 @@ export function EnhancedImage({
         className={cn(
           "hq-image transition-all duration-300",
           hoverEffect && "group-hover:scale-105",
-          className
+          className,
         )}
         priority={priority}
         quality={quality}
@@ -64,7 +66,7 @@ export function EnhancedImage({
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       )}
     </div>
-  )
+  );
 }
 
 export function HeroImage({
@@ -72,9 +74,9 @@ export function HeroImage({
   alt,
   className,
 }: {
-  src: string
-  alt: string
-  className?: string
+  src: string;
+  alt: string;
+  className?: string;
 }) {
   return (
     <div className={cn("image-container", className)}>
@@ -90,7 +92,7 @@ export function HeroImage({
         className="w-full h-full"
       />
     </div>
-  )
+  );
 }
 
 export function ProductImage({
@@ -99,10 +101,10 @@ export function ProductImage({
   className,
   placeholder = "empty",
 }: {
-  src: string
-  alt: string
-  className?: string
-  placeholder?: "blur" | "empty"
+  src: string;
+  alt: string;
+  className?: string;
+  placeholder?: "blur" | "empty";
 }) {
   return (
     <EnhancedImage
@@ -116,7 +118,7 @@ export function ProductImage({
       className={cn("aspect-square", className)}
       placeholder={placeholder}
     />
-  )
+  );
 }
 
 export function ServiceImage({
@@ -124,9 +126,9 @@ export function ServiceImage({
   alt,
   className,
 }: {
-  src: string
-  alt: string
-  className?: string
+  src: string;
+  alt: string;
+  className?: string;
 }) {
   return (
     <EnhancedImage
@@ -139,5 +141,5 @@ export function ServiceImage({
       hoverEffect={true}
       className={cn("aspect-video", className)}
     />
-  )
+  );
 }

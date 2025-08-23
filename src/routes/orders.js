@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 // Get all orders with product details and notes
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const result = await req.db.query(`
       SELECT 
@@ -32,20 +32,21 @@ router.get('/', async (req, res) => {
       GROUP BY o.id
       ORDER BY o.created_at DESC
     `);
-    
+
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching orders:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching orders:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get orders by status
-router.get('/status/:status', async (req, res) => {
+router.get("/status/:status", async (req, res) => {
   try {
     const { status } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       SELECT 
         o.*,
         json_agg(
@@ -72,21 +73,24 @@ router.get('/status/:status', async (req, res) => {
       WHERE o.status = $1
       GROUP BY o.id
       ORDER BY o.created_at DESC
-    `, [status]);
-    
+    `,
+      [status],
+    );
+
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching orders by status:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching orders by status:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get order by ID with full details
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       SELECT 
         o.*,
         json_agg(
@@ -114,61 +118,70 @@ router.get('/:id', async (req, res) => {
       LEFT JOIN order_notes on ON o.id = on.order_id
       WHERE o.id = $1
       GROUP BY o.id
-    `, [id]);
-    
+    `,
+      [id],
+    );
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Order not found' });
+      return res.status(404).json({ error: "Order not found" });
     }
-    
+
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error fetching order:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching order:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Create new order
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   const client = await req.db.connect();
-  
+
   try {
-    await client.query('BEGIN');
-    
-    const { 
-      customer_name, 
-      customer_email, 
-      customer_phone, 
-      company_name, 
-      message, 
-      items 
+    await client.query("BEGIN");
+
+    const {
+      customer_name,
+      customer_email,
+      customer_phone,
+      company_name,
+      message,
+      items,
     } = req.body;
-    
+
     // Create order
-    const orderResult = await client.query(`
+    const orderResult = await client.query(
+      `
       INSERT INTO orders (
         customer_name, customer_email, customer_phone, company_name, 
         message, status, created_at, updated_at
       ) VALUES ($1, $2, $3, $4, $5, 'new', NOW(), NOW())
       RETURNING *
-    `, [customer_name, customer_email, customer_phone, company_name, message]);
-    
+    `,
+      [customer_name, customer_email, customer_phone, company_name, message],
+    );
+
     const order = orderResult.rows[0];
-    
+
     // Add order items
     if (items && items.length > 0) {
       for (const item of items) {
-        await client.query(`
+        await client.query(
+          `
           INSERT INTO order_items (
             order_id, product_id, quantity, price, created_at, updated_at
           ) VALUES ($1, $2, $3, $4, NOW(), NOW())
-        `, [order.id, item.product_id, item.quantity, item.price]);
+        `,
+          [order.id, item.product_id, item.quantity, item.price],
+        );
       }
     }
-    
-    await client.query('COMMIT');
-    
+
+    await client.query("COMMIT");
+
     // Return the complete order with items
-    const completeOrder = await req.db.query(`
+    const completeOrder = await req.db.query(
+      `
       SELECT 
         o.*,
         json_agg(
@@ -186,143 +199,171 @@ router.post('/', async (req, res) => {
       LEFT JOIN products p ON oi.product_id = p.id
       WHERE o.id = $1
       GROUP BY o.id
-    `, [order.id]);
-    
+    `,
+      [order.id],
+    );
+
     res.status(201).json(completeOrder.rows[0]);
   } catch (error) {
-    await client.query('ROLLBACK');
-    console.error('Error creating order:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    await client.query("ROLLBACK");
+    console.error("Error creating order:", error);
+    res.status(500).json({ error: "Internal server error" });
   } finally {
     client.release();
   }
 });
 
 // Update order status
-router.put('/:id/status', async (req, res) => {
+router.put("/:id/status", async (req, res) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
-    
-    const validStatuses = ['new', 'processing', 'contacted', 'shipped', 'completed', 'cancelled'];
-    
+
+    const validStatuses = [
+      "new",
+      "processing",
+      "contacted",
+      "shipped",
+      "completed",
+      "cancelled",
+    ];
+
     if (!validStatuses.includes(status)) {
-      return res.status(400).json({ error: 'Invalid status' });
+      return res.status(400).json({ error: "Invalid status" });
     }
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       UPDATE orders 
       SET status = $1, updated_at = NOW()
       WHERE id = $2
       RETURNING *
-    `, [status, id]);
-    
+    `,
+      [status, id],
+    );
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Order not found' });
+      return res.status(404).json({ error: "Order not found" });
     }
-    
+
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error updating order status:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error updating order status:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Add note to order (for customer management)
-router.post('/:id/notes', async (req, res) => {
+router.post("/:id/notes", async (req, res) => {
   try {
     const { id } = req.params;
     const { note } = req.body;
-    
+
     // Check if order exists
-    const orderCheck = await req.db.query('SELECT id FROM orders WHERE id = $1', [id]);
+    const orderCheck = await req.db.query(
+      "SELECT id FROM orders WHERE id = $1",
+      [id],
+    );
     if (orderCheck.rows.length === 0) {
-      return res.status(404).json({ error: 'Order not found' });
+      return res.status(404).json({ error: "Order not found" });
     }
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       INSERT INTO order_notes (order_id, note, created_at)
       VALUES ($1, $2, NOW())
       RETURNING *
-    `, [id, note]);
-    
+    `,
+      [id, note],
+    );
+
     res.status(201).json(result.rows[0]);
   } catch (error) {
-    console.error('Error adding note to order:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error adding note to order:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get order notes
-router.get('/:id/notes', async (req, res) => {
+router.get("/:id/notes", async (req, res) => {
   try {
     const { id } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       SELECT * FROM order_notes 
       WHERE order_id = $1 
       ORDER BY created_at DESC
-    `, [id]);
-    
+    `,
+      [id],
+    );
+
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching order notes:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching order notes:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Update order note
-router.put('/notes/:noteId', async (req, res) => {
+router.put("/notes/:noteId", async (req, res) => {
   try {
     const { noteId } = req.params;
     const { note } = req.body;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       UPDATE order_notes 
       SET note = $1, updated_at = NOW()
       WHERE id = $2
       RETURNING *
-    `, [note, noteId]);
-    
+    `,
+      [note, noteId],
+    );
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Note not found' });
+      return res.status(404).json({ error: "Note not found" });
     }
-    
+
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error updating note:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error updating note:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Delete order note
-router.delete('/notes/:noteId', async (req, res) => {
+router.delete("/notes/:noteId", async (req, res) => {
   try {
     const { noteId } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       DELETE FROM order_notes 
       WHERE id = $1 
       RETURNING *
-    `, [noteId]);
-    
+    `,
+      [noteId],
+    );
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Note not found' });
+      return res.status(404).json({ error: "Note not found" });
     }
-    
-    res.json({ message: 'Note deleted successfully' });
+
+    res.json({ message: "Note deleted successfully" });
   } catch (error) {
-    console.error('Error deleting note:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error deleting note:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get orders by customer email
-router.get('/customer/:email', async (req, res) => {
+router.get("/customer/:email", async (req, res) => {
   try {
     const { email } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       SELECT 
         o.*,
         json_agg(
@@ -349,12 +390,14 @@ router.get('/customer/:email', async (req, res) => {
       WHERE o.customer_email = $1
       GROUP BY o.id
       ORDER BY o.created_at DESC
-    `, [email]);
-    
+    `,
+      [email],
+    );
+
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching customer orders:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching customer orders:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 

@@ -1,36 +1,36 @@
-"use client"
+"use client";
 
-import React, { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
+import React, { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
   ArrowUp,
   Facebook,
   Twitter,
   Instagram,
   Linkedin,
-  Youtube
-} from "lucide-react"
+  Youtube,
+} from "lucide-react";
 
 export function Footer() {
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle newsletter subscription
-    console.log("Newsletter subscription:", email)
-    setEmail("")
-  }
+    console.log("Newsletter subscription:", email);
+    setEmail("");
+  };
 
   return (
     <footer className="bg-gray-900 text-white">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
-      
+
       <div className="relative">
         <div className="container mx-auto px-4 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -46,19 +46,32 @@ export function Footer() {
                 </div>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                شركة أطلس الشرق للاستشارات الاقتصادية والتجارية، نربط بين الصين والمملكة العربية السعودية من خلال المعارض والفعاليات التجارية.
+                شركة أطلس الشرق للاستشارات الاقتصادية والتجارية، نربط بين الصين
+                والمملكة العربية السعودية من خلال المعارض والفعاليات التجارية.
               </p>
               <div className="flex space-x-4 rtl:space-x-reverse">
-                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <Link
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
+                >
                   <Facebook className="w-5 h-5" />
                 </Link>
-                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <Link
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
+                >
                   <Twitter className="w-5 h-5" />
                 </Link>
-                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <Link
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
+                >
                   <Instagram className="w-5 h-5" />
                 </Link>
-                <Link href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <Link
+                  href="#"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
+                >
                   <Linkedin className="w-5 h-5" />
                 </Link>
               </div>
@@ -69,32 +82,50 @@ export function Footer() {
               <h4 className="text-xl font-semibold mb-6">روابط سريعة</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/about"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     من نحن
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     خدماتنا
                   </Link>
                 </li>
                 <li>
-                  <Link href="/products" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/products"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     المنتجات
                   </Link>
                 </li>
                 <li>
-                  <Link href="/exhibitions" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/exhibitions"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     المعارض
                   </Link>
                 </li>
                 <li>
-                  <Link href="/business-visits" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/business-visits"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     الزيارات التجارية
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/contact"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     اتصل بنا
                   </Link>
                 </li>
@@ -106,32 +137,50 @@ export function Footer() {
               <h4 className="text-xl font-semibold mb-6">خدماتنا</h4>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     تنظيم المعارض
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     الاستشارات التجارية
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     رحلات الأعمال
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     الترجمة والوساطة
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     التسويق الدولي
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                  <Link
+                    href="/services"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
                     الاستثمارات المشتركة
                   </Link>
                 </li>
@@ -145,7 +194,9 @@ export function Footer() {
                 <div className="flex items-start space-x-3 rtl:space-x-reverse">
                   <MapPin className="w-5 h-5 text-blue-400 mt-1" />
                   <div>
-                    <p className="text-gray-300">الرياض، المملكة العربية السعودية</p>
+                    <p className="text-gray-300">
+                      الرياض، المملكة العربية السعودية
+                    </p>
                     <p className="text-gray-400 text-sm">مكتبنا الرئيسي</p>
                   </div>
                 </div>
@@ -159,7 +210,9 @@ export function Footer() {
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                   <Clock className="w-5 h-5 text-blue-400" />
-                  <span className="text-gray-300">الأحد - الخميس: 8:00 - 17:00</span>
+                  <span className="text-gray-300">
+                    الأحد - الخميس: 8:00 - 17:00
+                  </span>
                 </div>
               </div>
 
@@ -175,7 +228,10 @@ export function Footer() {
                     className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
                     required
                   />
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                  <Button
+                    type="submit"
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                  >
                     اشترك الآن
                   </Button>
                 </form>
@@ -192,13 +248,22 @@ export function Footer() {
                 © 2024 أطلس الشرق. جميع الحقوق محفوظة.
               </div>
               <div className="flex space-x-6 rtl:space-x-reverse text-sm">
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/privacy"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   سياسة الخصوصية
                 </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/terms"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   شروط الاستخدام
                 </Link>
-                <Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  href="/sitemap"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   خريطة الموقع
                 </Link>
               </div>
@@ -209,11 +274,11 @@ export function Footer() {
 
       {/* Scroll to Top Button */}
       <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
       >
         <ArrowUp className="w-6 h-6" />
       </button>
     </footer>
-  )
+  );
 }

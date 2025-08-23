@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار التصميم - أطلس الشرق</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center bg-gradient-to-br from-purple-900 via-blue-900 to-purple-800 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="text-center max-w-6xl mx-auto">
+                <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-medium mb-6 animate-fade-in-up">
+                    <span class="mr-2">🛍️</span>
+                    منصة متكاملة للمعارض والتجارة الدولية
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
+                    شركة أطلس الشرق
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 leading-relaxed mb-6 animate-fade-in-up">
+                    نربط الأعمال بين الصين والمملكة العربية السعودية
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
+                    <button class="text-lg px-8 py-6 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-purple-500/25">
+                        اكتشف خدماتنا
+                    </button>
+                    <button class="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold rounded-2xl transform hover:scale-105 transition-all duration-300 shadow-2xl">
+                        ابدأ رحلتك →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <div class="text-3xl md:text-4xl font-bold text-orange-600 mb-2">+15</div>
+                    <div class="text-orange-700 font-medium">سنة خبرة</div>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-green-50 to-green-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2">98%</div>
+                    <div class="text-green-700 font-medium">معدل رضا</div>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2">+2000</div>
+                    <div class="text-purple-700 font-medium">شريك صيني</div>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">+500</div>
+                    <div class="text-blue-700 font-medium">فعالية منظمة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-6">
+                    <span class="mr-2">ℹ️</span>
+                    من نحن
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    شركة أطلس الشرق للمعارض والمؤتمرات
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
+                    نفخر بخبرة 15 عاماً في مجال المعارض والتجارة الدولية
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="text-lg px-8 py-6 bg-white text-gray-900 hover:bg-gray-100 transition-all duration-300 font-semibold rounded-2xl">
+                        تواصل معنا
+                    </button>
+                    <button class="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300 border-2 font-semibold rounded-2xl">
+                        اعرف المزيد
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center py-8 bg-gray-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">✅ التصميم يعمل بشكل مثالي!</h2>
+        <p class="text-gray-600">إذا كنت ترى هذا التصميم الجميل، فهذا يعني أن جميع الفئات والتدرجات تعمل بشكل صحيح.</p>
+        <p class="text-gray-600 mt-2">يمكنك الآن العودة إلى الموقع الأصلي على <strong>http://localhost:3000</strong></p>
+    </div>
+</body>
+</html>

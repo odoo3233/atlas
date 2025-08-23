@@ -1,41 +1,45 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
-import { Calendar, MapPin, Users, Award, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
+import { Calendar, MapPin, Users, Award, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function FalconRegistration() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    company: '',
-    position: '',
-    visitorsCount: '1',
-    visitDate: '',
-    specialRequirements: ''
+    fullName: "",
+    email: "",
+    phone: "",
+    company: "",
+    position: "",
+    visitorsCount: "1",
+    visitDate: "",
+    specialRequirements: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
@@ -56,19 +60,32 @@ export default function FalconRegistration() {
                 شكراً لك على التسجيل في معرض الصقور والصيد السعودي الدولي 2025
               </p>
               <div className="bg-amber-50 rounded-xl p-6 mb-6">
-                <h3 className="font-semibold text-amber-800 mb-3">تفاصيل التسجيل:</h3>
+                <h3 className="font-semibold text-amber-800 mb-3">
+                  تفاصيل التسجيل:
+                </h3>
                 <div className="space-y-2 text-sm text-amber-700">
-                  <p><strong>الاسم:</strong> {formData.fullName}</p>
-                  <p><strong>البريد الإلكتروني:</strong> {formData.email}</p>
-                  <p><strong>عدد الزوار:</strong> {formData.visitorsCount}</p>
-                  <p><strong>تاريخ الزيارة:</strong> {formData.visitDate}</p>
+                  <p>
+                    <strong>الاسم:</strong> {formData.fullName}
+                  </p>
+                  <p>
+                    <strong>البريد الإلكتروني:</strong> {formData.email}
+                  </p>
+                  <p>
+                    <strong>عدد الزوار:</strong> {formData.visitorsCount}
+                  </p>
+                  <p>
+                    <strong>تاريخ الزيارة:</strong> {formData.visitDate}
+                  </p>
                 </div>
               </div>
               <p className="text-sm text-gray-500 mb-6">
                 سيتم إرسال تأكيد التسجيل إلى بريدك الإلكتروني مع كافة التفاصيل
               </p>
               <Link href="/">
-                <Button size="lg" className="bg-amber-500 text-white hover:bg-amber-600">
+                <Button
+                  size="lg"
+                  className="bg-amber-500 text-white hover:bg-amber-600"
+                >
                   العودة للصفحة الرئيسية
                 </Button>
               </Link>
@@ -85,7 +102,10 @@ export default function FalconRegistration() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <Link href="/" className="inline-flex items-center text-amber-600 hover:text-amber-700 mb-6">
+            <Link
+              href="/"
+              className="inline-flex items-center text-amber-600 hover:text-amber-700 mb-6"
+            >
               <ArrowLeft className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
               العودة للصفحة الرئيسية
             </Link>
@@ -102,7 +122,7 @@ export default function FalconRegistration() {
             <div className="lg:col-span-1">
               <div className="bg-gradient-to-br from-amber-900 via-orange-800 to-red-800 rounded-2xl p-6 text-white shadow-2xl">
                 <h2 className="text-2xl font-bold mb-6">تفاصيل المعرض</h2>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center">
                     <Calendar className="w-6 h-6 text-amber-300 ml-3 rtl:ml-0 rtl:mr-3" />
@@ -111,7 +131,7 @@ export default function FalconRegistration() {
                       <p className="text-amber-200">٢ – ١١ أكتوبر ٢٠٢٥</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center">
                     <MapPin className="w-6 h-6 text-amber-300 ml-3 rtl:ml-0 rtl:mr-3" />
                     <div>
@@ -119,7 +139,7 @@ export default function FalconRegistration() {
                       <p className="text-amber-200">مركز الرياض للمعارض</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center">
                     <Users className="w-6 h-6 text-amber-300 ml-3 rtl:ml-0 rtl:mr-3" />
                     <div>
@@ -145,8 +165,10 @@ export default function FalconRegistration() {
             {/* Registration Form */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-2xl p-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">نموذج التسجيل</h2>
-                
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                  نموذج التسجيل
+                </h2>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -163,7 +185,7 @@ export default function FalconRegistration() {
                         placeholder="أدخل اسمك الكامل"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         البريد الإلكتروني *
@@ -178,7 +200,7 @@ export default function FalconRegistration() {
                         placeholder="example@email.com"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         رقم الهاتف *
@@ -193,7 +215,7 @@ export default function FalconRegistration() {
                         placeholder="+966 5X XXX XXXX"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         الشركة / المؤسسة
@@ -207,7 +229,7 @@ export default function FalconRegistration() {
                         placeholder="اسم الشركة (اختياري)"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         المنصب الوظيفي
@@ -221,7 +243,7 @@ export default function FalconRegistration() {
                         placeholder="المنصب الوظيفي (اختياري)"
                       />
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         عدد الزوار *
@@ -241,7 +263,7 @@ export default function FalconRegistration() {
                         <option value="6+">6+ زوار</option>
                       </select>
                     </div>
-                    
+
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         تاريخ الزيارة المفضل *
@@ -267,7 +289,7 @@ export default function FalconRegistration() {
                       </select>
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       متطلبات خاصة أو ملاحظات
@@ -281,9 +303,11 @@ export default function FalconRegistration() {
                       placeholder="أي متطلبات خاصة أو ملاحظات (اختياري)"
                     />
                   </div>
-                  
+
                   <div className="bg-amber-50 rounded-xl p-4">
-                    <h3 className="font-semibold text-amber-800 mb-2">معلومات مهمة:</h3>
+                    <h3 className="font-semibold text-amber-800 mb-2">
+                      معلومات مهمة:
+                    </h3>
                     <ul className="text-sm text-amber-700 space-y-1">
                       <li>• التسجيل مجاني</li>
                       <li>• ساعات العمل: 9:00 ص - 6:00 م</li>
@@ -291,14 +315,14 @@ export default function FalconRegistration() {
                       <li>• سيتم إرسال تأكيد التسجيل عبر البريد الإلكتروني</li>
                     </ul>
                   </div>
-                  
+
                   <Button
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
                     className="w-full bg-amber-500 text-white hover:bg-amber-600 font-semibold text-lg py-4"
                   >
-                    {isSubmitting ? 'جاري التسجيل...' : 'تأكيد التسجيل'}
+                    {isSubmitting ? "جاري التسجيل..." : "تأكيد التسجيل"}
                   </Button>
                 </form>
               </div>

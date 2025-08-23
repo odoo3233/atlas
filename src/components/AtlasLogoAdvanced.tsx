@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface AtlasLogoAdvancedProps {
   className?: string;
@@ -9,7 +9,7 @@ interface AtlasLogoAdvancedProps {
 }
 
 export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
-  className = '',
+  className = "",
   size = 200,
   interactive = true,
   onHover,
@@ -17,11 +17,11 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const logoId = `atlas-logo-advanced-${Math.random().toString(36).substr(2, 9)}`;
-  
+
   return (
-    <div 
+    <div
       className={`inline-flex flex-col items-center cursor-pointer transition-transform duration-300 ${
-        isHovered && interactive ? 'scale-105' : ''
+        isHovered && interactive ? "scale-105" : ""
       } ${className}`}
       onMouseEnter={() => {
         setIsHovered(true);
@@ -40,7 +40,13 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
       >
         <defs>
           {/* Enhanced gradients with animation */}
-          <linearGradient id={`${logoId}-primary`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id={`${logoId}-primary`}
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#2d1810">
               {isHovered && (
                 <animate
@@ -62,26 +68,32 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
               )}
             </stop>
           </linearGradient>
-          
+
           {/* Metallic gradient */}
-          <linearGradient id={`${logoId}-metallic`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id={`${logoId}-metallic`}
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#b3722e" />
             <stop offset="25%" stopColor="#f5c889" />
             <stop offset="50%" stopColor="#d4893d" />
             <stop offset="75%" stopColor="#8f5a1f" />
             <stop offset="100%" stopColor="#714610" />
           </linearGradient>
-          
+
           {/* Filter for glow effect */}
           <filter id={`${logoId}-glow`}>
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
             <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
-        
+
         {/* Background glow */}
         <circle
           cx="100"
@@ -92,9 +104,9 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
           filter={`url(#${logoId}-glow)`}
           className="transition-opacity duration-500"
         />
-        
+
         {/* Main logo structure */}
-        <g className={`${isHovered ? 'animate-atlas-rotate' : ''}`}>
+        <g className={`${isHovered ? "animate-atlas-rotate" : ""}`}>
           {/* Outer ring with pattern */}
           <g>
             {[...Array(12)].map((_, i) => (
@@ -113,7 +125,7 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
               />
             ))}
           </g>
-          
+
           {/* Concentric circles */}
           <circle
             cx="100"
@@ -122,9 +134,9 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
             stroke={`url(#${logoId}-primary)`}
             strokeWidth="3"
             fill="none"
-            className={isHovered ? 'animate-atlas-pulse' : ''}
+            className={isHovered ? "animate-atlas-pulse" : ""}
           />
-          
+
           <circle
             cx="100"
             cy="100"
@@ -136,23 +148,18 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
             className="transition-all duration-500"
           />
         </g>
-        
+
         {/* Center emblem */}
-        <g className={isHovered ? 'animate-atlas-glow' : ''}>
-          <circle
-            cx="100"
-            cy="100"
-            r="55"
-            fill={`url(#${logoId}-primary)`}
-          />
-          
+        <g className={isHovered ? "animate-atlas-glow" : ""}>
+          <circle cx="100" cy="100" r="55" fill={`url(#${logoId}-primary)`} />
+
           {/* Inner pattern */}
           <path
             d="M100 45 L120 80 L100 115 L80 80 Z"
             fill={`url(#${logoId}-metallic)`}
             opacity="0.8"
           />
-          
+
           {/* Center point with animated pulse */}
           <circle cx="100" cy="100" r="10" fill="#f5c889">
             {isHovered && (
@@ -165,7 +172,7 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
             )}
           </circle>
         </g>
-        
+
         {/* Decorative elements */}
         {isHovered && (
           <g className="animate-atlas-fade-in">
@@ -185,23 +192,29 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
           </g>
         )}
       </svg>
-      
+
       {/* Interactive text */}
-      <div className={`mt-4 text-center transition-all duration-300 ${
-        isHovered ? 'transform translate-y-1' : ''
-      }`}>
-        <h1 className={`text-2xl font-bold ${
-          isHovered 
-            ? 'text-atlas-gold-600 dark:text-atlas-gold-400' 
-            : 'text-atlas-brown-800 dark:text-atlas-gold-300'
-        } transition-colors duration-300`}>
+      <div
+        className={`mt-4 text-center transition-all duration-300 ${
+          isHovered ? "transform translate-y-1" : ""
+        }`}
+      >
+        <h1
+          className={`text-2xl font-bold ${
+            isHovered
+              ? "text-atlas-gold-600 dark:text-atlas-gold-400"
+              : "text-atlas-brown-800 dark:text-atlas-gold-300"
+          } transition-colors duration-300`}
+        >
           شركة أطلس الشرق
         </h1>
-        <p className={`text-sm tracking-wider ${
-          isHovered 
-            ? 'text-atlas-gold-500 dark:text-atlas-gold-300' 
-            : 'text-atlas-brown-600 dark:text-atlas-gold-400'
-        } transition-colors duration-300`}>
+        <p
+          className={`text-sm tracking-wider ${
+            isHovered
+              ? "text-atlas-gold-500 dark:text-atlas-gold-300"
+              : "text-atlas-brown-600 dark:text-atlas-gold-400"
+          } transition-colors duration-300`}
+        >
           ATLAS AL SHARQ CO.
         </p>
         {isHovered && interactive && (
@@ -215,12 +228,12 @@ export const AtlasLogoAdvanced: React.FC<AtlasLogoAdvancedProps> = ({
 };
 
 // Loading Logo Component
-export const AtlasLogoLoading: React.FC<{ size?: number; className?: string }> = ({ 
-  size = 100, 
-  className = '' 
-}) => {
+export const AtlasLogoLoading: React.FC<{
+  size?: number;
+  className?: string;
+}> = ({ size = 100, className = "" }) => {
   const logoId = `atlas-loading-${Math.random().toString(36).substr(2, 9)}`;
-  
+
   return (
     <div className={`inline-flex items-center justify-center ${className}`}>
       <svg
@@ -232,13 +245,19 @@ export const AtlasLogoLoading: React.FC<{ size?: number; className?: string }> =
         className="animate-spin"
       >
         <defs>
-          <linearGradient id={`${logoId}-gradient`} x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id={`${logoId}-gradient`}
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#2d1810" stopOpacity="0" />
             <stop offset="50%" stopColor="#d4893d" />
             <stop offset="100%" stopColor="#f5c889" stopOpacity="0" />
           </linearGradient>
         </defs>
-        
+
         <circle
           cx="50"
           cy="50"
@@ -248,7 +267,7 @@ export const AtlasLogoLoading: React.FC<{ size?: number; className?: string }> =
           fill="none"
           strokeLinecap="round"
         />
-        
+
         <circle
           cx="50"
           cy="50"
@@ -259,7 +278,7 @@ export const AtlasLogoLoading: React.FC<{ size?: number; className?: string }> =
           strokeLinecap="round"
           strokeDasharray="20 10"
         />
-        
+
         <circle
           cx="50"
           cy="50"

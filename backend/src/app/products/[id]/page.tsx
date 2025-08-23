@@ -41,10 +41,18 @@ export default function ProductDetailPage() {
         setLoading(true)
         setError(null)
         
+<<<<<<< Current (Your changes)
         const productId = params?.id as string
         if (!productId) {
           throw new Error('Product ID not found')
         }
+=======
+        if (!params?.id) {
+          throw new Error('Product ID is required')
+        }
+        
+        const productId = params.id as string
+>>>>>>> Incoming (Background Agent changes)
         const response = await fetch(`http://localhost:5001/api/products/${productId}`)
         
         if (!response.ok) {
@@ -64,10 +72,10 @@ export default function ProductDetailPage() {
       }
     }
 
-    if (params.id) {
+    if (params?.id) {
       fetchProduct()
     }
-  }, [params.id])
+  }, [params?.id])
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
