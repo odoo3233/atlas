@@ -24,7 +24,6 @@ export function I18nProvider({ children }: I18nProviderProps) {
       document.documentElement.dir = dir;
       document.documentElement.lang = currentLanguage;
     } catch (error) {
-      console.warn('i18n initialization error:', error);
       // Continue rendering even if i18n fails
     }
   }, [])

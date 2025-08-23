@@ -45,7 +45,6 @@ export default function ExhibitionsPage() {
         const data = await response.json()
         setExhibitions(data)
       } catch (err) {
-        console.error('Error fetching exhibitions:', err)
         setError('Failed to load exhibitions. Please try again later.')
       } finally {
         setLoading(false)

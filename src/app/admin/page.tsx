@@ -99,7 +99,6 @@ export default function AdminPage() {
         const productsData = await productsRes.json()
         setProducts(productsData)
       } else {
-        console.error('Failed to fetch products:', productsRes.status)
         setError('فشل في تحميل المنتجات')
       }
 
@@ -107,7 +106,6 @@ export default function AdminPage() {
         const exhibitionsData = await exhibitionsRes.json()
         setExhibitions(exhibitionsData)
       } else {
-        console.error('Failed to fetch exhibitions:', exhibitionsRes.status)
         setError('فشل في تحميل المعارض')
       }
 
@@ -115,11 +113,9 @@ export default function AdminPage() {
         const statsData = await statsRes.json()
         setStats(statsData)
       } else {
-        console.error('Failed to fetch stats:', statsRes.status)
         setError('فشل في تحميل الإحصائيات')
       }
     } catch (error) {
-      console.error('Error fetching data:', error)
       setError('خطأ في الاتصال بالخادم. تأكد من أن الباكند يعمل على Render.')
     } finally {
       setLoading(false)
@@ -150,8 +146,7 @@ export default function AdminPage() {
         fetchData()
       }
     } catch (error) {
-      console.error('Error adding product:', error)
-    }
+      }
   }
 
   const handleAddExhibition = async (e: React.FormEvent) => {
@@ -174,8 +169,7 @@ export default function AdminPage() {
         fetchData()
       }
     } catch (error) {
-      console.error('Error adding exhibition:', error)
-    }
+      }
   }
 
   const handleDelete = async (type: 'product' | 'exhibition', id: number) => {
@@ -190,8 +184,7 @@ export default function AdminPage() {
         fetchData()
       }
     } catch (error) {
-      console.error('Error deleting:', error)
-    }
+      }
   }
 
   if (loading) {

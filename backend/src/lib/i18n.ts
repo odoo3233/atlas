@@ -80,7 +80,6 @@ i18n
     // Add fallback handling
     saveMissing: false,
     missingKeyHandler: (lng, ns, key, fallbackValue) => {
-      console.warn(`Missing translation key: ${key} for language: ${lng}`);
       // Return a meaningful fallback instead of the raw key
       const fallbackMap: { [key: string]: string } = {
         'common.companyName': 'أطلس الشرق',
