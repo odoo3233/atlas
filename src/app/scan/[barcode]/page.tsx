@@ -36,7 +36,10 @@ export default function ScanBarcodePage() {
         setLoading(true)
         setError(null)
         
-        const barcode = params.barcode as string
+        const barcode = params?.barcode as string
+        if (!barcode) {
+          throw new Error('Barcode not found')
+        }
         const response = await fetch(`http://localhost:5001/api/products/barcode/${barcode}`)
         
         if (!response.ok) {
@@ -103,7 +106,7 @@ export default function ScanBarcodePage() {
                 </h2>
                 <p className="text-gray-600 mb-6">
                   {error === 'Product not found' 
-                    ? `No product found with barcode: ${params.barcode}`
+                    ? `No product found with barcode: ${params?.barcode || 'unknown'}`
                     : error || 'An error occurred while searching for the product'
                   }
                 </p>

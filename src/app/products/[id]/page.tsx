@@ -41,7 +41,10 @@ export default function ProductDetailPage() {
         setLoading(true)
         setError(null)
         
-        const productId = params.id as string
+        const productId = params?.id as string
+        if (!productId) {
+          throw new Error('Product ID not found')
+        }
         const response = await fetch(`http://localhost:5001/api/products/${productId}`)
         
         if (!response.ok) {
