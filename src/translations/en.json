@@ -48,7 +48,9 @@
     "about": {
       "badge": "About Us",
       "title": "Atlas Al-Sharq Company for Exhibitions and Conferences",
+      "subtitle": "A success journey spanning over 15 years in connecting businesses between China and Saudi Arabia",
       "description": "We are proud of 15 years of experience in the field of exhibitions and international trade, offering innovative solutions to connect Saudi companies with Chinese and global markets",
+      "learnMore": "Learn More",
       "experience": "15+ Years Experience",
       "experienceDesc": "Deep experience in organizing international commercial events",
       "partners": "2000+ Chinese Partners",
@@ -56,7 +58,39 @@
       "satisfaction": "98% Satisfaction Rate",
       "satisfactionDesc": "Global quality standards in all our services",
       "support": "Continuous Support",
-      "supportDesc": "Technical and administrative support around the clock"
+      "supportDesc": "Technical and administrative support around the clock",
+      "vision": {
+        "title": "Our Vision",
+        "description": "To be the first strategic partner in connecting businesses between China and Saudi Arabia, achieving sustainable growth for companies in both countries",
+        "learnMore": "Discover Our Vision"
+      },
+      "mission": {
+        "title": "Our Mission",
+        "description": "Providing professional platforms and integrated solutions that enable companies to access new markets and build successful strategic partnerships",
+        "learnMore": "Learn About Our Mission"
+      },
+      "company": {
+        "title": "About the Company",
+        "description": "Atlas Al-Sharq for Exhibitions and Conferences is a leading company specialized in organizing international exhibitions and conferences, founded in 2009 with the aim of connecting businesses between China and Saudi Arabia. We provide comprehensive services including exhibition organization, business trip arrangements, and facilitating commercial communication between companies in both countries.",
+        "features": {
+          "experience": "Deep Experience",
+          "experienceDesc": "More than 15 years of experience in organizing international exhibitions and conferences",
+          "network": "Wide Network",
+          "networkDesc": "Strong relationships with over 2000 Chinese partners and 500 Saudi companies",
+          "quality": "High Quality",
+          "qualityDesc": "Global quality standards in all our services with full satisfaction guarantee",
+          "support": "Continuous Support",
+          "supportDesc": "Continuous technical and administrative support before, during and after events"
+        }
+      },
+      "stats": {
+        "years": "Years of Experience",
+        "events": "Organized Events"
+      },
+      "cta": {
+        "title": "Ready to Grow Your Business?",
+        "description": "Join thousands of successful companies that trusted our services to expand their business in international markets"
+      }
     },
     "services": {
       "badge": "Our Specialized Services",
@@ -135,7 +169,8 @@
     },
     "whyAtlas": {
       "badge": "Why Atlas Al-Sharq?",
-      "title": "Choose Atlas Al-Sharq for Your Business Success",
+      "title": "Why Choose Atlas Al-Sharq for Your Business Success",
+      "subtitle": "We are distinguished by unique experience and integrated services that make us the optimal choice for your business partnerships",
       "description": "We are distinguished by unique experience and integrated services that make us the optimal choice for your business partners",
       "experience": {
         "title": "Exceptional Experience",
@@ -147,6 +182,16 @@
         "subtitle": "2000+ Chinese Partners",
         "description": "A wide network including over 2000 business partners in China and 500 Saudi companies, ensuring you access to the best business opportunities"
       },
+      "quality": {
+        "title": "World-Class Quality",
+        "subtitle": "International Standards",
+        "description": "We adhere to the highest international quality standards in all our services, guaranteeing a professional and unforgettable experience"
+      },
+      "events": {
+        "title": "Successful Events",
+        "subtitle": "500+ Events",
+        "description": "A proven track record of organizing over 500 successful events, from international exhibitions to specialized conferences"
+      },
       "success": {
         "title": "Distinguished Success Record",
         "subtitle": "98% Satisfaction Rate",
@@ -155,7 +200,7 @@
       "innovation": {
         "title": "Continuous Innovation",
         "subtitle": "Modern Technologies",
-        "description": "Keeps pace with the latest technologies and trends in exhibitions, and offers innovative solutions that ensure a unique and distinctive experience for all participants"
+        "description": "We keep pace with the latest technologies and trends in exhibitions, offering innovative solutions that ensure a unique and distinctive experience for all participants"
       },
       "support": {
         "title": "Comprehensive 24/7 Support",
