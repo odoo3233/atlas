@@ -37,7 +37,6 @@ router.get('/', async (req, res) => {
     
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching products:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -85,7 +84,6 @@ router.get('/:id', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error fetching product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -133,7 +131,6 @@ router.get('/barcode/:barcode', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error fetching product by barcode:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -169,7 +166,6 @@ router.post('/', async (req, res) => {
     
     res.status(201).json(result.rows[0]);
   } catch (error) {
-    console.error('Error creating product:', error);
     if (error.code === '23505') { // Unique violation
       return res.status(400).json({ error: 'Barcode already exists' });
     }
@@ -208,7 +204,6 @@ router.put('/:id', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error updating product:', error);
     if (error.code === '23505') { // Unique violation
       return res.status(400).json({ error: 'Barcode already exists' });
     }
@@ -229,7 +224,6 @@ router.delete('/:id', async (req, res) => {
     
     res.json({ message: 'Product deleted successfully' });
   } catch (error) {
-    console.error('Error deleting product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -255,7 +249,6 @@ router.post('/:id/generate-barcode', async (req, res) => {
     
     res.json({ barcode: result.rows[0].barcode });
   } catch (error) {
-    console.error('Error generating barcode:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -286,7 +279,6 @@ router.get('/:id/orders', async (req, res) => {
     
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching product orders:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

@@ -63,8 +63,7 @@ export default function AdminOrders() {
         setOrders(data);
       }
     } catch (error) {
-      console.error('Error fetching orders:', error);
-    } finally {
+      } finally {
       setLoading(false);
     }
   };
@@ -83,8 +82,7 @@ export default function AdminOrders() {
         fetchOrders();
       }
     } catch (error) {
-      console.error('Error updating order status:', error);
-    }
+      }
   };
 
   const addNote = async (orderId: number) => {
@@ -104,8 +102,7 @@ export default function AdminOrders() {
         fetchOrders();
       }
     } catch (error) {
-      console.error('Error adding note:', error);
-    }
+      }
   };
 
   const getStatusIcon = (status: string) => {

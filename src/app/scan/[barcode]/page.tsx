@@ -55,7 +55,6 @@ export default function ScanBarcodePage() {
         }, 2000)
         
       } catch (err) {
-        console.error('Error fetching product by barcode:', err)
         setError(err instanceof Error ? err.message : 'Failed to load product')
       } finally {
         setLoading(false)

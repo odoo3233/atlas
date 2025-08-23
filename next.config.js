@@ -21,7 +21,7 @@ const nextConfig = {
         hostname: '**',
       }
     ],
-    unoptimized: true,
+    // unoptimized: true, // تم تعطيل هذا لتحسين أداء الصور
   },
   experimental: {
     optimizePackageImports: ['lucide-react'],

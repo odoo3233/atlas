@@ -25,12 +25,8 @@ const pool = new Pool({
 // Test database connection
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
-    console.error('Database connection error:', err.message);
-    console.log('Please make sure PostgreSQL is running and the database exists.');
-    console.log('You can run start-database.bat to start PostgreSQL service.');
-  } else {
-    console.log('Database connected successfully');
-  }
+    } else {
+    }
 });
 
 // Middleware
@@ -65,12 +61,10 @@ app.get('/api/health', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  });
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
-  console.log('Unhandled Rejection:', err);
   // Close server & exit process
   // server.close(() => process.exit(1));
 });

@@ -33,7 +33,6 @@ router.post('/products', adminAuth, async (req, res) => {
 
     res.status(201).json(result.rows[0]);
   } catch (error) {
-    console.error('Error adding product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -61,7 +60,6 @@ router.post('/exhibitions', adminAuth, async (req, res) => {
 
     res.status(201).json(result.rows[0]);
   } catch (error) {
-    console.error('Error adding exhibition:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -97,7 +95,6 @@ router.put('/products/:id', adminAuth, async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error updating product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -115,7 +112,6 @@ router.delete('/products/:id', adminAuth, async (req, res) => {
 
     res.json({ message: 'Product deleted successfully' });
   } catch (error) {
-    console.error('Error deleting product:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -135,7 +131,6 @@ router.get('/stats', adminAuth, async (req, res) => {
       registrations: parseInt(registrationsCount.rows[0].count)
     });
   } catch (error) {
-    console.error('Error fetching stats:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

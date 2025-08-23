@@ -35,7 +35,6 @@ router.get('/', async (req, res) => {
     
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching orders:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -76,7 +75,6 @@ router.get('/status/:status', async (req, res) => {
     
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching orders by status:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -122,7 +120,6 @@ router.get('/:id', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error fetching order:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -191,7 +188,6 @@ router.post('/', async (req, res) => {
     res.status(201).json(completeOrder.rows[0]);
   } catch (error) {
     await client.query('ROLLBACK');
-    console.error('Error creating order:', error);
     res.status(500).json({ error: 'Internal server error' });
   } finally {
     client.release();
@@ -223,7 +219,6 @@ router.put('/:id/status', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error updating order status:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -248,7 +243,6 @@ router.post('/:id/notes', async (req, res) => {
     
     res.status(201).json(result.rows[0]);
   } catch (error) {
-    console.error('Error adding note to order:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -266,7 +260,6 @@ router.get('/:id/notes', async (req, res) => {
     
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching order notes:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -290,7 +283,6 @@ router.put('/notes/:noteId', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (error) {
-    console.error('Error updating note:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -312,7 +304,6 @@ router.delete('/notes/:noteId', async (req, res) => {
     
     res.json({ message: 'Note deleted successfully' });
   } catch (error) {
-    console.error('Error deleting note:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -353,7 +344,6 @@ router.get('/customer/:email', async (req, res) => {
     
     res.json(result.rows);
   } catch (error) {
-    console.error('Error fetching customer orders:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

@@ -29,7 +29,6 @@ router.post('/generate', async (req, res) => {
       }
     });
   } catch (error) {
-    console.error('Error generating barcode:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -80,7 +79,6 @@ router.get('/scan/:barcode', async (req, res) => {
       product: result.rows[0]
     });
   } catch (error) {
-    console.error('Error scanning barcode:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -100,7 +98,6 @@ router.get('/print', async (req, res) => {
       barcodes: result.rows
     });
   } catch (error) {
-    console.error('Error fetching barcodes for printing:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -124,7 +121,6 @@ router.get('/print/category/:category', async (req, res) => {
       barcodes: result.rows
     });
   } catch (error) {
-    console.error('Error fetching barcodes by category:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -148,7 +144,6 @@ router.get('/print/company/:company', async (req, res) => {
       barcodes: result.rows
     });
   } catch (error) {
-    console.error('Error fetching barcodes by company:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -177,7 +172,6 @@ router.get('/validate/:barcode', async (req, res) => {
       product: result.rows[0]
     });
   } catch (error) {
-    console.error('Error validating barcode:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
@@ -222,7 +216,6 @@ router.get('/stats', async (req, res) => {
       byCompany: companyStats.rows
     });
   } catch (error) {
-    console.error('Error fetching barcode statistics:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

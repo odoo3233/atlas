@@ -16,8 +16,6 @@ export function LanguageSwitcher() {
   }, [])
   
   const changeLanguage = (lng: string) => {
-    console.log('Changing language to:', lng)
-    
     try {
       // Save language preference to localStorage first
       localStorage.setItem('preferred-language', lng)
@@ -38,7 +36,6 @@ export function LanguageSwitcher() {
         window.location.reload()
       }, 100)
     } catch (error) {
-      console.error('Error changing language:', error)
       // Fallback: just reload the page
       window.location.reload()
     }

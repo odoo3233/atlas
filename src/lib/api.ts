@@ -1,3 +1,5 @@
+import { Product, Exhibition, Order, ApiResponse, DashboardStats } from '@/types';
+
 // API Configuration
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://atlas-ha7k.onrender.com';
 
@@ -29,7 +31,6 @@ class ApiClient {
       
       return await response.json();
     } catch (error) {
-      console.error('API request failed:', error);
       throw error;
     }
   }
@@ -44,57 +45,62 @@ class ApiClient {
     }>('/api/health');
   }
 
+  // Admin Stats
+  async getAdminStats() {
+    return this.request<DashboardStats>('/api/admin/stats');
+  }
+
   // Products
   async getProducts() {
-    return this.request<any[]>('/api/products');
+    return this.request<Product[]>('/api/products');
   }
 
   async getProduct(id: string) {
-    return this.request<any>(`/api/products/${id}`);
+    return this.request<Product>(`/api/products/${id}`);
   }
 
   async getProductByBarcode(barcode: string) {
-    return this.request<any>(`/api/products/barcode/${barcode}`);
+    return this.request<Product>(`/api/products/barcode/${barcode}`);
   }
 
-  async createProduct(productData: any) {
-    return this.request<any>('/api/products', {
+  async createProduct(productData: Partial<Product>) {
+    return this.request<Product>('/api/products', {
       method: 'POST',
       body: JSON.stringify(productData),
     });
   }
 
-  async updateProduct(id: string, productData: any) {
-    return this.request<any>(`/api/products/${id}`, {
+  async updateProduct(id: string, productData: Partial<Product>) {
+    return this.request<Product>(`/api/products/${id}`, {
       method: 'PUT',
       body: JSON.stringify(productData),
     });
   }
 
   async deleteProduct(id: string) {
-    return this.request<any>(`/api/products/${id}`, {
+    return this.request<{ message: string }>(`/api/products/${id}`, {
       method: 'DELETE',
     });
   }
 
   // Orders
   async getOrders() {
-    return this.request<any[]>('/api/orders');
+    return this.request<Order[]>('/api/orders');
   }
 
   async getOrder(id: string) {
-    return this.request<any>(`/api/orders/${id}`);
+    return this.request<Order>(`/api/orders/${id}`);
   }
 
-  async createOrder(orderData: any) {
-    return this.request<any>('/api/orders', {
+  async createOrder(orderData: Partial<Order>) {
+    return this.request<Order>('/api/orders', {
       method: 'POST',
       body: JSON.stringify(orderData),
     });
   }
 
-  async updateOrderStatus(id: string, status: string) {
-    return this.request<any>(`/api/orders/${id}/status`, {
+  async updateOrderStatus(id: string, status: Order['status']) {
+    return this.request<Order>(`/api/orders/${id}/status`, {
       method: 'PUT',
       body: JSON.stringify({ status }),
     });
@@ -102,29 +108,29 @@ class ApiClient {
 
   // Exhibitions
   async getExhibitions() {
-    return this.request<any[]>('/api/exhibitions');
+    return this.request<Exhibition[]>('/api/exhibitions');
   }
 
   async getExhibition(id: string) {
-    return this.request<any>(`/api/exhibitions/${id}`);
+    return this.request<Exhibition>(`/api/exhibitions/${id}`);
   }
 
-  async createExhibition(exhibitionData: any) {
-    return this.request<any>('/api/exhibitions', {
+  async createExhibition(exhibitionData: Partial<Exhibition>) {
+    return this.request<Exhibition>('/api/exhibitions', {
       method: 'POST',
       body: JSON.stringify(exhibitionData),
     });
   }
 
-  async updateExhibition(id: string, exhibitionData: any) {
-    return this.request<any>(`/api/exhibitions/${id}`, {
+  async updateExhibition(id: string, exhibitionData: Partial<Exhibition>) {
+    return this.request<Exhibition>(`/api/exhibitions/${id}`, {
       method: 'PUT',
       body: JSON.stringify(exhibitionData),
     });
   }
 
   async deleteExhibition(id: string) {
-    return this.request<any>(`/api/exhibitions/${id}`, {
+    return this.request<{ message: string }>(`/api/exhibitions/${id}`, {
       method: 'DELETE',
     });
   }

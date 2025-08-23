@@ -25,7 +25,6 @@ router.get('/', async (req, res) => {
     
     res.json(result.rows);
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -50,7 +49,6 @@ router.get('/:id', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -82,7 +80,6 @@ router.post('/', async (req, res) => {
     
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -126,7 +123,6 @@ router.put('/:id', async (req, res) => {
     
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -151,7 +147,6 @@ router.delete('/:id', async (req, res) => {
     
     res.json({ msg: 'Exhibition removed' });
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -193,7 +188,6 @@ router.post('/:id/register', async (req, res) => {
     
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -214,7 +208,6 @@ router.get('/:id/registrations', async (req, res) => {
     
     res.json(result.rows);
   } catch (err) {
-    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
