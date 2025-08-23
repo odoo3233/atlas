@@ -17,6 +17,43 @@ module.exports = {
     },
     extend: {
       colors: {
+        // Atlas Al Sharq Brand Colors
+        atlas: {
+          // Primary Dark Browns
+          'dark': '#1a0f0a',        // Deep chocolate black
+          'brown': {
+            900: '#2d1810',         // Darkest brown
+            800: '#3d2418',         // Very dark brown
+            700: '#4d3020',         // Dark brown
+            600: '#5d3c28',         // Medium-dark brown
+            500: '#6d4830',         // Medium brown
+            400: '#8a5a3c',         // Light-medium brown
+            300: '#a76c48',         // Light brown
+            200: '#c48e6a',         // Very light brown
+            100: '#e1b08c',         // Pale brown
+            50: '#f5e8dc',          // Cream
+          },
+          // Golden Gradient Colors
+          'gold': {
+            900: '#714610',         // Dark gold
+            800: '#8f5a1f',         // Deep gold
+            700: '#b3722e',         // Rich gold
+            600: '#d4893d',         // Medium gold
+            500: '#e8a04c',         // Primary gold
+            400: '#f0b76b',         // Light gold
+            300: '#f5c889',         // Pale gold
+            200: '#f9daa8',         // Very pale gold
+            100: '#fdecc6',         // Champagne
+            50: '#fffef5',          // Off-white gold
+          },
+          // Gradient definitions for use in CSS
+          'gradient': {
+            'primary': 'linear-gradient(135deg, #2d1810 0%, #d4893d 100%)',
+            'shine': 'linear-gradient(90deg, #d4893d 0%, #f5c889 50%, #d4893d 100%)',
+            'radial': 'radial-gradient(circle, #f5c889 0%, #d4893d 50%, #2d1810 100%)',
+            'elegant': 'linear-gradient(180deg, #1a0f0a 0%, #4d3020 35%, #b3722e 70%, #f5c889 100%)',
+          },
+        },
         // Color palette from palette.scss
         palette: {
           'van-dyke': '#483d3f',
@@ -79,10 +116,45 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        // Atlas brand animations
+        "atlas-rotate": {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        "atlas-pulse": {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
+        },
+        "atlas-shine": {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        "atlas-fade-in": {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        "atlas-glow": {
+          '0%, 100%': { filter: 'drop-shadow(0 0 10px rgba(212, 137, 61, 0.5))' },
+          '50%': { filter: 'drop-shadow(0 0 20px rgba(212, 137, 61, 0.8))' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        // Atlas animations
+        "atlas-rotate": "atlas-rotate 20s linear infinite",
+        "atlas-pulse": "atlas-pulse 3s ease-in-out infinite",
+        "atlas-shine": "atlas-shine 3s ease-in-out infinite",
+        "atlas-fade-in": "atlas-fade-in 0.8s ease-out forwards",
+        "atlas-glow": "atlas-glow 2s ease-in-out infinite",
+      },
+      backgroundImage: {
+        // Atlas gradients for direct use
+        'atlas-primary': 'linear-gradient(135deg, #2d1810 0%, #d4893d 100%)',
+        'atlas-shine': 'linear-gradient(90deg, #d4893d 0%, #f5c889 50%, #d4893d 100%)',
+        'atlas-radial': 'radial-gradient(circle, #f5c889 0%, #d4893d 50%, #2d1810 100%)',
+        'atlas-elegant': 'linear-gradient(180deg, #1a0f0a 0%, #4d3020 35%, #b3722e 70%, #f5c889 100%)',
+        'atlas-metallic': 'linear-gradient(145deg, #b3722e 0%, #f5c889 25%, #d4893d 50%, #8f5a1f 75%, #714610 100%)',
       },
     },
   },
