@@ -1,16 +1,36 @@
-"use client"
+"use client";
 
-import React from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import React from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export function ProductsSection() {
   const products = [
-    { id: 1, name: "منتج 1", description: "وصف مختصر للمنتج مع التفاصيل الأساسية.", price: "$299.99" },
-    { id: 2, name: "منتج 2", description: "وصف مختصر للمنتج مع التفاصيل الأساسية.", price: "$399.99" },
-    { id: 3, name: "منتج 3", description: "وصف مختصر للمنتج مع التفاصيل الأساسية.", price: "$199.99" },
-    { id: 4, name: "منتج 4", description: "وصف مختصر للمنتج مع التفاصيل الأساسية.", price: "$499.99" }
-  ]
+    {
+      id: 1,
+      name: "منتج 1",
+      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      price: "$299.99",
+    },
+    {
+      id: 2,
+      name: "منتج 2",
+      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      price: "$399.99",
+    },
+    {
+      id: 3,
+      name: "منتج 3",
+      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      price: "$199.99",
+    },
+    {
+      id: 4,
+      name: "منتج 4",
+      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      price: "$499.99",
+    },
+  ];
 
   return (
     <section className="py-12 bg-white">
@@ -23,11 +43,11 @@ export function ProductsSection() {
             اكتشف مجموعة متنوعة من المنتجات عالية الجودة
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <div 
-              key={product.id} 
+            <div
+              key={product.id}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-100"
             >
               <div className="relative h-48 w-full">
@@ -37,9 +57,15 @@ export function ProductsSection() {
                 <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
                 <p className="text-gray-600 mb-4">{product.description}</p>
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-bold text-primary">{product.price}</span>
+                  <span className="text-lg font-bold text-primary">
+                    {product.price}
+                  </span>
                   <Link href={`/products/${product.id}`}>
-                    <Button variant="outline" size="sm" className="transform hover:scale-105 transition-all">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="transform hover:scale-105 transition-all"
+                    >
                       تفاصيل المنتج
                     </Button>
                   </Link>
@@ -48,15 +74,18 @@ export function ProductsSection() {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
           <Link href="/products">
-            <Button size="lg" className="transform hover:scale-105 transition-all">
+            <Button
+              size="lg"
+              className="transform hover:scale-105 transition-all"
+            >
               عرض جميع المنتجات
             </Button>
           </Link>
         </div>
       </div>
     </section>
-  )
+  );
 }

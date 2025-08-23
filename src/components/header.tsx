@@ -1,71 +1,91 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Globe, ShoppingBag } from "lucide-react"
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { useTranslation } from "react-i18next";
+import {
+  Menu,
+  X,
+  Globe,
+  Home,
+  Info,
+  Briefcase,
+  Package,
+  Calendar,
+  Phone,
+  Building,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
+  const { t, i18n } = useTranslation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+      setIsScrolled(window.scrollY > 20);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navigation = [
-    { name: "الرئيسية", href: "/" },
-    { name: "من نحن", href: "/about" },
-    { name: "خدماتنا", href: "/services" },
-    { name: "المنتجات", href: "/products" },
-    { name: "المعارض", href: "/exhibitions" },
-    { name: "الزيارات التجارية", href: "/business-visits" },
-    { name: "اتصل بنا", href: "/contact" },
-  ]
+    { name: "home", href: "/", icon: Home },
+    { name: "about", href: "/about", icon: Info },
+    { name: "services", href: "/services", icon: Briefcase },
+    { name: "products", href: "/products", icon: Package },
+    { name: "exhibitions", href: "/exhibitions", icon: Calendar },
+    { name: "businessVisits", href: "/business-visits", icon: Building },
+    { name: "contact", href: "/contact", icon: Phone },
+  ];
 
-  const languages = [
-    { code: "ar", name: "العربية", flag: "🇸🇦" },
-    { code: "en", name: "English", flag: "🇺🇸" },
-    { code: "zh", name: "中文", flag: "🇨🇳" },
-  ]
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? "bg-white/95 backdrop-blur-xl shadow-2xl border-b border-gray-200/50" 
-        : "bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700"
-    }`}>
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-white/95 backdrop-blur-xl shadow-2xl border-b border-atlas-brown-100/50"
+          : "bg-gradient-to-r from-atlas-brown-900 via-atlas-brown-700 to-atlas-gold-600"
+      }`}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-4 rtl:space-x-reverse group">
-            <div className="relative">
-              <div className={`w-14 h-14 lg:w-16 lg:h-16 rounded-3xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-lg ${
-                isScrolled 
-                  ? "bg-gradient-to-br from-blue-600 to-purple-600 shadow-xl" 
-                  : "bg-white/20 backdrop-blur-md border border-white/30"
-              }`}>
-                <ShoppingBag className={`w-8 h-8 lg:w-9 lg:h-9 transition-colors duration-300 ${
-                  isScrolled ? "text-white" : "text-white"
-                }`} />
-              </div>
-              <div className="absolute -top-1 -right-1 w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 animate-pulse shadow-lg" />
-            </div>
+          <Link
+            href="/"
+            className="flex items-center space-x-4 rtl:space-x-reverse group"
+          >
+            <BrandLogo
+              size="md"
+              animated={true}
+              variant={isScrolled ? "default" : "white"}
+              className="transition-all duration-300"
+            />
             <div className="hidden sm:block">
-              <h1 className={`text-2xl lg:text-3xl font-bold transition-colors duration-300 ${
-                isScrolled ? "text-gray-900" : "text-white"
-              }`}>
+              <h1
+                className={`text-2xl lg:text-3xl font-bold transition-colors duration-300 ${
+                  isScrolled ? "text-atlas-dark" : "text-white"
+                }`}
+              >
                 أطلس الشرق
               </h1>
-              <p className={`text-sm lg:text-base transition-colors duration-300 ${
-                isScrolled ? "text-gray-600" : "text-white/80"
-              }`}>
+              <p
+                className={`text-sm lg:text-base transition-colors duration-300 ${
+                  isScrolled ? "text-atlas-brown-600" : "text-atlas-gold-100"
+                }`}
+              >
                 Atlas Al-Sharq
               </p>
             </div>
@@ -78,113 +98,91 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 className={`text-lg font-semibold transition-all duration-300 hover:scale-105 ${
-                  isScrolled 
-                    ? "text-gray-700 hover:text-blue-600" 
-                    : "text-white hover:text-white/90"
-                }`}
+                  isScrolled
+                    ? "text-atlas-brown-700 hover:text-atlas-gold-600"
+                    : "text-white hover:text-atlas-gold-300"
+                } relative group`}
               >
-                {item.name}
+                {t(`nav.${item.name}`)}
+                <span
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    isScrolled ? "bg-atlas-gold-600" : "bg-atlas-gold-300"
+                  }`}
+                />
               </Link>
             ))}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
-            {/* Language Switcher */}
-            <div className="relative">
-              <button
-                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className={`flex items-center space-x-2 rtl:space-x-reverse px-4 py-2 rounded-xl transition-all duration-300 ${
-                  isScrolled
-                    ? "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                    : "bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30"
-                }`}
+          {/* Language Switcher & Mobile Menu */}
+          <div className="flex items-center space-x-4 rtl:space-x-reverse">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={`transition-colors duration-300 ${
+                    isScrolled
+                      ? "hover:bg-atlas-brown-100 text-atlas-brown-700"
+                      : "hover:bg-white/20 text-white"
+                  }`}
+                >
+                  <Globe className="h-5 w-5 lg:h-6 lg:w-6" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align={i18n.language === "ar" ? "start" : "end"}
               >
-                <Globe className="w-4 h-4" />
-                <span className="text-sm font-medium">🇸🇦 العربية</span>
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
+                <DropdownMenuItem onClick={() => changeLanguage("ar")}>
+                  <span className="font-semibold">العربية</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => changeLanguage("en")}>
+                  <span className="font-semibold">English</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-              {isLanguageDropdownOpen && (
-                <div className="absolute top-full mt-2 right-0 rtl:left-0 bg-white rounded-xl shadow-xl border border-gray-200 py-2 min-w-[160px] z-50">
-                  {languages.map((language) => (
-                    <button
-                      key={language.code}
-                      onClick={() => setIsLanguageDropdownOpen(false)}
-                      className="w-full text-right rtl:text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 flex items-center space-x-2 rtl:space-x-reverse text-gray-700"
-                    >
-                      <span className="text-lg">{language.flag}</span>
-                      <span>{language.name}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <Link
-              href="/contact"
-              className={`flex items-center space-x-2 rtl:space-x-reverse px-6 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`lg:hidden transition-colors duration-300 ${
                 isScrolled
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
-                  : "bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30"
+                  ? "hover:bg-atlas-brown-100 text-atlas-brown-700"
+                  : "hover:bg-white/20 text-white"
               }`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              <span>تواصل معنا</span>
-            </Link>
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-3 rounded-2xl transition-all duration-300 ${
-              isScrolled
-                ? "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                : "bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30"
-            }`}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-gray-200/20">
-            <nav className="space-y-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-3 text-lg font-semibold rounded-2xl transition-all duration-300 ${
-                    isScrolled
-                      ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                      : "text-white hover:text-white/90 hover:bg-white/10"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 border-t border-gray-200/20">
-                <Link
-                  href="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center space-x-2 rtl:space-x-reverse px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
-                    isScrolled
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
-                      : "bg-white/20 backdrop-blur-md text-white border border-white/30"
-                  }`}
-                >
-                  <span>تواصل معنا</span>
-                </Link>
-              </div>
-            </nav>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <nav className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl animate-slide-in-down">
+          <div className="container mx-auto px-4 py-4">
+            {navigation.map((item, index) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="block py-3 text-lg font-semibold text-atlas-brown-700 hover:text-atlas-gold-600 transition-all duration-300 animate-fade-in-up"
+                style={{ animationDelay: `${index * 50}ms` }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <div className="flex items-center space-x-3 rtl:space-x-reverse">
+                  <item.icon className="h-5 w-5 text-atlas-gold-600" />
+                  <span>{t(`nav.${item.name}`)}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
-  )
+  );
 }

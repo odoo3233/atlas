@@ -1,5 +1,6 @@
 // API Configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://atlas-ha7k.onrender.com';
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "https://atlas-ha7k.onrender.com";
 
 // API Client
 class ApiClient {
@@ -9,12 +10,15 @@ class ApiClient {
     this.baseURL = baseURL;
   }
 
-  private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+  private async request<T>(
+    endpoint: string,
+    options: RequestInit = {},
+  ): Promise<T> {
     const url = `${this.baseURL}${endpoint}`;
-    
+
     const config: RequestInit = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         ...options.headers,
       },
       ...options,
@@ -22,14 +26,14 @@ class ApiClient {
 
     try {
       const response = await fetch(url, config);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       return await response.json();
     } catch (error) {
-      console.error('API request failed:', error);
+      console.error("API request failed:", error);
       throw error;
     }
   }
@@ -41,12 +45,12 @@ class ApiClient {
       database: string;
       tablesCount: number;
       environment: string;
-    }>('/api/health');
+    }>("/api/health");
   }
 
   // Products
   async getProducts() {
-    return this.request<any[]>('/api/products');
+    return this.request<any[]>("/api/products");
   }
 
   async getProduct(id: string) {
@@ -58,28 +62,28 @@ class ApiClient {
   }
 
   async createProduct(productData: any) {
-    return this.request<any>('/api/products', {
-      method: 'POST',
+    return this.request<any>("/api/products", {
+      method: "POST",
       body: JSON.stringify(productData),
     });
   }
 
   async updateProduct(id: string, productData: any) {
     return this.request<any>(`/api/products/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(productData),
     });
   }
 
   async deleteProduct(id: string) {
     return this.request<any>(`/api/products/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
   }
 
   // Orders
   async getOrders() {
-    return this.request<any[]>('/api/orders');
+    return this.request<any[]>("/api/orders");
   }
 
   async getOrder(id: string) {
@@ -87,22 +91,22 @@ class ApiClient {
   }
 
   async createOrder(orderData: any) {
-    return this.request<any>('/api/orders', {
-      method: 'POST',
+    return this.request<any>("/api/orders", {
+      method: "POST",
       body: JSON.stringify(orderData),
     });
   }
 
   async updateOrderStatus(id: string, status: string) {
     return this.request<any>(`/api/orders/${id}/status`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify({ status }),
     });
   }
 
   // Exhibitions
   async getExhibitions() {
-    return this.request<any[]>('/api/exhibitions');
+    return this.request<any[]>("/api/exhibitions");
   }
 
   async getExhibition(id: string) {
@@ -110,29 +114,29 @@ class ApiClient {
   }
 
   async createExhibition(exhibitionData: any) {
-    return this.request<any>('/api/exhibitions', {
-      method: 'POST',
+    return this.request<any>("/api/exhibitions", {
+      method: "POST",
       body: JSON.stringify(exhibitionData),
     });
   }
 
   async updateExhibition(id: string, exhibitionData: any) {
     return this.request<any>(`/api/exhibitions/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(exhibitionData),
     });
   }
 
   async deleteExhibition(id: string) {
     return this.request<any>(`/api/exhibitions/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
   }
 
   // Barcode
   async generateBarcode(productId: string) {
-    return this.request<any>('/api/barcode/generate', {
-      method: 'POST',
+    return this.request<any>("/api/barcode/generate", {
+      method: "POST",
       body: JSON.stringify({ product_id: productId }),
     });
   }
@@ -142,7 +146,7 @@ class ApiClient {
   }
 
   async getBarcodesForPrint() {
-    return this.request<any>('/api/barcode/print');
+    return this.request<any>("/api/barcode/print");
   }
 
   async validateBarcode(barcode: string) {

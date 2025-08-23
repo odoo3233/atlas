@@ -1,22 +1,25 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 interface HydrationSafeProps {
-  children: React.ReactNode
-  fallback?: React.ReactNode
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
 }
 
-export function HydrationSafe({ children, fallback = null }: HydrationSafeProps) {
-  const [isHydrated, setIsHydrated] = useState(false)
+export function HydrationSafe({
+  children,
+  fallback = null,
+}: HydrationSafeProps) {
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    setIsHydrated(true)
-  }, [])
+    setIsHydrated(true);
+  }, []);
 
   if (!isHydrated) {
-    return <>{fallback}</>
+    return <>{fallback}</>;
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }

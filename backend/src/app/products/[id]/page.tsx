@@ -41,6 +41,10 @@ export default function ProductDetailPage() {
         setLoading(true)
         setError(null)
         
+        if (!params?.id) {
+          throw new Error('Product ID is required')
+        }
+        
         const productId = params.id as string
         const response = await fetch(`http://localhost:5001/api/products/${productId}`)
         
@@ -61,10 +65,10 @@ export default function ProductDetailPage() {
       }
     }
 
-    if (params.id) {
+    if (params?.id) {
       fetchProduct()
     }
-  }, [params.id])
+  }, [params?.id])
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (

@@ -1,45 +1,49 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 // Generate barcode for product
-router.post('/generate', async (req, res) => {
+router.post("/generate", async (req, res) => {
   try {
     const { product_id } = req.body;
-    
+
     // Generate unique barcode
-    const barcode = 'ATLAS' + Date.now() + Math.floor(Math.random() * 1000);
-    
-    const result = await req.db.query(`
+    const barcode = "ATLAS" + Date.now() + Math.floor(Math.random() * 1000);
+
+    const result = await req.db.query(
+      `
       UPDATE products 
       SET barcode = $1, updated_at = NOW()
       WHERE id = $2
       RETURNING id, name, barcode
-    `, [barcode, product_id]);
-    
+    `,
+      [barcode, product_id],
+    );
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Product not found' });
+      return res.status(404).json({ error: "Product not found" });
     }
-    
+
     res.json({
       success: true,
       barcode: result.rows[0].barcode,
       product: {
         id: result.rows[0].id,
-        name: result.rows[0].name
-      }
+        name: result.rows[0].name,
+      },
     });
   } catch (error) {
-    console.error('Error generating barcode:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error generating barcode:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get product by barcode
-router.get('/scan/:barcode', async (req, res) => {
+router.get("/scan/:barcode", async (req, res) => {
   try {
     const { barcode } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       SELECT 
         p.*,
         json_agg(
@@ -69,24 +73,26 @@ router.get('/scan/:barcode', async (req, res) => {
       LEFT JOIN orders o ON oi.order_id = o.id
       WHERE p.barcode = $1
       GROUP BY p.id
-    `, [barcode]);
-    
+    `,
+      [barcode],
+    );
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'Product not found' });
+      return res.status(404).json({ error: "Product not found" });
     }
-    
+
     res.json({
       success: true,
-      product: result.rows[0]
+      product: result.rows[0],
     });
   } catch (error) {
-    console.error('Error scanning barcode:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error scanning barcode:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get all barcodes for printing
-router.get('/print', async (req, res) => {
+router.get("/print", async (req, res) => {
   try {
     const result = await req.db.query(`
       SELECT 
@@ -94,96 +100,105 @@ router.get('/print', async (req, res) => {
       FROM products 
       ORDER BY category, name
     `);
-    
+
     res.json({
       success: true,
-      barcodes: result.rows
+      barcodes: result.rows,
     });
   } catch (error) {
-    console.error('Error fetching barcodes for printing:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching barcodes for printing:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get barcodes by category
-router.get('/print/category/:category', async (req, res) => {
+router.get("/print/category/:category", async (req, res) => {
   try {
     const { category } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       SELECT 
         id, name, barcode, category, company_name, company_logo
       FROM products 
       WHERE category = $1
       ORDER BY name
-    `, [category]);
-    
+    `,
+      [category],
+    );
+
     res.json({
       success: true,
       category: category,
-      barcodes: result.rows
+      barcodes: result.rows,
     });
   } catch (error) {
-    console.error('Error fetching barcodes by category:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching barcodes by category:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get barcodes by company
-router.get('/print/company/:company', async (req, res) => {
+router.get("/print/company/:company", async (req, res) => {
   try {
     const { company } = req.params;
-    
-    const result = await req.db.query(`
+
+    const result = await req.db.query(
+      `
       SELECT 
         id, name, barcode, category, company_name, company_logo
       FROM products 
       WHERE company_name = $1
       ORDER BY category, name
-    `, [company]);
-    
+    `,
+      [company],
+    );
+
     res.json({
       success: true,
       company: company,
-      barcodes: result.rows
+      barcodes: result.rows,
     });
   } catch (error) {
-    console.error('Error fetching barcodes by company:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching barcodes by company:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Validate barcode format
-router.get('/validate/:barcode', async (req, res) => {
+router.get("/validate/:barcode", async (req, res) => {
   try {
     const { barcode } = req.params;
-    
+
     // Check if barcode exists
-    const result = await req.db.query(`
+    const result = await req.db.query(
+      `
       SELECT id, name, category, company_name
       FROM products 
       WHERE barcode = $1
-    `, [barcode]);
-    
+    `,
+      [barcode],
+    );
+
     if (result.rows.length === 0) {
       return res.json({
         valid: false,
-        message: 'Barcode not found'
+        message: "Barcode not found",
       });
     }
-    
+
     res.json({
       valid: true,
-      product: result.rows[0]
+      product: result.rows[0],
     });
   } catch (error) {
-    console.error('Error validating barcode:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error validating barcode:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
 // Get barcode statistics
-router.get('/stats', async (req, res) => {
+router.get("/stats", async (req, res) => {
   try {
     const stats = await req.db.query(`
       SELECT 
@@ -193,7 +208,7 @@ router.get('/stats', async (req, res) => {
         COUNT(CASE WHEN barcode IS NOT NULL THEN 1 END) as products_with_barcode
       FROM products
     `);
-    
+
     const categoryStats = await req.db.query(`
       SELECT 
         category,
@@ -203,7 +218,7 @@ router.get('/stats', async (req, res) => {
       GROUP BY category
       ORDER BY product_count DESC
     `);
-    
+
     const companyStats = await req.db.query(`
       SELECT 
         company_name,
@@ -214,16 +229,16 @@ router.get('/stats', async (req, res) => {
       GROUP BY company_name
       ORDER BY product_count DESC
     `);
-    
+
     res.json({
       success: true,
       overall: stats.rows[0],
       byCategory: categoryStats.rows,
-      byCompany: companyStats.rows
+      byCompany: companyStats.rows,
     });
   } catch (error) {
-    console.error('Error fetching barcode statistics:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error fetching barcode statistics:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 

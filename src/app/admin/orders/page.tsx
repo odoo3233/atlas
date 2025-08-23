@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
-import { 
-  Eye, 
-  MessageSquare, 
-  Phone, 
-  Mail, 
-  Building, 
-  Package, 
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
+import {
+  Eye,
+  MessageSquare,
+  Phone,
+  Mail,
+  Building,
+  Package,
   Calendar,
   CheckCircle,
   Clock,
   AlertCircle,
   Truck,
-  XCircle
-} from 'lucide-react';
+  XCircle,
+} from "lucide-react";
 
 interface Order {
   id: number;
@@ -47,8 +47,8 @@ export default function AdminOrders() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
-  const [newNote, setNewNote] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
+  const [newNote, setNewNote] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
 
   useEffect(() => {
     fetchOrders();
@@ -57,13 +57,13 @@ export default function AdminOrders() {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5001/api/orders');
+      const response = await fetch("http://localhost:5001/api/orders");
       if (response.ok) {
         const data = await response.json();
         setOrders(data);
       }
     } catch (error) {
-      console.error('Error fetching orders:', error);
+      console.error("Error fetching orders:", error);
     } finally {
       setLoading(false);
     }
@@ -71,19 +71,22 @@ export default function AdminOrders() {
 
   const updateOrderStatus = async (orderId: number, status: string) => {
     try {
-      const response = await fetch(`http://localhost:5001/api/orders/${orderId}/status`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `http://localhost:5001/api/orders/${orderId}/status`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status }),
         },
-        body: JSON.stringify({ status }),
-      });
+      );
 
       if (response.ok) {
         fetchOrders();
       }
     } catch (error) {
-      console.error('Error updating order status:', error);
+      console.error("Error updating order status:", error);
     }
   };
 
@@ -91,36 +94,39 @@ export default function AdminOrders() {
     if (!newNote.trim()) return;
 
     try {
-      const response = await fetch(`http://localhost:5001/api/orders/${orderId}/notes`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `http://localhost:5001/api/orders/${orderId}/notes`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ note: newNote }),
         },
-        body: JSON.stringify({ note: newNote }),
-      });
+      );
 
       if (response.ok) {
-        setNewNote('');
+        setNewNote("");
         fetchOrders();
       }
     } catch (error) {
-      console.error('Error adding note:', error);
+      console.error("Error adding note:", error);
     }
   };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'new':
+      case "new":
         return <Clock className="w-4 h-4 text-blue-500" />;
-      case 'processing':
+      case "processing":
         return <Package className="w-4 h-4 text-yellow-500" />;
-      case 'contacted':
+      case "contacted":
         return <MessageSquare className="w-4 h-4 text-green-500" />;
-      case 'shipped':
+      case "shipped":
         return <Truck className="w-4 h-4 text-purple-500" />;
-      case 'completed':
+      case "completed":
         return <CheckCircle className="w-4 h-4 text-green-600" />;
-      case 'cancelled':
+      case "cancelled":
         return <XCircle className="w-4 h-4 text-red-500" />;
       default:
         return <AlertCircle className="w-4 h-4 text-gray-500" />;
@@ -129,26 +135,27 @@ export default function AdminOrders() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'new':
-        return 'bg-blue-100 text-blue-800';
-      case 'processing':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'contacted':
-        return 'bg-green-100 text-green-800';
-      case 'shipped':
-        return 'bg-purple-100 text-purple-800';
-      case 'completed':
-        return 'bg-green-100 text-green-800';
-      case 'cancelled':
-        return 'bg-red-100 text-red-800';
+      case "new":
+        return "bg-blue-100 text-blue-800";
+      case "processing":
+        return "bg-yellow-100 text-yellow-800";
+      case "contacted":
+        return "bg-green-100 text-green-800";
+      case "shipped":
+        return "bg-purple-100 text-purple-800";
+      case "completed":
+        return "bg-green-100 text-green-800";
+      case "cancelled":
+        return "bg-red-100 text-red-800";
       default:
-        return 'bg-gray-100 text-gray-800';
+        return "bg-gray-100 text-gray-800";
     }
   };
 
-  const filteredOrders = statusFilter === 'all' 
-    ? orders 
-    : orders.filter(order => order.status === statusFilter);
+  const filteredOrders =
+    statusFilter === "all"
+      ? orders
+      : orders.filter((order) => order.status === statusFilter);
 
   if (loading) {
     return (
@@ -165,40 +172,46 @@ export default function AdminOrders() {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">إدارة الطلبات</h1>
-          <p className="text-gray-600">إدارة جميع طلبات المنتجات والتفاعل مع العملاء</p>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            إدارة الطلبات
+          </h1>
+          <p className="text-gray-600">
+            إدارة جميع طلبات المنتجات والتفاعل مع العملاء
+          </p>
         </div>
 
         {/* Status Filter */}
         <div className="mb-6">
           <div className="flex flex-wrap gap-2">
             <Button
-              variant={statusFilter === 'all' ? 'default' : 'outline'}
-              onClick={() => setStatusFilter('all')}
+              variant={statusFilter === "all" ? "default" : "outline"}
+              onClick={() => setStatusFilter("all")}
               className="text-sm"
             >
               جميع الطلبات ({orders.length})
             </Button>
             <Button
-              variant={statusFilter === 'new' ? 'default' : 'outline'}
-              onClick={() => setStatusFilter('new')}
+              variant={statusFilter === "new" ? "default" : "outline"}
+              onClick={() => setStatusFilter("new")}
               className="text-sm"
             >
-              جديدة ({orders.filter(o => o.status === 'new').length})
+              جديدة ({orders.filter((o) => o.status === "new").length})
             </Button>
             <Button
-              variant={statusFilter === 'processing' ? 'default' : 'outline'}
-              onClick={() => setStatusFilter('processing')}
+              variant={statusFilter === "processing" ? "default" : "outline"}
+              onClick={() => setStatusFilter("processing")}
               className="text-sm"
             >
-              قيد المعالجة ({orders.filter(o => o.status === 'processing').length})
+              قيد المعالجة (
+              {orders.filter((o) => o.status === "processing").length})
             </Button>
             <Button
-              variant={statusFilter === 'contacted' ? 'default' : 'outline'}
-              onClick={() => setStatusFilter('contacted')}
+              variant={statusFilter === "contacted" ? "default" : "outline"}
+              onClick={() => setStatusFilter("contacted")}
               className="text-sm"
             >
-              تم التواصل ({orders.filter(o => o.status === 'contacted').length})
+              تم التواصل (
+              {orders.filter((o) => o.status === "contacted").length})
             </Button>
           </div>
         </div>
@@ -215,24 +228,30 @@ export default function AdminOrders() {
                   <div
                     key={order.id}
                     className={`p-6 cursor-pointer transition-colors ${
-                      selectedOrder?.id === order.id ? 'bg-blue-50' : 'hover:bg-gray-50'
+                      selectedOrder?.id === order.id
+                        ? "bg-blue-50"
+                        : "hover:bg-gray-50"
                     }`}
                     onClick={() => setSelectedOrder(order)}
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3 rtl:space-x-reverse">
                         {getStatusIcon(order.status)}
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}>
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(order.status)}`}
+                        >
                           {order.status}
                         </span>
                       </div>
                       <span className="text-sm text-gray-500">
-                        {new Date(order.created_at).toLocaleDateString('ar-SA')}
+                        {new Date(order.created_at).toLocaleDateString("ar-SA")}
                       </span>
                     </div>
-                    
+
                     <div className="space-y-2">
-                      <h3 className="font-semibold text-gray-800">{order.customer_name}</h3>
+                      <h3 className="font-semibold text-gray-800">
+                        {order.customer_name}
+                      </h3>
                       <div className="flex items-center space-x-4 rtl:space-x-reverse text-sm text-gray-600">
                         <span className="flex items-center">
                           <Mail className="w-4 h-4 ml-1 rtl:ml-0 rtl:mr-1" />
@@ -264,31 +283,51 @@ export default function AdminOrders() {
             {selectedOrder ? (
               <div className="bg-white rounded-2xl shadow-lg p-6">
                 <div className="mb-6">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-4">تفاصيل الطلب #{selectedOrder.id}</h3>
-                  
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">
+                    تفاصيل الطلب #{selectedOrder.id}
+                  </h3>
+
                   {/* Customer Info */}
                   <div className="space-y-3 mb-6">
                     <div>
-                      <label className="text-sm font-medium text-gray-700">اسم العميل</label>
-                      <p className="text-gray-900">{selectedOrder.customer_name}</p>
+                      <label className="text-sm font-medium text-gray-700">
+                        اسم العميل
+                      </label>
+                      <p className="text-gray-900">
+                        {selectedOrder.customer_name}
+                      </p>
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-gray-700">البريد الإلكتروني</label>
-                      <p className="text-gray-900">{selectedOrder.customer_email}</p>
+                      <label className="text-sm font-medium text-gray-700">
+                        البريد الإلكتروني
+                      </label>
+                      <p className="text-gray-900">
+                        {selectedOrder.customer_email}
+                      </p>
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-gray-700">رقم الهاتف</label>
-                      <p className="text-gray-900">{selectedOrder.customer_phone}</p>
+                      <label className="text-sm font-medium text-gray-700">
+                        رقم الهاتف
+                      </label>
+                      <p className="text-gray-900">
+                        {selectedOrder.customer_phone}
+                      </p>
                     </div>
                     {selectedOrder.company_name && (
                       <div>
-                        <label className="text-sm font-medium text-gray-700">الشركة</label>
-                        <p className="text-gray-900">{selectedOrder.company_name}</p>
+                        <label className="text-sm font-medium text-gray-700">
+                          الشركة
+                        </label>
+                        <p className="text-gray-900">
+                          {selectedOrder.company_name}
+                        </p>
                       </div>
                     )}
                     {selectedOrder.message && (
                       <div>
-                        <label className="text-sm font-medium text-gray-700">الرسالة</label>
+                        <label className="text-sm font-medium text-gray-700">
+                          الرسالة
+                        </label>
                         <p className="text-gray-900">{selectedOrder.message}</p>
                       </div>
                     )}
@@ -296,18 +335,31 @@ export default function AdminOrders() {
 
                   {/* Products */}
                   <div className="mb-6">
-                    <h4 className="font-medium text-gray-800 mb-3">المنتجات المطلوبة</h4>
+                    <h4 className="font-medium text-gray-800 mb-3">
+                      المنتجات المطلوبة
+                    </h4>
                     <div className="space-y-2">
                       {selectedOrder.items.map((item) => (
-                        <div key={item.id} className="bg-gray-50 rounded-lg p-3">
+                        <div
+                          key={item.id}
+                          className="bg-gray-50 rounded-lg p-3"
+                        >
                           <div className="flex justify-between items-start">
                             <div>
-                              <p className="font-medium text-gray-800">{item.product_name}</p>
-                              <p className="text-sm text-gray-600">الباركود: {item.product_barcode}</p>
+                              <p className="font-medium text-gray-800">
+                                {item.product_name}
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                الباركود: {item.product_barcode}
+                              </p>
                             </div>
                             <div className="text-right">
-                              <p className="font-medium text-gray-800">الكمية: {item.quantity}</p>
-                              <p className="text-sm text-gray-600">${item.price}</p>
+                              <p className="font-medium text-gray-800">
+                                الكمية: {item.quantity}
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                ${item.price}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -317,14 +369,29 @@ export default function AdminOrders() {
 
                   {/* Status Update */}
                   <div className="mb-6">
-                    <h4 className="font-medium text-gray-800 mb-3">تحديث الحالة</h4>
+                    <h4 className="font-medium text-gray-800 mb-3">
+                      تحديث الحالة
+                    </h4>
                     <div className="grid grid-cols-2 gap-2">
-                      {['new', 'processing', 'contacted', 'shipped', 'completed', 'cancelled'].map((status) => (
+                      {[
+                        "new",
+                        "processing",
+                        "contacted",
+                        "shipped",
+                        "completed",
+                        "cancelled",
+                      ].map((status) => (
                         <Button
                           key={status}
-                          variant={selectedOrder.status === status ? 'default' : 'outline'}
+                          variant={
+                            selectedOrder.status === status
+                              ? "default"
+                              : "outline"
+                          }
                           size="sm"
-                          onClick={() => updateOrderStatus(selectedOrder.id, status)}
+                          onClick={() =>
+                            updateOrderStatus(selectedOrder.id, status)
+                          }
                           className="text-xs"
                         >
                           {status}
@@ -335,18 +402,23 @@ export default function AdminOrders() {
 
                   {/* Notes */}
                   <div className="mb-6">
-                    <h4 className="font-medium text-gray-800 mb-3">الملاحظات</h4>
+                    <h4 className="font-medium text-gray-800 mb-3">
+                      الملاحظات
+                    </h4>
                     <div className="space-y-2 mb-4">
                       {selectedOrder.notes.map((note) => (
-                        <div key={note.id} className="bg-blue-50 rounded-lg p-3">
+                        <div
+                          key={note.id}
+                          className="bg-blue-50 rounded-lg p-3"
+                        >
                           <p className="text-sm text-gray-800">{note.note}</p>
                           <p className="text-xs text-gray-500 mt-1">
-                            {new Date(note.created_at).toLocaleString('ar-SA')}
+                            {new Date(note.created_at).toLocaleString("ar-SA")}
                           </p>
                         </div>
                       ))}
                     </div>
-                    
+
                     {/* Add Note */}
                     <div className="space-y-2">
                       <textarea

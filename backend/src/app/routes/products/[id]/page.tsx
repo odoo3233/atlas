@@ -66,7 +66,7 @@ export default function ProductDetailPage() {
   const { t } = useTranslation()
   const params = useParams()
   const router = useRouter()
-  const productId = params.id as string
+  const productId = params?.id as string || ''
   
   // Find the product by ID
   const product = mockProducts.find(p => p.id === productId)

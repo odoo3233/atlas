@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 /**
@@ -6,27 +6,27 @@ const router = express.Router();
  * @desc    Get all exhibitions
  * @access  Public
  */
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const { upcoming } = req.query;
-    
-    let query = 'SELECT * FROM exhibitions';
-    
+
+    let query = "SELECT * FROM exhibitions";
+
     // Filter by upcoming status if specified
-    if (upcoming === 'true') {
-      query += ' WHERE end_date >= CURRENT_DATE ORDER BY start_date ASC';
-    } else if (upcoming === 'false') {
-      query += ' WHERE end_date < CURRENT_DATE ORDER BY start_date DESC';
+    if (upcoming === "true") {
+      query += " WHERE end_date >= CURRENT_DATE ORDER BY start_date ASC";
+    } else if (upcoming === "false") {
+      query += " WHERE end_date < CURRENT_DATE ORDER BY start_date DESC";
     } else {
-      query += ' ORDER BY start_date DESC';
+      query += " ORDER BY start_date DESC";
     }
-    
+
     const result = await req.db.query(query);
-    
+
     res.json(result.rows);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -35,23 +35,23 @@ router.get('/', async (req, res) => {
  * @desc    Get exhibition by ID
  * @access  Public
  */
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const result = await req.db.query(
-      'SELECT * FROM exhibitions WHERE id = $1',
-      [id]
+      "SELECT * FROM exhibitions WHERE id = $1",
+      [id],
     );
-    
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ msg: 'Exhibition not found' });
+      return res.status(404).json({ msg: "Exhibition not found" });
     }
-    
+
     res.json(result.rows[0]);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -60,30 +60,30 @@ router.get('/:id', async (req, res) => {
  * @desc    Create an exhibition
  * @access  Private (would require auth middleware in production)
  */
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const { 
-      name, 
-      description, 
-      start_date, 
-      end_date, 
-      location, 
+    const {
+      name,
+      description,
+      start_date,
+      end_date,
+      location,
       image_url,
-      organizer 
+      organizer,
     } = req.body;
-    
+
     const result = await req.db.query(
       `INSERT INTO exhibitions 
        (name, description, start_date, end_date, location, image_url, organizer, created_at, updated_at) 
        VALUES ($1, $2, $3, $4, $5, $6, $7, NOW(), NOW()) 
        RETURNING *`,
-      [name, description, start_date, end_date, location, image_url, organizer]
+      [name, description, start_date, end_date, location, image_url, organizer],
     );
-    
+
     res.status(201).json(result.rows[0]);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -92,19 +92,19 @@ router.post('/', async (req, res) => {
  * @desc    Update an exhibition
  * @access  Private (would require auth middleware in production)
  */
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { 
-      name, 
-      description, 
-      start_date, 
-      end_date, 
-      location, 
+    const {
+      name,
+      description,
+      start_date,
+      end_date,
+      location,
       image_url,
-      organizer 
+      organizer,
     } = req.body;
-    
+
     const result = await req.db.query(
       `UPDATE exhibitions 
        SET name = $1, 
@@ -117,17 +117,26 @@ router.put('/:id', async (req, res) => {
            updated_at = NOW()
        WHERE id = $8
        RETURNING *`,
-      [name, description, start_date, end_date, location, image_url, organizer, id]
+      [
+        name,
+        description,
+        start_date,
+        end_date,
+        location,
+        image_url,
+        organizer,
+        id,
+      ],
     );
-    
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ msg: 'Exhibition not found' });
+      return res.status(404).json({ msg: "Exhibition not found" });
     }
-    
+
     res.json(result.rows[0]);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -136,23 +145,23 @@ router.put('/:id', async (req, res) => {
  * @desc    Delete an exhibition
  * @access  Private (would require auth middleware in production)
  */
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const result = await req.db.query(
-      'DELETE FROM exhibitions WHERE id = $1 RETURNING *',
-      [id]
+      "DELETE FROM exhibitions WHERE id = $1 RETURNING *",
+      [id],
     );
-    
+
     if (result.rows.length === 0) {
-      return res.status(404).json({ msg: 'Exhibition not found' });
+      return res.status(404).json({ msg: "Exhibition not found" });
     }
-    
-    res.json({ msg: 'Exhibition removed' });
+
+    res.json({ msg: "Exhibition removed" });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -161,40 +170,34 @@ router.delete('/:id', async (req, res) => {
  * @desc    Register a visitor for an exhibition
  * @access  Public
  */
-router.post('/:id/register', async (req, res) => {
+router.post("/:id/register", async (req, res) => {
   try {
     const { id } = req.params;
-    const { 
-      name, 
-      email, 
-      phone, 
-      company, 
-      message 
-    } = req.body;
-    
+    const { name, email, phone, company, message } = req.body;
+
     // Check if exhibition exists
     const exhibitionResult = await req.db.query(
-      'SELECT * FROM exhibitions WHERE id = $1',
-      [id]
+      "SELECT * FROM exhibitions WHERE id = $1",
+      [id],
     );
-    
+
     if (exhibitionResult.rows.length === 0) {
-      return res.status(404).json({ msg: 'Exhibition not found' });
+      return res.status(404).json({ msg: "Exhibition not found" });
     }
-    
+
     // Register the visitor
     const result = await req.db.query(
       `INSERT INTO exhibition_registrations 
        (exhibition_id, name, email, phone, company, message, created_at) 
        VALUES ($1, $2, $3, $4, $5, $6, NOW()) 
        RETURNING *`,
-      [id, name, email, phone, company, message]
+      [id, name, email, phone, company, message],
     );
-    
+
     res.status(201).json(result.rows[0]);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 
@@ -203,19 +206,19 @@ router.post('/:id/register', async (req, res) => {
  * @desc    Get all registrations for an exhibition
  * @access  Private (would require auth middleware in production)
  */
-router.get('/:id/registrations', async (req, res) => {
+router.get("/:id/registrations", async (req, res) => {
   try {
     const { id } = req.params;
-    
+
     const result = await req.db.query(
-      'SELECT * FROM exhibition_registrations WHERE exhibition_id = $1 ORDER BY created_at DESC',
-      [id]
+      "SELECT * FROM exhibition_registrations WHERE exhibition_id = $1 ORDER BY created_at DESC",
+      [id],
     );
-    
+
     res.json(result.rows);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send("Server Error");
   }
 });
 

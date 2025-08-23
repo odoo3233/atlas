@@ -2,128 +2,175 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Modern Color Palette */
+/* Atlas Al Sharq Brand Colors */
 :root {
-  --primary-blue: #3B82F6;
-  --primary-purple: #8B5CF6;
-  --primary-teal: #14B8A6;
-  --primary-emerald: #10B981;
-  --primary-amber: #F59E0B;
-  --primary-rose: #F43F5E;
-  
-  --soft-blue: #EFF6FF;
-  --soft-purple: #F3F4F6;
-  --soft-teal: #F0FDFA;
-  --soft-emerald: #ECFDF5;
-  --soft-amber: #FFFBEB;
-  --soft-rose: #FFF1F2;
-  
-  --text-primary: #1F2937;
-  --text-secondary: #6B7280;
-  --text-muted: #9CA3AF;
-  
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F9FAFB;
-  --bg-accent: #F3F4F6;
-  
-  --border-light: #E5E7EB;
-  --border-medium: #D1D5DB;
-  --border-dark: #9CA3AF;
+  /* Brand Colors - Dark Browns & Golds */
+  --brand: #2d1810; /* atlas-brown-900 */
+  --brand-light: #5d3c28; /* atlas-brown-600 */
+  --brand-contrast: #f5e8dc; /* atlas-brown-50 cream */
+  --accent: #d4893d; /* atlas-gold-600 */
+  --accent-light: #f5c889; /* atlas-gold-300 */
+  --accent-dark: #8f5a1f; /* atlas-gold-800 */
+
+  /* Text Colors */
+  --text-primary: #1a0f0a; /* atlas-dark */
+  --text-secondary: #4d3020; /* atlas-brown-700 */
+  --text-muted: #8a5a3c; /* atlas-brown-400 */
+  --text-inverse: #f5e8dc; /* atlas-brown-50 */
+
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafaff; /* ghost-white */
+  --bg-accent: #f5e8dc; /* atlas-brown-50 */
+  --bg-dark: #1a0f0a; /* atlas-dark */
+
+  /* Border Colors */
+  --border-light: #e1b08c; /* atlas-brown-100 */
+  --border-medium: #c48e6a; /* atlas-brown-200 */
+  --border-dark: #a76c48; /* atlas-brown-300 */
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #2d1810 0%, #d4893d 100%);
+  --gradient-shine: linear-gradient(
+    90deg,
+    #d4893d 0%,
+    #f5c889 50%,
+    #d4893d 100%
+  );
+  --gradient-radial: radial-gradient(
+    circle,
+    #f5c889 0%,
+    #d4893d 50%,
+    #2d1810 100%
+  );
+  --gradient-elegant: linear-gradient(
+    180deg,
+    #1a0f0a 0%,
+    #4d3020 35%,
+    #b3722e 70%,
+    #f5c889 100%
+  );
 }
 
-/* Enhanced Typography */
+/* Enhanced Typography with Arabic Support */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply text-gray-900 bg-white;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply text-atlas-dark bg-white;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+
+  /* RTL Support for Arabic */
+  html[dir="rtl"] body {
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", "Arial",
+      "Noto Sans Arabic", sans-serif;
   }
-  
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
-  h3 { @apply text-2xl md:text-3xl; }
-  h4 { @apply text-xl md:text-2xl; }
-  h5 { @apply text-lg md:text-xl; }
-  h6 { @apply text-base md:text-lg; }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight text-atlas-dark;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+  h6 {
+    @apply text-base md:text-lg;
+  }
 }
 
-/* Modern Gradients */
+/* Atlas Brand Gradients */
 @layer components {
   .gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700;
+    @apply bg-atlas-primary;
   }
-  
+
   .gradient-secondary {
-    @apply bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-600;
+    @apply bg-atlas-shine;
   }
-  
+
   .gradient-accent {
-    @apply bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600;
+    @apply bg-atlas-radial;
   }
-  
-  .gradient-warm {
-    @apply bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600;
+
+  .gradient-elegant {
+    @apply bg-atlas-elegant;
   }
-  
-  .gradient-soft {
-    @apply bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50;
+
+  .gradient-metallic {
+    @apply bg-atlas-metallic;
   }
-  
-  .gradient-dark {
-    @apply bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900;
-  }
-  
+
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    @apply bg-atlas-primary bg-clip-text text-transparent;
   }
-  
-  .text-gradient-secondary {
-    @apply bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent;
+
+  .text-gradient-gold {
+    @apply bg-atlas-shine bg-clip-text text-transparent;
   }
 }
 
-/* Enhanced Buttons */
+/* Enhanced Buttons with Atlas Branding */
 @layer components {
   .btn-primary {
-    @apply px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+    @apply px-8 py-4 bg-atlas-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
   }
-  
+
   .btn-secondary {
-    @apply px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+    @apply px-8 py-4 bg-atlas-shine text-atlas-dark font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
   }
-  
+
   .btn-accent {
-    @apply px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+    @apply px-8 py-4 bg-atlas-gold-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:bg-atlas-gold-700 transform hover:scale-105 transition-all duration-300;
   }
-  
+
   .btn-outline {
-    @apply px-8 py-4 border-2 border-blue-600 text-blue-600 font-semibold rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300;
+    @apply px-8 py-4 border-2 border-atlas-brown-700 text-atlas-brown-700 font-semibold rounded-2xl hover:bg-atlas-brown-700 hover:text-white transition-all duration-300;
   }
-  
+
   .btn-ghost {
-    @apply px-8 py-4 text-gray-700 font-semibold rounded-2xl hover:bg-gray-100 transition-all duration-300;
+    @apply px-8 py-4 text-atlas-brown-700 font-semibold rounded-2xl hover:bg-atlas-brown-50 transition-all duration-300;
   }
 }
 
-/* Enhanced Cards */
+/* Enhanced Cards with Atlas Theme */
 @layer components {
   .card-modern {
-    @apply bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100;
+    @apply bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-atlas-brown-100;
   }
-  
+
   .card-glass {
-    @apply bg-white/80 backdrop-blur-lg rounded-3xl shadow-lg border border-white/20;
+    @apply bg-white/80 backdrop-blur-lg rounded-3xl shadow-lg border border-atlas-gold-100/20;
   }
-  
+
   .card-gradient {
-    @apply bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-lg border border-gray-100;
+    @apply bg-gradient-to-br from-white to-atlas-brown-50 rounded-3xl shadow-lg border border-atlas-brown-100;
+  }
+
+  .card-elegant {
+    @apply bg-atlas-dark text-atlas-brown-50 rounded-3xl shadow-2xl border border-atlas-gold-600/30;
   }
 }
 
@@ -132,18 +179,19 @@
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .animate-pulse-slow {
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  
+
   .animate-bounce-slow {
     animation: bounce 2s infinite;
   }
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -156,7 +204,7 @@
   .rtl {
     direction: rtl;
   }
-  
+
   .ltr {
     direction: ltr;
   }
@@ -166,71 +214,71 @@
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: #CBD5E1 #F1F5F9;
+    scrollbar-color: #cbd5e1 #f1f5f9;
   }
-  
+
   .scrollbar-thin::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   .scrollbar-thin::-webkit-scrollbar-track {
-    background: #F1F5F9;
+    background: #f1f5f9;
   }
-  
+
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
+    background: #cbd5e1;
     border-radius: 3px;
   }
-  
+
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: #94A3B8;
+    background: #94a3b8;
   }
 }
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 15 48% 8%; /* atlas-dark */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 15 48% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 15 48% 8%;
+    --primary: 20 61% 16%; /* atlas-brown-900 */
+    --primary-foreground: 30 50% 94%; /* atlas-brown-50 */
+    --secondary: 36 55% 58%; /* atlas-gold-600 */
+    --secondary-foreground: 15 48% 8%;
+    --muted: 30 50% 94%; /* atlas-brown-50 */
+    --muted-foreground: 25 42% 37%; /* atlas-brown-400 */
+    --accent: 36 55% 58%; /* atlas-gold-600 */
+    --accent-foreground: 15 48% 8%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --destructive-foreground: 30 50% 94%;
+    --border: 27 48% 79%; /* atlas-brown-100 */
+    --input: 27 48% 79%;
+    --ring: 36 55% 58%; /* atlas-gold-600 */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 15 48% 8%; /* atlas-dark */
+    --foreground: 30 50% 94%; /* atlas-brown-50 */
+    --card: 20 61% 12%; /* darker atlas-brown */
+    --card-foreground: 30 50% 94%;
+    --popover: 20 61% 12%;
+    --popover-foreground: 30 50% 94%;
+    --primary: 36 55% 58%; /* atlas-gold-600 */
+    --primary-foreground: 15 48% 8%;
+    --secondary: 20 61% 16%; /* atlas-brown-900 */
+    --secondary-foreground: 30 50% 94%;
+    --muted: 25 40% 22%; /* atlas-brown-800 */
+    --muted-foreground: 27 41% 70%; /* atlas-brown-200 */
+    --accent: 40 68% 73%; /* atlas-gold-300 */
+    --accent-foreground: 15 48% 8%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
+    --destructive-foreground: 30 50% 94%;
+    --border: 25 42% 37%; /* atlas-brown-400 */
+    --input: 25 42% 37%;
+    --ring: 36 55% 58%; /* atlas-gold-600 */
   }
 }
 
@@ -267,7 +315,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -276,11 +325,12 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 137, 61, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 40px rgba(212, 137, 61, 0.6);
   }
 }
 
@@ -404,7 +454,9 @@
 
 /* Hover Effects */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
@@ -417,12 +469,12 @@
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 30px rgba(212, 137, 61, 0.4);
 }
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2d1810 0%, #d4893d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -445,12 +497,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2d1810 0%, #d4893d 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  background: linear-gradient(135deg, #3d2418 0%, #e8a04c 100%);
 }
 
 /* Loading Animation */
@@ -459,22 +511,24 @@
 }
 
 .loading-dots::after {
-  content: '';
+  content: "";
   animation: dots 1.5s steps(5, end) infinite;
 }
 
 @keyframes dots {
-  0%, 20% {
-    content: '';
+  0%,
+  20% {
+    content: "";
   }
   40% {
-    content: '.';
+    content: ".";
   }
   60% {
-    content: '..';
+    content: "..";
   }
-  80%, 100% {
-    content: '...';
+  80%,
+  100% {
+    content: "...";
   }
 }
 
@@ -483,19 +537,19 @@
   .animate-fade-in-up {
     animation-duration: 0.6s;
   }
-  
+
   .delay-200 {
     animation-delay: 100ms;
   }
-  
+
   .delay-300 {
     animation-delay: 150ms;
   }
-  
+
   .delay-400 {
     animation-delay: 200ms;
   }
-  
+
   .delay-500 {
     animation-delay: 250ms;
   }
@@ -513,7 +567,7 @@
   .animate-rotate-in {
     animation: none !important;
   }
-  
+
   .hover-lift:hover,
   .hover-glow:hover {
     transform: none !important;
