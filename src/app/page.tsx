@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import {
   ShoppingBag,
@@ -24,6 +25,7 @@ import {
 } from "lucide-react";
 
 export default function Home() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -51,19 +53,17 @@ export default function Home() {
           >
             <div className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium mb-6 animate-fade-in-up border border-white/20">
               <Award className="mr-2" size={16} />
-              🏆 الشريك الموثوق للتجارة الدولية منذ 2009
+              {t('hero.badge', { ns: 'home' }) || '🏆 الشريك الموثوق للتجارة الدولية منذ 2009'}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up delay-200">
-              <span className="text-atlas-accent-200">أطلس الشرق</span><br />
-              للمعارض والمؤتمرات الدولية
+              <span className="text-atlas-accent-200">{t('companyName', { ns: 'common' }) || 'أطلس الشرق'}</span><br />
+              {t('hero.title', { ns: 'home' }) || 'للمعارض والمؤتمرات الدولية'}
             </h1>
             <p className="text-xl md:text-2xl text-atlas-primary-200 leading-relaxed mb-6 animate-fade-in-up delay-300 font-semibold">
-              🌟 جسر التواصل الأمثل بين الشرق والغرب
+              {t('hero.subtitle', { ns: 'home' }) || '🌟 جسر التواصل الأمثل بين الشرق والغرب'}
             </p>
             <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-4xl mx-auto animate-fade-in-up delay-400">
-              <strong>15 عاماً من التميز</strong> في ربط الشركات السعودية بأكثر من <strong>2000 شريك صيني</strong> 
-              وتنظيم <strong>500+ فعالية ناجحة</strong> بمعدل رضا <strong>98%</strong> 
-              - نحن لسنا مجرد منظمي معارض، بل شركاؤكم في النجاح العالمي
+              {t('hero.description', { ns: 'home' }) || 'بخبرة تتجاوز 15 عاماً، نفخر بكوننا الشريك الاستراتيجي الرائد في تسهيل التبادل التجاري وتنظيم المعارض الدولية'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-500">
               <Button
@@ -71,7 +71,7 @@ export default function Home() {
                 className="text-lg px-8 py-6 btn-primary-gradient transform hover:scale-105 transition-all duration-300 shadow-2xl animate-pulse-glow"
               >
                 <Rocket className="mr-2" size={20} />
-                🚀 اكتشف حلولنا المتكاملة
+                                  {t('hero.discoverServices', { ns: 'home' }) || '🚀 اكتشف حلولنا المتكاملة'}
               </Button>
               <Button
                 size="lg"
@@ -79,7 +79,7 @@ export default function Home() {
                 className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300 shadow-2xl"
               >
                 <Phone className="mr-2" size={20} />
-                📞 استشارة مجانية الآن
+                {t('hero.startJourney', { ns: 'home' }) || '📞 استشارة مجانية الآن'}
               </Button>
             </div>
             
@@ -110,25 +110,25 @@ export default function Home() {
               <div className="text-3xl md:text-4xl font-bold text-atlas-primary-600 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
                 15+
               </div>
-              <div className="text-atlas-primary-700 font-medium">سنة خبرة</div>
+              <div className="text-atlas-primary-700 font-medium">{t('stats.experience', { ns: 'home' }) || 'سنة خبرة'}</div>
             </div>
             <div className="card-modern text-center p-6 hover:shadow-2xl group">
               <div className="text-3xl md:text-4xl font-bold text-atlas-secondary-600 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
                 98%
               </div>
-              <div className="text-atlas-primary-700 font-medium">معدل رضا</div>
+              <div className="text-atlas-primary-700 font-medium">{t('stats.satisfaction', { ns: 'home' }) || 'معدل رضا'}</div>
             </div>
             <div className="card-modern text-center p-6 hover:shadow-2xl group">
               <div className="text-3xl md:text-4xl font-bold text-atlas-accent-600 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
                 2000+
               </div>
-              <div className="text-atlas-primary-700 font-medium">شريك صيني</div>
+              <div className="text-atlas-primary-700 font-medium">{t('stats.partners', { ns: 'home' }) || 'شريك صيني'}</div>
             </div>
             <div className="card-modern text-center p-6 hover:shadow-2xl group">
               <div className="text-3xl md:text-4xl font-bold text-atlas-primary-500 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
                 500+
               </div>
-              <div className="text-atlas-primary-700 font-medium">فعالية منظمة</div>
+              <div className="text-atlas-primary-700 font-medium">{t('stats.events', { ns: 'home' }) || 'فعالية منظمة'}</div>
             </div>
           </div>
         </div>

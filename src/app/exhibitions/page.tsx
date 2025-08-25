@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ interface Exhibition {
 }
 
 export default function ExhibitionsPage() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState<"all" | "upcoming" | "past">("all");
   const [exhibitions, setExhibitions] = useState<Exhibition[]>([]);
   const [loading, setLoading] = useState(true);
@@ -60,10 +62,10 @@ export default function ExhibitionsPage() {
 
   if (loading) {
     return (
-      <div className="flex-1 flex items-center justify-center min-h-screen">
+      <div className="flex-1 flex items-center justify-center min-h-screen bg-slate-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-atlas-gold-500 mx-auto"></div>
-          <p className="text-atlas-brown-600 mt-4">جاري التحميل...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-atlas-secondary-500 mx-auto"></div>
+          <p className="text-atlas-primary-600 mt-4">{t('loading', { ns: 'common' }) || 'جاري التحميل...'}</p>
         </div>
       </div>
     );
@@ -93,7 +95,7 @@ export default function ExhibitionsPage() {
     <>
       {/* Exhibitions Hero */}
       <section className="hero-gradient relative min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 bg-atlas-dark/60"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">

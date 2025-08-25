@@ -87,7 +87,7 @@ export function Header() {
                 href={item.href}
                 className="text-lg font-semibold text-atlas-primary-700 hover:text-atlas-secondary-600 transition-colors relative group"
               >
-                {t(`common:nav.${item.name}`)}
+                {t(`nav.${item.name}`, { ns: 'common' })}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-atlas-secondary-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
@@ -149,7 +149,7 @@ export function Header() {
             >
               <div className="flex items-center space-x-3 rtl:space-x-reverse">
                 <item.icon className="h-5 w-5 text-atlas-accent-500" />
-                <span>{t(`common:nav.${item.name}`)}</span>
+                <span>{t(`nav.${item.name}`, { ns: 'common' })}</span>
               </div>
             </Link>
           ))}

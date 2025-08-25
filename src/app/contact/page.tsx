@@ -259,7 +259,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-atlas-brown-700 mb-2">
+                      <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
                         {t("contact.form.name")} *
                       </label>
                       <input
@@ -268,12 +268,12 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-atlas-gold-500 focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
                         placeholder={t("contact.form.namePlaceholder")}
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-atlas-brown-700 mb-2">
+                      <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
                         {t("contact.form.email")} *
                       </label>
                       <input
@@ -282,7 +282,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-atlas-gold-500 focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
                         placeholder={t("contact.form.emailPlaceholder")}
                       />
                     </div>
@@ -290,7 +290,7 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-atlas-brown-700 mb-2">
+                      <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
                         {t("contact.form.phone")}
                       </label>
                       <input
@@ -298,12 +298,12 @@ export default function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-atlas-gold-500 focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
                         placeholder={t("contact.form.phonePlaceholder")}
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-atlas-brown-700 mb-2">
+                      <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
                         {t("contact.form.company")}
                       </label>
                       <input
@@ -311,14 +311,14 @@ export default function ContactPage() {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-atlas-gold-500 focus:border-transparent transition-all duration-300"
+                        className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
                         placeholder={t("contact.form.companyPlaceholder")}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-atlas-brown-700 mb-2">
+                    <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
                       {t("contact.form.subject")} *
                     </label>
                     <select
@@ -326,7 +326,7 @@ export default function ContactPage() {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-atlas-gold-500 focus:border-transparent transition-all duration-300"
+                      className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
                     >
                       <option value="">
                         {t("contact.form.subjectPlaceholder")}
@@ -347,7 +347,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-atlas-brown-700 mb-2">
+                    <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
                       {t("contact.form.message")} *
                     </label>
                     <textarea
@@ -356,7 +356,7 @@ export default function ContactPage() {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-atlas-gold-500 focus:border-transparent transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300 resize-none"
                       placeholder={t("contact.form.messagePlaceholder")}
                     ></textarea>
                   </div>

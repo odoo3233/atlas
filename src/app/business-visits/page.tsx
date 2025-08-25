@@ -21,7 +21,7 @@ export default function BusinessVisits() {
     <>
       {/* Hero Section */}
       <section className="hero-gradient relative min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 bg-atlas-dark/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">
@@ -31,7 +31,7 @@ export default function BusinessVisits() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               {t("hero.title")}
             </h1>
-            <p className="text-xl md:text-2xl text-atlas-gold-100/90 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-atlas-primary-200 leading-relaxed mb-8">
               {t("hero.subtitle")}
             </p>
             <p className="text-lg text-white/80 leading-relaxed mb-8">
@@ -48,7 +48,7 @@ export default function BusinessVisits() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-atlas-dark transition-all duration-300"
+                className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300"
               >
                 <Calendar className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
                 {t("hero.scheduleVisit")}
