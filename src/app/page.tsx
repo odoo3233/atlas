@@ -86,16 +86,16 @@ export default function Home() {
             {/* Trust Badges */}
             <div className="mt-12 flex flex-wrap justify-center items-center gap-8 opacity-70 animate-fade-in-up delay-700">
               <div className="flex items-center text-white/80 text-sm">
-                <Shield className="mr-2" size={16} />
-                ضمان الجودة العالمية
+                <Shield className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
+                {t('hero.trust.quality', { ns: 'home' }) || 'ضمان الجودة العالمية'}
               </div>
               <div className="flex items-center text-white/80 text-sm">
-                <Clock className="mr-2" size={16} />
-                دعم على مدار الساعة
+                <Clock className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
+                {t('hero.trust.support', { ns: 'home' }) || 'دعم على مدار الساعة'}
               </div>
               <div className="flex items-center text-white/80 text-sm">
-                <Heart className="mr-2" size={16} />
-                رضا العملاء أولويتنا
+                <Heart className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
+                {t('hero.trust.satisfaction', { ns: 'home' }) || 'رضا العملاء أولويتنا'}
               </div>
             </div>
           </div>
@@ -139,15 +139,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-atlas-gold-100 text-atlas-gold-700 rounded-full text-sm font-medium mb-6 animate-fade-in-up">
-              <Building className="mr-2" size={16} />
-              من نحن
+              <Building className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
+              {t('about.badge', { ns: 'home' }) || 'من نحن'}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-atlas-dark mb-6 animate-fade-in-up delay-200">
-              شركة أطلس الشرق للمعارض والمؤتمرات
+              {t('about.title', { ns: 'home' }) || 'شركة أطلس الشرق للمعارض والمؤتمرات'}
             </h2>
             <p className="text-xl text-atlas-brown-600 max-w-4xl mx-auto animate-fade-in-up delay-300">
-              نفخر بخبرة 15 عاماً في مجال المعارض والتجارة الدولية، نقدم حلول
-              مبتكرة لربط الشركات السعودية بالأسواق الصينية والعالمية
+              {t('about.description', { ns: 'home' }) || 'نفخر بخبرة 15 عاماً في مجال المعارض والتجارة الدولية، نقدم حلول مبتكرة لربط الشركات السعودية بالأسواق الصينية والعالمية'}
             </p>
           </div>
 
@@ -157,10 +156,10 @@ export default function Home() {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-atlas-dark mb-2">
-                15+ سنة خبرة
+                {t('about.experience', { ns: 'home' }) || '15+ سنة خبرة'}
               </h3>
               <p className="text-atlas-brown-600 text-sm">
-                خبرة عميقة في تنظيم الفعاليات التجارية الدولية
+                {t('about.experienceDesc', { ns: 'home' }) || 'خبرة عميقة في تنظيم الفعاليات التجارية الدولية'}
               </p>
             </div>
 
@@ -169,10 +168,10 @@ export default function Home() {
                 <Globe className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-atlas-dark mb-2">
-                2000+ شريك صيني
+                {t('about.partners', { ns: 'home' }) || '2000+ شريك صيني'}
               </h3>
               <p className="text-atlas-brown-600 text-sm">
-                علاقات وثيقة مع الشركات الصينية والسعودية
+                {t('about.partnersDesc', { ns: 'home' }) || 'علاقات وثيقة مع الشركات الصينية والسعودية'}
               </p>
             </div>
 
@@ -181,10 +180,10 @@ export default function Home() {
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-atlas-dark mb-2">
-                98% معدل رضا
+                {t('about.satisfaction', { ns: 'home' }) || '98% معدل رضا'}
               </h3>
               <p className="text-atlas-brown-600 text-sm">
-                معايير جودة عالمية في جميع خدماتنا
+                {t('about.satisfactionDesc', { ns: 'home' }) || 'معايير جودة عالمية في جميع خدماتنا'}
               </p>
             </div>
 
@@ -193,10 +192,10 @@ export default function Home() {
                 <Heart className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-atlas-dark mb-2">
-                دعم متواصل
+                {t('about.support', { ns: 'home' }) || 'دعم متواصل'}
               </h3>
               <p className="text-atlas-brown-600 text-sm">
-                دعم فني وإداري على مدار الساعة
+                {t('about.supportDesc', { ns: 'home' }) || 'دعم فني وإداري على مدار الساعة'}
               </p>
             </div>
           </div>
@@ -208,15 +207,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-atlas-gold-100 text-atlas-gold-700 rounded-full text-sm font-medium mb-6 animate-fade-in-up">
-              <Award className="mr-2" size={16} />
-              خدماتنا المتخصصة
+              <Award className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
+              {t('services.badge', { ns: 'home' }) || 'خدماتنا المتخصصة'}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-atlas-dark mb-6 animate-fade-in-up delay-200">
-              خدماتنا المتخصصة
+              {t('services.title', { ns: 'home' }) || 'خدماتنا المتخصصة'}
             </h2>
             <p className="text-xl text-atlas-brown-600 max-w-4xl mx-auto animate-fade-in-up delay-300">
-              نقدم مجموعة شاملة من الخدمات المتخصصة لربط الأعمال بين الصين
-              والمملكة العربية السعودية
+              {t('services.description', { ns: 'home' }) || 'نقدم مجموعة شاملة من الخدمات المتخصصة لربط الأعمال بين الصين والمملكة العربية السعودية'}
             </p>
           </div>
 
@@ -226,29 +224,27 @@ export default function Home() {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-atlas-dark mb-4">
-                تنظيم رحلات الأعمال
+                {t('services.businessTrips.title', { ns: 'home' }) || 'تنظيم رحلات الأعمال'}
               </h3>
               <p className="text-atlas-brown-700 mb-6">
-                ترتيب رحلات أعمال للشركات للقاء شركاء محتملين واستكشاف فرص
-                الاستثمار الجديدة
+                {t('services.businessTrips.description', { ns: 'home' }) || 'ترتيب رحلات أعمال للشركات للقاء شركاء محتملين واستكشاف فرص الاستثمار الجديدة'}
               </p>
               <ul className="space-y-2 mb-6">
-                <li className="flex items-center text-atlas-brown-700">
-                  <Star className="w-4 h-4 mr-2 text-atlas-gold-600" />
-                  برامج سفر مخصصة
-                </li>
-                <li className="flex items-center text-atlas-brown-700">
-                  <Star className="w-4 h-4 mr-2 text-atlas-gold-600" />
-                  ترجمة فورية
-                </li>
-                <li className="flex items-center text-atlas-brown-700">
-                  <Star className="w-4 h-4 mr-2 text-atlas-gold-600" />
-                  خدمات VIP شاملة
-                </li>
-                <li className="flex items-center text-atlas-brown-700">
-                  <Star className="w-4 h-4 mr-2 text-atlas-gold-600" />
-                  متابعة ما بعد الرحلة
-                </li>
+                {(() => {
+                  const features = t('services.businessTrips.features', { ns: 'home', returnObjects: true });
+                  const featureArray = Array.isArray(features) ? features : [
+                    'برامج سفر مخصصة',
+                    'ترجمة فورية',
+                    'خدمات VIP شاملة',
+                    'متابعة ما بعد الرحلة'
+                  ];
+                  return featureArray.map((feature: string, index: number) => (
+                    <li key={index} className="flex items-center text-atlas-brown-700">
+                      <Star className="w-4 h-4 mr-2 rtl:mr-0 rtl:ml-2 text-atlas-gold-600" />
+                      {feature}
+                    </li>
+                  ));
+                })()}
               </ul>
               <Button className="w-full btn-primary-gradient transform hover:scale-105 transition-all duration-300">
                 اعرف المزيد →
@@ -260,11 +256,10 @@ export default function Home() {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-atlas-dark mb-4">
-                ربط رجال الأعمال
+                {t('services.networking.title', { ns: 'home' }) || 'ربط رجال الأعمال'}
               </h3>
               <p className="text-atlas-brown-700 mb-6">
-                ربط رجال الأعمال بين الصين والمملكة العربية السعودية للنمو
-                المشترك وبناء شراكات استراتيجية
+                {t('services.networking.description', { ns: 'home' }) || 'ربط رجال الأعمال بين الصين والمملكة العربية السعودية للنمو المشترك وبناء شراكات استراتيجية'}
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center text-atlas-brown-700">
@@ -336,27 +331,26 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in-up">
-              مستعد لبدء رحلة النجاح؟
+              {t('cta.title', { ns: 'home' }) || 'مستعد لبدء رحلة النجاح؟'}
             </h2>
             <p className="text-xl text-atlas-gold-50 mb-8 animate-fade-in-up delay-200">
-              اكتشف كيف يمكن لخدماتنا المتخصصة أن تساعدك في تحقيق أهدافك
-              التجارية
+              {t('cta.description', { ns: 'home' }) || 'اكتشف كيف يمكن لخدماتنا المتخصصة أن تساعدك في تحقيق أهدافك التجارية'}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
               <Button
                 size="lg"
                 className="text-lg px-8 py-6 bg-atlas-dark text-white hover:bg-atlas-brown-900 transform hover:scale-105 transition-all duration-300 shadow-2xl"
               >
-                <Zap className="mr-2" size={20} />
-                تواصل معنا الآن
+                <Zap className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
+                {t('cta.contactNow', { ns: 'home' }) || 'تواصل معنا الآن'}
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-atlas-dark transform hover:scale-105 transition-all duration-300 shadow-2xl"
               >
-                <Eye className="mr-2" size={20} />
-                استكشف جميع الخدمات
+                <Eye className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
+                {t('cta.exploreServices', { ns: 'home' }) || 'استكشف جميع الخدمات'}
               </Button>
             </div>
           </div>
@@ -368,32 +362,31 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-flex items-center px-4 py-2 bg-atlas-gold-100 text-atlas-gold-700 rounded-full text-sm font-medium mb-6 animate-fade-in-up">
-              <Calendar className="mr-2" size={16} />
-              الفعاليات القادمة
+              <Calendar className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
+              {t('events.badge', { ns: 'home' }) || 'الفعاليات القادمة'}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-atlas-dark mb-6 animate-fade-in-up delay-200">
-              الفعاليات القادمة
+              {t('events.title', { ns: 'home' }) || 'الفعاليات القادمة'}
             </h2>
             <p className="text-xl text-atlas-brown-600 max-w-4xl mx-auto animate-fade-in-up delay-300">
-              اكتشف أهم الفعاليات والمعارض القادمة
+              {t('events.description', { ns: 'home' }) || 'اكتشف أهم الفعاليات والمعارض القادمة'}
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="card-glass p-8 animate-fade-in-up delay-400">
               <h3 className="text-2xl font-bold mb-4">
-                معرض الصقور والصيد السعودي الدولي 2025
+                {t('events.falconExpo.title', { ns: 'home' }) || 'معرض الصقور والصيد السعودي الدولي 2025'}
               </h3>
               <div className="flex items-center mb-4">
-                <Calendar className="w-5 h-5 mr-2" />
-                <span>٢ - ١١ أكتوبر ٢٠٢٥</span>
+                <Calendar className="w-5 h-5 mr-2 rtl:mr-0 rtl:ml-2" />
+                <span>{t('events.falconExpo.date', { ns: 'home' }) || '٢ - ١١ أكتوبر ٢٠٢٥'}</span>
               </div>
               <h4 className="text-lg font-semibold mb-3">
-                أكبر معرض للصقور والصيد في الشرق الأوسط
+                {t('events.falconExpo.subtitle', { ns: 'home' }) || 'أكبر معرض للصقور والصيد في الشرق الأوسط'}
               </h4>
               <p className="text-atlas-gold-100/80 mb-6">
-                معرض سنوي لعشاق الصقور والصيد، يعرض أفضل الصقور وأحدث المعدات
-                والتقنيات في مجال الصيد والصقور
+                {t('events.falconExpo.description', { ns: 'home' }) || 'معرض سنوي لعشاق الصقور والصيد، يعرض أفضل الصقور وأحدث المعدات والتقنيات في مجال الصيد والصقور'}
               </p>
               <div className="flex items-center mb-4">
                 <MapPin className="w-5 h-5 mr-2" />

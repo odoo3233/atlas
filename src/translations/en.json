@@ -46,7 +46,12 @@
       "subtitle": "Your Gateway to Success in Global Markets",
       "description": "With over 15 years of excellence, we pride ourselves as the leading strategic partner in facilitating international trade and organizing world-class exhibitions, providing innovative and comprehensive solutions that ensure your business success in global markets",
       "discoverServices": "Explore Our Solutions",
-      "startJourney": "Start Your Success Journey"
+      "startJourney": "Start Your Success Journey",
+      "trust": {
+        "quality": "Global Quality Guarantee",
+        "support": "24/7 Support",
+        "satisfaction": "Customer Satisfaction Priority"
+      }
     },
     "stats": {
       "experience": "Years of Experience",
@@ -99,7 +104,8 @@
       "cta": {
         "title": "Ready to Grow Your Business?",
         "description": "Join thousands of successful companies that trusted our services to expand their business in international markets"
-      }
+      },
+      "learnMore": "Learn More"
     },
     "services": {
       "badge": "Our Specialized Services",
@@ -485,7 +491,60 @@
       "title": "Plan a Successful Business Trip",
       "description": "Let us help you maximize the benefits of your business journey",
       "button": "Start Planning Now"
-    }
+    },
+    "packages": {
+      "title": "Business Trip Packages",
+      "subtitle": "Choose the package that suits your business needs",
+      "basic": {
+        "title": "Basic Package",
+        "price": "$2,999",
+        "duration": "5 Days / 4 Nights",
+        "features": [
+          "Round-trip Economy Class Airfare",
+          "4-Star Hotel Accommodation",
+          "3 Arranged Business Meetings",
+          "Professional Translator",
+          "Airport Transfers",
+          "Daily Continental Breakfast"
+        ]
+      },
+      "professional": {
+        "title": "Professional Package",
+        "price": "$4,999",
+        "duration": "7 Days / 6 Nights",
+        "features": [
+          "Round-trip Business Class Airfare",
+          "5-Star Hotel Accommodation",
+          "5 Arranged Business Meetings",
+          "Dedicated Personal Translator",
+          "Private Car & Driver",
+          "All Meals Included",
+          "Factory & Office Visits",
+          "Market Analysis Report"
+        ],
+        "popular": "Most Popular"
+      },
+      "vip": {
+        "title": "VIP Package",
+        "price": "$9,999",
+        "duration": "10 Days / 9 Nights",
+        "features": [
+          "Round-trip First Class Airfare",
+          "Luxury Hotel Suite",
+          "Unlimited Business Meetings",
+          "Team of Translators & Consultants",
+          "24/7 Luxury Vehicle & Driver",
+          "VIP Treatment at All Venues",
+          "Investment Opportunity Analysis",
+          "Legal & Business Consulting",
+          "Government Relations Support",
+          "Comprehensive Market Entry Strategy"
+        ]
+      }
+    },
+    "register": "Register Now",
+    "contactUs": "Contact Us",
+    "scheduleVisit": "Schedule Your Visit"
   },
   "falconRegistration": {
     "hero": {
