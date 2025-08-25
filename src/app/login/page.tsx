@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from "next/navigation"
 import { useTranslation } from "react-i18next"
 import { Header } from "@/components/header"
@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Lock, User } from "lucide-react"
 
-export default function LoginPage() {
+function LoginPageContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { t } = useTranslation()
@@ -31,7 +31,7 @@ export default function LoginPage() {
         document.cookie = `admin-auth=atlas-admin-2024; path=/; max-age=${60 * 60 * 24}` // 24 hours
         
         // Redirect to admin or original page
-        const redirect = searchParams.get('redirect') || '/admin'
+        const redirect = searchParams?.get('redirect') || '/admin'
         router.push(redirect)
       } else {
         setError(t('login.invalidCredentials') || 'اسم المستخدم أو كلمة المرور غير صحيحة')
@@ -128,4 +128,12 @@ export default function LoginPage() {
       <Footer />
     </main>
   )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginPageContent />
+    </Suspense>
+  );
 }

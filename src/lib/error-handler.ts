@@ -18,11 +18,11 @@ export function handleError(error: unknown, options: ErrorHandlerOptions = {}) {
   }
 
   let message = fallbackMessage;
-  let statusCode = 500;
+  let statusCode: number | null = null;
 
   if (error instanceof ApiError) {
     message = error.message;
-    statusCode = error.statusCode;
+    statusCode = error.status;
     
     // Handle specific status codes
     switch (statusCode) {

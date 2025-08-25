@@ -2,6 +2,21 @@
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL || "https://atlas-ha7k.onrender.com";
 
+// Custom Error Types
+export class ApiError extends Error {
+  constructor(message: string, public status: number) {
+    super(message);
+    this.name = 'ApiError';
+  }
+}
+
+export class NetworkError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'NetworkError';
+  }
+}
+
 // API Client
 class ApiClient {
   private baseURL: string;
@@ -13,28 +28,40 @@ class ApiClient {
   private async request<T>(
     endpoint: string,
     options: RequestInit = {},
+    timeoutMs: number = 12000,
   ): Promise<T> {
     const url = `${this.baseURL}${endpoint}`;
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
     const config: RequestInit = {
       headers: {
         "Content-Type": "application/json",
         ...options.headers,
       },
+      signal: controller.signal,
       ...options,
     };
 
     try {
       const response = await fetch(url, config);
+      clearTimeout(timeout);
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new ApiError(`HTTP error! status: ${response.status}`, response.status);
       }
 
       return await response.json();
-    } catch (error) {
+    } catch (error: any) {
       console.error("API request failed:", error);
-      throw error;
+      if (error instanceof ApiError) {
+        throw error;
+      }
+      if (error?.name === 'AbortError') {
+        throw new NetworkError('Network request timed out');
+      }
+      throw new NetworkError('Network request failed');
     }
   }
 

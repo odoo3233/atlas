@@ -15,9 +15,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductImage } from "@/components/ui/enhanced-image";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+
 import Link from "next/link";
+import { getProduct, createOrder } from "@/lib/api";
+import { mockProducts } from "@/lib/mock-products";
 import Image from "next/image";
 
 interface Product {
@@ -38,11 +39,13 @@ interface Product {
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const [orderSubmitting, setOrderSubmitting] = useState(false);
+  const [orderSuccess, setOrderSuccess] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -54,19 +57,20 @@ export default function ProductDetailPage() {
         if (!productId) {
           throw new Error("Product ID not found");
         }
-        const response = await fetch(
-          `http://localhost:5001/api/products/${productId}`,
-        );
-
-        if (!response.ok) {
-          if (response.status === 404) {
-            throw new Error("Product not found");
+        try {
+          const data = await getProduct(productId);
+          setProduct(data);
+        } catch (e) {
+          // Fallback to mock data
+          const fallback = mockProducts.find((p) => String(p.id) === String(productId));
+          if (fallback) {
+            setProduct(fallback as any);
+            // show product normally without error page
+            setError(null);
+          } else {
+            throw e;
           }
-          throw new Error("Failed to fetch product");
         }
-
-        const data = await response.json();
-        setProduct(data);
       } catch (err) {
         console.error("Error fetching product:", err);
         setError(err instanceof Error ? err.message : "Failed to load product");
@@ -97,65 +101,70 @@ export default function ProductDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <Header />
-        <div className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-              <p className="mt-4 text-gray-600">
-                {t("common.loading", "Loading product details...")}
-              </p>
-            </div>
-          </div>
+      <div className="flex-1 flex items-center justify-center min-h-screen bg-atlas-brown-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-atlas-gold-500 mx-auto"></div>
+          <p className="mt-4 text-atlas-brown-600">
+            {t("common.loading", "Loading product details...")}
+          </p>
         </div>
-        <Footer />
       </div>
     );
   }
 
-  if (error || !product) {
+  if (error && !product) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <Header />
-        <div className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center">
-              <div className="text-red-500 text-4xl mb-4">⚠️</div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-4">
-                {error === "Product not found"
-                  ? "Product Not Found"
-                  : "Error Loading Product"}
-              </h1>
-              <p className="text-gray-600 mb-6">
-                {error === "Product not found"
-                  ? "Sorry, the product you are looking for is not available"
-                  : error || "An error occurred while loading the product"}
-              </p>
-              <Link href="/products">
-                <Button className="bg-blue-600 hover:bg-blue-700">
-                  Back to Products
-                </Button>
-              </Link>
-            </div>
+      <div className="flex-1 flex items-center justify-center min-h-screen bg-red-50">
+        <div className="text-center max-w-md mx-auto">
+          <div className="card-modern p-8">
+            <div className="text-red-500 text-4xl mb-4">⚠️</div>
+            <h1 className="text-2xl font-bold text-red-900 mb-4">
+              {error === "Product not found"
+                ? t("products.errorNotFound", "Product Not Found")
+                : t("products.errorLoading", "Error Loading Product")}
+            </h1>
+            <p className="text-red-700 mb-6">
+              {error === "Product not found"
+                ? t("products.notAvailable", "Sorry, the product you are looking for is not available")
+                : error || t("common.error", "An error occurred while loading the product")}
+            </p>
+            <Link href="/products">
+              <Button className="bg-red-600 hover:bg-red-700">
+                {t("products.viewAllProducts", "View All Products")}
+              </Button>
+            </Link>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
+
+  // Localized fields for fallback products
+  if (!product) {
+    return null;
+  }
+
+  const localizedName = (product as any)?.translations?.[i18n.language]?.name || product.name;
+  const localizedDesc = (product as any)?.translations?.[i18n.language]?.description || product.description;
+  const categoryKeyMap: Record<string, string> = {
+    "Lighting": "lighting",
+    "Renewable Energy": "renewableEnergy",
+    "Smart Home": "smartHome",
+    "Industrial": "industrial",
+    "Safety Equipment": "safetyEquipment",
+  };
+  const categoryKey = categoryKeyMap[product.category];
+  const localizedCategory = categoryKey ? (t(`products.categories.${categoryKey}`) as string) : product.category;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-
-      <main className="py-12">
+    <>
+      <main className="py-12 bg-atlas-brown-50 min-h-screen">
         <div className="container mx-auto px-4">
           {/* Back Button */}
           <div className="mb-6">
             <Link
               href="/products"
-              className="inline-flex items-center space-x-2 rtl:space-x-reverse text-blue-600 hover:text-blue-700 transition-colors"
+              className="inline-flex items-center space-x-2 rtl:space-x-reverse text-atlas-gold-600 hover:text-atlas-gold-700 transition-colors"
             >
               <ArrowLeft className="h-5 w-5" />
               <span>{t("common.back", "Back to Products")}</span>
@@ -163,7 +172,7 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Product Details */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="card-modern overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
               {/* Product Image */}
               <div className="relative">
@@ -201,68 +210,76 @@ export default function ProductDetailPage() {
               <div className="space-y-6">
                 {/* Category and Barcode */}
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500 capitalize bg-gray-100 px-3 py-1 rounded-full">
-                    {product.category}
+                  <span className="text-sm text-atlas-brown-700 capitalize bg-atlas-brown-50 px-3 py-1 rounded-full">
+                    {localizedCategory}
                   </span>
-                  <span className="text-xs text-gray-400 font-mono">
+                  <span className="text-xs text-atlas-brown-400 font-mono">
                     {product.barcode}
                   </span>
                 </div>
 
                 {/* Product Name */}
-                <h1 className="text-3xl font-bold text-gray-900">
-                  {product.name}
+                <h1 className="text-3xl font-bold text-atlas-dark">
+                  {localizedName}
                 </h1>
 
                 {/* Company Name */}
                 {product.company_name && (
-                  <p className="text-lg text-blue-600 font-medium">
+                  <p className="text-lg text-atlas-gold-600 font-medium">
                     {product.company_name}
                   </p>
                 )}
 
                 {/* Price */}
-                <div className="text-3xl font-bold text-blue-600">
+                <div className="text-3xl font-bold text-atlas-gold-600">
                   ${product.price.toLocaleString()}
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-600 leading-relaxed">
-                  {product.description}
+                <p className="text-atlas-brown-600 leading-relaxed">
+                  {localizedDesc}
                 </p>
 
                 {/* Quantity and Add to Cart */}
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                    <label className="text-gray-700 font-medium">
+                    <label className="text-atlas-brown-700 font-medium">
                       {t("orders.quantity", "Quantity")}:
                     </label>
-                    <div className="flex items-center border border-gray-300 rounded-lg">
+                    <div className="flex items-center border border-atlas-brown-200 rounded-lg">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="px-3 py-2 hover:bg-gray-100 transition-colors"
+                        className="px-3 py-2 hover:bg-atlas-brown-50 transition-colors"
                       >
                         -
                       </button>
-                      <span className="px-4 py-2 border-x border-gray-300">
+                      <span className="px-4 py-2 border-x border-atlas-brown-200">
                         {quantity}
                       </span>
                       <button
                         onClick={() => setQuantity(quantity + 1)}
-                        className="px-3 py-2 hover:bg-gray-100 transition-colors"
+                        className="px-3 py-2 hover:bg-atlas-brown-50 transition-colors"
                       >
                         +
                       </button>
                     </div>
                   </div>
 
+                  {orderSuccess && (
+                    <div className="p-3 rounded-lg bg-green-50 border border-green-200 text-green-800">
+                      {orderSuccess}
+                    </div>
+                  )}
                   <div className="flex space-x-4 rtl:space-x-reverse">
                     <Button
                       size="lg"
-                      className="flex-1 bg-blue-600 hover:bg-blue-700"
+                      className="flex-1 btn-primary-gradient"
+                      asChild
                     >
-                      <ShoppingBag className="h-5 w-5 ml-2 rtl:mr-2 rtl:ml-0" />
-                      {t("products.addToCart", "Add to Cart")}
+                      <Link href={`/orders/new?productId=${product.id}&quantity=${quantity}`}>
+                        <ShoppingBag className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
+                        {t("products.placeOrder", "Place Order")}
+                      </Link>
                     </Button>
                     <Button
                       size="lg"
@@ -278,22 +295,22 @@ export default function ProductDetailPage() {
                 </div>
 
                 {/* Benefits */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-gray-200">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-atlas-brown-200">
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
-                    <Truck className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm text-gray-600">
+                    <Truck className="h-5 w-5 text-atlas-gold-600" />
+                    <span className="text-sm text-atlas-brown-600">
                       {t("products.freeShipping", "Free Shipping")}
                     </span>
                   </div>
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
                     <Shield className="h-5 w-5 text-green-600" />
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-atlas-brown-600">
                       {t("products.warranty", "Warranty")}
                     </span>
                   </div>
                   <div className="flex items-center space-x-2 rtl:space-x-reverse">
                     <RotateCcw className="h-5 w-5 text-orange-600" />
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-atlas-brown-600">
                       {t("products.freeReturn", "Free Return")}
                     </span>
                   </div>
@@ -303,8 +320,8 @@ export default function ProductDetailPage() {
 
             {/* Specifications */}
             {product.specifications && (
-              <div className="border-t border-gray-200 p-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">
+              <div className="border-t border-atlas-brown-200 p-8">
+                <h3 className="text-xl font-semibold text-atlas-dark mb-6">
                   {t("products.specifications", "Specifications")}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -312,10 +329,10 @@ export default function ProductDetailPage() {
                     ([key, value]) => (
                       <div
                         key={key}
-                        className="flex justify-between py-2 border-b border-gray-100"
+                        className="flex justify-between py-2 border-b border-atlas-brown-100"
                       >
-                        <span className="text-gray-600">{key}</span>
-                        <span className="font-medium text-gray-900">
+                        <span className="text-atlas-brown-600">{key}</span>
+                        <span className="font-medium text-atlas-dark">
                           {value}
                         </span>
                       </div>
@@ -328,18 +345,18 @@ export default function ProductDetailPage() {
 
           {/* Related Products Section */}
           <div className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold text-atlas-dark mb-6">
               {t("products.relatedProducts", "Related Products")}
             </h2>
             <div className="text-center py-8">
-              <p className="text-gray-600">
+              <p className="text-atlas-brown-600">
                 {t(
                   "products.relatedProductsDesc",
                   "Discover more products from our catalog",
                 )}
               </p>
               <Link href="/products">
-                <Button className="mt-4 bg-blue-600 hover:bg-blue-700">
+                <Button className="mt-4 btn-primary-gradient">
                   {t("products.viewAllProducts", "View All Products")}
                 </Button>
               </Link>
@@ -347,8 +364,6 @@ export default function ProductDetailPage() {
           </div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </>
   );
 }

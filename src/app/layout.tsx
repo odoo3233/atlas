@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { I18nProvider } from "@/components/i18n-provider";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://atlas-al-sharq.com'),
   title: "Atlas Al-Sharq - شركة أطلس الشرق",
   description:
     "شركة أطلس الشرق للاستشارات الاقتصادية والتجارية - Leading economic and commercial consultancy in the Middle East",
@@ -36,16 +40,21 @@ export const metadata: Metadata = {
       "Leading economic and commercial consultancy in the Middle East",
     images: ["/assets/logo.png"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#d4893d" },
-    { media: "(prefers-color-scheme: dark)", color: "#2d1810" },
-  ],
 };
+
+export function generateViewport() {
+  return {
+    themeColor: [
+      { media: "(prefers-color-scheme: light)", color: "#d4893d" },
+      { media: "(prefers-color-scheme: dark)", color: "#2d1810" },
+    ],
+    viewport: {
+      width: "device-width",
+      initialScale: 1,
+      maximumScale: 5,
+    },
+  }
+}
 
 export default function RootLayout({
   children,
@@ -53,8 +62,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl">
-      <body className={inter.className}>{children}</body>
+    <html suppressHydrationWarning>
+      <body className={inter.className}>
+        <I18nProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </I18nProvider>
+      </body>
     </html>
   );
 }

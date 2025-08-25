@@ -2,8 +2,6 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import {
   Calendar,
@@ -20,22 +18,20 @@ export default function BusinessVisits() {
   const { t } = useTranslation("businessVisits");
 
   return (
-    <main className="min-h-screen flex flex-col">
-      <Header />
-
+    <>
       {/* Hero Section */}
       <section className="hero-gradient relative min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 bg-eerie-black/60 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-atlas-dark/60 backdrop-blur-[2px]"></div>
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-ghost-white/20 text-ghost-white rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">
               <Building2 className="mr-2 rtl:mr-0 rtl:ml-2" size={16} />
               {t("hero.badge")}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               {t("hero.title")}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8">
+            <p className="text-xl md:text-2xl text-atlas-gold-100/90 leading-relaxed mb-8">
               {t("hero.subtitle")}
             </p>
             <p className="text-lg text-white/80 leading-relaxed mb-8">
@@ -44,7 +40,7 @@ export default function BusinessVisits() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="text-lg px-8 py-6 bg-ghost-white text-eerie-black hover:bg-platinum transition-all duration-300"
+                className="text-lg px-8 py-6 btn-primary-gradient"
               >
                 <Phone className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
                 {t("hero.contactUs")}
@@ -52,7 +48,7 @@ export default function BusinessVisits() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-gray-900 transition-all duration-300"
+                className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-atlas-dark transition-all duration-300"
               >
                 <Calendar className="mr-2 rtl:mr-0 rtl:ml-2" size={20} />
                 {t("hero.scheduleVisit")}
@@ -63,31 +59,31 @@ export default function BusinessVisits() {
       </section>
 
       {/* Packages Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-atlas-brown-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-atlas-dark">
               {t("packages.title")}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-atlas-brown-600 max-w-3xl mx-auto">
               {t("packages.subtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             {/* Basic Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
+            <div className="card-modern p-8">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-atlas-gold-100 text-atlas-gold-600 mb-4">
                   <Building2 size={32} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">
+                <h3 className="text-2xl font-bold mb-2 text-atlas-dark">
                   {t("packages.basic.title")}
                 </h3>
-                <div className="text-3xl font-bold text-blue-600 mb-2">
+                <div className="text-3xl font-bold text-atlas-gold-600 mb-2">
                   {t("packages.basic.price")}
                 </div>
-                <div className="text-gray-600">
+                <div className="text-atlas-brown-600">
                   {t("packages.basic.duration")}
                 </div>
               </div>
@@ -101,21 +97,21 @@ export default function BusinessVisits() {
                   return featureArray.map((feature: string, index: number) => (
                     <div key={index} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-atlas-brown-700">{feature}</span>
                     </div>
                   ));
                 })()}
               </div>
 
-              <Button className="w-full bg-blue-600 hover:bg-blue-700">
+              <Button className="w-full btn-primary-gradient">
                 {t("register")}
               </Button>
             </div>
 
             {/* Premium Package */}
-            <div className="bg-gradient-to-br from-eerie-black to-platinum rounded-2xl p-8 shadow-lg text-white relative transform scale-105">
+            <div className="card-glass p-8 relative transform scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-ghost-white text-eerie-black px-4 py-1 rounded-full text-sm font-bold">
+                <div className="bg-atlas-gold-500 text-atlas-dark px-4 py-1 rounded-full text-sm font-bold">
                   الأكثر طلباً
                 </div>
               </div>
@@ -150,24 +146,24 @@ export default function BusinessVisits() {
                 })()}
               </div>
 
-              <Button className="w-full bg-white text-blue-600 hover:bg-white/90">
+              <Button className="w-full bg-white text-atlas-dark hover:bg-white/90">
                 {t("register")}
               </Button>
             </div>
 
             {/* Custom Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
+            <div className="card-modern p-8">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 text-purple-600 mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-atlas-gold-100 text-atlas-gold-600 mb-4">
                   <Users size={32} />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">
+                <h3 className="text-2xl font-bold mb-2 text-atlas-dark">
                   {t("packages.custom.title")}
                 </h3>
-                <div className="text-3xl font-bold text-purple-600 mb-2">
+                <div className="text-3xl font-bold text-atlas-gold-600 mb-2">
                   {t("packages.custom.price")}
                 </div>
-                <div className="text-gray-600">
+                <div className="text-atlas-brown-600">
                   {t("packages.custom.duration")}
                 </div>
               </div>
@@ -181,13 +177,13 @@ export default function BusinessVisits() {
                   return featureArray.map((feature: string, index: number) => (
                     <div key={index} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-atlas-brown-700">{feature}</span>
                     </div>
                   ));
                 })()}
               </div>
 
-              <Button className="w-full bg-purple-600 hover:bg-purple-700">
+              <Button className="w-full btn-primary-gradient">
                 {t("contact")}
               </Button>
             </div>
@@ -196,13 +192,13 @@ export default function BusinessVisits() {
       </section>
 
       {/* Why China Section */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-red-800 text-white">
+      <section className="py-20 bg-atlas-dark text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               لماذا الشراكة مع الشركات الصينية؟
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl text-atlas-gold-100/80 max-w-3xl mx-auto">
               الصين موطن لأكبر وأكثر الشركات العقارية ابتكاراً في العالم مع
               خبرات لا مثيل لها
             </p>
@@ -232,84 +228,84 @@ export default function BusinessVisits() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-atlas-dark">
               شركاؤنا من الشركات الصينية الرائدة
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-atlas-brown-600 max-w-3xl mx-auto">
               نتعاون مع أكبر وأنجح الشركات العقارية في الصين لضمان أفضل فرص
               الشراكة لكم
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="text-2xl font-bold text-red-600 mb-2">
+            <div className="card-modern text-center p-6">
+              <div className="text-2xl font-bold text-atlas-gold-600 mb-2">
                 China Vanke
               </div>
-              <div className="text-gray-600">أكبر شركة عقارية في الصين</div>
-              <div className="text-sm text-gray-500 mt-2">$50B+ قيمة السوق</div>
+              <div className="text-atlas-brown-600">أكبر شركة عقارية في الصين</div>
+              <div className="text-sm text-atlas-brown-500 mt-2">$50B+ قيمة السوق</div>
             </div>
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="text-2xl font-bold text-red-600 mb-2">
+            <div className="card-modern text-center p-6">
+              <div className="text-2xl font-bold text-atlas-gold-600 mb-2">
                 Evergrande
               </div>
-              <div className="text-gray-600">رائدة في التطوير العقاري</div>
-              <div className="text-sm text-gray-500 mt-2">$40B+ قيمة السوق</div>
+              <div className="text-atlas-brown-600">رائدة في التطوير العقاري</div>
+              <div className="text-sm text-atlas-brown-500 mt-2">$40B+ قيمة السوق</div>
             </div>
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="text-2xl font-bold text-red-600 mb-2">
+            <div className="card-modern text-center p-6">
+              <div className="text-2xl font-bold text-atlas-gold-600 mb-2">
                 Poly Group
               </div>
-              <div className="text-gray-600">شركة حكومية رائدة</div>
-              <div className="text-sm text-gray-500 mt-2">$35B+ قيمة السوق</div>
+              <div className="text-atlas-brown-600">شركة حكومية رائدة</div>
+              <div className="text-sm text-atlas-brown-500 mt-2">$35B+ قيمة السوق</div>
             </div>
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="text-2xl font-bold text-red-600 mb-2">
+            <div className="card-modern text-center p-6">
+              <div className="text-2xl font-bold text-atlas-gold-600 mb-2">
                 Country Garden
               </div>
-              <div className="text-gray-600">مبتكرة في التصميم</div>
-              <div className="text-sm text-gray-500 mt-2">$30B+ قيمة السوق</div>
+              <div className="text-atlas-brown-600">مبتكرة في التصميم</div>
+              <div className="text-sm text-atlas-brown-500 mt-2">$30B+ قيمة السوق</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Investment Statistics */}
-      <section className="py-20 bg-eerie-black text-ghost-white">
+      <section className="py-20 bg-atlas-dark text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {t("stats.title")}
             </h2>
-            <p className="text-xl text-ghost-white/80 max-w-3xl mx-auto">
+            <p className="text-xl text-atlas-gold-100/80 max-w-3xl mx-auto">
               {t("stats.subtitle")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-ghost-white mb-2">
+              <div className="text-4xl font-bold text-white mb-2">
                 500+
               </div>
-              <div className="text-ghost-white/80">شركة عقارية رائدة</div>
+              <div className="text-white/80">شركة عقارية رائدة</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-ghost-white mb-2">
+              <div className="text-4xl font-bold text-white mb-2">
                 85%
               </div>
-              <div className="text-ghost-white/80">معدل نجاح الشراكات</div>
+              <div className="text-white/80">معدل نجاح الشراكات</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-ghost-white mb-2">
+              <div className="text-4xl font-bold text-white mb-2">
                 200+
               </div>
-              <div className="text-ghost-white/80">دولة شريكة</div>
+              <div className="text-white/80">دولة شريكة</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-ghost-white mb-2">
+              <div className="text-4xl font-bold text-white mb-2">
                 24/7
               </div>
-              <div className="text-ghost-white/80">دعم الشراكات</div>
+              <div className="text-white/80">دعم الشراكات</div>
             </div>
           </div>
         </div>
@@ -319,32 +315,32 @@ export default function BusinessVisits() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-atlas-dark">
               {t("contactTitle")}
             </h2>
-            <p className="text-xl text-gray-600 mb-12">
+            <p className="text-xl text-atlas-brown-600 mb-12">
               {t("contactSubtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-50 rounded-xl p-8">
-                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mx-auto mb-4">
+              <div className="card-modern p-8">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-atlas-gold-100 text-atlas-gold-600 mx-auto mb-4">
                   <Phone size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{t("phoneTitle")}</h3>
-                <p className="text-gray-600 mb-4">{t("phoneSubtitle")}</p>
-                <div className="text-lg font-semibold text-blue-600">
+                <h3 className="text-xl font-bold mb-2 text-atlas-dark">{t("phoneTitle")}</h3>
+                <p className="text-atlas-brown-600 mb-4">{t("phoneSubtitle")}</p>
+                <div className="text-lg font-semibold text-atlas-gold-600">
                   +966 50 123 4567
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-xl p-8">
-                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
+              <div className="card-modern p-8">
+                <div className="flex items-center justify-center w-16 h-16 rounded-full bg-atlas-gold-100 text-atlas-gold-600 mx-auto mb-4">
                   <Mail size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{t("emailTitle")}</h3>
-                <p className="text-gray-600 mb-4">{t("emailSubtitle")}</p>
-                <div className="text-lg font-semibold text-green-600">
+                <h3 className="text-xl font-bold mb-2 text-atlas-dark">{t("emailTitle")}</h3>
+                <p className="text-atlas-brown-600 mb-4">{t("emailSubtitle")}</p>
+                <div className="text-lg font-semibold text-atlas-gold-600">
                   info@atlas-alsharq.com
                 </div>
               </div>
@@ -353,7 +349,7 @@ export default function BusinessVisits() {
             <div className="mt-12">
               <Button
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-4"
+                className="btn-primary-gradient text-lg px-8 py-4"
               >
                 {t("contact")}
               </Button>
@@ -361,8 +357,6 @@ export default function BusinessVisits() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   );
 }

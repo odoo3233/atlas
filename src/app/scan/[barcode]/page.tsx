@@ -11,9 +11,10 @@ import {
   Loader2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+
 import Link from "next/link";
+import { getProductByBarcode } from "@/lib/api";
+import { mockProducts } from "@/lib/mock-products";
 
 interface Product {
   id: number;
@@ -46,24 +47,23 @@ export default function ScanBarcodePage() {
         if (!barcode) {
           throw new Error("Barcode not found");
         }
-        const response = await fetch(
-          `http://localhost:5001/api/products/barcode/${barcode}`,
-        );
-
-        if (!response.ok) {
-          if (response.status === 404) {
-            throw new Error("Product not found");
+        try {
+          const data = await getProductByBarcode(barcode);
+          setProduct(data);
+          setTimeout(() => {
+            router.push(`/products/${data.id}`);
+          }, 2000);
+        } catch (e) {
+          const fallback = mockProducts.find((p) => p.barcode === barcode);
+          if (fallback) {
+            setProduct(fallback as any);
+            setTimeout(() => {
+              router.push(`/products/${fallback.id}`);
+            }, 2000);
+          } else {
+            setError("Product not found");
           }
-          throw new Error("Failed to fetch product");
         }
-
-        const data = await response.json();
-        setProduct(data);
-
-        // Auto-redirect to product page after a short delay
-        setTimeout(() => {
-          router.push(`/products/${data.id}`);
-        }, 2000);
       } catch (err) {
         console.error("Error fetching product by barcode:", err);
         setError(err instanceof Error ? err.message : "Failed to load product");
@@ -79,101 +79,84 @@ export default function ScanBarcodePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <Header />
-        <div className="pt-32 pb-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center">
-              <Loader2 className="h-12 w-12 animate-spin text-blue-600 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                {t("products.scanningBarcode", "Scanning Barcode")}
-              </h2>
-              <p className="text-gray-600">
-                {t("products.searchingProduct", "Searching for product...")}
-              </p>
-            </div>
+      <div className="flex-1 flex items-center justify-center min-h-screen bg-atlas-brown-50">
+        <div className="text-center">
+          <div className="card-modern p-8 max-w-md mx-auto">
+            <Loader2 className="h-12 w-12 animate-spin text-atlas-gold-500 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-atlas-dark mb-4">
+              {t("products.scanningBarcode", "Scanning Barcode")}
+            </h2>
+            <p className="text-atlas-brown-600">
+              {t("products.searchingProduct", "Searching for product...")}
+            </p>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
 
   if (error || !product) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-        <Header />
-        <div className="pt-32 pb-12">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-md mx-auto">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                  {error === "Product not found"
-                    ? "Product Not Found"
-                    : "Error"}
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  {error === "Product not found"
-                    ? `No product found with barcode: ${params?.barcode || "unknown"}`
-                    : error ||
-                      "An error occurred while searching for the product"}
-                </p>
-                <div className="space-y-3">
-                  <Link href="/products">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                      {t("products.browseProducts", "Browse Products")}
-                    </Button>
-                  </Link>
-                  <Link href="/barcode-scanner">
-                    <Button variant="outline" className="w-full">
-                      {t("products.tryAnotherBarcode", "Try Another Barcode")}
-                    </Button>
-                  </Link>
-                </div>
-              </div>
+      <div className="flex-1 flex items-center justify-center min-h-screen bg-red-50">
+        <div className="text-center max-w-md mx-auto">
+          <div className="card-modern p-8">
+            <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-red-900 mb-4">
+              {error === "Product not found"
+                ? t("products.errorNotFound", "Product Not Found")
+                : t("common.error", "Error")}
+            </h2>
+            <p className="text-red-700 mb-6">
+              {error === "Product not found"
+                ? t("products.notAvailable", "Sorry, the product you are looking for is not available")
+                : error || t("common.error", "An error occurred while searching for the product")}
+            </p>
+            <div className="space-y-3">
+              <Link href="/products">
+                <Button className="w-full bg-red-600 hover:bg-red-700">
+                  {t("products.browseProducts", "Browse Products")}
+                </Button>
+              </Link>
+              <Link href="/barcode-scanner">
+                <Button variant="outline" className="w-full">
+                  {t("products.tryAnotherBarcode", "Try Another Barcode")}
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <Header />
-      <div className="pt-32 pb-12">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-md mx-auto">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                {t("products.productFound", "Product Found!")}
-              </h2>
-              <p className="text-gray-600 mb-6">
-                {t(
-                  "products.redirectingToProduct",
-                  "Redirecting to product page...",
-                )}
-              </p>
-              <div className="space-y-3">
-                <Link href={`/products/${product.id}`}>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                    {t("products.viewProductNow", "View Product Now")}
-                  </Button>
-                </Link>
-                <Link href="/products">
-                  <Button variant="outline" className="w-full">
-                    {t("products.browseMore", "Browse More Products")}
-                  </Button>
-                </Link>
-              </div>
-            </div>
+    <div className="flex-1 flex items-center justify-center min-h-screen bg-atlas-brown-50">
+      <div className="text-center max-w-md mx-auto">
+        <div className="card-modern p-8">
+          <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-atlas-dark mb-4">
+            {t("products.productFound", "Product Found!")}
+          </h2>
+          <p className="text-atlas-brown-600 mb-6">
+            {t(
+              "products.redirectingToProduct",
+              "Redirecting to product page...",
+            )}
+          </p>
+          <div className="space-y-3">
+            <Link href={`/products/${product.id}`}>
+              <Button className="w-full btn-primary-gradient">
+                {t("products.viewProductNow", "View Product Now")}
+              </Button>
+            </Link>
+            <Link href="/products">
+              <Button variant="outline" className="w-full">
+                {t("products.browseMore", "Browse More Products")}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

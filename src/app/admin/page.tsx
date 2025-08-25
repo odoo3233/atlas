@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+
 import { Button } from "@/components/ui/button";
 import {
   Plus,
@@ -225,14 +224,14 @@ export default function AdminPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Header />
+
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center h-64">
             <RefreshCw className="animate-spin h-8 w-8 text-blue-600" />
             <span className="ml-2 text-lg">جاري التحميل...</span>
           </div>
         </div>
-        <Footer />
+
       </div>
     );
   }
@@ -240,7 +239,7 @@ export default function AdminPage() {
   if (error) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Header />
+
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col items-center justify-center h-64">
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md">
@@ -268,14 +267,14 @@ export default function AdminPage() {
             </div>
           </div>
         </div>
-        <Footer />
+
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+
 
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
@@ -816,7 +815,7 @@ export default function AdminPage() {
         )}
       </div>
 
-      <Footer />
+
     </div>
   );
 }

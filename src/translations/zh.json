@@ -28,7 +28,16 @@
     "error": "发生错误",
     "success": "成功",
     "warning": "警告",
-    "info": "信息"
+    "info": "信息",
+    "nav": {
+      "home": "首页",
+      "about": "关于我们",
+      "services": "我们的服务",
+      "products": "产品",
+      "exhibitions": "展览会",
+      "businessVisits": "商务旅行",
+      "contact": "联系我们"
+    }
   },
   "home": {
     "hero": {
@@ -275,14 +284,95 @@
       "badge": "具有全球标准的专业服务",
       "title": "我们的卓越服务",
       "subtitle": "为您的雄心量身定制的综合解决方案",
-      "description": "我们提供一套综合的专业服务，将深厚的专业知识与持续创新相结合，确保您在本地和国际市场的成功"
+      "description": "我们提供一套综合的专业服务，将深厚的专业知识与持续创新相结合，确保您在本地和国际市场的成功",
+      "exploreServices": "探索我们的服务"
     },
     "title": "我们的综合服务套餐",
     "subtitle": "我们设计创新解决方案，满足您的需求并超越您的期望",
+    "servicesList": {
+      "exhibitions": {
+        "title": "展览与活动组织",
+        "description": "组织专业展览和活动，采用最新技术和设计",
+        "features": [
+          "专业展位设计",
+          "全面活动管理",
+          "综合物流服务",
+          "先进营销支持"
+        ]
+      },
+      "networking": {
+        "title": "商业网络连接",
+        "description": "连接中国与沙特阿拉伯王国的商业领袖",
+        "features": [
+          "定制B2B会议",
+          "广泛网络",
+          "独家投资机会",
+          "法律和咨询服务"
+        ]
+      },
+      "travel": {
+        "title": "商务旅行组织",
+        "description": "为公司与潜在合作伙伴会面安排商务旅行",
+        "features": [
+          "定制旅行计划",
+          "同声传译",
+          "全面VIP服务",
+          "旅行后跟进"
+        ]
+      },
+      "showcase": {
+        "title": "产品与服务展示",
+        "description": "在国际展览会上专业展示产品和服务",
+        "features": [
+          "专业展位",
+          "互动展示",
+          "全面营销支持",
+          "客户跟进"
+        ]
+      },
+      "intelligence": {
+        "title": "市场情报",
+        "description": "对中国和沙特市场的全面分析",
+        "features": [
+          "市场研究",
+          "竞争对手分析",
+          "投资报告",
+          "战略咨询"
+        ]
+      },
+      "partnerships": {
+        "title": "合作伙伴管理",
+        "description": "全面管理商业和投资合作伙伴关系",
+        "features": [
+          "合作伙伴发展",
+          "合同管理",
+          "绩效监控",
+          "争议解决"
+        ]
+      }
+    },
+    "whyChooseUs": {
+      "title": "为什么选择我们的服务？",
+      "description": "我们拥有独特经验和综合服务，是您商业合作伙伴的最佳选择",
+      "excellence": {
+        "title": "服务卓越",
+        "description": "我们致力于在所有服务中达到最高质量标准"
+      },
+      "expertise": {
+        "title": "专业专长",
+        "description": "专门从事展览和国际贸易的专家团队"
+      },
+      "solutions": {
+        "title": "定制解决方案",
+        "description": "我们提供适合每个客户需求的定制解决方案"
+      }
+    },
     "cta": {
       "title": "寻找商业成功的可信赖伙伴？",
       "description": "让我们通过我们的卓越服务帮助您实现商业目标",
-      "button": "获取免费咨询"
+      "button": "获取免费咨询",
+      "contact": "立即联系我们",
+      "learnMore": "了解更多"
     }
   },
   "products": {
@@ -296,15 +386,33 @@
     "subtitle": "广泛的范围适合所有需求",
     "featuredProducts": "特色产品",
     "allProducts": "所有产品",
-    "categories": "类别",
+    "categories": {
+      "all": "所有产品",
+      "lighting": "照明",
+      "renewableEnergy": "可再生能源",
+      "smartHome": "智能家居",
+      "industrial": "工业",
+      "safetyEquipment": "安全设备"
+    },
     "filter": "过滤结果",
     "sort": "排序方式",
     "viewDetails": "查看详情",
     "orderNow": "立即订购",
     "addToCart": "加入购物车",
+    "inStock": "有货",
+    "freeShipping": "免费送货",
+    "warranty": "保修",
+    "freeReturn": "免费退货",
+    "scanBarcode": "扫描条形码",
+    "placeOrder": "下订单",
+    "viewAllProducts": "查看所有产品",
     "specifications": "规格",
     "description": "描述",
     "relatedProducts": "相关产品",
+    "relatedProductsDesc": "在我们的目录中发现更多产品",
+    "warningMockData": "由于数据暂不可用，显示示例产品。",
+    "errorLoading": "加载产品时出错",
+    "tryAgain": "重试",
     "cta": {
       "title": "找不到您要找的东西？",
       "description": "联系我们，我们将帮助您找到适合您需求的产品",
@@ -401,5 +509,31 @@
         "message": "我们将很快与您联系以确认您的参与"
       }
     }
+  },
+  "orders": {
+    "placeOrder": "下订单",
+    "fillForm": "请填写以下表格下订单",
+    "orderSummary": "订单摘要",
+    "fullName": "全名",
+    "email": "电子邮件地址",
+    "phone": "电话号码",
+    "company": "公司名称",
+    "message": "消息",
+    "quantity": "数量",
+    "enterName": "输入您的全名",
+    "enterEmail": "输入您的电子邮件地址",
+    "enterPhone": "输入您的电话号码",
+    "enterCompany": "输入您的公司名称（可选）",
+    "enterMessage": "输入您的消息或特殊要求",
+    "nameRequired": "姓名是必需的",
+    "emailRequired": "电子邮件是必需的",
+    "emailInvalid": "请输入有效的电子邮件",
+    "phoneRequired": "电话是必需的",
+    "messageRequired": "消息是必需的",
+    "submitOrder": "提交订单",
+    "submitting": "正在提交订单...",
+    "orderSuccess": "感谢您的订单。我们将很快与您联系确认详细信息。",
+    "requestingProduct": "我正在请求"
   }
+  
 }

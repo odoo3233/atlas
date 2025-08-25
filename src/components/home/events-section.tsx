@@ -130,26 +130,22 @@ export function EventsSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           {/* Badge */}
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full text-lg font-semibold mb-8 shadow-2xl">
+          <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white rounded-full text-base font-semibold mb-6">
             <Calendar className="mr-3 rtl:mr-0 rtl:ml-3" size={20} />
             {t("home.upcomingEvents.title", "الفعاليات القادمة")}
           </div>
 
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
             {t("home.upcomingEvents.title", "الفعاليات القادمة")}
           </h2>
 
           {/* Description */}
-          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             {t(
               "home.upcomingEvents.subtitle",
               "اكتشف أهم الفعاليات والمعارض القادمة",
@@ -160,22 +156,19 @@ export function EventsSection() {
         {/* Events Grid */}
         <div className="grid lg:grid-cols-2 gap-10 mb-16">
           {events.map((event, index) => (
-            <div
-              key={index}
-              className={`bg-gradient-to-br ${event.gradient} rounded-3xl p-10 text-white shadow-3xl hover:shadow-4xl transition-all duration-500 transform hover:-translate-y-4 hover:scale-105`}
-            >
+            <div key={index} className="rounded-2xl p-8 bg-gray-50 text-gray-900 shadow border border-gray-100">
               {/* Header */}
               <div className="flex justify-between items-start mb-8">
                 <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                  <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
-                    <event.icon size={32} />
+                  <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center border border-gray-200">
+                    <event.icon size={24} />
                   </div>
                   <div>
-                    <h3 className="text-2xl lg:text-3xl font-bold leading-tight">
+                    <h3 className="text-2xl font-bold leading-tight">
                       {event.title}
                     </h3>
                     <div className="flex items-center space-x-3 rtl:space-x-reverse text-lg mt-2">
-                      <Calendar className="h-5 w-5" />
+                      <Calendar className="h-5 w-5 text-gray-500" />
                       <span className="font-semibold">{event.date}</span>
                     </div>
                   </div>
@@ -185,11 +178,11 @@ export function EventsSection() {
               {/* Content */}
               <div className="space-y-6 mb-10">
                 <p className="text-2xl font-bold">{event.subtitle}</p>
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-gray-700 text-lg leading-relaxed">
                   {event.description}
                 </p>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse text-white/80">
-                  <MapPin className="h-5 w-5" />
+                  <MapPin className="h-5 w-5 text-gray-500" />
                   <span className="font-medium">{event.location}</span>
                 </div>
               </div>
@@ -197,23 +190,16 @@ export function EventsSection() {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-6 mb-10">
                 {event.stats.map((stat, statIndex) => (
-                  <div
-                    key={statIndex}
-                    className="bg-white/20 backdrop-blur-md rounded-2xl p-6 text-center border border-white/30 hover:bg-white/30 transition-all duration-300"
-                  >
-                    <div className="text-3xl font-bold mb-2">{stat.value}</div>
-                    <div className="text-lg font-medium">{stat.label}</div>
+                  <div key={statIndex} className="bg-white rounded-xl p-6 text-center border border-gray-200">
+                    <div className="text-2xl font-bold mb-1">{stat.value}</div>
+                    <div className="text-sm font-medium text-gray-600">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button
-                  size="lg"
-                  className="bg-white text-gray-800 hover:bg-white/90 font-bold text-lg transform hover:scale-105 transition-all shadow-xl"
-                  asChild
-                >
+                <Button size="lg" className="bg-gray-900 text-white hover:bg-black" asChild>
                   <Link href={event.learnMoreHref}>
                     <Globe className="mr-3 rtl:mr-0 rtl:ml-3" size={20} />
                     {t(
@@ -223,12 +209,7 @@ export function EventsSection() {
                     <ArrowRight className="ml-3 rtl:ml-0 rtl:mr-3" size={20} />
                   </Link>
                 </Button>
-                <Button
-                  size="lg"
-                  variant={event.registerVariant as any}
-                  className="font-bold text-lg transform hover:scale-105 transition-all shadow-xl"
-                  asChild
-                >
+                <Button size="lg" variant="outline" asChild>
                   <Link href={event.registerHref}>
                     <Zap className="mr-3 rtl:mr-0 rtl:ml-3" size={20} />
                     {event.registerText}
@@ -242,34 +223,25 @@ export function EventsSection() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 rounded-3xl p-12 text-white shadow-3xl">
+          <div className="bg-gray-50 rounded-2xl p-10 text-gray-900 border border-gray-100">
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
               {t("home.upcomingEvents.cta.title", "لا تفوت فرصة المشاركة")}
             </h3>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
               {t(
                 "home.upcomingEvents.cta.description",
                 "سجل الآن في فعالياتنا القادمة واحصل على فرص استثمارية حصرية",
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button
-                size="lg"
-                className="text-xl px-10 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
-                asChild
-              >
+              <Button size="lg" className="px-8 py-4 bg-gray-900 text-white rounded-xl hover:bg-black" asChild>
                 <Link href="/exhibitions">
                   <Calendar className="mr-3 rtl:mr-0 rtl:ml-3" size={24} />
                   {t("home.upcomingEvents.cta.viewAll", "عرض جميع الفعاليات")}
                   <ArrowRight className="ml-3 rtl:ml-0 rtl:mr-3" size={24} />
                 </Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-xl px-10 py-6 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
-                asChild
-              >
+              <Button size="lg" variant="outline" asChild>
                 <Link href="/contact">
                   <Target className="mr-3 rtl:mr-0 rtl:ml-3" size={24} />
                   {t("home.upcomingEvents.cta.contact", "تواصل معنا")}

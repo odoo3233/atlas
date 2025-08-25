@@ -19,6 +19,7 @@ export function LanguageSwitcher() {
 
   const changeLanguage = (languageCode: string) => {
     i18n.changeLanguage(languageCode);
+    try { localStorage.setItem('lang', languageCode) } catch {}
     setIsOpen(false);
 
     // Update document direction for RTL languages

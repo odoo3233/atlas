@@ -27,8 +27,7 @@ export function BrandLogo({
   const dimensions = sizeMap[size];
 
   // Use the appropriate logo based on variant
-  const logoSrc =
-    variant === "default" ? "/assets/logo.png" : "/assets/logo.png";
+  const logoSrc = "/logo.svg";
   const logoAlt = "Atlas Al Sharq";
 
   return (

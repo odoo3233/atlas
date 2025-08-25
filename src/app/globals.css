@@ -59,7 +59,7 @@
   }
 
   body {
-    @apply text-atlas-dark bg-white;
+    @apply text-atlas-dark bg-white antialiased;
     font-feature-settings:
       "rlig" 1,
       "calt" 1;
@@ -103,16 +103,24 @@
 
 /* Atlas Brand Gradients */
 @layer components {
-  .gradient-primary {
+  .hero-gradient {
     @apply bg-atlas-primary;
   }
 
+  .cta-gradient {
+    @apply bg-atlas-primary;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-atlas-brown-900 to-atlas-gold-600;
+  }
+
   .gradient-secondary {
-    @apply bg-atlas-shine;
+    @apply bg-gradient-to-r from-atlas-brown-800 to-atlas-gold-500;
   }
 
   .gradient-accent {
-    @apply bg-atlas-radial;
+    @apply bg-gradient-to-br from-atlas-gold-600 to-atlas-gold-400;
   }
 
   .gradient-elegant {
@@ -124,11 +132,11 @@
   }
 
   .text-gradient-primary {
-    @apply bg-atlas-primary bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-atlas-brown-900 to-atlas-gold-600 bg-clip-text text-transparent;
   }
 
   .text-gradient-gold {
-    @apply bg-atlas-shine bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-atlas-gold-600 to-atlas-gold-400 bg-clip-text text-transparent;
   }
 }
 
@@ -136,6 +144,10 @@
 @layer components {
   .btn-primary {
     @apply px-8 py-4 bg-atlas-primary text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-primary-gradient {
+    @apply bg-gradient-to-r from-atlas-brown-900 to-atlas-gold-600 hover:from-atlas-brown-800 hover:to-atlas-gold-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300;
   }
 
   .btn-secondary {
@@ -409,6 +421,63 @@
 
 .animate-rotate-in {
   animation: rotate-in 0.8s ease-out forwards;
+}
+
+/* Mobile Menu Animation */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out forwards;
+}
+
+/* Logo Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Enhanced Hover Effects */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 137, 61, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 137, 61, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
 
 /* Delay Classes */

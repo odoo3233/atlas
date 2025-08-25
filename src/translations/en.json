@@ -28,7 +28,16 @@
     "error": "An error occurred",
     "success": "Success",
     "warning": "Warning",
-    "info": "Information"
+    "info": "Information",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "products": "Products",
+      "exhibitions": "Exhibitions",
+      "businessVisits": "Business Trips",
+      "contact": "Contact"
+    }
   },
   "home": {
     "hero": {
@@ -275,14 +284,95 @@
       "badge": "Professional Services with Global Standards",
       "title": "Our Distinguished Services",
       "subtitle": "Comprehensive Solutions Tailored to Your Ambitions",
-      "description": "We offer an integrated suite of professional services that combine deep expertise with continuous innovation, ensuring your success in local and international markets"
+      "description": "We offer an integrated suite of professional services that combine deep expertise with continuous innovation, ensuring your success in local and international markets",
+      "exploreServices": "Explore Our Services"
     },
     "title": "Our Integrated Service Packages",
     "subtitle": "We design innovative solutions that meet your needs and exceed your expectations",
+    "servicesList": {
+      "exhibitions": {
+        "title": "Exhibition & Event Organization",
+        "description": "Organizing professional exhibitions and events with the latest technologies and designs",
+        "features": [
+          "Professional Booth Design",
+          "Comprehensive Event Management",
+          "Integrated Logistics Services",
+          "Advanced Marketing Support"
+        ]
+      },
+      "networking": {
+        "title": "Business Networking",
+        "description": "Connecting business leaders between China and the Kingdom of Saudi Arabia",
+        "features": [
+          "Customized B2B Meetings",
+          "Extensive Network",
+          "Exclusive Investment Opportunities",
+          "Legal and Advisory Support"
+        ]
+      },
+      "travel": {
+        "title": "Business Travel Organization",
+        "description": "Arranging business trips for companies to meet potential partners",
+        "features": [
+          "Customized Travel Programs",
+          "Simultaneous Translation",
+          "Comprehensive VIP Services",
+          "Post-Trip Follow-up"
+        ]
+      },
+      "showcase": {
+        "title": "Product & Service Showcase",
+        "description": "Professional showcase of products and services at international exhibitions",
+        "features": [
+          "Professional Exhibition Booths",
+          "Interactive Displays",
+          "Comprehensive Marketing Support",
+          "Customer Follow-up"
+        ]
+      },
+      "intelligence": {
+        "title": "Market Intelligence",
+        "description": "Comprehensive analysis of Chinese and Saudi markets",
+        "features": [
+          "Market Studies",
+          "Competitor Analysis",
+          "Investment Reports",
+          "Strategic Consulting"
+        ]
+      },
+      "partnerships": {
+        "title": "Partnership Management",
+        "description": "Comprehensive management of business and investment partnerships",
+        "features": [
+          "Partnership Development",
+          "Contract Management",
+          "Performance Monitoring",
+          "Dispute Resolution"
+        ]
+      }
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Our Services?",
+      "description": "We excel with unique experience and integrated services that make us the optimal choice for your business partners",
+      "excellence": {
+        "title": "Service Excellence",
+        "description": "We are committed to the highest quality standards in all our services"
+      },
+      "expertise": {
+        "title": "Specialized Expertise",
+        "description": "Team of experts specialized in exhibitions and international trade"
+      },
+      "solutions": {
+        "title": "Customized Solutions",
+        "description": "We provide customized solutions that suit each client's needs"
+      }
+    },
     "cta": {
       "title": "Looking for a Trusted Partner for Business Success?",
       "description": "Let us help you achieve your business goals through our distinguished services",
-      "button": "Get Free Consultation"
+      "button": "Get Free Consultation",
+      "contact": "Contact Us Now",
+      "learnMore": "Learn More"
     }
   },
   "products": {
@@ -296,15 +386,33 @@
     "subtitle": "Wide Range to Suit All Needs",
     "featuredProducts": "Featured Products",
     "allProducts": "All Products",
-    "categories": "Categories",
+    "categories": {
+      "all": "All Products",
+      "lighting": "Lighting",
+      "renewableEnergy": "Renewable Energy",
+      "smartHome": "Smart Home",
+      "industrial": "Industrial",
+      "safetyEquipment": "Safety Equipment"
+    },
     "filter": "Filter Results",
     "sort": "Sort By",
     "viewDetails": "View Details",
     "orderNow": "Order Now",
     "addToCart": "Add to Cart",
+    "inStock": "In Stock",
+    "freeShipping": "Free Shipping",
+    "warranty": "Warranty",
+    "freeReturn": "Free Return",
+    "scanBarcode": "Scan Barcode",
+    "placeOrder": "Place Order",
+    "viewAllProducts": "View All Products",
     "specifications": "Specifications",
     "description": "Description",
     "relatedProducts": "Related Products",
+    "relatedProductsDesc": "Discover more products from our catalog",
+    "warningMockData": "Showing sample products due to temporary unavailability.",
+    "errorLoading": "Error Loading Products",
+    "tryAgain": "Try Again",
     "cta": {
       "title": "Can't Find What You're Looking For?",
       "description": "Contact us and we'll help you find the right product for your needs",
@@ -401,5 +509,31 @@
         "message": "We will contact you soon to confirm your participation"
       }
     }
+  },
+  "orders": {
+    "placeOrder": "Place Your Order",
+    "fillForm": "Please fill out the form below to place your order",
+    "orderSummary": "Order Summary",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "company": "Company Name",
+    "message": "Message",
+    "quantity": "Quantity",
+    "enterName": "Enter your full name",
+    "enterEmail": "Enter your email address",
+    "enterPhone": "Enter your phone number",
+    "enterCompany": "Enter your company name (optional)",
+    "enterMessage": "Enter your message or special requirements",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "phoneRequired": "Phone is required",
+    "messageRequired": "Message is required",
+    "submitOrder": "Submit Order",
+    "submitting": "Submitting Order...",
+    "orderSuccess": "Thank you for your order. We will contact you soon to confirm the details.",
+    "requestingProduct": "I am requesting"
   }
+  
 }
