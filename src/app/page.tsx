@@ -36,12 +36,12 @@ export default function Home() {
       <section className="hero-gradient relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-atlas-gold-400/10 to-atlas-gold-600/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-atlas-gold-500/10 to-atlas-brown-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-atlas-gold-300/5 to-atlas-brown-300/5 rounded-full blur-2xl animate-pulse delay-500"></div>
-        </div>
+                  {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-atlas-primary-400/10 to-atlas-secondary-400/10 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-atlas-secondary-500/10 to-atlas-accent-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-atlas-primary-300/5 to-atlas-secondary-300/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+          </div>
 
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div
@@ -54,13 +54,13 @@ export default function Home() {
               🏆 الشريك الموثوق للتجارة الدولية منذ 2009
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in-up delay-200">
-              <span className="text-atlas-gold-200">أطلس الشرق</span><br />
+              <span className="text-atlas-accent-200">أطلس الشرق</span><br />
               للمعارض والمؤتمرات الدولية
             </h1>
-            <p className="text-xl md:text-2xl text-atlas-gold-200 leading-relaxed mb-6 animate-fade-in-up delay-300 font-semibold">
+            <p className="text-xl md:text-2xl text-atlas-primary-200 leading-relaxed mb-6 animate-fade-in-up delay-300 font-semibold">
               🌟 جسر التواصل الأمثل بين الشرق والغرب
             </p>
-            <p className="text-lg text-atlas-gold-100/90 leading-relaxed mb-8 max-w-4xl mx-auto animate-fade-in-up delay-400">
+            <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-4xl mx-auto animate-fade-in-up delay-400">
               <strong>15 عاماً من التميز</strong> في ربط الشركات السعودية بأكثر من <strong>2000 شريك صيني</strong> 
               وتنظيم <strong>500+ فعالية ناجحة</strong> بمعدل رضا <strong>98%</strong> 
               - نحن لسنا مجرد منظمي معارض، بل شركاؤكم في النجاح العالمي
@@ -103,32 +103,32 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="card-modern text-center p-6">
-              <div className="text-3xl md:text-4xl font-bold text-atlas-gold-600 mb-2 animate-count-up">
-                +15
+            <div className="card-modern text-center p-6 hover:shadow-2xl group">
+              <div className="text-3xl md:text-4xl font-bold text-atlas-primary-600 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
+                15+
               </div>
-              <div className="text-atlas-brown-700 font-medium">سنة خبرة</div>
+              <div className="text-atlas-primary-700 font-medium">سنة خبرة</div>
             </div>
-            <div className="card-modern text-center p-6">
-              <div className="text-3xl md:text-4xl font-bold text-atlas-gold-600 mb-2 animate-count-up">
+            <div className="card-modern text-center p-6 hover:shadow-2xl group">
+              <div className="text-3xl md:text-4xl font-bold text-atlas-secondary-600 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
                 98%
               </div>
-              <div className="text-atlas-brown-700 font-medium">معدل رضا</div>
+              <div className="text-atlas-primary-700 font-medium">معدل رضا</div>
             </div>
-            <div className="card-modern text-center p-6">
-              <div className="text-3xl md:text-4xl font-bold text-atlas-gold-600 mb-2 animate-count-up">
-                +2000
+            <div className="card-modern text-center p-6 hover:shadow-2xl group">
+              <div className="text-3xl md:text-4xl font-bold text-atlas-accent-600 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
+                2000+
               </div>
-              <div className="text-atlas-brown-700 font-medium">شريك صيني</div>
+              <div className="text-atlas-primary-700 font-medium">شريك صيني</div>
             </div>
-            <div className="card-modern text-center p-6">
-              <div className="text-3xl md:text-4xl font-bold text-atlas-gold-600 mb-2 animate-count-up">
-                +500
+            <div className="card-modern text-center p-6 hover:shadow-2xl group">
+              <div className="text-3xl md:text-4xl font-bold text-atlas-primary-500 mb-2 animate-count-up group-hover:scale-110 transition-transform duration-300">
+                500+
               </div>
-              <div className="text-atlas-brown-700 font-medium">فعالية منظمة</div>
+              <div className="text-atlas-primary-700 font-medium">فعالية منظمة</div>
             </div>
           </div>
         </div>

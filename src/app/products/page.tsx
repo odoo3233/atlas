@@ -162,28 +162,28 @@ export default function ProductsPage() {
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-white shadow-lg sticky top-[80px] z-40">
+      <section className="py-8 bg-white/95 backdrop-blur-md shadow-lg sticky top-[80px] z-40">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
             {/* Search */}
             <div className="relative flex-1 w-full max-w-md">
-              <Search className="absolute left-4 rtl:left-auto rtl:right-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <Search className="absolute left-4 rtl:left-auto rtl:right-4 top-1/2 transform -translate-y-1/2 text-atlas-primary-400 h-5 w-5" />
               <input
                 type="text"
-                placeholder={t("products.search", "Search for a product...")}
+                placeholder={t("products.search", "البحث عن منتج...")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 rtl:pl-4 rtl:pr-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-atlas-gold-500 focus:ring-2 focus:ring-atlas-gold-100 transition-all duration-300"
+                className="w-full pl-12 rtl:pl-4 rtl:pr-12 pr-4 py-3 border-2 border-atlas-primary-200 rounded-xl focus:border-atlas-secondary-500 focus:ring-2 focus:ring-atlas-secondary-100 transition-all duration-300"
               />
             </div>
 
             {/* Category Filter */}
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
-              <Filter className="h-5 w-5 text-gray-600" />
+              <Filter className="h-5 w-5 text-atlas-primary-600" />
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:border-atlas-gold-500 focus:ring-2 focus:ring-atlas-gold-100 transition-all duration-300 bg-white"
+                className="px-6 py-3 border-2 border-atlas-primary-200 rounded-xl focus:border-atlas-secondary-500 focus:ring-2 focus:ring-atlas-secondary-100 transition-all duration-300 bg-white"
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>

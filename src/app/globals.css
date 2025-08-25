@@ -2,54 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Atlas Al Sharq Brand Colors */
+/* Atlas Al Sharq Modern Brand Colors */
 :root {
-  /* Brand Colors - Dark Browns & Golds */
-  --brand: #2d1810; /* atlas-brown-900 */
-  --brand-light: #5d3c28; /* atlas-brown-600 */
-  --brand-contrast: #f5e8dc; /* atlas-brown-50 cream */
-  --accent: #d4893d; /* atlas-gold-600 */
-  --accent-light: #f5c889; /* atlas-gold-300 */
-  --accent-dark: #8f5a1f; /* atlas-gold-800 */
+  /* Brand Colors - Modern Blue & Purple */
+  --brand: #1e3a8a; /* atlas-primary-800 */
+  --brand-light: #3b82f6; /* atlas-primary-500 */
+  --brand-contrast: #eff6ff; /* atlas-primary-50 */
+  --accent: #8b5cf6; /* atlas-secondary-400 */
+  --accent-light: #c084fc; /* atlas-secondary-400 */
+  --accent-dark: #7c3aed; /* atlas-secondary-700 */
 
   /* Text Colors */
-  --text-primary: #1a0f0a; /* atlas-dark */
-  --text-secondary: #4d3020; /* atlas-brown-700 */
-  --text-muted: #8a5a3c; /* atlas-brown-400 */
-  --text-inverse: #f5e8dc; /* atlas-brown-50 */
+  --text-primary: #0f172a; /* atlas-dark */
+  --text-secondary: #1e40af; /* atlas-primary-800 */
+  --text-muted: #60a5fa; /* atlas-primary-400 */
+  --text-inverse: #eff6ff; /* atlas-primary-50 */
 
   /* Background Colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #fafaff; /* ghost-white */
-  --bg-accent: #f5e8dc; /* atlas-brown-50 */
-  --bg-dark: #1a0f0a; /* atlas-dark */
+  --bg-secondary: #f8fafc; /* slate-50 */
+  --bg-accent: #eff6ff; /* atlas-primary-50 */
+  --bg-dark: #0f172a; /* atlas-dark */
 
   /* Border Colors */
-  --border-light: #e1b08c; /* atlas-brown-100 */
-  --border-medium: #c48e6a; /* atlas-brown-200 */
-  --border-dark: #a76c48; /* atlas-brown-300 */
+  --border-light: #dbeafe; /* atlas-primary-100 */
+  --border-medium: #bfdbfe; /* atlas-primary-200 */
+  --border-dark: #93c5fd; /* atlas-primary-300 */
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #2d1810 0%, #d4893d 100%);
-  --gradient-shine: linear-gradient(
-    90deg,
-    #d4893d 0%,
-    #f5c889 50%,
-    #d4893d 100%
-  );
-  --gradient-radial: radial-gradient(
-    circle,
-    #f5c889 0%,
-    #d4893d 50%,
-    #2d1810 100%
-  );
-  --gradient-elegant: linear-gradient(
-    180deg,
-    #1a0f0a 0%,
-    #4d3020 35%,
-    #b3722e 70%,
-    #f5c889 100%
-  );
+  /* Modern Gradients */
+  --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+  --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #7c3aed 100%);
+  --gradient-button: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --gradient-accent: linear-gradient(90deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
 }
 
 /* Enhanced Typography with Arabic Support */
@@ -104,39 +89,39 @@
 /* Atlas Brand Gradients */
 @layer components {
   .hero-gradient {
-    @apply bg-atlas-primary;
+    @apply bg-atlas-hero;
   }
 
   .cta-gradient {
-    @apply bg-atlas-primary;
+    @apply bg-atlas-button;
   }
 
   .gradient-primary {
-    @apply bg-gradient-to-br from-atlas-brown-900 to-atlas-gold-600;
+    @apply bg-gradient-to-br from-atlas-primary-800 to-atlas-secondary-600;
   }
 
   .gradient-secondary {
-    @apply bg-gradient-to-r from-atlas-brown-800 to-atlas-gold-500;
+    @apply bg-gradient-to-r from-atlas-primary-700 to-atlas-secondary-500;
   }
 
   .gradient-accent {
-    @apply bg-gradient-to-br from-atlas-gold-600 to-atlas-gold-400;
+    @apply bg-atlas-accent;
   }
 
   .gradient-elegant {
-    @apply bg-atlas-elegant;
+    @apply bg-atlas-primary;
   }
 
-  .gradient-metallic {
-    @apply bg-atlas-metallic;
+  .gradient-glass {
+    @apply bg-atlas-glass backdrop-blur-md;
   }
 
   .text-gradient-primary {
-    @apply bg-gradient-to-br from-atlas-brown-900 to-atlas-gold-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-br from-atlas-primary-800 to-atlas-secondary-600 bg-clip-text text-transparent;
   }
 
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-atlas-gold-600 to-atlas-gold-400 bg-clip-text text-transparent;
+  .text-gradient-accent {
+    @apply bg-atlas-accent bg-clip-text text-transparent;
   }
 }
 
@@ -147,7 +132,7 @@
   }
 
   .btn-primary-gradient {
-    @apply bg-gradient-to-r from-atlas-brown-900 to-atlas-gold-600 hover:from-atlas-brown-800 hover:to-atlas-gold-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply bg-atlas-button text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
   }
 
   .btn-secondary {

@@ -149,12 +149,13 @@ module.exports = {
         "atlas-glow": "atlas-glow 2s ease-in-out infinite",
       },
       backgroundImage: {
-        // Atlas gradients for direct use
-        'atlas-primary': 'linear-gradient(135deg, #2d1810 0%, #d4893d 100%)',
-        'atlas-shine': 'linear-gradient(90deg, #d4893d 0%, #f5c889 50%, #d4893d 100%)',
-        'atlas-radial': 'radial-gradient(circle, #f5c889 0%, #d4893d 50%, #2d1810 100%)',
-        'atlas-elegant': 'linear-gradient(180deg, #1a0f0a 0%, #4d3020 35%, #b3722e 70%, #f5c889 100%)',
-        'atlas-metallic': 'linear-gradient(145deg, #b3722e 0%, #f5c889 25%, #d4893d 50%, #8f5a1f 75%, #714610 100%)',
+        // Atlas Modern Gradients
+        'atlas-primary': 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%)',
+        'atlas-hero': 'linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #7c3aed 100%)',
+        'atlas-card': 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
+        'atlas-button': 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+        'atlas-accent': 'linear-gradient(90deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%)',
+        'atlas-glass': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
       },
     },
   },

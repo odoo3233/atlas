@@ -534,6 +534,10 @@
     "submitting": "Submitting Order...",
     "orderSuccess": "Thank you for your order. We will contact you soon to confirm the details.",
     "requestingProduct": "I am requesting"
+  },
+  "common": {
+    "back": "Back",
+    "backHome": "Back to Home"
   }
   
 }

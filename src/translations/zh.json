@@ -534,6 +534,10 @@
     "submitting": "正在提交订单...",
     "orderSuccess": "感谢您的订单。我们将很快与您联系确认详细信息。",
     "requestingProduct": "我正在请求"
+  },
+  "common": {
+    "back": "返回",
+    "backHome": "返回首页"
   }
   
 }

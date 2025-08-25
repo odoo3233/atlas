@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/brand-logo";
 import {
   MapPin,
   Phone,
@@ -29,7 +30,7 @@ export function Footer() {
   return (
     <footer className="bg-atlas-dark text-white relative">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-atlas-brown-900/20 to-atlas-gold-900/20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-atlas-primary-900/20 to-atlas-secondary-900/20"></div>
 
       <div className="relative">
         <div className="container mx-auto px-4 py-16">
@@ -37,40 +38,38 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 rtl:space-x-reverse mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-atlas-gold-600 to-atlas-gold-400 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">أ</span>
-                </div>
+                <BrandLogo size="md" animated={false} variant="default" />
                 <div>
                   <h3 className="text-2xl font-bold">أطلس الشرق</h3>
-                  <p className="text-atlas-gold-200">Atlas Al-Sharq</p>
+                  <p className="text-atlas-accent-200">Atlas Al-Sharq</p>
                 </div>
               </div>
-              <p className="text-atlas-gold-100/80 mb-6 leading-relaxed">
+              <p className="text-white/80 mb-6 leading-relaxed">
                 شركة أطلس الشرق للاستشارات الاقتصادية والتجارية، نربط بين الصين
                 والمملكة العربية السعودية من خلال المعارض والفعاليات التجارية.
               </p>
               <div className="flex space-x-4 rtl:space-x-reverse">
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-brown-800 rounded-lg flex items-center justify-center hover:bg-atlas-gold-600 transition-colors"
+                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
                 >
                   <Facebook className="w-5 h-5" />
                 </Link>
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-brown-800 rounded-lg flex items-center justify-center hover:bg-atlas-gold-600 transition-colors"
+                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
                 >
                   <Twitter className="w-5 h-5" />
                 </Link>
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-brown-800 rounded-lg flex items-center justify-center hover:bg-atlas-gold-600 transition-colors"
+                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
                 >
                   <Instagram className="w-5 h-5" />
                 </Link>
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-brown-800 rounded-lg flex items-center justify-center hover:bg-atlas-gold-600 transition-colors"
+                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
                 >
                   <Linkedin className="w-5 h-5" />
                 </Link>
@@ -84,7 +83,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/about"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-atlas-primary-200 hover:text-white transition-colors"
                   >
                     من نحن
                   </Link>
@@ -192,25 +191,25 @@ export function Footer() {
               <h4 className="text-xl font-semibold mb-6">تواصل معنا</h4>
               <div className="space-y-4 mb-6">
                 <div className="flex items-start space-x-3 rtl:space-x-reverse">
-                  <MapPin className="w-5 h-5 text-atlas-gold-400 mt-1" />
+                  <MapPin className="w-5 h-5 text-atlas-accent-400 mt-1" />
                   <div>
-                    <p className="text-atlas-gold-200">
+                    <p className="text-atlas-primary-200">
                       الرياض، المملكة العربية السعودية
                     </p>
-                    <p className="text-atlas-gold-300 text-sm">مكتبنا الرئيسي</p>
+                    <p className="text-atlas-primary-300 text-sm">مكتبنا الرئيسي</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                  <Phone className="w-5 h-5 text-atlas-gold-400" />
-                  <span className="text-atlas-gold-200">+966 50 123 4567</span>
+                  <Phone className="w-5 h-5 text-atlas-accent-400" />
+                  <span className="text-atlas-primary-200">+966 50 123 4567</span>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                  <Mail className="w-5 h-5 text-atlas-gold-400" />
-                  <span className="text-atlas-gold-200">info@atlasalsharq.com</span>
+                  <Mail className="w-5 h-5 text-atlas-accent-400" />
+                  <span className="text-atlas-primary-200">contact@atlasecon.com</span>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                  <Clock className="w-5 h-5 text-atlas-gold-400" />
-                  <span className="text-atlas-gold-200">
+                  <Clock className="w-5 h-5 text-atlas-accent-400" />
+                  <span className="text-atlas-primary-200">
                     الأحد - الخميس: 8:00 - 17:00
                   </span>
                 </div>
@@ -225,7 +224,7 @@ export function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="البريد الإلكتروني"
-                    className="w-full px-4 py-2 bg-atlas-brown-800 border border-atlas-brown-700 rounded-lg text-white placeholder-atlas-gold-300 focus:outline-none focus:border-atlas-gold-500"
+                    className="w-full px-4 py-2 bg-atlas-primary-800 border border-atlas-primary-700 rounded-lg text-white placeholder-atlas-primary-300 focus:outline-none focus:border-atlas-accent-500"
                     required
                   />
                   <Button
@@ -241,28 +240,28 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-atlas-brown-800">
+        <div className="border-t border-atlas-primary-800">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-atlas-gold-300 text-sm">
+              <div className="text-atlas-primary-300 text-sm">
                 © 2024 أطلس الشرق. جميع الحقوق محفوظة.
               </div>
               <div className="flex space-x-6 rtl:space-x-reverse text-sm">
                 <Link
                   href="/privacy"
-                  className="text-atlas-gold-300 hover:text-white transition-colors"
+                  className="text-atlas-primary-300 hover:text-white transition-colors"
                 >
                   سياسة الخصوصية
                 </Link>
                 <Link
                   href="/terms"
-                  className="text-atlas-gold-300 hover:text-white transition-colors"
+                  className="text-atlas-primary-300 hover:text-white transition-colors"
                 >
                   شروط الاستخدام
                 </Link>
                 <Link
                   href="/sitemap"
-                  className="text-atlas-gold-300 hover:text-white transition-colors"
+                  className="text-atlas-primary-300 hover:text-white transition-colors"
                 >
                   خريطة الموقع
                 </Link>
@@ -275,7 +274,7 @@ export function Footer() {
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-12 h-12 bg-atlas-gold-600 hover:bg-atlas-gold-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-12 h-12 bg-atlas-secondary-600 hover:bg-atlas-secondary-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
       >
         <ArrowUp className="w-6 h-6" />
       </button>
