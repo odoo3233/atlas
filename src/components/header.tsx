@@ -64,8 +64,8 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-background/90 backdrop-blur-md border-b ${
-        isScrolled ? "shadow-md border-primary/20" : "shadow-sm border-transparent"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b ${
+        isScrolled ? "shadow-md border-atlas-primary-100/20" : "shadow-sm border-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -74,8 +74,8 @@ export function Header() {
           <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <BrandLogo size="md" animated={true} variant="default" />
             <div className="hidden sm:block">
-              <h1 className="text-2xl lg:text-3xl font-bold text-foreground">أطلس الشرق</h1>
-              <p className="text-sm lg:text-base text-primary">Atlas Al-Sharq</p>
+              <h1 className="text-2xl lg:text-3xl font-bold text-atlas-dark">أطلس الشرق</h1>
+              <p className="text-sm lg:text-base text-atlas-primary-600">Atlas Al-Sharq</p>
             </div>
           </Link>
 
@@ -85,10 +85,10 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-lg font-semibold text-primary hover:text-secondary transition-colors relative group"
+                className="text-lg font-semibold text-atlas-primary-700 hover:text-atlas-secondary-600 transition-colors relative group"
               >
                 {t(`nav.${item.name}`, { ns: 'common' })}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-atlas-secondary-500 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
@@ -97,7 +97,7 @@ export function Header() {
           <div className="flex items-center space-x-2 rtl:space-x-reverse">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-primary hover:bg-primary/10">
+                <Button variant="ghost" size="icon" className="text-atlas-primary-700 hover:bg-atlas-primary-50">
                   <Globe className="h-5 w-5 lg:h-6 lg:w-6" />
                 </Button>
               </DropdownMenuTrigger>
@@ -120,7 +120,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden text-primary hover:bg-primary/10"
+              className="lg:hidden text-atlas-primary-700 hover:bg-atlas-primary-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -135,7 +135,7 @@ export function Header() {
 
       {/* Mobile Navigation */}
       <nav
-        className={`lg:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-md shadow-lg transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md shadow-lg transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "animate-slide-down" : "hidden"
         }`}
       >
@@ -144,11 +144,11 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="block py-3 text-lg font-semibold text-primary hover:text-secondary hover:bg-primary/10 rounded-lg px-3 transition-colors"
+              className="block py-3 text-lg font-semibold text-atlas-primary-700 hover:text-atlas-secondary-600 hover:bg-atlas-primary-50 rounded-lg px-3 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                <item.icon className="h-5 w-5 text-accent" />
+                <item.icon className="h-5 w-5 text-atlas-accent-500" />
                 <span>{t(`nav.${item.name}`, { ns: 'common' })}</span>
               </div>
             </Link>
