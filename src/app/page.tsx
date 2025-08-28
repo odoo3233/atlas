@@ -36,13 +36,13 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="hero-gradient relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-atlas-brown-900/20 to-black/60"></div>
 
                   {/* Animated Background Elements */}
           <div className="absolute inset-0">
-            <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-atlas-primary-400/10 to-atlas-secondary-400/10 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-atlas-secondary-500/10 to-atlas-accent-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-atlas-primary-300/5 to-atlas-secondary-300/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+            <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-atlas-brown-400/10 to-atlas-gold-400/10 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-atlas-gold-500/10 to-atlas-accent-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-atlas-brown-300/5 to-atlas-gold-300/5 rounded-full blur-2xl animate-pulse delay-500"></div>
           </div>
 
         <div className="container mx-auto px-4 py-20 relative z-10">
@@ -59,7 +59,7 @@ export default function Home() {
               <span className="text-atlas-accent-200">{t('companyName', { ns: 'common' }) || 'أطلس الشرق'}</span><br />
               {t('hero.title', { ns: 'home' }) || 'للمعارض والمؤتمرات الدولية'}
             </h1>
-            <p className="text-xl md:text-2xl text-atlas-primary-200 leading-relaxed mb-6 animate-fade-in-up delay-300 font-semibold">
+            <p className="text-xl md:text-2xl text-atlas-secondary-200 leading-relaxed mb-6 animate-fade-in-up delay-300 font-semibold">
               {t('hero.subtitle', { ns: 'home' }) || '🌟 جسر التواصل الأمثل بين الشرق والغرب'}
             </p>
             <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-4xl mx-auto animate-fade-in-up delay-400">
@@ -103,7 +103,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-br from-atlas-brown-50 to-atlas-gold-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="card-modern text-center p-6 hover:shadow-2xl group">

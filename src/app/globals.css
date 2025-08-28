@@ -2,38 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Atlas Al Sharq Modern Brand Colors */
+/* Atlas Al Sharq Brand Colors - Brown & Gold Cohesive Palette */
 :root {
-  /* Brand Colors - Modern Blue & Purple */
-  --brand: #1e3a8a; /* atlas-primary-800 */
-  --brand-light: #3b82f6; /* atlas-primary-500 */
-  --brand-contrast: #eff6ff; /* atlas-primary-50 */
-  --accent: #8b5cf6; /* atlas-secondary-400 */
-  --accent-light: #c084fc; /* atlas-secondary-400 */
-  --accent-dark: #7c3aed; /* atlas-secondary-700 */
+  /* Brand Colors - Brown (primary) & Gold (secondary) */
+  --brand: #d4893d; /* gold-600 */
+  --brand-light: #f0b76b; /* gold-400 */
+  --brand-contrast: #fffef5; /* gold-50 */
+  --accent: #d4893d; /* gold-600 */
+  --accent-light: #f0b76b; /* gold-400 */
+  --accent-dark: #8a5a3c; /* brown-400 */
 
   /* Text Colors */
-  --text-primary: #0f172a; /* atlas-dark */
-  --text-secondary: #1e40af; /* atlas-primary-800 */
-  --text-muted: #60a5fa; /* atlas-primary-400 */
-  --text-inverse: #eff6ff; /* atlas-primary-50 */
+  --text-primary: #1a0f0a; /* dark brown */
+  --text-secondary: #4d3020; /* brown-700 */
+  --text-muted: #8a5a3c; /* brown-400 */
+  --text-inverse: #fffef5; /* gold-50 */
 
   /* Background Colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc; /* slate-50 */
-  --bg-accent: #eff6ff; /* atlas-primary-50 */
-  --bg-dark: #0f172a; /* atlas-dark */
+  --bg-secondary: #f5e8dc; /* brown-50 (cream) */
+  --bg-accent: #fdecc6; /* gold-100 */
+  --bg-dark: #1a0f0a; /* dark brown */
 
   /* Border Colors */
-  --border-light: #dbeafe; /* atlas-primary-100 */
-  --border-medium: #bfdbfe; /* atlas-primary-200 */
-  --border-dark: #93c5fd; /* atlas-primary-300 */
+  --border-light: #f5e8dc; /* brown-50 */
+  --border-medium: #e1b08c; /* brown-100 */
+  --border-dark: #c48e6a; /* brown-200 */
 
-  /* Modern Gradients */
-  --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
-  --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #7c3aed 100%);
-  --gradient-button: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  --gradient-accent: linear-gradient(90deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%);
+  /* Modern Gradients (Brown -> Gold) */
+  --gradient-primary: linear-gradient(135deg, #2d1810 0%, #d4893d 100%);
+  --gradient-hero: linear-gradient(135deg, #1a0f0a 0%, #4d3020 50%, #d4893d 100%);
+  --gradient-button: linear-gradient(135deg, #d4893d 0%, #f0b76b 100%);
+  --gradient-accent: linear-gradient(90deg, #f5c889 0%, #d4893d 50%, #8a5a3c 100%);
   --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
 }
 
