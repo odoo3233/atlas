@@ -235,47 +235,47 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 15 48% 8%; /* atlas-dark */
+    --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
-    --card-foreground: 15 48% 8%;
+    --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 15 48% 8%;
-    --primary: 20 61% 16%; /* atlas-brown-900 */
-    --primary-foreground: 30 50% 94%; /* atlas-brown-50 */
-    --secondary: 36 55% 58%; /* atlas-gold-600 */
-    --secondary-foreground: 15 48% 8%;
-    --muted: 30 50% 94%; /* atlas-brown-50 */
-    --muted-foreground: 25 42% 37%; /* atlas-brown-400 */
-    --accent: 36 55% 58%; /* atlas-gold-600 */
-    --accent-foreground: 15 48% 8%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%; /* blue-600 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262.1 83.3% 57.8%; /* purple-600 */
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 199 89% 55%; /* sky-500 */
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 30 50% 94%;
-    --border: 27 48% 79%; /* atlas-brown-100 */
-    --input: 27 48% 79%;
-    --ring: 36 55% 58%; /* atlas-gold-600 */
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 15 48% 8%; /* atlas-dark */
-    --foreground: 30 50% 94%; /* atlas-brown-50 */
-    --card: 20 61% 12%; /* darker atlas-brown */
-    --card-foreground: 30 50% 94%;
-    --popover: 20 61% 12%;
-    --popover-foreground: 30 50% 94%;
-    --primary: 36 55% 58%; /* atlas-gold-600 */
-    --primary-foreground: 15 48% 8%;
-    --secondary: 20 61% 16%; /* atlas-brown-900 */
-    --secondary-foreground: 30 50% 94%;
-    --muted: 25 40% 22%; /* atlas-brown-800 */
-    --muted-foreground: 27 41% 70%; /* atlas-brown-200 */
-    --accent: 40 68% 73%; /* atlas-gold-300 */
-    --accent-foreground: 15 48% 8%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 199 89% 55%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 30 50% 94%;
-    --border: 25 42% 37%; /* atlas-brown-400 */
-    --input: 25 42% 37%;
-    --ring: 36 55% 58%; /* atlas-gold-600 */
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 221.2 83.2% 53.3%;
   }
 }
 
