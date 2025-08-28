@@ -21,6 +21,44 @@ module.exports = {
         atlas: {
           // Primary Dark Browns
           'dark': '#1a0f0a',        // Deep chocolate black
+          // Aliases for existing usage across the app
+          // Map primary -> brown scale, secondary -> gold scale, accent -> gold scale
+          'primary': {
+            900: '#2d1810',
+            800: '#3d2418',
+            700: '#4d3020',
+            600: '#5d3c28',
+            500: '#6d4830',
+            400: '#8a5a3c',
+            300: '#a76c48',
+            200: '#c48e6a',
+            100: '#e1b08c',
+            50: '#f5e8dc',
+          },
+          'secondary': {
+            900: '#714610',
+            800: '#8f5a1f',
+            700: '#b3722e',
+            600: '#d4893d',
+            500: '#e8a04c',
+            400: '#f0b76b',
+            300: '#f5c889',
+            200: '#f9daa8',
+            100: '#fdecc6',
+            50: '#fffef5',
+          },
+          'accent': {
+            900: '#714610',
+            800: '#8f5a1f',
+            700: '#b3722e',
+            600: '#d4893d',
+            500: '#e8a04c',
+            400: '#f0b76b',
+            300: '#f5c889',
+            200: '#f9daa8',
+            100: '#fdecc6',
+            50: '#fffef5',
+          },
           'brown': {
             900: '#2d1810',         // Darkest brown
             800: '#3d2418',         // Very dark brown
@@ -149,12 +187,12 @@ module.exports = {
         "atlas-glow": "atlas-glow 2s ease-in-out infinite",
       },
       backgroundImage: {
-        // Atlas Modern Gradients
-        'atlas-primary': 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%)',
-        'atlas-hero': 'linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #7c3aed 100%)',
+        // Atlas Brown & Gold Gradients
+        'atlas-primary': 'linear-gradient(135deg, #2d1810 0%, #d4893d 100%)',
+        'atlas-hero': 'linear-gradient(135deg, #1a0f0a 0%, #4d3020 50%, #d4893d 100%)',
         'atlas-card': 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
-        'atlas-button': 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-        'atlas-accent': 'linear-gradient(90deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%)',
+        'atlas-button': 'linear-gradient(135deg, #d4893d 0%, #f0b76b 100%)',
+        'atlas-accent': 'linear-gradient(90deg, #f5c889 0%, #d4893d 50%, #8a5a3c 100%)',
         'atlas-glass': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
       },
     },
