@@ -41,7 +41,7 @@ export function BrandLogo({
       {/* Animated glow effect */}
       {animated && (
         <div
-          className="absolute inset-0 rounded-full bg-atlas-gold-500/20 blur-xl motion-reduce:hidden animate-atlas-glow"
+          className="absolute inset-0 rounded-full bg-primary/20 blur-xl motion-reduce:hidden animate-atlas-glow"
           aria-hidden="true"
         />
       )}
@@ -71,7 +71,7 @@ export function BrandLogo({
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 motion-reduce:hidden"
           aria-hidden="true"
         >
-          <div className="absolute inset-0 bg-atlas-shine animate-atlas-shine" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent animate-atlas-shine" />
         </div>
       )}
     </div>

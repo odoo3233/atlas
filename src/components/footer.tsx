@@ -14,7 +14,10 @@ import {
   Twitter,
   Instagram,
   Linkedin,
-  Youtube,
+  Send,
+  Sparkles,
+  Globe,
+  Star,
 } from "lucide-react";
 
 export function Footer() {
@@ -28,9 +31,17 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-atlas-dark text-white relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-atlas-primary-900/20 to-atlas-secondary-900/20"></div>
+    <footer className="bg-gradient-to-br from-secondary via-background to-secondary/50 text-foreground relative overflow-hidden">
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10" style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.2) 0%, transparent 50%)
+          `
+        }}></div>
+      </div>
 
       <div className="relative">
         <div className="container mx-auto px-4 py-16">
@@ -38,52 +49,52 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 rtl:space-x-reverse mb-6">
-                <BrandLogo size="md" animated={false} variant="default" />
+                <BrandLogo size="md" animated={false} variant="mono" />
                 <div>
-                  <h3 className="text-2xl font-bold">أطلس الشرق</h3>
-                  <p className="text-atlas-accent-200">Atlas Al-Sharq</p>
+                  <h3 className="text-2xl font-bold heading-primary text-elevated">أطلس الشرق</h3>
+                  <p className="text-primary font-semibold text-elevated">Atlas Al-Sharq</p>
                 </div>
               </div>
-              <p className="text-white/80 mb-6 leading-relaxed">
+              <p className="text-readable text-force-light-theme mb-6 leading-relaxed">
                 شركة أطلس الشرق للاستشارات الاقتصادية والتجارية، نربط بين الصين
                 والمملكة العربية السعودية من خلال المعارض والفعاليات التجارية.
               </p>
               <div className="flex space-x-4 rtl:space-x-reverse">
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
+                  className="group w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center hover:from-blue-500/30 hover:to-blue-600/30 hover-lift transition-all duration-300 border border-blue-500/20"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <Facebook className="w-5 h-5 text-blue-500 group-hover:animate-bounce" />
                 </Link>
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
+                  className="group w-12 h-12 bg-gradient-to-br from-sky-500/20 to-sky-600/20 rounded-2xl flex items-center justify-center hover:from-sky-500/30 hover:to-sky-600/30 hover-lift transition-all duration-300 border border-sky-500/20"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <Twitter className="w-5 h-5 text-sky-500 group-hover:animate-bounce" />
                 </Link>
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
+                  className="group w-12 h-12 bg-gradient-to-br from-pink-500/20 to-rose-600/20 rounded-2xl flex items-center justify-center hover:from-pink-500/30 hover:to-rose-600/30 hover-lift transition-all duration-300 border border-pink-500/20"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-5 h-5 text-pink-500 group-hover:animate-bounce" />
                 </Link>
                 <Link
                   href="#"
-                  className="w-10 h-10 bg-atlas-primary-800 rounded-lg flex items-center justify-center hover:bg-atlas-secondary-600 transition-colors transform hover:scale-110"
+                  className="group w-12 h-12 bg-gradient-to-br from-blue-700/20 to-blue-800/20 rounded-2xl flex items-center justify-center hover:from-blue-700/30 hover:to-blue-800/30 hover-lift transition-all duration-300 border border-blue-700/20"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-5 h-5 text-blue-700 group-hover:animate-bounce" />
                 </Link>
               </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-xl font-semibold mb-6">روابط سريعة</h4>
+              <h4 className="text-xl font-semibold mb-6 heading-secondary">روابط سريعة</h4>
               <ul className="space-y-3">
                 <li>
                   <Link
                     href="/about"
-                    className="text-atlas-primary-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     من نحن
                   </Link>
@@ -91,7 +102,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     خدماتنا
                   </Link>
@@ -99,7 +110,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/products"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     المنتجات
                   </Link>
@@ -107,7 +118,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/exhibitions"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     المعارض
                   </Link>
@@ -115,7 +126,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/business-visits"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     الزيارات التجارية
                   </Link>
@@ -123,7 +134,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/contact"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     اتصل بنا
                   </Link>
@@ -133,12 +144,12 @@ export function Footer() {
 
             {/* Services */}
             <div>
-              <h4 className="text-xl font-semibold mb-6">خدماتنا</h4>
+              <h4 className="text-xl font-semibold mb-6 heading-secondary">خدماتنا</h4>
               <ul className="space-y-3">
                 <li>
                   <Link
                     href="/services"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     تنظيم المعارض
                   </Link>
@@ -146,7 +157,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     الاستشارات التجارية
                   </Link>
@@ -154,7 +165,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     رحلات الأعمال
                   </Link>
@@ -162,7 +173,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     الترجمة والوساطة
                   </Link>
@@ -170,7 +181,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     التسويق الدولي
                   </Link>
@@ -178,7 +189,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/services"
-                    className="text-atlas-gold-200 hover:text-white transition-colors"
+                    className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
                     الاستثمارات المشتركة
                   </Link>
@@ -188,49 +199,59 @@ export function Footer() {
 
             {/* Contact & Newsletter */}
             <div>
-              <h4 className="text-xl font-semibold mb-6">تواصل معنا</h4>
+              <h4 className="text-xl font-semibold mb-6 heading-secondary">تواصل معنا</h4>
               <div className="space-y-4 mb-6">
                 <div className="flex items-start space-x-3 rtl:space-x-reverse">
-                  <MapPin className="w-5 h-5 text-atlas-accent-400 mt-1" />
+                  <MapPin className="w-5 h-5 text-primary mt-1" />
                   <div>
-                    <p className="text-atlas-primary-200">
+                    <p className="text-medium-contrast">
                       الرياض، المملكة العربية السعودية
                     </p>
-                    <p className="text-atlas-primary-300 text-sm">مكتبنا الرئيسي</p>
+                    <p className="text-muted-readable text-sm">مكتبنا الرئيسي</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                  <Phone className="w-5 h-5 text-atlas-accent-400" />
-                  <span className="text-atlas-primary-200">+966 50 123 4567</span>
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span className="text-medium-contrast">+966 50 123 4567</span>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                  <Mail className="w-5 h-5 text-atlas-accent-400" />
-                  <span className="text-atlas-primary-200">contact@atlasecon.com</span>
+                  <Mail className="w-5 h-5 text-primary" />
+                  <span className="text-medium-contrast">contact@atlasecon.com</span>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                  <Clock className="w-5 h-5 text-atlas-accent-400" />
-                  <span className="text-atlas-primary-200">
+                  <Clock className="w-5 h-5 text-primary" />
+                  <span className="text-medium-contrast">
                     الأحد - الخميس: 8:00 - 17:00
                   </span>
                 </div>
               </div>
 
-              {/* Newsletter */}
-              <div>
-                <h5 className="font-semibold mb-3">النشرة الإخبارية</h5>
+              {/* Enhanced Newsletter */}
+              <div className="glass-strong rounded-2xl p-6 border border-primary/20">
+                <div className="flex items-center space-x-2 rtl:space-x-reverse mb-4">
+                  <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+                  <h5 className="font-semibold text-lg heading-accent">النشرة الإخبارية</h5>
+                </div>
+                <p className="text-sm text-muted-readable mb-4">
+                  احصل على آخر الأخبار والعروض الحصرية
+                </p>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="البريد الإلكتروني"
-                    className="w-full px-4 py-2 bg-atlas-primary-800 border border-atlas-primary-700 rounded-lg text-white placeholder-atlas-primary-300 focus:outline-none focus:border-atlas-accent-500"
-                    required
-                  />
+                  <div className="relative">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="البريد الإلكتروني"
+                      className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all backdrop-blur-sm"
+                      required
+                    />
+                    <Mail className="absolute left-3 rtl:left-auto rtl:right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  </div>
                   <Button
                     type="submit"
-                    className="w-full btn-primary-gradient"
+                    className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-xl hover:shadow-lg btn-modern group"
                   >
+                    <Send className="mr-2 rtl:mr-0 rtl:ml-2 w-4 h-4 group-hover:animate-bounce" />
                     اشترك الآن
                   </Button>
                 </form>
@@ -240,28 +261,28 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-atlas-primary-800">
+        <div className="border-t border-border/60">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-atlas-primary-300 text-sm">
+              <div className="text-medium-contrast text-sm font-medium">
                 © 2024 أطلس الشرق. جميع الحقوق محفوظة.
               </div>
               <div className="flex space-x-6 rtl:space-x-reverse text-sm">
                 <Link
                   href="/privacy"
-                  className="text-atlas-primary-300 hover:text-white transition-colors"
+                  className="text-muted-readable hover:text-primary transition-colors font-medium"
                 >
                   سياسة الخصوصية
                 </Link>
                 <Link
                   href="/terms"
-                  className="text-atlas-primary-300 hover:text-white transition-colors"
+                  className="text-muted-readable hover:text-primary transition-colors font-medium"
                 >
                   شروط الاستخدام
                 </Link>
                 <Link
                   href="/sitemap"
-                  className="text-atlas-primary-300 hover:text-white transition-colors"
+                  className="text-muted-readable hover:text-primary transition-colors font-medium"
                 >
                   خريطة الموقع
                 </Link>
@@ -271,12 +292,13 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
+      {/* Enhanced Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-12 h-12 bg-atlas-secondary-600 hover:bg-atlas-secondary-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        className="fixed bottom-6 right-6 rtl:right-auto rtl:left-6 w-14 h-14 bg-gradient-to-br from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground rounded-2xl shadow-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-3xl group btn-modern"
       >
-        <ArrowUp className="w-6 h-6" />
+        <ArrowUp className="w-6 h-6 group-hover:animate-bounce" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
       </button>
     </footer>
   );

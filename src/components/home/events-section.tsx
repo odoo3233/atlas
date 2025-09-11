@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { SectionHeader } from "@/components/ui/section-header";
 import {
   Calendar,
   MapPin,
@@ -130,37 +131,26 @@ export function EventsSection() {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white rounded-full text-base font-semibold mb-6">
-            <Calendar className="mr-3 rtl:mr-0 rtl:ml-3" size={20} />
-            {t("home.upcomingEvents.title", "الفعاليات القادمة")}
-          </div>
-
-          {/* Title */}
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            {t("home.upcomingEvents.title", "الفعاليات القادمة")}
-          </h2>
-
-          {/* Description */}
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            {t(
-              "home.upcomingEvents.subtitle",
-              "اكتشف أهم الفعاليات والمعارض القادمة",
-            )}
-          </p>
-        </div>
+        <SectionHeader
+          icon={<Calendar className="h-5 w-5" />}
+          badgeKey="home.events.badge"
+          titleKey="home.events.title"
+          subtitleKey="home.events.description"
+          fallbackBadge="الفعاليات القادمة"
+          fallbackTitle="الفعاليات القادمة"
+          fallbackSubtitle="اكتشف أهم الفعاليات والمعارض القادمة"
+        />
 
         {/* Events Grid */}
         <div className="grid lg:grid-cols-2 gap-10 mb-16">
           {events.map((event, index) => (
-            <div key={index} className="rounded-2xl p-8 bg-gray-50 text-gray-900 shadow border border-gray-100">
+            <div key={index} className="rounded-2xl p-8 glass text-foreground hover-lift">
               {/* Header */}
               <div className="flex justify-between items-start mb-8">
                 <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                  <div className="w-14 h-14 rounded-xl bg-white flex items-center justify-center border border-gray-200">
+                  <div className="w-14 h-14 rounded-xl bg-background flex items-center justify-center border border-border">
                     <event.icon size={24} />
                   </div>
                   <div>
@@ -168,7 +158,7 @@ export function EventsSection() {
                       {event.title}
                     </h3>
                     <div className="flex items-center space-x-3 rtl:space-x-reverse text-lg mt-2">
-                      <Calendar className="h-5 w-5 text-gray-500" />
+                      <Calendar className="h-5 w-5 text-muted-foreground" />
                       <span className="font-semibold">{event.date}</span>
                     </div>
                   </div>
@@ -178,11 +168,11 @@ export function EventsSection() {
               {/* Content */}
               <div className="space-y-6 mb-10">
                 <p className="text-2xl font-bold">{event.subtitle}</p>
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className="text-muted-foreground text-lg leading-relaxed">
                   {event.description}
                 </p>
-                <div className="flex items-center space-x-3 rtl:space-x-reverse text-white/80">
-                  <MapPin className="h-5 w-5 text-gray-500" />
+                <div className="flex items-center space-x-3 rtl:space-x-reverse text-muted-foreground">
+                  <MapPin className="h-5 w-5" />
                   <span className="font-medium">{event.location}</span>
                 </div>
               </div>
@@ -190,16 +180,16 @@ export function EventsSection() {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-6 mb-10">
                 {event.stats.map((stat, statIndex) => (
-                  <div key={statIndex} className="bg-white rounded-xl p-6 text-center border border-gray-200">
+                  <div key={statIndex} className="bg-background rounded-xl p-6 text-center border border-border">
                     <div className="text-2xl font-bold mb-1">{stat.value}</div>
-                    <div className="text-sm font-medium text-gray-600">{stat.label}</div>
+                    <div className="text-sm font-medium text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button size="lg" className="bg-gray-900 text-white hover:bg-black" asChild>
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <Link href={event.learnMoreHref}>
                     <Globe className="mr-3 rtl:mr-0 rtl:ml-3" size={20} />
                     {t(
@@ -223,18 +213,18 @@ export function EventsSection() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <div className="bg-gray-50 rounded-2xl p-10 text-gray-900 border border-gray-100">
+          <div className="bg-secondary rounded-2xl p-10 text-foreground border border-border">
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
               {t("home.upcomingEvents.cta.title", "لا تفوت فرصة المشاركة")}
             </h3>
-            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
               {t(
                 "home.upcomingEvents.cta.description",
                 "سجل الآن في فعالياتنا القادمة واحصل على فرص استثمارية حصرية",
               )}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="px-8 py-4 bg-gray-900 text-white rounded-xl hover:bg-black" asChild>
+              <Button size="lg" className="px-8 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90" asChild>
                 <Link href="/exhibitions">
                   <Calendar className="mr-3 rtl:mr-0 rtl:ml-3" size={24} />
                   {t("home.upcomingEvents.cta.viewAll", "عرض جميع الفعاليات")}

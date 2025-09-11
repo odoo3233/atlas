@@ -17,57 +17,6 @@ module.exports = {
     },
     extend: {
       colors: {
-        // Atlas Al Sharq Brand Colors
-        atlas: {
-          // Primary Dark Browns
-          'dark': '#1a0f0a',        // Deep chocolate black
-          'brown': {
-            900: '#2d1810',         // Darkest brown
-            800: '#3d2418',         // Very dark brown
-            700: '#4d3020',         // Dark brown
-            600: '#5d3c28',         // Medium-dark brown
-            500: '#6d4830',         // Medium brown
-            400: '#8a5a3c',         // Light-medium brown
-            300: '#a76c48',         // Light brown
-            200: '#c48e6a',         // Very light brown
-            100: '#e1b08c',         // Pale brown
-            50: '#f5e8dc',          // Cream
-          },
-          // Golden Gradient Colors
-          'gold': {
-            900: '#714610',         // Dark gold
-            800: '#8f5a1f',         // Deep gold
-            700: '#b3722e',         // Rich gold
-            600: '#d4893d',         // Medium gold
-            500: '#e8a04c',         // Primary gold
-            400: '#f0b76b',         // Light gold
-            300: '#f5c889',         // Pale gold
-            200: '#f9daa8',         // Very pale gold
-            100: '#fdecc6',         // Champagne
-            50: '#fffef5',          // Off-white gold
-          },
-          // Gradient definitions for use in CSS
-          'gradient': {
-            'primary': 'linear-gradient(135deg, #2d1810 0%, #d4893d 100%)',
-            'shine': 'linear-gradient(90deg, #d4893d 0%, #f5c889 50%, #d4893d 100%)',
-            'radial': 'radial-gradient(circle, #f5c889 0%, #d4893d 50%, #2d1810 100%)',
-            'elegant': 'linear-gradient(180deg, #1a0f0a 0%, #4d3020 35%, #b3722e 70%, #f5c889 100%)',
-          },
-        },
-        // Color palette from palette.scss
-        palette: {
-          'van-dyke': '#483d3f',
-          'celestial-blue': '#058ed9',
-          'eggshell': '#f4ebd9',
-          'battleship-gray': '#a39a92',
-          'umber': '#77685d',
-        },
-        // New color palette from palette1.scss
-        'eerie-black': '#1c1c1c',
-        'platinum': '#daddd8',
-        'alabaster': '#ecebe4',
-        'antiflash-white': '#eef0f2',
-        'ghost-white': '#fafaff',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -93,6 +42,18 @@ module.exports = {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        info: {
+          DEFAULT: "hsl(var(--info))",
+          foreground: "hsl(var(--info-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -116,46 +77,148 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        // Atlas brand animations
-        "atlas-rotate": {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
-        },
-        "atlas-pulse": {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.8' },
-        },
+        
+        // Modern Shine Effects
         "atlas-shine": {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(100%)' },
+          '0%': { transform: 'translateX(-100%) skewX(-15deg)' },
+          '100%': { transform: 'translateX(100%) skewX(-15deg)' },
         },
-        "atlas-fade-in": {
+        "modern-shine": {
+          '0%': { transform: 'translateX(-100%) translateY(-100%) rotate(45deg)' },
+          '100%': { transform: 'translateX(100%) translateY(100%) rotate(45deg)' },
+        },
+        
+        // Enhanced Glow
+        "atlas-glow": {
+          '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.05)' },
+        },
+        "pulse-glow": {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
+          '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.8)' },
+        },
+        
+        // Enhanced Float
+        float: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '33%': { transform: 'translateY(-10px) rotate(1deg)' },
+          '66%': { transform: 'translateY(-5px) rotate(-1deg)' },
+        },
+        "float-slow": {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        
+        // Modern Fade Animations
+        'fade-in': {
           '0%': { opacity: '0', transform: 'scale(0.9)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
-        "atlas-glow": {
-          '0%, 100%': { filter: 'drop-shadow(0 0 10px rgba(212, 137, 61, 0.5))' },
-          '50%': { filter: 'drop-shadow(0 0 20px rgba(212, 137, 61, 0.8))' },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-down': {
+          '0%': { opacity: '0', transform: 'translateY(-30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-left': {
+          '0%': { opacity: '0', transform: 'translateX(-30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        'fade-right': {
+          '0%': { opacity: '0', transform: 'translateX(30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        
+        // Scale Animations
+        'scale-in': {
+          '0%': { opacity: '0', transform: 'scale(0.8)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        'scale-up': {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.05)' },
+        },
+        
+        // Shimmer Effects
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        "shimmer-slow": {
+          '0%': { backgroundPosition: '-100% 0' },
+          '100%': { backgroundPosition: '100% 0' },
+        },
+        
+        // Bounce Enhanced
+        "bounce-in": {
+          '0%': { opacity: '0', transform: 'scale(0.3)' },
+          '50%': { opacity: '1', transform: 'scale(1.05)' },
+          '70%': { transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        
+        // Rotation
+        "spin-slow": {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        
+        // Gradient Animation
+        "gradient-shift": {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        
+        // Modern Wiggle
+        "wiggle-modern": {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        // Atlas animations
-        "atlas-rotate": "atlas-rotate 20s linear infinite",
-        "atlas-pulse": "atlas-pulse 3s ease-in-out infinite",
+        
+        // Shine Animations
         "atlas-shine": "atlas-shine 3s ease-in-out infinite",
-        "atlas-fade-in": "atlas-fade-in 0.8s ease-out forwards",
+        "modern-shine": "modern-shine 2.5s ease-in-out infinite",
+        
+        // Glow Animations
         "atlas-glow": "atlas-glow 2s ease-in-out infinite",
-      },
-      backgroundImage: {
-        // Atlas Modern Gradients
-        'atlas-primary': 'linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%)',
-        'atlas-hero': 'linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #7c3aed 100%)',
-        'atlas-card': 'linear-gradient(145deg, #ffffff 0%, #f8fafc 100%)',
-        'atlas-button': 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
-        'atlas-accent': 'linear-gradient(90deg, #0ea5e9 0%, #3b82f6 50%, #8b5cf6 100%)',
-        'atlas-glass': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        
+        // Float Animations
+        float: "float 6s ease-in-out infinite",
+        "float-slow": "float-slow 8s ease-in-out infinite",
+        
+        // Fade Animations
+        "fade-in": "fade-in 600ms cubic-bezier(0.4, 0, 0.2, 1) both",
+        "fade-up": "fade-up 700ms cubic-bezier(0.4, 0, 0.2, 1) both",
+        "fade-down": "fade-down 700ms cubic-bezier(0.4, 0, 0.2, 1) both",
+        "fade-left": "fade-left 700ms cubic-bezier(0.4, 0, 0.2, 1) both",
+        "fade-right": "fade-right 700ms cubic-bezier(0.4, 0, 0.2, 1) both",
+        
+        // Scale Animations
+        "scale-in": "scale-in 500ms cubic-bezier(0.4, 0, 0.2, 1) both",
+        "scale-up": "scale-up 300ms ease-out both",
+        
+        // Shimmer Animations
+        shimmer: "shimmer 2s linear infinite",
+        "shimmer-slow": "shimmer-slow 3s linear infinite",
+        
+        // Bounce Animations
+        "bounce-in": "bounce-in 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55) both",
+        
+        // Rotation
+        "spin-slow": "spin-slow 8s linear infinite",
+        
+        // Gradient Animation
+        "gradient-shift": "gradient-shift 3s ease-in-out infinite",
+        
+        // Wiggle
+        "wiggle-modern": "wiggle-modern 1s ease-in-out infinite",
       },
     },
   },

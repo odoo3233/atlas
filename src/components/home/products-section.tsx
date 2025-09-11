@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Package } from "lucide-react";
+import { SectionHeader } from "@/components/ui/section-header";
 
 export function ProductsSection() {
   const products = [
@@ -33,29 +35,24 @@ export function ProductsSection() {
   ];
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            منتجاتنا
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            اكتشف مجموعة متنوعة من المنتجات عالية الجودة
-          </p>
-        </div>
+        <SectionHeader
+          icon={<Package className="h-5 w-5" />}
+          fallbackBadge="المنتجات المميزة"
+          fallbackTitle="منتجاتنا"
+          fallbackSubtitle="اكتشف مجموعة متنوعة من المنتجات عالية الجودة"
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-100"
-            >
+            <div key={product.id} className="rounded-xl overflow-hidden card-elevated hover-lift">
               <div className="relative h-48 w-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse"></div>
+                <div className="absolute inset-0 bg-secondary animate-pulse"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-4">{product.description}</p>
+                <h3 className="text-xl font-semibold mb-2 heading-secondary">{product.name}</h3>
+                <p className="text-readable mb-4 leading-relaxed">{product.description}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-bold text-primary">
                     {product.price}
@@ -64,7 +61,7 @@ export function ProductsSection() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="transform hover:scale-105 transition-all"
+                      className="hover-lift"
                     >
                       تفاصيل المنتج
                     </Button>
@@ -77,10 +74,7 @@ export function ProductsSection() {
 
         <div className="text-center mt-12">
           <Link href="/products">
-            <Button
-              size="lg"
-              className="transform hover:scale-105 transition-all"
-            >
+            <Button size="lg" className="hover-lift">
               عرض جميع المنتجات
             </Button>
           </Link>

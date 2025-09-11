@@ -29,7 +29,6 @@ export function AboutSection() {
         "home.about.features.experienceDesc",
         "خبرة عميقة في تنظيم الفعاليات التجارية الدولية",
       ),
-      color: "from-blue-500 to-blue-600",
     },
     {
       icon: Globe,
@@ -38,7 +37,6 @@ export function AboutSection() {
         "home.about.features.networkDesc",
         "علاقات وثيقة مع الشركات الصينية والسعودية",
       ),
-      color: "from-purple-500 to-purple-600",
     },
     {
       icon: Award,
@@ -47,7 +45,6 @@ export function AboutSection() {
         "home.about.features.successDesc",
         "معايير جودة عالمية في جميع خدماتنا",
       ),
-      color: "from-emerald-500 to-emerald-600",
     },
     {
       icon: Heart,
@@ -56,27 +53,26 @@ export function AboutSection() {
         "home.about.features.supportDesc",
         "دعم فني وإداري على مدار الساعة",
       ),
-      color: "from-rose-500 to-rose-600",
     },
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-gray-900 text-white rounded-full text-base font-semibold mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-primary text-primary-foreground rounded-full text-base font-semibold mb-6">
             <Building className="mr-3 rtl:mr-0 rtl:ml-3" size={20} />
             {t("home.about.title", "من نحن")}
           </div>
 
           {/* Title */}
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold heading-primary text-always-black mb-4">
             {t("home.about.subtitle", "شركة أطلس الشرق للمعارض والمؤتمرات")}
           </h2>
 
           {/* Description */}
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-readable text-force-light-theme max-w-3xl mx-auto">
             {t(
               "home.about.description",
               "نفخر بخبرة 15+ عاماً في مجال المعارض والتجارة الدولية، نقدم حلول مبتكرة لربط الشركات السعودية بالأسواق الصينية والعالمية",
@@ -87,16 +83,16 @@ export function AboutSection() {
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {features.map((feature, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 shadow border border-gray-100">
+            <div key={index} className="bg-background rounded-2xl p-6 shadow border border-border">
               <div
-                className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-900 text-white mb-4 mx-auto"
+                className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary text-primary-foreground mb-4 mx-auto"
               >
                 <feature.icon size={28} />
               </div>
-              <h3 className="text-xl font-bold text-center mb-2 text-gray-900">
+              <h3 className="text-xl font-bold text-center mb-2 heading-secondary text-always-black">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 text-center">
+              <p className="text-readable text-center text-force-light-theme">
                 {feature.description}
               </p>
             </div>
@@ -104,29 +100,29 @@ export function AboutSection() {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-white rounded-2xl p-8 shadow border border-gray-100 mb-12">
+        <div className="bg-background rounded-2xl p-8 shadow border border-border mb-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-gray-900 mb-1">15+</div>
-              <div className="text-sm font-medium text-gray-600">
+              <div className="text-4xl font-bold heading-primary text-always-black mb-1">15+</div>
+              <div className="text-sm font-medium text-readable text-force-light-theme">
                 {t("home.about.stats.years", "سنوات الخبرة")}
               </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-gray-900 mb-1">500+</div>
-              <div className="text-sm font-medium text-gray-600">
+              <div className="text-4xl font-bold heading-primary text-always-black mb-1">500+</div>
+              <div className="text-sm font-medium text-readable text-force-light-theme">
                 {t("home.about.stats.events", "فعالية منظمة")}
               </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-gray-900 mb-1">2000+</div>
-              <div className="text-sm font-medium text-gray-600">
+              <div className="text-4xl font-bold heading-primary text-always-black mb-1">2000+</div>
+              <div className="text-sm font-medium text-readable text-force-light-theme">
                 {t("home.about.features.network", "شريك صيني")}
               </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-gray-900 mb-1">98%</div>
-              <div className="text-sm font-medium text-gray-600">
+              <div className="text-4xl font-bold heading-primary text-always-black mb-1">98%</div>
+              <div className="text-sm font-medium text-readable text-force-light-theme">
                 {t("home.about.features.success", "معدل رضا")}
               </div>
             </div>
@@ -135,11 +131,11 @@ export function AboutSection() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <div className="bg-white rounded-2xl p-10 shadow border border-gray-100">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="bg-background rounded-2xl p-10 shadow border border-border">
+            <h3 className="text-3xl font-bold heading-primary text-always-black mb-4">
               {t("home.about.cta.title", "تواصل معنا اليوم")}
             </h3>
-            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-readable text-force-light-theme mb-6 max-w-2xl mx-auto">
               {t(
                 "home.about.cta.description",
                 "نحن هنا لمساعدتك في تحقيق أهدافك التجارية. تواصل معنا الآن للحصول على استشارة مجانية",
@@ -147,7 +143,7 @@ export function AboutSection() {
             </p>
             <Button
               size="lg"
-              className="px-8 py-4 bg-gray-900 text-white rounded-xl hover:bg-black"
+              className="px-8 py-4 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90"
               asChild
             >
               <Link href="/contact">

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/components/i18n-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const cairo = Cairo({ subsets: ["arabic"], variable: "--font-cairo" });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://atlas-al-sharq.com'),
@@ -45,8 +47,8 @@ export const metadata: Metadata = {
 export function generateViewport() {
   return {
     themeColor: [
-      { media: "(prefers-color-scheme: light)", color: "#d4893d" },
-      { media: "(prefers-color-scheme: dark)", color: "#2d1810" },
+      { media: "(prefers-color-scheme: light)", color: "#fefae0" }, // cornsilk
+      { media: "(prefers-color-scheme: dark)", color: "#283618" },  // pakistan-green
     ],
     viewport: {
       width: "device-width",
@@ -63,12 +65,14 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning>
-      <body className={inter.className}>
-        <I18nProvider>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </I18nProvider>
+      <body className={`${cairo.className} ${inter.variable}`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <I18nProvider>
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

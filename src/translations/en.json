@@ -29,6 +29,8 @@
     "success": "Success",
     "warning": "Warning",
     "info": "Information",
+    "back": "Back",
+    "backHome": "Back to Home",
     "nav": {
       "home": "Home",
       "about": "About",
@@ -542,6 +544,16 @@
         ]
       }
     },
+    "stats": {
+      "title": "Investment Statistics",
+      "subtitle": "Trusted numbers that reflect our partnership strength"
+    },
+    "contactTitle": "Get in Touch",
+    "contactSubtitle": "We are happy to answer your inquiries and arrange your trip",
+    "phoneTitle": "Call Us",
+    "phoneSubtitle": "A specialized team ready to help",
+    "emailTitle": "Email Us",
+    "emailSubtitle": "We respond within 24 hours",
     "register": "Register Now",
     "contactUs": "Contact Us",
     "scheduleVisit": "Schedule Your Visit"
@@ -599,10 +611,5 @@
     "submitting": "Submitting Order...",
     "orderSuccess": "Thank you for your order. We will contact you soon to confirm the details.",
     "requestingProduct": "I am requesting"
-  },
-  "common": {
-    "back": "Back",
-    "backHome": "Back to Home"
   }
-  
 }
