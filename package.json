@@ -1,6 +1,6 @@
 {
   "name": "atlas-al-sharq-frontend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Frontend for Atlas Al-Sharq Exhibitions & Conferences website",
   "private": true,
   "scripts": {

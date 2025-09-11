@@ -1,0 +1,4 @@
+Deployment trigger for text contrast fixes
+Version: 1.0.1
+Date: 2024
+Changes: Enhanced text contrast and visibility fixes applied
