@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { clsx } from "clsx";
 
 type Variant = "default" | "success" | "warning" | "info" | "accent";
 
@@ -31,7 +31,7 @@ const variantClasses: Record<Variant, string> = {
 
 export function IconText({ icon, children, className, variant = "default", size = "md" }: IconTextProps) {
   return (
-    <span className={cn(variantClasses[variant], sizeClasses[size], className)}>
+    <span className={clsx(variantClasses[variant], sizeClasses[size], className)}>
       <span className="inline-flex items-center justify-center">{icon}</span>
       <span>{children}</span>
     </span>
