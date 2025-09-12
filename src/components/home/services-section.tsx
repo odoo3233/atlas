@@ -39,12 +39,13 @@ export function ServicesSection() {
       ),
       features: [
         "تصميم أجنحة احترافية",
-        "إدارة شاملة للفعاليات",
+        "إدارة شاملة للفعاليات", 
         "خدمات لوجستية متكاملة",
         "دعم تسويقي متقدم",
       ],
       gradient: "from-blue-500 to-purple-600",
-      bgPattern: "bg-gradient-to-br from-blue-50 to-purple-50",
+      color: "blue",
+      stats: "500+ معرض"
     },
     {
       icon: Crown,
@@ -56,11 +57,12 @@ export function ServicesSection() {
       features: [
         "لقاءات B2B مخصصة",
         "شبكة علاقات واسعة",
-        "فرص استثمارية حصرية",
+        "فرص استثمارية حصرية", 
         "دعم قانوني واستشاري",
       ],
       gradient: "from-emerald-500 to-teal-600",
-      bgPattern: "bg-gradient-to-br from-emerald-50 to-teal-50",
+      color: "emerald",
+      stats: "2000+ شراكة"
     },
     {
       icon: Gem,
@@ -75,95 +77,94 @@ export function ServicesSection() {
         "خدمات VIP شاملة",
         "متابعة ما بعد الرحلة",
       ],
-      gradient: "from-amber-500 to-orange-600",
-      bgPattern: "bg-gradient-to-br from-amber-50 to-orange-50",
+      gradient: "from-amber-500 to-orange-600", 
+      color: "amber",
+      stats: "98% رضا"
     },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-secondary via-background to-secondary/50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `
-            radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%)
-          `
-        }}></div>
+    <section className="py-24 bg-white relative overflow-hidden">
+      {/* Modern Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-3xl opacity-60"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-emerald-100 to-teal-100 rounded-full blur-3xl opacity-60"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-3xl opacity-40"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <SectionHeader
-          icon={<Lightbulb className="h-6 w-6 animate-pulse" />}
-          badgeKey="home.services.badge"
-          titleKey="home.services.title"
-          subtitleKey="home.services.description"
-          fallbackBadge="حلول متكاملة لنجاح أعمالك"
-          fallbackTitle="خدماتنا الاستثنائية"
-          fallbackSubtitle="نقدم باقة متكاملة من الخدمات الاحترافية المصممة خصيصاً لتلبية احتياجاتك وتحقيق أهدافك التجارية"
-        />
+        {/* Ultra Modern Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-blue-200/50 rounded-2xl text-blue-700 font-bold text-lg mb-8 shadow-lg">
+            <Lightbulb className="mr-3 rtl:mr-0 rtl:ml-3 animate-pulse" size={24} />
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              حلول متكاملة لنجاح أعمالك
+            </span>
+          </div>
 
-        {/* Enhanced Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-16">
+          <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+              خدماتنا الاستثنائية
+            </span>
+          </h2>
+
+          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+            نقدم باقة متكاملة من الخدمات الاحترافية المصممة خصيصاً لتلبية احتياجاتك وتحقيق أهدافك التجارية
+          </p>
+        </div>
+
+        {/* Revolutionary Services Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
           {services.map((service, index) => (
-            <div key={index} 
-                 className="group relative card-elevated rounded-3xl p-8 hover-lift overflow-hidden"
-                 style={{animationDelay: `${index * 200}ms`}}>
+            <div 
+              key={index} 
+              className="group relative bg-white/80 backdrop-blur-xl rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-700 hover:scale-105 border border-gray-200/50 overflow-hidden"
+            >
+              {/* Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`}></div>
               
-              {/* Background Pattern */}
-              <div className={`absolute inset-0 opacity-5 ${service.bgPattern}`}></div>
+              {/* Stats Badge */}
+              <div className="absolute top-6 right-6 bg-gray-900 text-white text-xs font-bold px-3 py-1 rounded-full">
+                {service.stats}
+              </div>
               
-              {/* Animated Icon */}
-              <div className={`flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br ${service.gradient} text-white mb-6 mx-auto shadow-2xl group-hover:animate-bounce-in relative`}>
-                <service.icon size={32} className="group-hover:animate-wiggle-modern" />
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              {/* Modern Icon */}
+              <div className={`relative flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br ${service.gradient} text-white mb-8 shadow-2xl group-hover:animate-bounce`}>
+                {React.createElement(service.icon, { size: 36 })}
+                <div className="absolute inset-0 rounded-3xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
 
-              {/* Enhanced Title */}
-              <h3 className="text-2xl font-bold text-center mb-4 heading-primary text-always-black group-hover:heading-accent transition-colors">
+              {/* Title */}
+              <h3 className="text-2xl font-black text-gray-900 mb-6 leading-tight">
                 {service.title}
               </h3>
 
-              {/* Enhanced Description */}
-              <p className="text-readable text-center mb-8 leading-relaxed text-force-light-theme">
+              {/* Description */}
+              <p className="text-gray-600 mb-8 leading-relaxed font-medium">
                 {service.description}
               </p>
 
-              {/* Features */}
-              <div className="space-y-3 mb-8">
+              {/* Features List */}
+              <div className="space-y-4 mb-10">
                 {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex}>
-                    {featureIndex === 0 && (
-                      <IconText icon={<BadgeCheck className="h-4 w-4" />} variant="success" size="sm">
-                        {feature}
-                      </IconText>
-                    )}
-                    {featureIndex === 1 && (
-                      <IconText icon={<ShieldCheck className="h-4 w-4" />} variant="info" size="sm">
-                        {feature}
-                      </IconText>
-                    )}
-                    {featureIndex === 2 && (
-                      <IconText icon={<Sparkles className="h-4 w-4" />} variant="accent" size="sm">
-                        {feature}
-                      </IconText>
-                    )}
-                    {featureIndex > 2 && (
-                      <IconText icon={<Check className="h-4 w-4" />} variant="default" size="sm">
-                        {feature}
-                      </IconText>
-                    )}
+                  <div key={featureIndex} className="flex items-center space-x-3 rtl:space-x-reverse">
+                    <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center`}>
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Enhanced CTA Button */}
-              <Button size="lg" 
-                      className={`w-full px-8 py-4 bg-gradient-to-r ${service.gradient} text-white rounded-2xl hover:shadow-2xl btn-modern group/btn`} 
-                      asChild>
-                <Link href="/services">
+              {/* CTA Button */}
+              <Button 
+                size="lg" 
+                className={`w-full bg-gradient-to-r ${service.gradient} text-white font-bold text-lg py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 group/btn`} 
+                asChild
+              >
+                <Link href="/services" className="flex items-center justify-center">
                   <TrendingUp className="mr-3 rtl:mr-0 rtl:ml-3 group-hover/btn:animate-bounce" size={20} />
-                  {t("common.learnMore", "اعرف المزيد")}
+                  <span>{t("common.learnMore", "اعرف المزيد")}</span>
                   <ArrowRight className="ml-3 rtl:ml-0 rtl:mr-3 group-hover/btn:translate-x-1 transition-transform" size={20} />
                 </Link>
               </Button>
@@ -171,48 +172,50 @@ export function ServicesSection() {
           ))}
         </div>
 
-        {/* Enhanced CTA Section */}
-        <div className="text-center">
-          <div className="relative glass-strong rounded-3xl p-12 text-foreground border border-border/30 overflow-hidden group">
-            {/* Background Animation */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-emerald-500/5 animate-gradient-shift"></div>
+        {/* Ultra Modern CTA Section */}
+        <div className="relative">
+          <div className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 rounded-3xl p-16 text-white relative overflow-hidden shadow-2xl">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
             
-            {/* Content */}
-            <div className="relative z-10">
-              <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full text-primary font-semibold mb-6 border border-primary/20">
-                <Star className="mr-2 rtl:mr-0 rtl:ml-2 animate-spin-slow" size={20} />
-                {t("home.services.cta.badge", "ابدأ رحلتك معنا")}
+            <div className="relative z-10 text-center max-w-5xl mx-auto">
+              <div className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white font-bold text-lg mb-10 shadow-lg">
+                <Star className="mr-3 rtl:mr-0 rtl:ml-3 animate-pulse" size={24} />
+                <span>ابدأ رحلتك معنا</span>
               </div>
               
-              <h3 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent drop-shadow-sm">
-                {t("home.services.cta.title", "مستعد لبدء رحلة النجاح؟")}
+              <h3 className="text-4xl md:text-6xl font-black mb-8 text-white leading-tight">
+                مستعد لبدء رحلة النجاح؟
               </h3>
               
-              <p className="text-xl text-medium-contrast mb-8 max-w-3xl mx-auto leading-relaxed">
-                {t(
-                  "home.services.cta.description",
-                  "اكتشف كيف يمكن لخدماتنا المتخصصة أن تساعدك في تحقيق أهدافك التجارية",
-                )}
+              <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+                اكتشف كيف يمكن لخدماتنا المتخصصة أن تساعدك في تحقيق أهدافك التجارية
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button size="lg" 
-                        className="px-12 py-6 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-2xl hover:shadow-2xl btn-modern group/cta text-lg font-semibold" 
-                        asChild>
-                  <Link href="/services">
-                    <Briefcase className="mr-3 rtl:mr-0 rtl:ml-3 group-hover/cta:animate-bounce" size={24} />
-                    {t("home.services.cta.explore", "استكشف جميع الخدمات")}
-                    <ArrowRight className="ml-3 rtl:ml-0 rtl:mr-3 group-hover/cta:translate-x-1 transition-transform" size={24} />
+              <div className="flex flex-col sm:flex-row gap-8 justify-center">
+                <Button 
+                  size="lg" 
+                  className="group bg-white text-gray-900 hover:bg-gray-100 font-bold text-xl px-16 py-6 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105" 
+                  asChild
+                >
+                  <Link href="/services" className="flex items-center">
+                    <Briefcase className="mr-3 rtl:mr-0 rtl:ml-3 group-hover:animate-bounce" size={24} />
+                    <span>استكشف جميع الخدمات</span>
+                    <ArrowRight className="ml-3 rtl:ml-0 rtl:mr-3 group-hover:translate-x-2 transition-transform" size={24} />
                   </Link>
                 </Button>
                 
-                <Button size="lg" 
-                        variant="outline" 
-                        className="px-12 py-6 border-2 border-primary/30 text-primary hover:bg-primary/5 rounded-2xl btn-modern group/contact text-lg font-semibold"
-                        asChild>
-                  <Link href="/contact">
-                    <Zap className="mr-3 rtl:mr-0 rtl:ml-3 group-hover/contact:animate-pulse" size={24} />
-                    {t("home.services.cta.contact", "تواصل معنا الآن")}
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 font-bold text-xl px-16 py-6 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500"
+                  asChild
+                >
+                  <Link href="/contact" className="flex items-center">
+                    <Zap className="mr-3 rtl:mr-0 rtl:ml-3 group-hover:animate-pulse" size={24} />
+                    <span>تواصل معنا الآن</span>
                   </Link>
                 </Button>
               </div>
