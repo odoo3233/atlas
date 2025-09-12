@@ -75,15 +75,15 @@ export function HeroSection() {
   }, [stats.length]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       {/* Ultra Modern Background */}
       <div className="absolute inset-0">
         {/* Animated mesh gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/30 to-emerald-600/20 animate-pulse"></div>
         
         {/* Dynamic geometric shapes */}
-        <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-conic from-blue-500/30 via-purple-500/30 to-emerald-500/30 rounded-full blur-3xl animate-spin-slow"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-conic from-emerald-500/30 via-blue-500/30 to-purple-500/30 rounded-full blur-3xl animate-spin-reverse"></div>
+        <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-emerald-500/30 rounded-full blur-3xl animate-spin-slow"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-tr from-emerald-500/30 via-blue-500/30 to-purple-500/30 rounded-full blur-3xl animate-spin-reverse"></div>
         
         {/* Floating tech elements */}
         <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-blue-400 rounded-full animate-bounce opacity-80"></div>
@@ -119,12 +119,12 @@ export function HeroSection() {
 
             {/* Revolutionary Title */}
             <div className="space-y-4">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight animate-fade-in">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight">
                 <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
                   أطلس الشرق
                 </span>
               </h1>
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white/90 animate-fade-up">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                 للمعارض والمؤتمرات
               </div>
             </div>
@@ -182,7 +182,7 @@ export function HeroSection() {
             <div className="bg-white/10 backdrop-blur-2xl rounded-3xl p-8 border border-white/20 shadow-2xl">
               <div className="text-center mb-8">
                 <div className={`inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br ${stats[currentStat].gradient} text-white mb-6 shadow-2xl animate-pulse`}>
-                  <stats[currentStat].icon size={40} />
+                  {React.createElement(stats[currentStat].icon, { size: 40 })}
                 </div>
                 <div className="text-6xl font-black text-white mb-2 animate-bounce">
                   {stats[currentStat].value}

@@ -83,12 +83,12 @@ export function AboutSection() {
             </span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
               شركة أطلس الشرق
             </span>
             <br />
-            <span className="text-gray-700 text-4xl md:text-5xl font-bold">
+            <span className="text-gray-700 text-3xl md:text-4xl font-bold">
               للمعارض والمؤتمرات
             </span>
           </h2>
@@ -128,7 +128,7 @@ export function AboutSection() {
               
               {/* Icon */}
               <div className={`relative flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br ${achievement.gradient} text-white mb-6 mx-auto shadow-lg group-hover:animate-bounce`}>
-                <achievement.icon size={32} />
+                {React.createElement(achievement.icon, { size: 32 })}
               </div>
 
               {/* Main Number */}
