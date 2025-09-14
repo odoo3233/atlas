@@ -24,7 +24,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { IconText } from "@/components/ui/icon-text";
-import { Check, BadgeCheck, ShieldCheck, Sparkles } from "lucide-react";
+import { Check, BadgeCheck, ShieldCheck, Sparkles, CheckCircle } from "lucide-react";
 
 export function ServicesSection() {
   const { t } = useTranslation();

@@ -13,6 +13,7 @@ import {
   Award,
   ChevronLeft,
   ChevronRight,
+  TrendingUp,
 } from "lucide-react";
 
 export function TestimonialsSection() {
