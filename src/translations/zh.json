@@ -699,5 +699,46 @@
     "privacy": "隐私政策",
     "terms": "使用条款",
     "sitemap": "网站地图"
+  },
+  "products": {
+    "hero": {
+      "badge": "阿特拉斯东方领先商店",
+      "title": "优质产品",
+      "subtitle": "探索我们多样化和高质量的产品系列",
+      "description": "我们为您提供来自中国和沙特阿拉伯领先公司的最佳产品",
+      "browseProducts": "浏览产品",
+      "contactUs": "联系我们",
+      "stats": {
+        "products": "产品",
+        "companies": "公司",
+        "rating": "评分",
+        "quality": "质量"
+      }
+    },
+    "filter": {
+      "title": "找到您的完美产品",
+      "subtitle": "使用高级搜索工具找到您需要的产品",
+      "filterBy": "按类别筛选"
+    },
+    "results": {
+      "title": "我们的优质产品",
+      "subtitle": "我们找到了{{count}}个令人惊叹的产品"
+    },
+    "resetFilters": "重置筛选器",
+    "cta": {
+      "badge": "寻找特定产品？",
+      "title": "今天联系我们",
+      "description": "我们的专业团队随时准备帮助您找到满足需求的完美产品",
+      "contactUs": "联系我们",
+      "ourServices": "我们的服务",
+      "features": {
+        "quality": "质量保证",
+        "qualityDesc": "来自最佳公司的高质量产品",
+        "support": "24/7支持",
+        "supportDesc": "全天候可用的支持团队",
+        "warranty": "全面保修",
+        "warrantyDesc": "所有产品全面保修"
+      }
+    }
   }
 }
