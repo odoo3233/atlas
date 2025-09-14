@@ -304,7 +304,7 @@ export default function ExhibitionsPage() {
                       <div className={`absolute top-6 right-6 text-white px-4 py-2 rounded-2xl text-sm font-bold shadow-lg ${
                         isUpcoming ? 'bg-gradient-to-r from-emerald-500 to-teal-600' : 'bg-gradient-to-r from-gray-500 to-gray-600'
                       }`}>
-                        {isUpcoming ? "قادم" : "منتهي"}
+                        {isUpcoming ? t("exhibitions.list.upcoming") : t("exhibitions.list.ended")}
                       </div>
 
                       {/* Overlay */}
@@ -377,7 +377,7 @@ export default function ExhibitionsPage() {
                         } text-white font-bold text-lg py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 group/btn`}>
                           <span className="flex items-center justify-center">
                             <TrendingUp className="mr-3 rtl:mr-0 rtl:ml-3 group-hover/btn:animate-bounce" size={20} />
-                            <span>{isUpcoming ? "سجل الآن" : "عرض التفاصيل"}</span>
+                            <span>{isUpcoming ? t("exhibitions.list.registerNow") : t("exhibitions.list.viewDetails")}</span>
                             <ArrowRight className="ml-3 rtl:ml-0 rtl:mr-3 group-hover/btn:translate-x-1 transition-transform" size={20} />
                           </span>
                         </Button>

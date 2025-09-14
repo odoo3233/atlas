@@ -675,5 +675,29 @@
     "submitting": "正在提交订单...",
     "orderSuccess": "感谢您的订单。我们将很快与您联系确认详细信息。",
     "requestingProduct": "我正在请求"
+  },
+  "footer": {
+    "quickLinks": "快速链接",
+    "ourServices": "我们的服务",
+    "services": {
+      "exhibitions": "展览组织",
+      "consulting": "商业咨询",
+      "businessTrips": "商务旅行",
+      "translation": "翻译与中介",
+      "marketing": "国际营销",
+      "investments": "联合投资"
+    },
+    "contactUs": "联系我们",
+    "address": "沙特阿拉伯利雅得",
+    "mainOffice": "我们的主办公室",
+    "workingHours": "周日 - 周四: 8:00 - 17:00",
+    "newsletter": "新闻通讯",
+    "newsletterDesc": "获取最新消息和独家优惠",
+    "emailPlaceholder": "电子邮件地址",
+    "subscribe": "立即订阅",
+    "copyright": "© 2024 阿特拉斯东方。保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "sitemap": "网站地图"
   }
 }

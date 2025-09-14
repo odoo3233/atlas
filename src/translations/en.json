@@ -682,5 +682,29 @@
     "submitting": "Submitting Order...",
     "orderSuccess": "Thank you for your order. We will contact you soon to confirm the details.",
     "requestingProduct": "I am requesting"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
+    "services": {
+      "exhibitions": "Exhibition Organization",
+      "consulting": "Business Consulting",
+      "businessTrips": "Business Trips",
+      "translation": "Translation & Mediation",
+      "marketing": "International Marketing",
+      "investments": "Joint Investments"
+    },
+    "contactUs": "Contact Us",
+    "address": "Riyadh, Saudi Arabia",
+    "mainOffice": "Our Main Office",
+    "workingHours": "Sunday - Thursday: 8:00 - 17:00",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Get the latest news and exclusive offers",
+    "emailPlaceholder": "Email Address",
+    "subscribe": "Subscribe Now",
+    "copyright": "© 2024 Atlas Al-Sharq. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "sitemap": "Sitemap"
   }
 }

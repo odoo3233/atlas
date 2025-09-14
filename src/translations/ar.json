@@ -669,5 +669,29 @@
     "submitting": "جاري إرسال الطلب...",
     "orderSuccess": "شكراً لك على طلبك. سنتواصل معك قريباً لتأكيد التفاصيل.",
     "requestingProduct": "أطلب"
+  },
+  "footer": {
+    "quickLinks": "روابط سريعة",
+    "ourServices": "خدماتنا",
+    "services": {
+      "exhibitions": "تنظيم المعارض",
+      "consulting": "الاستشارات التجارية",
+      "businessTrips": "رحلات الأعمال",
+      "translation": "الترجمة والوساطة",
+      "marketing": "التسويق الدولي",
+      "investments": "الاستثمارات المشتركة"
+    },
+    "contactUs": "تواصل معنا",
+    "address": "الرياض، المملكة العربية السعودية",
+    "mainOffice": "مكتبنا الرئيسي",
+    "workingHours": "الأحد - الخميس: 8:00 - 17:00",
+    "newsletter": "النشرة الإخبارية",
+    "newsletterDesc": "احصل على آخر الأخبار والعروض الحصرية",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "subscribe": "اشترك الآن",
+    "copyright": "© 2024 أطلس الشرق. جميع الحقوق محفوظة.",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستخدام",
+    "sitemap": "خريطة الموقع"
   }
 }

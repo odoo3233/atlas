@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { BrandLogo } from "@/components/brand-logo";
 import {
@@ -21,6 +22,7 @@ import {
 } from "lucide-react";
 
 export function Footer() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -89,14 +91,14 @@ export function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-xl font-semibold mb-6 heading-secondary">روابط سريعة</h4>
+              <h4 className="text-xl font-semibold mb-6 heading-secondary">{t("footer.quickLinks", "روابط سريعة")}</h4>
               <ul className="space-y-3">
                 <li>
                   <Link
                     href="/about"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    من نحن
+                    {t("common.nav.about", "من نحن")}
                   </Link>
                 </li>
                 <li>
@@ -104,7 +106,7 @@ export function Footer() {
                     href="/services"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    خدماتنا
+                    {t("common.nav.services", "خدماتنا")}
                   </Link>
                 </li>
                 <li>
@@ -112,7 +114,7 @@ export function Footer() {
                     href="/products"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    المنتجات
+                    {t("common.nav.products", "المنتجات")}
                   </Link>
                 </li>
                 <li>
@@ -120,7 +122,7 @@ export function Footer() {
                     href="/exhibitions"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    المعارض
+                    {t("common.nav.exhibitions", "المعارض")}
                   </Link>
                 </li>
                 <li>
@@ -128,7 +130,7 @@ export function Footer() {
                     href="/business-visits"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    الزيارات التجارية
+                    {t("common.nav.businessVisits", "الزيارات التجارية")}
                   </Link>
                 </li>
                 <li>
@@ -136,7 +138,7 @@ export function Footer() {
                     href="/contact"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    اتصل بنا
+                    {t("common.nav.contact", "اتصل بنا")}
                   </Link>
                 </li>
               </ul>
@@ -144,14 +146,14 @@ export function Footer() {
 
             {/* Services */}
             <div>
-              <h4 className="text-xl font-semibold mb-6 heading-secondary">خدماتنا</h4>
+              <h4 className="text-xl font-semibold mb-6 heading-secondary">{t("footer.ourServices", "خدماتنا")}</h4>
               <ul className="space-y-3">
                 <li>
                   <Link
                     href="/services"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    تنظيم المعارض
+                    {t("footer.services.exhibitions", "تنظيم المعارض")}
                   </Link>
                 </li>
                 <li>
@@ -159,7 +161,7 @@ export function Footer() {
                     href="/services"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    الاستشارات التجارية
+                    {t("footer.services.consulting", "الاستشارات التجارية")}
                   </Link>
                 </li>
                 <li>
@@ -167,7 +169,7 @@ export function Footer() {
                     href="/services"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    رحلات الأعمال
+                    {t("footer.services.businessTrips", "رحلات الأعمال")}
                   </Link>
                 </li>
                 <li>
@@ -175,7 +177,7 @@ export function Footer() {
                     href="/services"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    الترجمة والوساطة
+                    {t("footer.services.translation", "الترجمة والوساطة")}
                   </Link>
                 </li>
                 <li>
@@ -183,7 +185,7 @@ export function Footer() {
                     href="/services"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    التسويق الدولي
+                    {t("footer.services.marketing", "التسويق الدولي")}
                   </Link>
                 </li>
                 <li>
@@ -191,7 +193,7 @@ export function Footer() {
                     href="/services"
                     className="text-medium-contrast hover:text-primary transition-colors font-medium"
                   >
-                    الاستثمارات المشتركة
+                    {t("footer.services.investments", "الاستثمارات المشتركة")}
                   </Link>
                 </li>
               </ul>
@@ -199,15 +201,15 @@ export function Footer() {
 
             {/* Contact & Newsletter */}
             <div>
-              <h4 className="text-xl font-semibold mb-6 heading-secondary">تواصل معنا</h4>
+              <h4 className="text-xl font-semibold mb-6 heading-secondary">{t("footer.contactUs", "تواصل معنا")}</h4>
               <div className="space-y-4 mb-6">
                 <div className="flex items-start space-x-3 rtl:space-x-reverse">
                   <MapPin className="w-5 h-5 text-primary mt-1" />
                   <div>
                     <p className="text-medium-contrast">
-                      الرياض، المملكة العربية السعودية
+                      {t("footer.address", "الرياض، المملكة العربية السعودية")}
                     </p>
-                    <p className="text-muted-readable text-sm">مكتبنا الرئيسي</p>
+                    <p className="text-muted-readable text-sm">{t("footer.mainOffice", "مكتبنا الرئيسي")}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -221,7 +223,7 @@ export function Footer() {
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                   <Clock className="w-5 h-5 text-primary" />
                   <span className="text-medium-contrast">
-                    الأحد - الخميس: 8:00 - 17:00
+                    {t("footer.workingHours", "الأحد - الخميس: 8:00 - 17:00")}
                   </span>
                 </div>
               </div>
@@ -230,10 +232,10 @@ export function Footer() {
               <div className="glass-strong rounded-2xl p-6 border border-primary/20">
                 <div className="flex items-center space-x-2 rtl:space-x-reverse mb-4">
                   <Sparkles className="w-5 h-5 text-primary animate-pulse" />
-                  <h5 className="font-semibold text-lg heading-accent">النشرة الإخبارية</h5>
+                  <h5 className="font-semibold text-lg heading-accent">{t("footer.newsletter", "النشرة الإخبارية")}</h5>
                 </div>
                 <p className="text-sm text-muted-readable mb-4">
-                  احصل على آخر الأخبار والعروض الحصرية
+                  {t("footer.newsletterDesc", "احصل على آخر الأخبار والعروض الحصرية")}
                 </p>
                 <form onSubmit={handleNewsletterSubmit} className="space-y-3">
                   <div className="relative">
@@ -241,7 +243,7 @@ export function Footer() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="البريد الإلكتروني"
+                      placeholder={t("footer.emailPlaceholder", "البريد الإلكتروني")}
                       className="w-full px-4 py-3 bg-background/50 border border-border/50 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all backdrop-blur-sm"
                       required
                     />
@@ -252,7 +254,7 @@ export function Footer() {
                     className="w-full bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-xl hover:shadow-lg btn-modern group"
                   >
                     <Send className="mr-2 rtl:mr-0 rtl:ml-2 w-4 h-4 group-hover:animate-bounce" />
-                    اشترك الآن
+                    {t("footer.subscribe", "اشترك الآن")}
                   </Button>
                 </form>
               </div>
@@ -265,26 +267,26 @@ export function Footer() {
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-medium-contrast text-sm font-medium">
-                © 2024 أطلس الشرق. جميع الحقوق محفوظة.
+                {t("footer.copyright", "© 2024 أطلس الشرق. جميع الحقوق محفوظة.")}
               </div>
               <div className="flex space-x-6 rtl:space-x-reverse text-sm">
                 <Link
                   href="/privacy"
                   className="text-muted-readable hover:text-primary transition-colors font-medium"
                 >
-                  سياسة الخصوصية
+                  {t("footer.privacy", "سياسة الخصوصية")}
                 </Link>
                 <Link
                   href="/terms"
                   className="text-muted-readable hover:text-primary transition-colors font-medium"
                 >
-                  شروط الاستخدام
+                  {t("footer.terms", "شروط الاستخدام")}
                 </Link>
                 <Link
                   href="/sitemap"
                   className="text-muted-readable hover:text-primary transition-colors font-medium"
                 >
-                  خريطة الموقع
+                  {t("footer.sitemap", "خريطة الموقع")}
                 </Link>
               </div>
             </div>
