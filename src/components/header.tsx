@@ -23,11 +23,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { BrandLogo } from "@/components/brand-logo";
-import { useTheme } from "next-themes";
 
 export function Header() {
   const { t, i18n } = useTranslation();
-  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -131,27 +129,6 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Enhanced Theme toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Toggle theme"
-              className="hidden sm:inline-flex relative text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 rounded-xl hover-lift group"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              <div className="relative">
-                {theme === "dark" ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:animate-pulse transition-all" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21.64 13a1 1 0 0 0-1.05-.14 8 8 0 1 1-9.45-9.45 1 1 0 0 0-.14-1.05 1 1 0 0 0-1.09-.27A10 10 0 1 0 22 14.09a1 1 0 0 0-.36-1.09z"/>
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:animate-spin transition-all" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.8 1.8-1.8zm10.48 14.32l1.79 1.8 1.79-1.8-1.79-1.79-1.79 1.79zM12 4V1h-0v3zm0 19v-3h0v3zm8-11h3v0h-3zm-19 0h3v0H1zm15.24-6.16l1.8-1.79-1.41-1.41-1.79 1.79 1.4 1.41zM4.84 17.24l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM12 6a6 6 0 100 12 6 6 0 000-12z"/>
-                  </svg>
-                )}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </div>
-            </Button>
 
             {/* Enhanced Mobile Menu Button */}
             <Button

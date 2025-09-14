@@ -66,7 +66,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body className={`${cairo.className} ${inter.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
           <I18nProvider>
             <Header />
             <main className="flex-grow">{children}</main>
