@@ -492,6 +492,14 @@
       "exposure": "Showcase Products to Global Audience",
       "deals": "Profitable Business Deals",
       "knowledge": "Gain New Expertise"
+    },
+    "cta": {
+      "badge": "Interested in participating?",
+      "title": "Interested in participating in exhibitions?",
+      "description": "If you are interested in participating in one of our upcoming exhibitions, please contact our exhibitions team for more information and booking details",
+      "contactUs": "Contact Us",
+      "learnMore": "Learn More",
+      "button": "Reserve Your Booth Now"
     }
   },
   "businessVisits": {

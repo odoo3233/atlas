@@ -29,6 +29,8 @@
     "success": "成功",
     "warning": "警告",
     "info": "信息",
+    "back": "返回",
+    "backHome": "返回首页",
     "nav": {
       "home": "首页",
       "about": "关于我们",
@@ -46,7 +48,12 @@
       "subtitle": "您通往全球市场成功的门户",
       "description": "凭借超过15年的卓越经验，我们自豪地成为促进国际贸易和组织世界级展览的领先战略合作伙伴，提供创新和全面的解决方案，确保您在全球市场的商业成功",
       "discoverServices": "探索我们的解决方案",
-      "startJourney": "开启成功之旅"
+      "startJourney": "开启成功之旅",
+      "trust": {
+        "quality": "全球质量保证",
+        "support": "24/7支持",
+        "satisfaction": "客户满意度优先"
+      }
     },
     "stats": {
       "experience": "年经验",
@@ -464,7 +471,8 @@
       "title": "有兴趣参与展览？",
       "description": "如果您有兴趣参与我们即将举办的展览之一，请联系我们的展览团队获取更多信息和预订详情",
       "contactUs": "联系我们",
-      "learnMore": "了解更多"
+      "learnMore": "了解更多",
+      "button": "立即预订展位"
     },
     "title": "即将举办的活动和展览",
     "subtitle": "在最重要的商业活动中预订您的位置",
@@ -565,6 +573,16 @@
         ]
       }
     },
+    "stats": {
+      "title": "投资统计",
+      "subtitle": "反映我们合作伙伴关系的可信数字"
+    },
+    "contactTitle": "联系我们",
+    "contactSubtitle": "我们很乐意回答您的询问并安排您的旅行",
+    "phoneTitle": "致电我们",
+    "phoneSubtitle": "专业团队随时准备帮助",
+    "emailTitle": "发送邮件",
+    "emailSubtitle": "我们在24小时内回复",
     "register": "立即注册",
     "contactUs": "联系我们",
     "scheduleVisit": "安排您的访问"
@@ -622,10 +640,5 @@
     "submitting": "正在提交订单...",
     "orderSuccess": "感谢您的订单。我们将很快与您联系确认详细信息。",
     "requestingProduct": "我正在请求"
-  },
-  "common": {
-    "back": "返回",
-    "backHome": "返回首页"
   }
-  
 }
