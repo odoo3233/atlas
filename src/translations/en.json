@@ -435,10 +435,43 @@
   },
   "exhibitions": {
     "hero": {
-      "badge": "International Events with Global Standards",
-      "title": "Exceptional Exhibitions & Conferences",
-      "subtitle": "Perfect Platform to Showcase Your Products and Build Successful Partnerships",
-      "description": "We offer you the opportunity to participate in leading international exhibitions and conferences, where opportunities meet ambitions and successful partnerships are built"
+      "badge": "Exhibitions & Events",
+      "title": "Exhibitions & International Events",
+      "subtitle": "Discover the most important international exhibitions and events that bring together Saudi and Chinese companies",
+      "description": "Discover the most important international exhibitions and events that bring together Saudi and Chinese companies",
+      "viewEvents": "View Events",
+      "registerNow": "Register Now",
+      "stats": {
+        "annualExhibitions": "Annual Exhibitions",
+        "participatingCompanies": "Participating Companies", 
+        "annualVisitors": "Annual Visitors",
+        "satisfactionRate": "Satisfaction Rate"
+      }
+    },
+    "filter": {
+      "title": "Browse Events",
+      "subtitle": "Choose the type of events you want to explore",
+      "allEvents": "All Events",
+      "upcomingEvents": "Upcoming Events",
+      "pastEvents": "Past Events"
+    },
+    "list": {
+      "noEvents": "No events available at the moment",
+      "noEventsDesc": "We will be adding new events soon",
+      "upcoming": "Upcoming",
+      "ended": "Ended",
+      "date": "Date",
+      "location": "Location",
+      "organizer": "Organizer",
+      "registerNow": "Register Now",
+      "viewDetails": "View Details"
+    },
+    "cta": {
+      "badge": "Interested in participating?",
+      "title": "Interested in participating in exhibitions?",
+      "description": "If you are interested in participating in one of our upcoming exhibitions, please contact our exhibitions team for more information and booking details",
+      "contactUs": "Contact Us",
+      "learnMore": "Learn More"
     },
     "title": "Upcoming Events & Exhibitions",
     "subtitle": "Book Your Place at the Most Important Business Events",
@@ -459,11 +492,6 @@
       "exposure": "Showcase Products to Global Audience",
       "deals": "Profitable Business Deals",
       "knowledge": "Gain New Expertise"
-    },
-    "cta": {
-      "title": "Don't Miss the Opportunity!",
-      "description": "Book your place in upcoming exhibitions and benefit from early bird offers",
-      "button": "Reserve Your Booth Now"
     }
   },
   "businessVisits": {
