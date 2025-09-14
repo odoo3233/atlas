@@ -59,7 +59,19 @@
       "experience": "年经验",
       "satisfaction": "满意度",
       "partners": "中国合作伙伴",
-      "events": "组织活动"
+      "events": "组织活动",
+      "experienceDesc": "在国际市场的深厚经验",
+      "satisfactionDesc": "客户和合作伙伴满意度",
+      "partnersDesc": "在中国强大的商业网络",
+      "eventsDesc": "成功的国际展览和活动"
+    },
+    "hero": {
+      "features": {
+        "network": "国际合作伙伴网络",
+        "guarantee": "98%成功保证",
+        "solutions": "创新解决方案",
+        "services": "综合服务"
+      }
     },
     "about": {
       "badge": "关于我们",
@@ -387,6 +399,29 @@
       "button": "获取免费咨询",
       "contact": "立即联系我们",
       "learnMore": "了解更多"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "name": "艾哈迈德·阿卜杜拉",
+        "position": "首席执行官",
+        "company": "利雅得贸易公司",
+        "text": "阿特拉斯东方完全改变了我们的业务轨迹。通过他们卓越的展览，我们能够接触到超过500个新的中国合作伙伴，并将销售额提高了300%。",
+        "results": "销售额增长300%"
+      },
+      "testimonial2": {
+        "name": "法蒂玛·扎赫拉尼",
+        "position": "发展总监",
+        "company": "吉达投资集团",
+        "text": "卓越的服务和高度的专业精神使我们能够与最大的中国公司建立战略合作伙伴关系。阿特拉斯东方团队专业且敬业。",
+        "results": "50+新合作伙伴关系"
+      },
+      "testimonial3": {
+        "name": "穆罕默德·谢赫里",
+        "position": "董事会主席",
+        "company": "中东技术公司",
+        "text": "感谢阿特拉斯东方，我们能够成功进入中国市场。他们深厚的专业知识和广泛的关系网络是我们成功的关键。",
+        "results": "成功进入中国市场"
+      }
     }
   },
   "products": {

@@ -59,7 +59,19 @@
       "experience": "Years of Experience",
       "satisfaction": "Satisfaction Rate",
       "partners": "Chinese Partners",
-      "events": "Organized Events"
+      "events": "Organized Events",
+      "experienceDesc": "Deep experience in international markets",
+      "satisfactionDesc": "Customer and partner satisfaction",
+      "partnersDesc": "Strong business network in China",
+      "eventsDesc": "Successful international exhibitions and events"
+    },
+    "hero": {
+      "features": {
+        "network": "International Partnership Network",
+        "guarantee": "98% Success Guarantee",
+        "solutions": "Innovative Solutions",
+        "services": "Integrated Services"
+      }
     },
     "about": {
       "badge": "About Us",
@@ -387,6 +399,29 @@
       "button": "Get Free Consultation",
       "contact": "Contact Us Now",
       "learnMore": "Learn More"
+    },
+    "testimonials": {
+      "testimonial1": {
+        "name": "Ahmed Al-Abdullah",
+        "position": "CEO",
+        "company": "Riyadh Trading Company",
+        "text": "Atlas Al-Sharq completely transformed our business trajectory. Through their exceptional exhibitions, we were able to reach over 500 new Chinese partners and increase our sales by 300%.",
+        "results": "300% Sales Increase"
+      },
+      "testimonial2": {
+        "name": "Fatima Al-Zahrani",
+        "position": "Development Director",
+        "company": "Jeddah Investment Group",
+        "text": "The exceptional service and high professionalism enabled us to achieve strategic partnerships with the largest Chinese companies. The Atlas Al-Sharq team is professional and dedicated.",
+        "results": "50+ New Partnerships"
+      },
+      "testimonial3": {
+        "name": "Mohammed Al-Shehri",
+        "position": "Chairman of the Board",
+        "company": "Middle East Technology Company",
+        "text": "Thanks to Atlas Al-Sharq, we were able to enter the Chinese market with remarkable success. Their deep expertise and extensive network of relationships were the key to our success.",
+        "results": "Successful Entry into Chinese Market"
+      }
     }
   },
   "products": {

@@ -33,38 +33,38 @@ export function HeroSection() {
     {
       icon: Rocket,
       value: "500+",
-      label: t("home.about.features.events", "فعالية منظمة"),
+      label: t("home.stats.events", "فعالية منظمة"),
       gradient: "from-blue-500 to-purple-600",
-      description: "معرض وفعالية دولية ناجحة"
+      description: t("home.stats.eventsDesc", "معرض وفعالية دولية ناجحة")
     },
     {
       icon: Globe,
       value: "2000+",
-      label: t("home.about.features.network", "شريك صيني"),
+      label: t("home.stats.partners", "شريك صيني"),
       gradient: "from-emerald-500 to-teal-600",
-      description: "شبكة أعمال قوية في الصين"
+      description: t("home.stats.partnersDesc", "شبكة أعمال قوية في الصين")
     },
     {
       icon: Crown,
       value: "98%",
-      label: t("home.about.features.success", "معدل رضا"),
+      label: t("home.stats.satisfaction", "معدل رضا"),
       gradient: "from-amber-500 to-orange-600",
-      description: "رضا العملاء والشركاء"
+      description: t("home.stats.satisfactionDesc", "رضا العملاء والشركاء")
     },
     {
       icon: Target,
       value: "15+",
-      label: t("home.about.features.experience", "سنة خبرة"),
+      label: t("home.stats.experience", "سنة خبرة"),
       gradient: "from-pink-500 to-rose-600",
-      description: "خبرة عميقة في الأسواق الدولية"
+      description: t("home.stats.experienceDesc", "خبرة عميقة في الأسواق الدولية")
     },
   ];
 
   const features = [
-    { icon: CheckCircle, text: "شبكة شراكات دولية" },
-    { icon: Shield, text: "ضمان النجاح 98%" },
-    { icon: Lightbulb, text: "حلول مبتكرة" },
-    { icon: Building, text: "خدمات متكاملة" }
+    { icon: CheckCircle, text: t("home.hero.features.network", "شبكة شراكات دولية") },
+    { icon: Shield, text: t("home.hero.features.guarantee", "ضمان النجاح 98%") },
+    { icon: Lightbulb, text: t("home.hero.features.solutions", "حلول مبتكرة") },
+    { icon: Building, text: t("home.hero.features.services", "خدمات متكاملة") }
   ];
 
   useEffect(() => {
@@ -133,7 +133,7 @@ export function HeroSection() {
             <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-up font-medium" style={{animationDelay:'200ms'}}>
               {t(
                 "home.hero.subtitle",
-                "نربط الشركات بالأسواق العالمية من خلال خدمات متكاملة ومتخصصة",
+                "نربط الشركات بالأسواق العالمية من خلال خدمات متكاملة ومتخصصة"
               )}
             </p>
 
