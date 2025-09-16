@@ -7,43 +7,16 @@ import ar from "./translations/ar.json";
 import en from "./translations/en.json";
 import zh from "./translations/zh.json";
 
-// Build namespaced resources from nested JSON keys
+// Use flat structure instead of namespaces
 const resources = {
   ar: {
-    common: ar.common || {},
-    home: ar.home || {},
-    contact: ar.contact || {},
-    services: ar.services || {},
-    products: ar.products || {},
-    orders: ar.orders || {},
-    exhibitions: ar.exhibitions || {},
-    businessVisits: ar.businessVisits || {},
-    footer: (ar as any).footer || {},
-    falconRegistration: ar.falconRegistration || {},
+    translation: ar,
   },
   en: {
-    common: en.common || {},
-    home: en.home || {},
-    contact: en.contact || {},
-    services: en.services || {},
-    products: en.products || {},
-    orders: en.orders || {},
-    exhibitions: en.exhibitions || {},
-    businessVisits: en.businessVisits || {},
-    footer: (en as any).footer || {},
-    falconRegistration: en.falconRegistration || {},
+    translation: en,
   },
   zh: {
-    common: zh.common || {},
-    home: zh.home || {},
-    contact: zh.contact || {},
-    services: zh.services || {},
-    products: zh.products || {},
-    orders: zh.orders || {},
-    exhibitions: zh.exhibitions || {},
-    businessVisits: zh.businessVisits || {},
-    footer: (zh as any).footer || {},
-    falconRegistration: zh.falconRegistration || {},
+    translation: zh,
   },
 };
 
@@ -58,19 +31,6 @@ if (!i18n.isInitialized) {
       resources,
       lng: defaultLanguage,
       fallbackLng: "ar",
-      ns: [
-        "common",
-        "home",
-        "contact",
-        "services",
-        "products",
-        "orders",
-        "exhibitions",
-        "businessVisits",
-        "footer",
-        "falconRegistration",
-      ],
-      defaultNS: "common",
       interpolation: { escapeValue: false },
       react: { useSuspense: false },
     });

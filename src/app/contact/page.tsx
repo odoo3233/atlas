@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 export default function ContactPage() {
-  const { t } = useTranslation("contact");
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,24 +47,42 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        subject: "",
-        message: "",
+    try {
+      // Send email via API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            company: "",
+            subject: "",
+            message: "",
+          });
+        }, 5000);
+      } else {
+        alert(result.error || 'حدث خطأ في إرسال الرسالة');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -76,13 +94,13 @@ export default function ContactPage() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">
               <MessageSquare className="mr-2" size={16} />
-              {t("hero.badge")}
+              {t("contact.hero.badge", "نحن في خدمتك دائماً")}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              {t("hero.title")}
+              {t("contact.hero.title", "تواصل مع خبراء أطلس الشرق")}
             </h1>
             <p className="text-xl md:text-2xl text-atlas-gold-100/90 leading-relaxed mb-8">
-              {t("hero.subtitle")}
+              {t("contact.hero.subtitle", "شريكك الموثوق في رحلة النجاح")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -90,7 +108,7 @@ export default function ContactPage() {
                 className="text-lg px-8 py-6 btn-primary-gradient"
               >
                 <Phone className="mr-2" size={20} />
-                {t("hero.callNow")}
+                {t("contact.hero.callNow", "تحدث مع خبير الآن")}
               </Button>
               <Button
                 size="lg"
@@ -98,7 +116,7 @@ export default function ContactPage() {
                 className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-atlas-dark transition-all duration-300"
               >
                 <Mail className="mr-2" size={20} />
-                {t("hero.emailUs")}
+                {t("contact.hero.emailUs", "أرسل استفسارك")}
               </Button>
             </div>
           </div>
@@ -113,10 +131,10 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-atlas-dark">
-                  {t("contact.info.title")}
+                  معلومات التواصل
                 </h2>
                 <p className="text-xl text-atlas-brown-600 leading-relaxed">
-                  {t("contact.info.description")}
+                  تواصل معنا عبر الطرق التالية
                 </p>
               </div>
 
@@ -129,16 +147,16 @@ export default function ContactPage() {
                     </div>
                     <div className="rtl:mr-4 rtl:ml-0">
                       <h3 className="text-xl font-bold text-atlas-dark mb-2">
-                        {t("contact.info.phone.title")}
+                        اتصل بنا
                       </h3>
                       <p className="text-atlas-brown-600 mb-2">
-                        {t("contact.info.phone.subtitle")}
+                        متاحون للرد على استفساراتك
                       </p>
                       <a
-                        href="tel:+966501234567"
+                        href="tel:+966556447487"
                         className="text-2xl font-bold text-atlas-gold-600 hover:text-atlas-gold-700 transition-colors"
                       >
-                        +966 50 123 4567
+                        +966556447487
                       </a>
                     </div>
                   </div>
@@ -151,16 +169,16 @@ export default function ContactPage() {
                     </div>
                     <div className="rtl:mr-4 rtl:ml-0">
                       <h3 className="text-xl font-bold text-atlas-dark mb-2">
-                        {t("contact.info.email.title")}
+                        راسلنا عبر البريد الإلكتروني
                       </h3>
                       <p className="text-atlas-brown-600 mb-2">
-                        {t("contact.info.email.subtitle")}
+                        نرد على استفساراتك خلال 24 ساعة
                       </p>
                       <a
-                        href="mailto:info@atlasalsharq.com"
+                        href="mailto:contact@atlasecon.com"
                         className="text-xl font-semibold text-atlas-gold-600 hover:text-atlas-gold-700 transition-colors"
                       >
-                        info@atlasalsharq.com
+                        contact@atlasecon.com
                       </a>
                     </div>
                   </div>
@@ -173,15 +191,15 @@ export default function ContactPage() {
                     </div>
                     <div className="rtl:mr-4 rtl:ml-0">
                       <h3 className="text-xl font-bold text-atlas-dark mb-2">
-                        {t("contact.info.address.title")}
+                        موقعنا الرئيسي
                       </h3>
                       <p className="text-atlas-brown-600 mb-2">
-                        {t("contact.info.address.subtitle")}
+                        زُرنا في مقرنا الرئيسي
                       </p>
                       <p className="text-lg text-atlas-dark">
-                        {t("contact.info.address.street")}
+                        3468 محمد بن عبدالعزيز العجاجي، المخطط 2460
                         <br />
-                        {t("contact.info.address.city")}
+                        القيروان، الرياض 13532
                       </p>
                     </div>
                   </div>
@@ -194,18 +212,18 @@ export default function ContactPage() {
                     </div>
                     <div className="rtl:mr-4 rtl:ml-0">
                       <h3 className="text-xl font-bold text-atlas-dark mb-2">
-                        {t("contact.info.hours.title")}
+                        ساعات العمل
                       </h3>
                       <p className="text-atlas-brown-600 mb-2">
-                        {t("contact.info.hours.subtitle")}
+                        متواجدون لخدمتك
                       </p>
                       <div className="space-y-1 text-atlas-dark">
                         <p>
-                          <strong>{t("contact.info.hours.weekdays")}:</strong>{" "}
+                          <strong>الأحد - الخميس:</strong>{" "}
                           8:00 AM - 6:00 PM
                         </p>
                         <p>
-                          <strong>{t("contact.info.hours.weekend")}:</strong>{" "}
+                          <strong>السبت:</strong>{" "}
                           9:00 AM - 4:00 PM
                         </p>
                       </div>
@@ -220,7 +238,7 @@ export default function ContactPage() {
                     24/7
                   </div>
                   <div className="text-sm text-atlas-brown-600">
-                    {t("contact.stats.support")}
+                    دعم على مدار الساعة
                   </div>
                 </div>
                 <div className="text-center p-6 bg-atlas-gold-100/50 rounded-xl">
@@ -228,7 +246,7 @@ export default function ContactPage() {
                     2h
                   </div>
                   <div className="text-sm text-atlas-brown-600">
-                    {t("contact.stats.response")}
+                    رد سريع
                   </div>
                 </div>
               </div>
@@ -238,9 +256,9 @@ export default function ContactPage() {
             <div className="card-modern p-8">
               <div className="mb-8">
                 <h3 className="text-2xl font-bold text-atlas-dark mb-4">
-                  {t("contact.form.title")}
+                  أرسل رسالتك
                 </h3>
-                <p className="text-atlas-brown-600">{t("contact.form.subtitle")}</p>
+                <p className="text-atlas-brown-600">املأ النموذج وسنتواصل معك في أقرب وقت</p>
               </div>
 
               {isSubmitted ? (
@@ -249,10 +267,10 @@ export default function ContactPage() {
                     <CheckCircle size={32} />
                   </div>
                   <h4 className="text-xl font-bold text-atlas-dark mb-2">
-                    {t("contact.form.success.title")}
+                    تم إرسال رسالتك بنجاح!
                   </h4>
                   <p className="text-atlas-brown-600">
-                    {t("contact.form.success.message")}
+                    شكراً لتواصلك معنا. سيقوم فريقنا بالرد عليك خلال 24 ساعة.
                   </p>
                 </div>
               ) : (
@@ -260,7 +278,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
-                        {t("contact.form.name")} *
+                        الاسم الكامل *
                       </label>
                       <input
                         type="text"
@@ -269,12 +287,12 @@ export default function ContactPage() {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
-                        placeholder={t("contact.form.namePlaceholder")}
+                        placeholder="أدخل اسمك الكامل"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
-                        {t("contact.form.email")} *
+                        البريد الإلكتروني *
                       </label>
                       <input
                         type="email"
@@ -283,7 +301,7 @@ export default function ContactPage() {
                         onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
-                        placeholder={t("contact.form.emailPlaceholder")}
+                        placeholder="أدخل بريدك الإلكتروني"
                       />
                     </div>
                   </div>
@@ -291,7 +309,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
-                        {t("contact.form.phone")}
+                        رقم الهاتف
                       </label>
                       <input
                         type="tel"
@@ -299,12 +317,12 @@ export default function ContactPage() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
-                        placeholder={t("contact.form.phonePlaceholder")}
+                        placeholder="أدخل رقم هاتفك"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
-                        {t("contact.form.company")}
+                        اسم الشركة
                       </label>
                       <input
                         type="text"
@@ -312,14 +330,14 @@ export default function ContactPage() {
                         value={formData.company}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
-                        placeholder={t("contact.form.companyPlaceholder")}
+                        placeholder="أدخل اسم شركتك (اختياري)"
                       />
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
-                      {t("contact.form.subject")} *
+                      موضوع الرسالة *
                     </label>
                     <select
                       name="subject"
@@ -329,26 +347,26 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300"
                     >
                       <option value="">
-                        {t("contact.form.subjectPlaceholder")}
+                        أدخل موضوع رسالتك
                       </option>
                       <option value="exhibitions">
-                        {t("contact.form.subjects.exhibitions")}
+                        المعارض
                       </option>
                       <option value="business-visits">
-                        {t("contact.form.subjects.businessVisits")}
+                        رحلات الأعمال
                       </option>
                       <option value="partnership">
-                        {t("contact.form.subjects.partnership")}
+                        شراكة
                       </option>
                       <option value="general">
-                        {t("contact.form.subjects.general")}
+                        عام
                       </option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-atlas-primary-700 mb-2">
-                      {t("contact.form.message")} *
+                      تفاصيل رسالتك *
                     </label>
                     <textarea
                       name="message"
@@ -357,7 +375,7 @@ export default function ContactPage() {
                       required
                       rows={6}
                       className="w-full px-4 py-3 border border-atlas-primary-200 rounded-xl focus:ring-2 focus:ring-atlas-secondary-500 focus:border-transparent transition-all duration-300 resize-none"
-                      placeholder={t("contact.form.messagePlaceholder")}
+                      placeholder="أدخل تفاصيل رسالتك"
                     ></textarea>
                   </div>
 
@@ -369,12 +387,12 @@ export default function ContactPage() {
                     {isSubmitting ? (
                       <div className="flex items-center justify-center">
                         <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        {t("contact.form.sending")}
+                        جاري الإرسال...
                       </div>
                     ) : (
                       <div className="flex items-center justify-center">
                         <Send className="mr-2" size={20} />
-                        {t("contact.form.send")}
+                        إرسال الرسالة
                       </div>
                     )}
                   </Button>
@@ -390,10 +408,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-atlas-dark">
-              {t("contact.whyChoose.title")}
+              لماذا تختارنا؟
             </h2>
             <p className="text-xl text-atlas-brown-600 max-w-3xl mx-auto">
-              {t("contact.whyChoose.subtitle")}
+              نحن شريكك الموثوق في رحلة النجاح
             </p>
           </div>
 
@@ -403,10 +421,10 @@ export default function ContactPage() {
                 <Clock size={32} />
               </div>
               <h3 className="text-xl font-bold text-atlas-dark mb-4">
-                {t("contact.whyChoose.fast.title")}
+                رد سريع
               </h3>
               <p className="text-atlas-brown-600">
-                {t("contact.whyChoose.fast.description")}
+                نرد على جميع استفساراتكم في أقرب وقت ممكن
               </p>
             </div>
 
@@ -415,10 +433,10 @@ export default function ContactPage() {
                 <Users size={32} />
               </div>
               <h3 className="text-xl font-bold text-atlas-dark mb-4">
-                {t("contact.whyChoose.expert.title")}
+                فريق خبير
               </h3>
               <p className="text-atlas-brown-600">
-                {t("contact.whyChoose.expert.description")}
+                فريق من الخبراء المتخصصين جاهز لخدمتك
               </p>
             </div>
 
@@ -427,10 +445,10 @@ export default function ContactPage() {
                 <Award size={32} />
               </div>
               <h3 className="text-xl font-bold text-atlas-dark mb-4">
-                {t("contact.whyChoose.quality.title")}
+                جودة عالية
               </h3>
               <p className="text-atlas-brown-600">
-                {t("contact.whyChoose.quality.description")}
+                نلتزم بتقديم خدمات عالية الجودة تفوق توقعاتك
               </p>
             </div>
           </div>

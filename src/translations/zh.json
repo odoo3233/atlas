@@ -241,6 +241,29 @@
         "subtitle": "ISO 9001",
         "description": "致力于最高国际质量标准，拥有国际认证证书和所有服务的完全满意度保证"
       }
+    },
+    "products": {
+      "badge": "精选产品",
+      "title": "我们的产品",
+      "subtitle": "探索多样化的高质量产品",
+      "viewDetails": "产品详情",
+      "viewAll": "查看所有产品",
+      "sample1": {
+        "name": "先进电子产品",
+        "description": "来自中国领先公司的最新电子技术"
+      },
+      "sample2": {
+        "name": "家居厨房用品",
+        "description": "多样化的高质量家居和厨房工具"
+      },
+      "sample3": {
+        "name": "时尚配饰",
+        "description": "最新时尚潮流和现代配饰"
+      },
+      "sample4": {
+        "name": "运动健身产品",
+        "description": "先进的运动设备和健身产品"
+      }
     }
   },
   "contact": {
@@ -267,8 +290,8 @@
         "address": {
           "title": "主要位置",
           "subtitle": "在我们的总部拜访我们",
-          "street": "商务区，法赫德国王路",
-          "city": "利雅得，沙特阿拉伯王国"
+          "street": "3468 穆罕默德·本·阿卜杜勒阿齐兹·阿贾吉，2460计划",
+          "city": "盖鲁万，利雅得 13532"
         },
         "hours": {
           "title": "工作时间",
@@ -475,13 +498,40 @@
       "subtitle": "发现最重要的国际展览和活动，汇聚沙特和中国公司",
       "description": "发现最重要的国际展览和活动，汇聚沙特和中国公司",
       "viewEvents": "查看活动",
-      "registerNow": "立即注册",
-      "stats": {
-        "annualExhibitions": "年度展览",
-        "participatingCompanies": "参与公司", 
-        "annualVisitors": "年度访客",
-        "satisfactionRate": "满意度"
+      "registerNow": "立即注册"
+    },
+    "falconExhibition": {
+      "title": "2025年沙特国际猎鹰和狩猎展览会",
+      "subtitle": "中东地区最大的猎鹰和狩猎展览会",
+      "description": "国际猎鹰展览会是一个年度活动，汇聚了来自世界各地的猎鹰爱好者。它展示最优质的猎鹰品种以及猎鹰运动中使用的最新设备和技术，并举办稀有猎鹰的比赛和拍卖。",
+      "date": "2025年10月2-11日",
+      "location": "利雅得 - 国际展览中心",
+      "features": {
+        "exhibitors": "参展商",
+        "visitors": "预期访客",
+        "countries": "国家",
+        "days": "天数"
       }
+    },
+    "blackhatExhibition": {
+      "title": "2025年黑帽中东和非洲大会",
+      "subtitle": "该地区最大的网络安全会议",
+      "description": "在利雅得举办的领先网络安全会议和展览，汇聚了来自世界各地的顶级网络安全专家、现代技术、解决方案提供商和决策者。",
+      "date": "2025年11月26-28日",
+      "location": "利雅得 - 利雅得国际会议展览中心"
+    },
+    "leapExhibition": {
+      "title": "2025年LEAP全球技术大会",
+      "subtitle": "该地区最大的技术展览会",
+      "description": "在利雅得举办的全球技术活动，旨在展示人工智能、物联网、金融科技和健康科技领域的最新创新和技术。",
+      "date": "2025年2月4-7日",
+      "location": "利雅得 - 利雅得国际会议展览中心"
+    },
+    "stats": {
+      "annualExhibitions": "年度展览",
+      "participatingCompanies": "参与公司", 
+      "annualVisitors": "年度访客",
+      "satisfactionRate": "满意度"
     },
     "filter": {
       "title": "浏览活动",

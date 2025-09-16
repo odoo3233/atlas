@@ -241,6 +241,29 @@
         "subtitle": "ISO 9001",
         "description": "Committed to the highest international quality standards, with international accreditation certificates and full satisfaction guarantee for all our services"
       }
+    },
+    "products": {
+      "badge": "Featured Products",
+      "title": "Our Products",
+      "subtitle": "Discover a diverse range of high-quality products",
+      "viewDetails": "Product Details",
+      "viewAll": "View All Products",
+      "sample1": {
+        "name": "Advanced Electronics",
+        "description": "Latest electronic technologies from leading Chinese companies"
+      },
+      "sample2": {
+        "name": "Home & Kitchen Products",
+        "description": "Diverse range of high-quality home and kitchen tools"
+      },
+      "sample3": {
+        "name": "Fashion & Accessories",
+        "description": "Latest fashion trends and modern accessories"
+      },
+      "sample4": {
+        "name": "Sports & Fitness Products",
+        "description": "Advanced sports equipment and fitness products"
+      }
     }
   },
   "contact": {
@@ -267,8 +290,8 @@
         "address": {
           "title": "Main Location",
           "subtitle": "Visit us at our headquarters",
-          "street": "Business District, King Fahd Road",
-          "city": "Riyadh, Kingdom of Saudi Arabia"
+          "street": "3468 Mohammed bin Abdulaziz Al-Ajaji, Plan 2460",
+          "city": "Al-Qairawan, Riyadh 13532"
         },
         "hours": {
           "title": "Working Hours",
@@ -475,13 +498,40 @@
       "subtitle": "Discover the most important international exhibitions and events that bring together Saudi and Chinese companies",
       "description": "Discover the most important international exhibitions and events that bring together Saudi and Chinese companies",
       "viewEvents": "View Events",
-      "registerNow": "Register Now",
-      "stats": {
-        "annualExhibitions": "Annual Exhibitions",
-        "participatingCompanies": "Participating Companies", 
-        "annualVisitors": "Annual Visitors",
-        "satisfactionRate": "Satisfaction Rate"
+      "registerNow": "Register Now"
+    },
+    "falconExhibition": {
+      "title": "Saudi International Falcon and Hunting Exhibition 2025",
+      "subtitle": "The Largest Falcon and Hunting Exhibition in the Middle East",
+      "description": "The International Falcon Exhibition is an annual event that brings together falconry enthusiasts from around the world. It showcases the finest falcon breeds and the latest equipment and techniques used in falconry, with competitions and auctions for rare falcons.",
+      "date": "October 2-11, 2025",
+      "location": "Riyadh - International Exhibition Center",
+      "features": {
+        "exhibitors": "Exhibitors",
+        "visitors": "Expected Visitors",
+        "countries": "Countries",
+        "days": "Days"
       }
+    },
+    "blackhatExhibition": {
+      "title": "Black Hat Middle East & Africa 2025",
+      "subtitle": "The Largest Cybersecurity Conference in the Region",
+      "description": "A leading cybersecurity conference and exhibition held in Riyadh, bringing together top cybersecurity experts, modern technologies, solution providers, and decision-makers from around the world.",
+      "date": "November 26-28, 2025",
+      "location": "Riyadh - Riyadh International Convention & Exhibition Center"
+    },
+    "leapExhibition": {
+      "title": "LEAP Global Technology Conference 2025",
+      "subtitle": "The Largest Technology Exhibition in the Region",
+      "description": "A global technology event held in Riyadh, aimed at showcasing the latest innovations and technologies in artificial intelligence, Internet of Things, fintech, and health tech.",
+      "date": "February 4-7, 2025",
+      "location": "Riyadh - Riyadh International Convention & Exhibition Center"
+    },
+    "stats": {
+      "annualExhibitions": "Annual Exhibitions",
+      "participatingCompanies": "Participating Companies", 
+      "annualVisitors": "Annual Visitors",
+      "satisfactionRate": "Satisfaction Rate"
     },
     "filter": {
       "title": "Browse Events",

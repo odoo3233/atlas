@@ -47,6 +47,22 @@ export function Header() {
     }
   }, [isMobileMenuOpen]);
 
+  const changeLanguage = (languageCode: string) => {
+    i18n.changeLanguage(languageCode);
+    try { 
+      localStorage.setItem('lang', languageCode);
+    } catch {}
+
+    // Update document direction for RTL languages
+    if (languageCode === "ar") {
+      document.documentElement.dir = "rtl";
+      document.documentElement.lang = "ar";
+    } else {
+      document.documentElement.dir = "ltr";
+      document.documentElement.lang = languageCode;
+    }
+  };
+
   const navigation = [
     { name: "home", href: "/", icon: Home },
     { name: "about", href: "/about", icon: Info },
@@ -56,11 +72,6 @@ export function Header() {
     { name: "businessVisits", href: "/business-visits", icon: Building },
     { name: "contact", href: "/contact", icon: Phone },
   ];
-
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    setIsMobileMenuOpen(false); // Close menu on language change
-  };
 
   return (
     <header
@@ -97,7 +108,7 @@ export function Header() {
                 className="relative text-lg font-semibold text-high-contrast hover:text-primary transition-all duration-300 group px-3 py-2 rounded-xl hover:bg-primary/5"
               >
                 <span className="relative z-10">
-                  {t(`nav.${item.name}`, { ns: 'common' })}
+                  {t(`common.nav.${item.name}`)}
                 </span>
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-8 rounded-full"></span>
@@ -173,7 +184,7 @@ export function Header() {
                   <item.icon className="h-5 w-5 text-primary group-hover:animate-bounce" />
                 </div>
                 <span className="group-hover:translate-x-1 transition-transform">
-                  {t(`nav.${item.name}`, { ns: 'common' })}
+                  {t(`common.nav.${item.name}`)}
                 </span>
               </div>
             </Link>

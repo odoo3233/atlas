@@ -26,61 +26,6 @@ export function EventsSection() {
   const events = [
     {
       title: t(
-        "home.upcomingEvents.businessVisits.title",
-        "زيارة رجال الأعمال السعوديين للصين",
-      ),
-      subtitle: t(
-        "home.upcomingEvents.businessVisits.subtitle",
-        "رحلة استكشافية لفرص الاستثمار العقاري",
-      ),
-      description: t(
-        "home.upcomingEvents.businessVisits.description",
-        "رحلة تعريفية للتعرّف على الشركات العقارية وبناء شراكات لهم محليًا في السعودية مع فرص استثمارية حصرية",
-      ),
-      date: t("home.upcomingEvents.businessVisits.date", "نوفمبر ٢٠٢٥"),
-      location: "الصين - بكين، شنغهاي، تشندو",
-      stats: [
-        {
-          value: "+15",
-          label: t(
-            "home.upcomingEvents.businessVisits.stats.companies",
-            "شركة",
-          ),
-        },
-        {
-          value: "+12",
-          label: t(
-            "home.upcomingEvents.businessVisits.stats.partnerships",
-            "شراكة متوقعة",
-          ),
-        },
-        {
-          value: t("home.upcomingEvents.businessVisits.stats.city", "تشندو"),
-          label: t(
-            "home.upcomingEvents.businessVisits.stats.cityLabel",
-            "مدينة",
-          ),
-        },
-        {
-          value: "+15",
-          label: t(
-            "home.upcomingEvents.businessVisits.stats.executives",
-            "مقعد للرؤساء التنفيذيين",
-          ),
-        },
-      ],
-      gradient: "from-emerald-600 via-blue-500 to-teal-600",
-      learnMoreHref: "/business-visits",
-      registerHref: "/contact",
-      registerText: t(
-        "home.upcomingEvents.businessVisits.register",
-        "سجل الآن",
-      ),
-      registerVariant: "outline",
-      icon: Building,
-    },
-    {
-      title: t(
         "exhibitions.falconExhibition.title",
         "معرض الصقور والصيد السعودي الدولي 2025",
       ),
@@ -90,16 +35,16 @@ export function EventsSection() {
       ),
       description: t(
         "exhibitions.falconExhibition.description",
-        "معرض الصقور الدولي هو حدث سنوي يجمع هواة الصيد بالصقور من جميع أنحاء العالم. يعرض أفضل أنواع الصقور وأحدث المعدات والتقنيات المستخدمة في الصيد بالصقور",
+        "معرض الصقور الدولي هو حدث سنوي يجمع هواة الصيد بالصقور من جميع أنحاء العالم. يعرض أفضل أنواع الصقور وأحدث المعدات والتقنيات المستخدمة في الصيد بالصقور، مع تنظيم مسابقات ومزادات للصقور النادرة.",
       ),
       date: t("exhibitions.falconExhibition.date", "٢ - ١١ أكتوبر ٢٠٢٥"),
-      location: "الرياض - مركز المعارض",
+      location: "الرياض - مركز المعارض الدولي",
       stats: [
         {
-          value: "+50",
+          value: "+100",
           label: t(
             "exhibitions.falconExhibition.features.exhibitors",
-            "شركة صينية",
+            "عارض",
           ),
         },
         {
@@ -110,14 +55,14 @@ export function EventsSection() {
           ),
         },
         {
-          value: "5",
-          label: t("exhibitions.falconExhibition.features.cities", "مدن صينية"),
+          value: "+30",
+          label: t("exhibitions.falconExhibition.features.countries", "دولة"),
         },
         {
-          value: "+50",
+          value: "10",
           label: t(
-            "exhibitions.falconExhibition.features.countries",
-            "شركة صينية",
+            "exhibitions.falconExhibition.features.days",
+            "أيام",
           ),
         },
       ],
@@ -144,7 +89,7 @@ export function EventsSection() {
         />
 
         {/* Events Grid */}
-        <div className="grid lg:grid-cols-2 gap-10 mb-16">
+        <div className="grid lg:grid-cols-1 gap-10 mb-16">
           {events.map((event, index) => (
             <div key={index} className="rounded-2xl p-8 glass text-foreground hover-lift">
               {/* Header */}

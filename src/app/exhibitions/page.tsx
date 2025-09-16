@@ -46,25 +46,49 @@ export default function ExhibitionsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch exhibitions from backend API
+  // Mock data for the three required exhibitions
   useEffect(() => {
-    const fetchExhibitions = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const response = await fetch("https://atlas-ha7k.onrender.com/api/exhibitions", { cache: "no-store" });
-        if (!response.ok) throw new Error("Failed to fetch exhibitions");
-        const data = await response.json();
-        setExhibitions(data);
-      } catch (err) {
-        console.error("Error fetching exhibitions:", err);
-        setError("Failed to load exhibitions. Please try again later.");
-      } finally {
-        setLoading(false);
+    const mockExhibitions = [
+      {
+        id: 1,
+        name: "معرض الصقور والصيد السعودي الدولي 2025",
+        description: "معرض الصقور الدولي هو حدث سنوي يجمع هواة الصيد بالصقور من جميع أنحاء العالم. يعرض أفضل أنواع الصقور وأحدث المعدات والتقنيات المستخدمة في الصيد بالصقور، مع تنظيم مسابقات ومزادات للصقور النادرة.",
+        start_date: "2025-10-02",
+        end_date: "2025-10-11",
+        location: "الرياض - مركز المعارض الدولي",
+        image_url: "/exhibitions/falcon-exhibition.jpg",
+        organizer: "Atlas Al-Sharq & الاتحاد السعودي للصقور",
+        created_at: "2024-01-01",
+        updated_at: "2024-01-01"
+      },
+      {
+        id: 2,
+        name: "معرض بلاك هات الشرق الأوسط وأفريقيا 2025",
+        description: "معرض ومؤتمر رائد في مجال الأمن السيبراني يُقام في الرياض، يجمع أبرز خبراء الأمن السيبراني والتقنيات الحديثة ومزودي الحلول وصانعي القرار من مختلف أنحاء العالم. يتضمن ورش عمل تقنية ومنصة آرسنال لعرض أحدث الأبحاث.",
+        start_date: "2025-11-26",
+        end_date: "2025-11-28",
+        location: "الرياض - مركز الرياض الدولي للمعارض والمؤتمرات",
+        image_url: "/exhibitions/blackhat-exhibition.jpg",
+        organizer: "Atlas Al-Sharq & Black Hat MEA",
+        created_at: "2024-01-01",
+        updated_at: "2024-01-01"
+      },
+      {
+        id: 3,
+        name: "معرض ليب التقني العالمي 2025",
+        description: "حدث تقني عالمي يُقام في الرياض، يهدف إلى استعراض أحدث الابتكارات والتقنيات في مجالات الذكاء الاصطناعي وإنترنت الأشياء والتقنيات المالية والصحية. يجمع رواد الأعمال والمستثمرين والشركات الناشئة من مختلف أنحاء العالم.",
+        start_date: "2025-02-04",
+        end_date: "2025-02-07",
+        location: "الرياض - مركز الرياض الدولي للمعارض والمؤتمرات",
+        image_url: "/exhibitions/leap-exhibition.jpg",
+        organizer: "Atlas Al-Sharq & LEAP Conference",
+        created_at: "2024-01-01",
+        updated_at: "2024-01-01"
       }
-    };
+    ];
 
-    fetchExhibitions();
+    setExhibitions(mockExhibitions);
+    setLoading(false);
   }, []);
 
   // Filter exhibitions based on selected filter

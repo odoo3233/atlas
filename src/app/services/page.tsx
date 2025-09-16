@@ -25,90 +25,74 @@ import {
 } from "lucide-react";
 
 export default function ServicesPage() {
-  const { t: tServices } = useTranslation("services");
-  const { t: tContact } = useTranslation("contact");
+  const { t } = useTranslation();
 
   const services = [
     {
       icon: Calendar,
-      title:
-        tServices("servicesList.exhibitions.title") ||
-        "تنظيم المعارض والفعاليات",
-      description:
-        tServices("servicesList.exhibitions.description") ||
-        "تنظيم معارض وفعاليات احترافية مع أحدث التقنيات والتصاميم",
-      features: (() => {
-        const features = tServices("servicesList.exhibitions.features", {
-          returnObjects: true,
-        });
-        return Array.isArray(features) ? features : [];
-      })(),
+      title: "تنظيم المعارض والفعاليات",
+      description: "تنظيم معارض وفعاليات احترافية مع أحدث التقنيات والتصاميم",
+      features: [
+        "تصميم أجنحة احترافية",
+        "إدارة شاملة للفعاليات", 
+        "خدمات لوجستية متكاملة",
+        "دعم تسويقي متقدم"
+      ],
     },
     {
       icon: Users,
-      title: tServices("servicesList.networking.title") || "ربط رجال الأعمال",
-      description:
-        tServices("servicesList.networking.description") ||
-        "ربط رجال الأعمال بين الصين والمملكة العربية السعودية",
-      features: (() => {
-        const features = tServices("servicesList.networking.features", {
-          returnObjects: true,
-        });
-        return Array.isArray(features) ? features : [];
-      })(),
+      title: "الشبكات التجارية",
+      description: "ربط قادة الأعمال بين الصين والمملكة العربية السعودية",
+      features: [
+        "لقاءات B2B مخصصة",
+        "شبكة واسعة",
+        "فرص استثمارية حصرية",
+        "دعم قانوني واستشاري"
+      ],
     },
     {
       icon: Globe,
-      title: tServices("servicesList.travel.title") || "تنظيم رحلات الأعمال",
-      description:
-        tServices("servicesList.travel.description") ||
-        "ترتيب رحلات أعمال للشركات للقاء شركاء محتملين",
-      features: (() => {
-        const features = tServices("servicesList.travel.features", {
-          returnObjects: true,
-        });
-        return Array.isArray(features) ? features : [];
-      })(),
+      title: "تنظيم رحلات الأعمال",
+      description: "تنظيم رحلات أعمال مخصصة للشركات السعودية للصين",
+      features: [
+        "تخطيط شامل ومدروس",
+        "ترتيب لقاءات B2B فعّالة",
+        "ترجمة فورية احترافية",
+        "إقامة فاخرة وخدمات VIP"
+      ],
     },
     {
       icon: ShoppingBag,
-      title:
-        tServices("servicesList.showcase.title") || "عرض المنتجات والخدمات",
-      description:
-        tServices("servicesList.showcase.description") ||
-        "عرض احترافي للمنتجات والخدمات في المعارض الدولية",
-      features: (() => {
-        const features = tServices("servicesList.showcase.features", {
-          returnObjects: true,
-        });
-        return Array.isArray(features) ? features : [];
-      })(),
+      title: "عرض المنتجات",
+      description: "عرض وتسويق المنتجات في الأسواق الدولية",
+      features: [
+        "تصميم كتالوجات احترافية",
+        "حملات تسويقية مبتكرة",
+        "عروض تقديمية مؤثرة",
+        "متابعة العملاء المحتملين"
+      ],
     },
     {
       icon: Building,
-      title: tServices("servicesList.intelligence.title") || "استخبارات السوق",
-      description:
-        tServices("servicesList.intelligence.description") ||
-        "تحليل شامل لأسواق الصين والمملكة العربية السعودية",
-      features: (() => {
-        const features = tServices("servicesList.intelligence.features", {
-          returnObjects: true,
-        });
-        return Array.isArray(features) ? features : [];
-      })(),
+      title: "ذكاء الأعمال",
+      description: "تحليل الأسواق وتقديم رؤى استراتيجية للشركات",
+      features: [
+        "تحليل السوق المتقدم",
+        "دراسات الجدوى",
+        "التنبؤ بالاتجاهات",
+        "استشارات استراتيجية"
+      ],
     },
     {
       icon: Award,
-      title: tServices("servicesList.partnerships.title") || "إدارة الشراكات",
-      description:
-        tServices("servicesList.partnerships.description") ||
-        "إدارة شاملة للشراكات التجارية والاستثمارية",
-      features: (() => {
-        const features = tServices("servicesList.partnerships.features", {
-          returnObjects: true,
-        });
-        return Array.isArray(features) ? features : [];
-      })(),
+      title: "الشراكات التجارية",
+      description: "تسهيل الشراكات التجارية بين الشركات السعودية والصينية",
+      features: [
+        "تحليل الشركاء المحتملين",
+        "تقييم الفرص التجارية",
+        "التفاوض والوساطة",
+        "متابعة ما بعد الشراكة"
+      ],
     },
   ];
 

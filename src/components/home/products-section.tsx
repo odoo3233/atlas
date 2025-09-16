@@ -2,34 +2,36 @@
 
 import React from "react";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Package } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 
 export function ProductsSection() {
+  const { t } = useTranslation();
   const products = [
     {
       id: 1,
-      name: "منتج 1",
-      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      name: t("home.products.sample1.name", "منتج 1"),
+      description: t("home.products.sample1.description", "وصف مختصر للمنتج مع التفاصيل الأساسية."),
       price: "$299.99",
     },
     {
       id: 2,
-      name: "منتج 2",
-      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      name: t("home.products.sample2.name", "منتج 2"),
+      description: t("home.products.sample2.description", "وصف مختصر للمنتج مع التفاصيل الأساسية."),
       price: "$399.99",
     },
     {
       id: 3,
-      name: "منتج 3",
-      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      name: t("home.products.sample3.name", "منتج 3"),
+      description: t("home.products.sample3.description", "وصف مختصر للمنتج مع التفاصيل الأساسية."),
       price: "$199.99",
     },
     {
       id: 4,
-      name: "منتج 4",
-      description: "وصف مختصر للمنتج مع التفاصيل الأساسية.",
+      name: t("home.products.sample4.name", "منتج 4"),
+      description: t("home.products.sample4.description", "وصف مختصر للمنتج مع التفاصيل الأساسية."),
       price: "$499.99",
     },
   ];
@@ -39,9 +41,12 @@ export function ProductsSection() {
       <div className="container mx-auto px-4">
         <SectionHeader
           icon={<Package className="h-5 w-5" />}
-          fallbackBadge="المنتجات المميزة"
-          fallbackTitle="منتجاتنا"
-          fallbackSubtitle="اكتشف مجموعة متنوعة من المنتجات عالية الجودة"
+          badgeKey="products.badge"
+          titleKey="products.title"
+          subtitleKey="products.subtitle"
+          fallbackBadge={t("home.products.badge", "المنتجات المميزة")}
+          fallbackTitle={t("home.products.title", "منتجاتنا")}
+          fallbackSubtitle={t("home.products.subtitle", "اكتشف مجموعة متنوعة من المنتجات عالية الجودة")}
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -63,7 +68,7 @@ export function ProductsSection() {
                       size="sm"
                       className="hover-lift"
                     >
-                      تفاصيل المنتج
+                      {t("home.products.viewDetails", "تفاصيل المنتج")}
                     </Button>
                   </Link>
                 </div>
@@ -75,7 +80,7 @@ export function ProductsSection() {
         <div className="text-center mt-12">
           <Link href="/products">
             <Button size="lg" className="hover-lift">
-              عرض جميع المنتجات
+              {t("home.products.viewAll", "عرض جميع المنتجات")}
             </Button>
           </Link>
         </div>
